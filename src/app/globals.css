@@ -6,8 +6,10 @@
   --color-ember: #ff5a36;
   --color-tide: #0f766e;
   --shadow-soft: 0 24px 80px -32px rgba(17, 24, 39, 0.35);
-  --font-display: var(--font-sora);
-  --font-body: var(--font-manrope);
+  --font-display: var(--font-satoshi);
+  --font-body: var(--font-poppins);
+  --font-ui: var(--font-poppins);
+  --font-accent: var(--font-manrope);
 }
 
 :root {
@@ -28,6 +30,7 @@ html {
 body {
   margin: 0;
   min-height: 100vh;
+  font-family: var(--font-body);
   background:
     radial-gradient(circle at top left, rgba(255, 90, 54, 0.15), transparent 32%),
     radial-gradient(circle at 80% 20%, rgba(15, 118, 110, 0.14), transparent 28%),
@@ -38,4 +41,99 @@ body {
 a {
   color: inherit;
   text-decoration: none;
+}
+
+.type-hero {
+  font-family: var(--font-display);
+  font-size: 48px;
+  font-weight: 700;
+  line-height: 57.6px;
+  letter-spacing: -0.05em;
+}
+
+.type-section-heading {
+  font-family: var(--font-display);
+  font-size: 42px;
+  font-weight: 700;
+  line-height: 52px;
+  letter-spacing: -0.057em;
+}
+
+.type-section-title {
+  font-family: var(--font-display);
+  font-size: 40px;
+  font-weight: 700;
+  line-height: 48px;
+  letter-spacing: -0.044em;
+}
+
+.type-body-lg {
+  font-family: var(--font-ui);
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 32px;
+}
+
+.type-body-md {
+  font-family: var(--font-ui);
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 28px;
+}
+
+.type-body-sm {
+  font-family: var(--font-ui);
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 20px;
+}
+
+.type-nav {
+  font-family: var(--font-ui);
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 20.15px;
+}
+
+.type-button {
+  font-family: var(--font-ui);
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 20px;
+}
+
+.type-ui-label {
+  font-family: var(--font-ui);
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 14.4px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+.type-testimonial-name {
+  font-family: var(--font-accent);
+  font-size: 40px;
+  font-weight: 800;
+  line-height: 1;
+}
+
+.type-footer-copy {
+  font-family: var(--font-display);
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 21.7px;
+  letter-spacing: -0.01em;
+}
+
+@media (min-width: 1024px) {
+  .type-hero {
+    font-size: 76px;
+    line-height: 90.72px;
+  }
+
+  .type-section-heading {
+    font-size: 56px;
+    line-height: 70.4px;
+  }
 }

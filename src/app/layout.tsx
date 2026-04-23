@@ -1,17 +1,44 @@
 import type { Metadata } from 'next'
-import { Manrope, Sora } from 'next/font/google'
+import { Manrope, Poppins } from 'next/font/google'
+import localFont from 'next/font/local'
 import type { ReactNode } from 'react'
 
 import './globals.css'
 
-const sora = Sora({
+const satoshi = localFont({
+  src: [
+    {
+      path: './fonts/satoshi-400.woff2',
+      weight: '400',
+      style: 'normal',
+    },
+    {
+      path: './fonts/satoshi-500.woff2',
+      weight: '500',
+      style: 'normal',
+    },
+    {
+      path: './fonts/satoshi-700.woff2',
+      weight: '700',
+      style: 'normal',
+    },
+  ],
+  variable: '--font-satoshi',
+  display: 'swap',
+})
+
+const poppins = Poppins({
   subsets: ['latin'],
-  variable: '--font-sora',
+  variable: '--font-poppins',
+  weight: ['400', '500', '600', '700'],
+  display: 'swap',
 })
 
 const manrope = Manrope({
   subsets: ['latin'],
   variable: '--font-manrope',
+  weight: ['400', '800'],
+  display: 'swap',
 })
 
 export const metadata: Metadata = {
@@ -26,7 +53,9 @@ type RootLayoutProps = {
 export default function RootLayout({ children }: RootLayoutProps) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={`${sora.variable} ${manrope.variable} bg-mist font-body text-ink antialiased`}>
+      <body
+        className={`${satoshi.variable} ${poppins.variable} ${manrope.variable} bg-mist font-body text-ink antialiased`}
+      >
         {children}
       </body>
     </html>
