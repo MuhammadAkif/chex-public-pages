@@ -6,6 +6,10 @@ type LocationShowcaseVisual =
       showGlow?: boolean
     }
   | {
+      variant: 'wave'
+      showGlow?: boolean
+    }
+  | {
       variant: 'preview'
       label: string
     }
@@ -51,6 +55,17 @@ function PreviewVisual({ label }: { label: string }) {
   )
 }
 
+function WaveVisual() {
+  return (
+    <div className="mt-16 overflow-hidden rounded-[38px] border border-[#2563eb]/30 bg-[#4b688d] shadow-[0_22px_64px_0_rgba(30,27,75,0.08)]">
+      <div className="relative min-h-[320px] overflow-hidden rounded-[38px] sm:min-h-[500px] lg:min-h-[644px]">
+        <div className="absolute left-[34%] top-[-9%] h-[24%] w-[22%] rounded-full bg-[#4b688d]" />
+        <div className="absolute -left-[6%] top-[-4%] h-[112%] w-[90%] rounded-[44%_28%_52%_42%/25%_34%_62%_68%] bg-[#d8e1eb]" />
+      </div>
+    </div>
+  )
+}
+
 export function LocationShowcase({
   title,
   description,
@@ -61,7 +76,7 @@ export function LocationShowcase({
 }: LocationShowcaseProps) {
   return (
     <section className="relative bg-white px-4 py-20 sm:px-6 lg:px-10 lg:py-28">
-      {visual.variant === 'processing' && visual.showGlow ? (
+      {('showGlow' in visual && visual.showGlow) ? (
         <div className="pointer-events-none absolute right-[4%] top-[18%] h-[34rem] w-[34rem] rounded-full bg-[radial-gradient(circle,_rgba(255,122,1,0.15)_0%,_rgba(255,122,1,0)_72%)] blur-3xl" />
       ) : null}
       <div className="mx-auto max-w-[1240px]">
@@ -90,11 +105,9 @@ export function LocationShowcase({
           </Button>
         </div>
 
-        {visual.variant === 'processing' ? (
-          <ProcessingVisual />
-        ) : (
-          <PreviewVisual label={visual.label} />
-        )}
+        {visual.variant === 'processing' ? <ProcessingVisual /> : null}
+        {visual.variant === 'wave' ? <WaveVisual /> : null}
+        {visual.variant === 'preview' ? <PreviewVisual label={visual.label} /> : null}
       </div>
     </section>
   )

@@ -1,12 +1,13 @@
 import Image from 'next/image'
 import type { StaticImageData } from 'next/image'
 
+import heroRatingBadge from '@/app/(site)/assets/locations/hero-rating-badge.png'
 import logoChex from '@/app/(site)/assets/shared/logo-chex.png'
-import heroRatingBadge from '@/app/(site)/assets/south-carolina/hero-rating-badge.png'
 import { Button } from '@/app/(site)/components/ui/button'
 
 export type LocationHeroProps = {
   rating: string
+  ratingBadgeImage?: StaticImageData
   title: string
   description: string
   primaryLabel: string
@@ -101,6 +102,7 @@ function OrbitMap({
 
 export function LocationHero({
   rating,
+  ratingBadgeImage = heroRatingBadge,
   title,
   description,
   primaryLabel,
@@ -150,7 +152,7 @@ export function LocationHero({
             </span>
             <span className="relative inline-flex h-7 w-7 items-center justify-center">
               <span className="absolute inset-0 rounded-full bg-[#fff1e5]" />
-              <Image src={heroRatingBadge} alt="" className="relative h-[18px] w-[18px]" />
+              <Image src={ratingBadgeImage} alt="" className="relative h-[18px] w-[18px]" />
             </span>
           </div>
 

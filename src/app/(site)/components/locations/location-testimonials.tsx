@@ -1,14 +1,37 @@
 /* eslint-disable @next/next/no-img-element */
 
-import quoteImage from '@/app/(site)/assets/south-carolina/testimonial-quotes.svg'
-import starImage from '@/app/(site)/assets/south-carolina/testimonial-star.svg'
+import type { StaticImageData } from 'next/image'
+
+import quoteImage from '@/app/(site)/assets/locations/testimonial-quotes.svg'
+import starImage from '@/app/(site)/assets/locations/testimonial-star.svg'
 import { SectionHeading } from '@/app/(site)/components/ui/section-heading'
 import { SurfaceCard } from '@/app/(site)/components/ui/surface-card'
+
+type TestimonialAsset = StaticImageData | string
+
+function resolveAssetSrc(asset: unknown): string {
+  if (typeof asset === 'string') {
+    return asset
+  }
+
+  if (
+    typeof asset === 'object' &&
+    asset !== null &&
+    'src' in asset &&
+    typeof asset.src === 'string'
+  ) {
+    return asset.src
+  }
+
+  return ''
+}
 
 export type LocationTestimonialsProps = {
   title: string
   description: string
   label: string
+  quoteImage?: TestimonialAsset
+  starImage?: TestimonialAsset
   items: ReadonlyArray<{
     name: string
     role: string
@@ -21,9 +44,13 @@ export function LocationTestimonials({
   title,
   description,
   label,
+  quoteImage: customQuoteImage,
+  starImage: customStarImage,
   items,
 }: LocationTestimonialsProps) {
   const [featured, secondary] = items
+  const resolvedQuoteImage = resolveAssetSrc(customQuoteImage ?? quoteImage)
+  const resolvedStarImage = resolveAssetSrc(customStarImage ?? starImage)
 
   return (
     <section className="bg-white px-4 py-20 sm:px-6 lg:px-10 lg:py-28">
@@ -33,7 +60,7 @@ export function LocationTestimonials({
         <div className="relative mt-16 min-h-[34rem] overflow-hidden bg-white px-4 py-8 sm:px-8 lg:px-10">
           <div className="pointer-events-none absolute left-[14%] top-20 h-[420px] w-[240px] bg-white shadow-[0_94px_200px_0_rgba(21,21,21,0.15)]" />
           <img
-            src={String(quoteImage)}
+            src={resolvedQuoteImage}
             alt=""
             className="pointer-events-none absolute right-[20%] top-10 h-24 w-auto opacity-12 sm:h-32"
           />
@@ -56,7 +83,7 @@ export function LocationTestimonials({
 
               <div className="mx-auto mt-4 flex max-w-max items-center gap-2 rounded-[12px] bg-white px-6 py-5 shadow-[0_58px_124px_0_rgba(21,21,21,0.15)]">
                 {Array.from({ length: 5 }).map((_, index) => (
-                  <img key={index} src={String(starImage)} alt="" className="h-8 w-8" />
+                  <img key={index} src={resolvedStarImage} alt="" className="h-8 w-8" />
                 ))}
               </div>
             </div>

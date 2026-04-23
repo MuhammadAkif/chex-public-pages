@@ -10,35 +10,56 @@ import heroPinCalifornia from '@/app/(site)/assets/locations/hero-pin-california
 import heroPinColorado from '@/app/(site)/assets/locations/hero-pin-colorado.png'
 import heroPinIowa from '@/app/(site)/assets/locations/hero-pin-iowa.png'
 import heroPinNebraska from '@/app/(site)/assets/locations/hero-pin-nebraska.png'
-import heroPinNewMexico from '@/app/(site)/assets/new-mexico/hero-pin-new-mexico.png'
+import heroPinNewMexico from '@/app/(site)/assets/locations/hero-pin-new-mexico.png'
 import heroPinSouthCarolina from '@/app/(site)/assets/locations/hero-pin-south-carolina.png'
-import impactAlbuquerque from '@/app/(site)/assets/new-mexico/impact-albuquerque.png'
-import impactSantaFe from '@/app/(site)/assets/new-mexico/impact-santa-fe.png'
+import heroRatingBadge from '@/app/(site)/assets/locations/hero-rating-badge.png'
 import managePhoneFrame from '@/app/(site)/assets/locations/manage-phone-frame.png'
 import managePhoneNotch from '@/app/(site)/assets/locations/manage-phone-notch.png'
 import managePhoneScreen from '@/app/(site)/assets/locations/manage-phone-screen.png'
-import overviewEdgeProcessing from '@/app/(site)/assets/new-mexico/overview-edge-processing.png'
+import overviewVehicle from '@/app/(site)/assets/locations/damage-inspection-scene.png'
+import regionsCincinnati from '@/app/(site)/assets/ohio/regions-cincinnati.png'
+import regionsCleveland from '@/app/(site)/assets/ohio/regions-cleveland.png'
 import serviceFleet from '@/app/(site)/assets/locations/service-fleet.png'
 import serviceRideshare from '@/app/(site)/assets/locations/service-rideshare.png'
 import serviceUber from '@/app/(site)/assets/locations/service-uber.png'
+import testimonialQuotes from '@/app/(site)/assets/locations/testimonial-quotes.svg'
+import testimonialStar from '@/app/(site)/assets/locations/testimonial-star.svg'
 import type { LocationPageContent } from '@/app/(site)/components/locations/location-page'
 
-export const newMexicoContent = {
+function resolveAssetSrc(asset: unknown): string {
+  if (typeof asset === 'string') {
+    return asset
+  }
+
+  if (
+    typeof asset === 'object' &&
+    asset !== null &&
+    'src' in asset &&
+    typeof asset.src === 'string'
+  ) {
+    return asset.src
+  }
+
+  return ''
+}
+
+export const ohioContent = {
   pageClassName:
     'bg-[linear-gradient(180deg,#ffffff_0%,#f0f6ff_8%,#ffffff_20%,#ffffff_100%)] text-[#1b2f4b]',
   hero: {
     rating: '4.9 (1667+ reviews)',
-    title: 'AI Damage Detection: Spot Problems Before They Become Big in New Mexico',
+    ratingBadgeImage: heroRatingBadge,
+    title: 'Automated Vehicle Inspections in Ohio—Get It Done with a Tap!',
     description:
-      'Use Chex.ai for AI-powered damage detection and automated diagnostics AI in Albuquerque and Santa Fe. Spot potential issues instantly.',
+      "Schedule car inspections when it's convenient for YOU. With Chex.ai's online vehicle inspections, you don't need to arrange in-person visits. Get your car inspected from wherever you are in Columbus, Cleveland, or Cincinnati, Ohio.",
     primaryLabel: 'Register your Inspection Today',
     secondaryLabel: 'Request a demo',
     helperText: 'No credit card required',
-    demoHref: '#new-mexico-demo',
+    demoHref: '#ohio-demo',
     sectionClassName: 'bg-[linear-gradient(180deg,#ffffff_0%,#f0f6ff_100%)]',
     layoutClassName: 'lg:grid-cols-[0.98fr_1fr] lg:gap-14',
     titleClassName:
-      'max-w-[684px] font-display text-[36px] font-bold leading-[1.18] sm:text-[40px]',
+      'max-w-[684px] font-display text-[36px] font-bold leading-[1.15] tracking-[-1.6px] sm:text-[40px]',
     descriptionClassName: 'max-w-[672px]',
     stats: [
       { value: '1000+', label: 'Customers' },
@@ -46,23 +67,23 @@ export const newMexicoContent = {
       { value: '20+', label: 'Companies' },
     ],
     locations: [
-      { label: 'South Carolina', image: heroPinSouthCarolina, featured: false },
-      { label: 'New Mexico', image: heroPinNewMexico, featured: true },
-      { label: 'California', image: heroPinCalifornia, featured: false },
-      { label: 'Nebraska', image: heroPinNebraska, featured: false },
-      { label: 'Alabama', image: heroPinAlabama, featured: false },
-      { label: 'Iowa', image: heroPinIowa, featured: false },
-      { label: 'Colorado', image: heroPinColorado, featured: false },
+      { label: 'South Carolina', image: heroPinSouthCarolina },
+      { label: 'New Mexico', image: heroPinNewMexico },
+      { label: 'California', image: heroPinCalifornia },
+      { label: 'Nebraska', image: heroPinNebraska },
+      { label: 'Alabama', image: heroPinAlabama },
+      { label: 'Iowa', image: heroPinIowa },
+      { label: 'Colorado', image: heroPinColorado },
     ],
   },
   overview: {
-    title: 'Instant Edge Processing for Immediate Triage in New Mexico',
+    title: 'Catch Damage Before It Spreads with Automated Damage Inspection',
     paragraphs: [
-      'Chex AI uses edge computing to instantly analyze data, allowing immediate triage. It flags damaged vehicles for repairs and clears healthy ones to keep moving, saving time in New Mexico, Albuquerque, and Santa Fe. With automated triage, you no longer have to deal with waiting around for manual inspections or long repair delays. Whether you are managing just a few vehicles or an entire fleet,',
-      'Chex AI keeps everything running smoothly. It is the efficient and straightforward way to take care of your vehicles and make sure they are always ready to hit the road without any complications. Chex AI is the easy, smart way to keep your fleet ready and in top shape. It is designed to help you maintain your vehicles efficiently, reducing stress and making sure you are always prepared for what is next. Instead of worrying about vehicle inspections, you can focus on your operations, knowing that Chex AI is taking care of the rest.'
+      "With Chex.ai, your car gets its very own smart helper! Our self-service vehicle inspection is like giving your car a special power to tell you when something's wrong. It looks for scratches, dents, or even tiny problems that might turn into big ones. It's like having a secret agent checking your car and giving you all the info you need to keep it running smoothly. And the best part? Automated damage inspection does everything for you, making sure your car stays happy and healthy!",
+      "The app transforms your smartphone into a professional-grade diagnostic tool. Our car inspection app uses sophisticated OCR technology to instantly recognize your number plate and VIN, while a built-in camera overlay guides you to capture the perfect 360-degree view. Our AI automotive diagnostics don't just find surface scratches; they identify over 6,000 types of defects with 99% accuracy. Chex.ai provides a transparent, objective health report in under four hours. It's a completely digital, 24/7 solution that removes the stress of shop visits.",
     ],
-    image: overviewEdgeProcessing.src,
-    imageAlt: 'AI based instant edge processing',
+    image: overviewVehicle.src,
+    imageAlt: 'Automated Ohio damage inspection overview',
   },
   services: {
     eyebrow: 'Services',
@@ -70,7 +91,7 @@ export const newMexicoContent = {
     description:
       'Chex.AI delivers instant, automated car inspections using advanced artificial intelligence. From dents and scratches to safety checks, our system analyzes vehicle photos in real time, generates detailed reports, and streamlines documentation for the mobility industry.',
     ctaLabel: 'Read more our services',
-    demoHref: '#new-mexico-demo',
+    demoHref: '#ohio-demo',
     items: [
       {
         title: 'Fleet Management: Automated Compliance That Keeps You Moving',
@@ -81,73 +102,72 @@ export const newMexicoContent = {
       {
         title: 'Rideshare: Certified and Ready to Drive in Minutes',
         description:
-          "For drivers in Charleston, Columbia, and Greenville, getting your car cleared should not be a problem. Our car inspection app is the straightest line to getting back on the app. We run a 19-point digital scan that checks exactly what South Carolina regulators require.",
+          "For drivers in Charleston, Columbia, and Greenville, getting your car cleared shouldn't be a problem. Our car inspection app is the straightest line to getting back on the app. We run a 19-point digital scan that checks exactly what South Carolina regulators require.",
         image: serviceRideshare.src,
         reverse: true,
       },
       {
         title: 'Uber Inspection Online: Your Driveway Is the New Shop',
         description:
-          'Keeping your Uber status in South Carolina should not cost you a day of earnings. Our artificial intelligence vehicle detection walks you through a full 19-point scan using just your phone. We make sure you are road-ready from the Upstate to the Lowcountry.',
+          "Keeping your Uber status in South Carolina shouldn't cost you a day of earnings. Our artificial intelligence vehicle detection walks you through a full 19-point scan using just your phone. We make sure you're road-ready from the Upstate to the Lowcountry.",
         image: serviceUber.src,
       },
     ],
   },
   showcase: {
-    title: 'Processing 100+ Assets In Under An Hour',
+    title: "Ohio's Top Choice for Remote Car Inspections, Fleet Management & Uber Inspections",
     description:
-      'No more walking around with pen and paper; Chex AI does the full lap for you instantly and digitally. It is fast, fair, and built for the way we work today, completely digital and ready whenever you are.',
+      'We know you care about your car, and keeping it in top condition is a priority. Chex.ai comes in, your personal AI-powered vehicle diagnostic tool.',
     buttonLabel: 'Book a demo',
-    demoHref: '#new-mexico-demo',
+    demoHref: '#ohio-demo',
     items: [
       {
         number: '01',
-        title: 'Detection Across 100+ Asset',
+        title: 'Uber Inspections Online',
         description:
-          'Chex AI maintains 100% consistency, applying the same algorithmic rigor to every scan. The system identifies micron-level surface defects.',
+          "For rideshare drivers in Ohio, keeping your vehicle in top condition is not just about safety, it's about compliance and maximizing your earning potential.",
       },
       {
         number: '02',
-        title: 'Eliminating The "Manual Work"',
+        title: 'AI-Powered Fleet Inspections',
         description:
-          'Chex AI transforms vehicle inspections in New Mexico with high-speed sensors and 360-degree imaging, boosting your yard capacity.',
+          'For business owners managing a fleet of vehicles in Ohio, keeping track of inspections can feel like a daunting task. Whether you operate in Columbus, Cleveland, or Cincinnati.',
       },
       {
         number: '03',
-        title: 'Automated CRM & ERP',
+        title: 'Effortless Car Inspection System',
         description:
-          'With Chex AI automated CRM and ERP data sync, customer records, orders, and inventory update instantly across platforms.',
+          "Driving for a rideshare service means you're always on the move, whether you're zipping through the city or taking a new route.",
       },
       {
         number: '04',
-        title: 'Instant Edge Processing',
+        title: 'Car Inspections At Your Fingertips',
         description:
-          'Chex AI uses edge computing to instantly analyze data, allowing immediate triage. It flags damaged vehicles for repairs and clears healthy ones.',
+          "Chex AI makes car inspections super easy in Ohio! Just a few taps, and you'll know if your car's good to go, all from your phone. Simple, quick, and stress-free!",
       },
     ],
     visual: {
-      variant: 'processing',
+      variant: 'wave',
       showGlow: true,
     },
   },
   regions: {
-    title: "Chex.AI's Impact On New Mexico's Rural And Urban Areas",
+    title: 'Keep Your Car Safe with Scratch Detection AI',
     description:
-      "Chex.ai is making a real difference in New Mexico, whether you're in the city or the countryside. It helps keep vehicles running smoothly by quickly spotting issues and saving time on repairs, no matter where you are.",
-    demoHref: '#new-mexico-demo',
+      "Don't wait for damage to get worse! Chex.ai's scratch detection AI spots scratches early, saving you money with our handy vehicle damage assessment tool.",
+    demoHref: '#ohio-demo',
     headingClassName: 'max-w-5xl',
-    titleClassName: 'capitalize',
-    articleClassName: 'sm:grid-cols-[0.95fr_1fr]',
+    articleClassName: 'sm:grid-cols-[0.92fr_1fr]',
     items: [
       {
-        city: 'Albuquerque',
-        description: 'Chex.ai speeds up the process using LiDAR technology.',
-        image: impactAlbuquerque.src,
+        city: 'Cleveland',
+        description: "Chex.ai's vehicle condition assessment AI analyzes your car for dents.",
+        image: regionsCleveland.src,
       },
       {
-        city: 'Santa Fe',
-        description: 'Chex.ai checks makes sure your fleet stays in great shape.',
-        image: impactSantaFe.src,
+        city: 'Cincinnati',
+        description: "AI's automated damage inspection monitors brakes and suspension.",
+        image: regionsCincinnati.src,
       },
     ],
   },
@@ -160,9 +180,10 @@ export const newMexicoContent = {
       'Easily integratable allowing businesses to perform and manage repeatable tasks.',
     ],
     buttonLabel: 'Request a demo',
-    demoHref: '#new-mexico-demo',
+    demoHref: '#ohio-demo',
     frameImage: managePhoneFrame.src,
     screenImage: managePhoneScreen.src,
+    screenClassName: 'object-right',
     checkIconColor: '#ff7a01',
     illustration: {
       variant: 'framed-screen',
@@ -217,20 +238,23 @@ export const newMexicoContent = {
       'absolute inset-0 h-full w-full object-cover transition-transform duration-500 group-hover:scale-105',
     arrowClassName:
       'pointer-events-none absolute right-8 top-[43%] h-16 w-16 -rotate-90 object-contain opacity-95 sm:h-24 sm:w-24',
-    metricClassName: 'font-display text-[54px] font-bold leading-[1.1] tracking-[-0.05em] sm:text-[64px]',
+    metricClassName:
+      'font-display text-[54px] font-bold leading-[1.1] tracking-[-0.05em] sm:text-[64px]',
     titleClassName: 'mt-1 font-display text-[28px] font-medium leading-[1.2]',
     descriptionClassName: 'type-body-md mt-5 max-w-[21rem] text-white/92',
   },
   testimonials: {
     title: 'Feedback from our verified clients',
     description: 'We are happy when our customers are too.',
-    label: 'What our client say about us?',
+    label: 'What Our Client Say About Us?',
+    quoteImage: resolveAssetSrc(testimonialQuotes),
+    starImage: resolveAssetSrc(testimonialStar),
     items: [
       {
         name: 'Mousa Naseer',
         role: 'Regional Markets Executive',
         quote:
-          'The app was easy to follow, the pictures showing what was required of me to take made it simple. Upload was fast. They responded quickly and had the inspection back within a half hour! Thank you. Well worth the money.',
+          'The app was easy to follow, the pictures showing what was equired of me to take made is simple. Upload was fast. They responded quickly and had the inspection back within a half hour! Thank you. Well worth the money.',
         featured: true,
       },
       {
@@ -242,39 +266,41 @@ export const newMexicoContent = {
     ],
   },
   faq: {
-    idBase: 'new-mexico',
+    idBase: 'ohio',
     title: 'Frequently asked questions',
     description:
-      'Ask everything you need to know about our product and services. we are here to answer of your questions.',
+      'Ask verything you need to know about our product and services. we are here to answer of your questions.',
     items: [
       {
-        question: 'How Does Chex Help Catch "Hidden" Damage Caused By New Mexico?',
+        question: 'Can A Virtual Vehicle Inspection Identify Sun Glare Damage During Ohio Springs?',
         answer:
-          'The high-desert wind carries fine grit that acts like sandpaper on your car finish and glass. Our AI spots that early "pitting" and paint erosion before it turns into a full-blown rust issue or a costly repaint.',
+          `The high-desert wind carries fine grit that acts like sandpaper on your car's finish and glass. Our AI spots that early "pitting" and paint erosion before it turns into a full-blown rust issue or a costly repaint.`,
       },
       {
-        question: 'How Does This Technology Help With Insurance Claims In New Mexico?',
+        question:
+          'How Can Ohio-Based Delivery Fleets Automate Their Daily Vehicle Condition Reports (Dvcr)?',
       },
       {
-        question: 'Can The Mobile Auto Inspection Software Detect Internal Engine Problems?',
+        question:
+          'Is The Uber Inspection Online Valid For Rideshare Drivers In Columbus, Cleveland, Cincinnati?',
       },
       {
-        question: 'Is The AI Damage Detection Technology Easy For Non-Technical Users To Use?',
+        question: 'Can The Car Inspection App Assist With Ohio Salvage Title Inspections?',
       },
       {
-        question: 'How Does The Software Help With I-25 And I-40 Long-Haul Fleet Inspections?',
+        question: 'How Does Automotive Diagnostics Ai Protect Trucks In Ohio Construction Zones?',
       },
     ],
   },
   cta: {
-    sectionId: 'new-mexico-demo',
-    title: "Chex.ai's 360-Degree Imaging for Detailed Vehicle Inspections",
+    sectionId: 'ohio-demo',
+    title: 'No More Waiting Rooms: Mobile Auto Inspection Software Does It All',
     description:
-      "Quick and thorough inspections are now possible with Chex.ai's 360-degree imaging, making fleet maintenance more efficient and accurate.",
+      "Don't wait for a mechanic; get your car inspected in minutes with Chex.ai's self-service vehicle inspection tool.",
     primaryLabel: 'Verify Your Next Vehicle',
     secondaryLabel: 'Request a demo',
     helperText: 'No credit card required, cancel anytime.',
     image: ctaBackground.src,
-    imageOpacityClassName: 'opacity-55',
+    imageOpacityClassName: 'opacity-100',
   },
 } as const satisfies LocationPageContent

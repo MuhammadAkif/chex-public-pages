@@ -18,6 +18,7 @@ export type LocationManageProps = {
   demoHref: string
   frameImage: string
   screenImage: string
+  screenClassName?: string
   checkIconColor: string
   illustration: LocationManageIllustration
 }
@@ -40,8 +41,9 @@ function CheckIcon({ fill }: { fill: string }) {
 function ManageIllustration({
   frameImage,
   screenImage,
+  screenClassName = '',
   illustration,
-}: Pick<LocationManageProps, 'frameImage' | 'screenImage' | 'illustration'>) {
+}: Pick<LocationManageProps, 'frameImage' | 'screenImage' | 'screenClassName' | 'illustration'>) {
   if (illustration.variant === 'framed-screen') {
     return (
       <div className="relative mx-auto h-[380px] max-w-[230px] overflow-hidden rounded-[24px] bg-white shadow-[0_24px_80px_-40px_rgba(27,47,75,0.65)]">
@@ -49,7 +51,12 @@ function ManageIllustration({
         <img
           src={screenImage}
           alt=""
-          className="absolute left-[13px] top-[9px] h-[362px] w-[167px] rounded-[20px] object-cover"
+          className={[
+            'absolute left-[13px] top-[9px] h-[362px] w-[167px] rounded-[20px] object-cover',
+            screenClassName,
+          ]
+            .filter(Boolean)
+            .join(' ')}
         />
         <img
           src={illustration.notchImage}
@@ -69,7 +76,12 @@ function ManageIllustration({
         <img
           src={screenImage}
           alt=""
-          className="absolute left-[-154px] top-[72px] h-[186px] w-[252px] max-w-none rounded-[14px] object-cover opacity-95"
+          className={[
+            'absolute left-[-154px] top-[72px] h-[186px] w-[252px] max-w-none rounded-[14px] object-cover opacity-95',
+            screenClassName,
+          ]
+            .filter(Boolean)
+            .join(' ')}
         />
       </div>
     </>
@@ -83,6 +95,7 @@ export function LocationManage({
   demoHref,
   frameImage,
   screenImage,
+  screenClassName,
   checkIconColor,
   illustration,
 }: LocationManageProps) {
@@ -93,6 +106,7 @@ export function LocationManage({
           <ManageIllustration
             frameImage={frameImage}
             screenImage={screenImage}
+            screenClassName={screenClassName}
             illustration={illustration}
           />
           <div className="absolute right-0 top-24 max-w-[206px] rounded-[8px] bg-[#1362b2] p-5 text-white">
