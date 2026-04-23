@@ -18,8 +18,11 @@ import overviewVehicle from '@/app/(site)/assets/south-carolina/overview-vehicle
 import serviceFleet from '@/app/(site)/assets/south-carolina/service-fleet.png'
 import serviceRideshare from '@/app/(site)/assets/south-carolina/service-rideshare.png'
 import serviceUber from '@/app/(site)/assets/south-carolina/service-uber.png'
+import type { LocationPageContent } from '@/app/(site)/components/locations/location-page'
 
 export const southCarolinaContent = {
+  pageClassName:
+    'bg-[linear-gradient(180deg,#ffffff_0%,#f0f6ff_9%,#ffffff_22%,#ffffff_100%)] text-[#1b2f4b]',
   hero: {
     rating: '4.9 (1667+ reviews)',
     title: 'Chex.Ai: The Professional Choice For Automotive Diagnostics AI in SC.',
@@ -28,6 +31,32 @@ export const southCarolinaContent = {
     primaryLabel: 'Register your Inspection Today',
     secondaryLabel: 'Request a demo',
     helperText: 'No credit card required',
+    demoHref: '#south-carolina-demo',
+    layoutClassName: 'lg:grid-cols-[0.92fr_1fr] lg:gap-16',
+    ratingContainerClassName:
+      'rounded-full bg-white/80 px-5 py-2 shadow-[0_20px_60px_-36px_rgba(19,104,185,0.35)]',
+    titleClassName: 'type-location-hero max-w-3xl',
+    descriptionClassName: 'max-w-2xl',
+    orbit: {
+      mapClassName: 'max-w-[560px]',
+      backgroundClassName: 'bg-[#1368b9]/5',
+      ringClassNames: [
+        'inset-[16%] border border-[#1368b9]/15',
+        'inset-[28%] border border-[#1368b9]/15',
+        'inset-[40%] border border-[#1368b9]/15',
+      ],
+      centerClassName:
+        'rounded-full bg-white shadow-[0_20px_70px_-36px_rgba(19,104,185,0.45)]',
+      logoClassName: 'h-7 w-auto sm:h-9',
+      positions: [
+        'left-[52%] top-[4%]',
+        'left-[8%] top-[18%]',
+        'left-[70%] top-[28%]',
+        'left-[7%] top-[50%]',
+        'left-[58%] top-[58%]',
+        'left-[30%] top-[78%]',
+      ],
+    },
     stats: [
       { value: '1000+', label: 'Customers' },
       { value: '5+', label: 'Years of Experience' },
@@ -49,6 +78,7 @@ export const southCarolinaContent = {
       'We have focused on integrating smart diagnostics into a simple process that removes human variability, so you get the facts you need to keep your work moving across Charleston, Columbia, and Greenville.',
     ],
     image: overviewVehicle.src,
+    imageAlt: 'South Carolina vehicle diagnostics',
   },
   services: {
     eyebrow: 'Services',
@@ -56,6 +86,7 @@ export const southCarolinaContent = {
     description:
       'Chex.AI delivers instant, automated car inspections using advanced artificial intelligence. From dents and scratches to safety checks, our system analyzes vehicle photos in real time, generates detailed reports, and streamlines documentation for the mobility industry.',
     ctaLabel: 'Read more our services',
+    demoHref: '#south-carolina-demo',
     items: [
       {
         title: 'Fleet Management: Automated Compliance That Keeps You Moving',
@@ -78,11 +109,12 @@ export const southCarolinaContent = {
       },
     ],
   },
-  intelligence: {
+  showcase: {
     title: 'Experience the Future of Automotive Intelligence.',
     description:
       'From the busy logistics hubs in Greenville to the coastal delivery routes in Charleston, Chex.ai is more than just a tool, it is a complete automated system for maintaining vehicle health and 2026 compliance.',
     buttonLabel: 'Book a demo',
+    demoHref: '#south-carolina-demo',
     items: [
       {
         number: '01',
@@ -109,11 +141,19 @@ export const southCarolinaContent = {
           'Built for high-demand industries, our AI processes thousands of claims daily while also identifying salvaged parts for repair. Scalable across global markets, it transforms workflows.',
       },
     ],
+    visual: {
+      variant: 'preview',
+      label: 'Automotive Intelligence Preview',
+    },
   },
-  diagnostics: {
+  regions: {
     title: 'South Carolina Environmental Diagnostics',
     description:
       'Vehicle wear is not uniform across the state. Chex.ai uses automotive diagnostics AI to analyze your vehicle based on the specific environmental stressors of your region.',
+    demoHref: '#south-carolina-demo',
+    sectionClassName: 'relative',
+    headingClassName: 'max-w-4xl',
+    articleClassName: 'sm:grid-cols-[0.9fr_1fr]',
     items: [
       {
         city: 'Columbia',
@@ -136,8 +176,13 @@ export const southCarolinaContent = {
       'Easily integratable allowing businesses to perform and manage repeatable tasks.',
     ],
     buttonLabel: 'Request a demo',
+    demoHref: '#south-carolina-demo',
     frameImage: managePhoneFrame.src,
     screenImage: managePhoneScreen.src,
+    checkIconColor: '#1368b9',
+    illustration: {
+      variant: 'offset-screen',
+    },
   },
   caseStudies: {
     title: 'Case Studies',
@@ -149,6 +194,8 @@ export const southCarolinaContent = {
         description:
           'Our AI-powered vehicle inspection system automatically detects and highlights visible damages such as dents, scratches, cracks.',
         image: caseRental.src,
+        linkHref: '#south-carolina-demo',
+        linkLabel: 'Read more...',
       },
       {
         metric: '55%',
@@ -157,6 +204,8 @@ export const southCarolinaContent = {
         description:
           'Uber drivers in South Carolina using Chex.ai for instant onboarding inspections. Our AI-powered vehicle inspection system.',
         image: caseRideshare.src,
+        linkHref: '#south-carolina-demo',
+        linkLabel: 'Read more...',
       },
       {
         metric: '40%',
@@ -165,6 +214,8 @@ export const southCarolinaContent = {
         description:
           'Local rental company reduced claims disputes by 40% using AI damage detection.',
         image: caseFleet.src,
+        linkHref: '#south-carolina-demo',
+        linkLabel: 'Read more...',
       },
       {
         metric: '78%',
@@ -173,9 +224,24 @@ export const southCarolinaContent = {
         description:
           'Regional insurer integrated Chex.ai SDK for faster claims processing. Our AI-powered vehicle inspection system automatically.',
         image: caseInsurance.src,
+        linkHref: '#south-carolina-demo',
+        linkLabel: 'Read more...',
       },
     ],
     arrowImage: caseArrow,
+    sectionClassName: 'bg-[#010e2b] px-4 py-20 text-white sm:px-6 lg:px-10 lg:py-28',
+    scrollClassName: 'mt-14 overflow-x-auto pb-6 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden',
+    articleClassName:
+      'group relative h-[485px] w-[320px] overflow-hidden rounded-[12px] border border-white sm:w-[388px]',
+    imageClassName:
+      'absolute inset-0 h-full w-full object-cover transition-transform duration-500 group-hover:scale-105',
+    arrowClassName:
+      'pointer-events-none absolute right-8 top-[44%] h-16 w-16 -rotate-90 object-contain opacity-95 sm:h-20 sm:w-20',
+    metricClassName: 'font-display text-[64px] font-bold leading-[70.4px] tracking-[-0.05em]',
+    captionClassName: 'mt-5 max-w-[8rem] font-display text-[20px] font-medium leading-5',
+    titleClassName: 'font-display text-[28px] font-medium leading-[1.2]',
+    descriptionClassName: 'type-body-md mt-4 max-w-[21rem] text-white/92',
+    linkClassName: 'mt-4 font-display text-[18px] font-bold text-[#ff7a01]',
   },
   testimonials: {
     title: 'Feedback from our Verified Clients',
@@ -198,6 +264,7 @@ export const southCarolinaContent = {
     ],
   },
   faq: {
+    idBase: 'south-carolina',
     title: 'Frequently asked questions',
     description:
       'Ask everything you need to know about our product and services. We are here to answer your questions.',
@@ -230,6 +297,7 @@ export const southCarolinaContent = {
     ],
   },
   cta: {
+    sectionId: 'south-carolina-demo',
     title: 'A Tool for Informed Acquisition',
     description:
       'Evaluating a pre-owned vehicle in the Upstate requires more than a test drive. Use our AI car buying assistant to uncover hidden structural repairs or mechanical inconsistencies before finalizing any investment.',
@@ -237,5 +305,6 @@ export const southCarolinaContent = {
     secondaryLabel: 'Request a demo',
     helperText: 'No credit card required, cancel anytime.',
     image: ctaBackground.src,
+    imageOpacityClassName: 'opacity-35',
   },
-} as const
+} as const satisfies LocationPageContent

@@ -1,4 +1,3 @@
-'use client'
 /* eslint-disable @next/next/no-img-element */
 
 import quoteImage from '@/app/(site)/assets/south-carolina/testimonial-quotes.svg'
@@ -6,7 +5,7 @@ import starImage from '@/app/(site)/assets/south-carolina/testimonial-star.svg'
 import { SectionHeading } from '@/app/(site)/components/ui/section-heading'
 import { SurfaceCard } from '@/app/(site)/components/ui/surface-card'
 
-type SouthCarolinaTestimonialsProps = {
+export type LocationTestimonialsProps = {
   title: string
   description: string
   label: string
@@ -18,12 +17,12 @@ type SouthCarolinaTestimonialsProps = {
   }>
 }
 
-export function SouthCarolinaTestimonials({
+export function LocationTestimonials({
   title,
   description,
   label,
   items,
-}: SouthCarolinaTestimonialsProps) {
+}: LocationTestimonialsProps) {
   const [featured, secondary] = items
 
   return (

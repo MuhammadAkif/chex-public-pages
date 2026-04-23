@@ -2,7 +2,8 @@
 
 import { useState } from 'react'
 
-type SouthCarolinaFaqProps = {
+export type LocationFaqProps = {
+  idBase: string
   title: string
   description: string
   items: ReadonlyArray<{
@@ -30,7 +31,7 @@ function ChevronIcon({ isOpen }: { isOpen: boolean }) {
   )
 }
 
-export function SouthCarolinaFaq({ title, description, items }: SouthCarolinaFaqProps) {
+export function LocationFaq({ idBase, title, description, items }: LocationFaqProps) {
   const firstOpenIndex = items.findIndex((item) => Boolean(item.answer))
   const [activeIndex, setActiveIndex] = useState<number | null>(
     firstOpenIndex >= 0 ? firstOpenIndex : null,
@@ -47,8 +48,8 @@ export function SouthCarolinaFaq({ title, description, items }: SouthCarolinaFaq
         <div className="mt-16 space-y-10">
           {items.map((item, index) => {
             const isOpen = activeIndex === index
-            const panelId = `south-carolina-faq-panel-${index}`
-            const buttonId = `south-carolina-faq-button-${index}`
+            const panelId = `${idBase}-faq-panel-${index}`
+            const buttonId = `${idBase}-faq-button-${index}`
 
             return (
               <article

@@ -1,13 +1,13 @@
-'use client'
 /* eslint-disable @next/next/no-img-element */
 
 import { Button } from '@/app/(site)/components/ui/button'
 
-type SouthCarolinaServicesProps = {
+export type LocationServicesProps = {
   eyebrow: string
   title: string
   description: string
   ctaLabel: string
+  demoHref: string
   items: ReadonlyArray<{
     title: string
     description: string
@@ -16,13 +16,14 @@ type SouthCarolinaServicesProps = {
   }>
 }
 
-export function SouthCarolinaServices({
+export function LocationServices({
   eyebrow,
   title,
   description,
   ctaLabel,
+  demoHref,
   items,
-}: SouthCarolinaServicesProps) {
+}: LocationServicesProps) {
   return (
     <section id="services" className="relative bg-[#1b1c20] px-4 py-20 text-white sm:px-6 lg:px-10 lg:py-28">
       <div className="pointer-events-none absolute left-[8%] top-0 h-[34rem] w-[34rem] rounded-full bg-[radial-gradient(circle,_rgba(255,122,1,0.18)_0%,_rgba(255,122,1,0)_72%)] blur-3xl" />
@@ -50,25 +51,19 @@ export function SouthCarolinaServices({
                 }`}
               >
                 <div className={item.reverse ? 'lg:order-2' : ''}>
-                  <h3 className="type-location-card-title max-w-xl text-white">
-                    {item.title}
-                  </h3>
+                  <h3 className="type-location-card-title max-w-xl text-white">{item.title}</h3>
                   <p className="mt-5 max-w-xl font-display text-[16px] leading-8 tracking-[-0.16px] text-white/84">
                     {item.description}
                   </p>
                   <div className="mt-9">
-                    <Button href="#south-carolina-demo">{'Read more'}</Button>
+                    <Button href={demoHref}>Read more</Button>
                   </div>
                 </div>
 
                 <div className={item.reverse ? 'lg:order-1' : ''}>
                   <div className="overflow-hidden rounded-[28px] border border-[#f0f6ff] bg-[#f0f6ff] p-5">
                     <div className="overflow-hidden rounded-[24px] border border-[#2563eb]/30 shadow-[0_4px_4px_0_rgba(0,0,0,0.25)]">
-                      <img
-                        src={item.image}
-                        alt={item.title}
-                        className="aspect-[515/262] w-full object-cover"
-                      />
+                      <img src={item.image} alt={item.title} className="aspect-[515/262] w-full object-cover" />
                     </div>
                   </div>
                 </div>
@@ -78,7 +73,7 @@ export function SouthCarolinaServices({
         </div>
 
         <div className="mt-12 flex justify-center">
-          <Button href="#south-carolina-demo" className="min-w-[260px]">
+          <Button href={demoHref} className="min-w-[260px]">
             {ctaLabel}
           </Button>
         </div>

@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 
-import { SouthCarolinaPage } from '@/app/(site)/components/south-carolina/south-carolina-page'
+import { LocationPage } from '@/app/(site)/components/locations/location-page'
+import { southCarolinaContent } from '@/app/(site)/locations/south-carolina/content'
 
 export const metadata: Metadata = {
   title: 'South Carolina Automotive Diagnostics AI | Chex.AI',
@@ -9,5 +10,5 @@ export const metadata: Metadata = {
 }
 
 export default function SouthCarolinaRoutePage() {
-  return <SouthCarolinaPage />
+  return <LocationPage content={southCarolinaContent} />
 }
