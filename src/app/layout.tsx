@@ -6,12 +6,12 @@ import './globals.css'
 
 const sora = Sora({
   subsets: ['latin'],
-  variable: '--font-display',
+  variable: '--font-sora',
 })
 
 const manrope = Manrope({
   subsets: ['latin'],
-  variable: '--font-body',
+  variable: '--font-manrope',
 })
 
 export const metadata: Metadata = {
@@ -26,10 +26,9 @@ type RootLayoutProps = {
 export default function RootLayout({ children }: RootLayoutProps) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={`${sora.variable} ${manrope.variable} bg-mist font-[family-name:var(--font-body)] text-ink antialiased`}>
+      <body className={`${sora.variable} ${manrope.variable} bg-mist font-body text-ink antialiased`}>
         {children}
       </body>
     </html>
   )
 }
-
