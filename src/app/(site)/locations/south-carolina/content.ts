@@ -1,0 +1,241 @@
+import caseArrow from '@/app/(site)/assets/south-carolina/case-arrow.png'
+import caseFleet from '@/app/(site)/assets/south-carolina/case-fleet.png'
+import caseInsurance from '@/app/(site)/assets/south-carolina/case-insurance.png'
+import caseRental from '@/app/(site)/assets/south-carolina/case-rental.png'
+import caseRideshare from '@/app/(site)/assets/south-carolina/case-rideshare.png'
+import ctaBackground from '@/app/(site)/assets/south-carolina/cta-background.png'
+import diagnosticsColumbia from '@/app/(site)/assets/south-carolina/diagnostics-columbia.png'
+import diagnosticsGreenville from '@/app/(site)/assets/south-carolina/diagnostics-greenville.png'
+import heroPinAlabama from '@/app/(site)/assets/south-carolina/hero-pin-alabama.png'
+import heroPinCalifornia from '@/app/(site)/assets/south-carolina/hero-pin-california.png'
+import heroPinColorado from '@/app/(site)/assets/south-carolina/hero-pin-colorado.png'
+import heroPinNebraska from '@/app/(site)/assets/south-carolina/hero-pin-nebraska.png'
+import heroPinNewMexico from '@/app/(site)/assets/south-carolina/hero-pin-new-mexico.png'
+import heroPinSouthCarolina from '@/app/(site)/assets/south-carolina/hero-pin-south-carolina.png'
+import managePhoneFrame from '@/app/(site)/assets/south-carolina/manage-phone-frame.png'
+import managePhoneScreen from '@/app/(site)/assets/south-carolina/manage-phone-screen.png'
+import overviewVehicle from '@/app/(site)/assets/south-carolina/overview-vehicle.png'
+import serviceFleet from '@/app/(site)/assets/south-carolina/service-fleet.png'
+import serviceRideshare from '@/app/(site)/assets/south-carolina/service-rideshare.png'
+import serviceUber from '@/app/(site)/assets/south-carolina/service-uber.png'
+
+export const southCarolinaContent = {
+  hero: {
+    rating: '4.9 (1667+ reviews)',
+    title: 'Chex.Ai: The Professional Choice For Automotive Diagnostics AI in SC.',
+    description:
+      "CHEX.AI's Car Damage Recognition is an advanced AI solution that instantly detects dents, scratches, and body defects in vehicles using smartphone photos.",
+    primaryLabel: 'Register your Inspection Today',
+    secondaryLabel: 'Request a demo',
+    helperText: 'No credit card required',
+    stats: [
+      { value: '1000+', label: 'Customers' },
+      { value: '5+', label: 'Years of Experience' },
+      { value: '20+', label: 'Companies' },
+    ],
+    locations: [
+      { label: 'South Carolina', image: heroPinSouthCarolina },
+      { label: 'New Mexico', image: heroPinNewMexico },
+      { label: 'California', image: heroPinCalifornia },
+      { label: 'Nebraska', image: heroPinNebraska },
+      { label: 'Alabama', image: heroPinAlabama },
+      { label: 'Colorado', image: heroPinColorado },
+    ],
+  },
+  overview: {
+    title: 'Reliable Vehicle Data for Charleston, Columbia, and Greenville Teams',
+    paragraphs: [
+      'If you are running a business, you know that bad data costs money. At Chex.ai, we have moved away from the old way of doing inspections. Instead of waiting at a shop for a manual check that might be biased, we use artificial intelligence vehicle detection to give you a clear, high-resolution report.',
+      'We have focused on integrating smart diagnostics into a simple process that removes human variability, so you get the facts you need to keep your work moving across Charleston, Columbia, and Greenville.',
+    ],
+    image: overviewVehicle.src,
+  },
+  services: {
+    eyebrow: 'Services',
+    title: 'AI-Powered Vehicle Inspection & Damage Detection',
+    description:
+      'Chex.AI delivers instant, automated car inspections using advanced artificial intelligence. From dents and scratches to safety checks, our system analyzes vehicle photos in real time, generates detailed reports, and streamlines documentation for the mobility industry.',
+    ctaLabel: 'Read more our services',
+    items: [
+      {
+        title: 'Fleet Management: Automated Compliance That Keeps You Moving',
+        description:
+          'Managing a fleet across the I-85 corridor or the Port of Charleston requires a forensic level of detail. Our inspection reporting software is engineered to provide exactly that, without the downtime of a traditional garage.',
+        image: serviceFleet.src,
+      },
+      {
+        title: 'Rideshare: Certified and Ready to Drive in Minutes',
+        description:
+          "For drivers in Charleston, Columbia, and Greenville, getting your car cleared should not be a problem. Our car inspection app is the straightest line to getting back on the app. We run a 19-point digital scan that checks exactly what South Carolina regulators require.",
+        image: serviceRideshare.src,
+        reverse: true,
+      },
+      {
+        title: 'Uber Inspection Online: Your Driveway Is the New Shop',
+        description:
+          'Keeping your Uber status in South Carolina should not cost you a day of earnings. Our artificial intelligence vehicle detection walks you through a full 19-point scan using just your phone. We make sure you are road-ready from the Upstate to the Lowcountry.',
+        image: serviceUber.src,
+      },
+    ],
+  },
+  intelligence: {
+    title: 'Experience the Future of Automotive Intelligence.',
+    description:
+      'From the busy logistics hubs in Greenville to the coastal delivery routes in Charleston, Chex.ai is more than just a tool, it is a complete automated system for maintaining vehicle health and 2026 compliance.',
+    buttonLabel: 'Book a demo',
+    items: [
+      {
+        number: '01',
+        title: 'AI automotive diagnostics',
+        description:
+          'Our automotive diagnostics AI was built to solve that specific problem. We provide a bridge between strict state regulations and your need for operational speed.',
+      },
+      {
+        number: '02',
+        title: 'Seamless Integration',
+        description:
+          'By integrating deep-learning technology with a simple smartphone interface, we have made it possible to get a professional-grade inspection without the logistical headache of traditional garages.',
+      },
+      {
+        number: '03',
+        title: 'Continuous Improvement',
+        description:
+          'We are committed to keeping the Palmetto State moving by providing the data you need to stay safe, stay legal, and stay on the road.',
+      },
+      {
+        number: '04',
+        title: 'Efficiency at Scale',
+        description:
+          'Built for high-demand industries, our AI processes thousands of claims daily while also identifying salvaged parts for repair. Scalable across global markets, it transforms workflows.',
+      },
+    ],
+  },
+  diagnostics: {
+    title: 'South Carolina Environmental Diagnostics',
+    description:
+      'Vehicle wear is not uniform across the state. Chex.ai uses automotive diagnostics AI to analyze your vehicle based on the specific environmental stressors of your region.',
+    items: [
+      {
+        city: 'Columbia',
+        description: 'Fleet inspections for corporate clients bookings, and rescheduling.',
+        image: diagnosticsColumbia.src,
+      },
+      {
+        city: 'Greenville',
+        description: 'Insurance claims & compliance checks, focus on rideshare & tourism rentals',
+        image: diagnosticsGreenville.src,
+      },
+    ],
+  },
+  manage: {
+    title: 'Manage & Inspect Your Car Online',
+    bullets: [
+      'Mobile application with easy to use self inspection guide & tools for users.',
+      'Highly scalable technology enabling businesses to expand quicker.',
+      'Reduces business overhead & operations cost.',
+      'Easily integratable allowing businesses to perform and manage repeatable tasks.',
+    ],
+    buttonLabel: 'Request a demo',
+    frameImage: managePhoneFrame.src,
+    screenImage: managePhoneScreen.src,
+  },
+  caseStudies: {
+    title: 'Case Studies',
+    items: [
+      {
+        metric: '66%',
+        title: 'Rental Car',
+        caption: 'Inspect level',
+        description:
+          'Our AI-powered vehicle inspection system automatically detects and highlights visible damages such as dents, scratches, cracks.',
+        image: caseRental.src,
+      },
+      {
+        metric: '55%',
+        title: 'Rideshare Compliance',
+        caption: 'faster onboarding',
+        description:
+          'Uber drivers in South Carolina using Chex.ai for instant onboarding inspections. Our AI-powered vehicle inspection system.',
+        image: caseRideshare.src,
+      },
+      {
+        metric: '40%',
+        title: 'Fleet Rentals',
+        caption: 'fewer disputes',
+        description:
+          'Local rental company reduced claims disputes by 40% using AI damage detection.',
+        image: caseFleet.src,
+      },
+      {
+        metric: '78%',
+        title: 'Insurance Partner',
+        caption: 'Faster payouts',
+        description:
+          'Regional insurer integrated Chex.ai SDK for faster claims processing. Our AI-powered vehicle inspection system automatically.',
+        image: caseInsurance.src,
+      },
+    ],
+    arrowImage: caseArrow,
+  },
+  testimonials: {
+    title: 'Feedback from our Verified Clients',
+    description: 'We are happy when our customers are too.',
+    label: 'What our client say about us?',
+    items: [
+      {
+        name: 'Mousa Naseer',
+        role: 'Regional Markets Executive',
+        quote:
+          'The app was easy to follow, the pictures showing what was required of me to take made it simple. Upload was fast. They responded quickly and had the inspection back within a half hour! Thank you. Well worth the money.',
+        featured: true,
+      },
+      {
+        name: 'Andressa Amorim',
+        role: 'Regional Markets Executive',
+        quote: 'Chexai was really easy to use, better than going to the mechanic!',
+        featured: false,
+      },
+    ],
+  },
+  faq: {
+    title: 'Frequently asked questions',
+    description:
+      'Ask everything you need to know about our product and services. We are here to answer your questions.',
+    items: [
+      {
+        question: 'What Are The 2026 EDVIR Standards For South Carolina Fleets?',
+        answer:
+          'As of March 2026, federal and state mandates require electronic Driver Vehicle Inspection Reports to include time-stamped, high-resolution visual evidence of vehicle health. Chex.ai automates this by integrating artificial intelligence vehicle detection directly into your reporting software.',
+      },
+      {
+        question: 'Can An AI Car Inspection App Detect Hidden Structural Damage?',
+        answer:
+          'Chex.ai analyzes guided photo evidence for visual indicators such as panel misalignment, inconsistent paint, unusual gaps, surface deformation, and prior repair patterns. It is not a substitute for teardown diagnostics, but it gives buyers, fleets, and claims teams a stronger evidence layer before they commit to a vehicle decision.',
+      },
+      {
+        question: 'Is The Chex.Ai App Compliant With The SC Hands-Free Act?',
+        answer:
+          'Yes. The inspection flow is designed to be completed while the vehicle is parked and the user is safely outside active driving conditions. Chex.ai uses step-by-step prompts so drivers can capture required evidence without handling the phone while operating the vehicle.',
+      },
+      {
+        question: 'How Does The AI Car Buying Assistant Work For Used Vehicles?',
+        answer:
+          'The assistant reviews vehicle photos and inspection inputs to flag visible damage, repair concerns, and condition inconsistencies before purchase. For South Carolina buyers, it helps compare exterior condition, documentation quality, and potential risk signals before finalizing a used vehicle acquisition.',
+      },
+      {
+        question: 'How Does Chex.Ai Meet 2026 South Carolina Rideshare Requirements?',
+        answer:
+          'Chex.ai supports rideshare readiness with a guided 19-point digital inspection, timestamped image capture, and structured reporting. Drivers can complete the required documentation remotely, while operators receive consistent inspection records for onboarding, renewals, and compliance review.',
+      },
+    ],
+  },
+  cta: {
+    title: 'A Tool for Informed Acquisition',
+    description:
+      'Evaluating a pre-owned vehicle in the Upstate requires more than a test drive. Use our AI car buying assistant to uncover hidden structural repairs or mechanical inconsistencies before finalizing any investment.',
+    primaryLabel: 'Verify Your Next Vehicle',
+    secondaryLabel: 'Request a demo',
+    helperText: 'No credit card required, cancel anytime.',
+    image: ctaBackground.src,
+  },
+} as const

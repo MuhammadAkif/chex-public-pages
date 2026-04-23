@@ -3,7 +3,7 @@
 import Image from 'next/image'
 import type { StaticImageData } from 'next/image'
 import { usePathname } from 'next/navigation'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 
 import { Button } from '@/app/(site)/components/ui/button'
 
@@ -19,9 +19,27 @@ type NavbarProps = {
 export function Navbar({ logo, links }: NavbarProps) {
   const pathname = usePathname()
   const [menuOpen, setMenuOpen] = useState(false)
+  const [isScrolled, setIsScrolled] = useState(false)
+
+  useEffect(() => {
+    const updateScrollState = () => {
+      setIsScrolled(window.scrollY > 0)
+    }
+
+    updateScrollState()
+    window.addEventListener('scroll', updateScrollState, { passive: true })
+
+    return () => {
+      window.removeEventListener('scroll', updateScrollState)
+    }
+  }, [])
 
   return (
-    <div className="border-b border-white/60 bg-white/82 backdrop-blur-xl">
+    <div
+      className={`border-b border-white/60 bg-white/82 backdrop-blur-xl transition-shadow duration-200 ${
+        isScrolled ? 'shadow-[0_16px_40px_-28px_rgba(27,47,75,0.55)]' : 'shadow-none'
+      }`}
+    >
       <div className="mx-auto flex max-w-[1240px] items-center justify-between gap-6 px-4 py-4 sm:px-6 lg:px-10">
         <a href="/home" className="shrink-0">
           <Image src={logo} alt="Chex.AI" className="h-11 w-auto" priority />
