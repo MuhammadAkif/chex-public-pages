@@ -9,6 +9,7 @@ import diagnosticsGreenville from '@/app/(site)/assets/south-carolina/diagnostic
 import heroPinAlabama from '@/app/(site)/assets/south-carolina/hero-pin-alabama.png'
 import heroPinCalifornia from '@/app/(site)/assets/south-carolina/hero-pin-california.png'
 import heroPinColorado from '@/app/(site)/assets/south-carolina/hero-pin-colorado.png'
+import heroPinIowa from '@/app/(site)/assets/new-mexico/hero-pin-iowa.png'
 import heroPinNebraska from '@/app/(site)/assets/south-carolina/hero-pin-nebraska.png'
 import heroPinNewMexico from '@/app/(site)/assets/south-carolina/hero-pin-new-mexico.png'
 import heroPinSouthCarolina from '@/app/(site)/assets/south-carolina/hero-pin-south-carolina.png'
@@ -32,43 +33,24 @@ export const southCarolinaContent = {
     secondaryLabel: 'Request a demo',
     helperText: 'No credit card required',
     demoHref: '#south-carolina-demo',
-    layoutClassName: 'lg:grid-cols-[0.92fr_1fr] lg:gap-16',
+    layoutClassName: 'lg:grid-cols-[0.98fr_1fr] lg:gap-14',
     ratingContainerClassName:
       'rounded-full bg-white/80 px-5 py-2 shadow-[0_20px_60px_-36px_rgba(19,104,185,0.35)]',
     titleClassName: 'type-location-hero max-w-3xl',
     descriptionClassName: 'max-w-2xl',
-    orbit: {
-      mapClassName: 'max-w-[560px]',
-      backgroundClassName: 'bg-[#1368b9]/5',
-      ringClassNames: [
-        'inset-[16%] border border-[#1368b9]/15',
-        'inset-[28%] border border-[#1368b9]/15',
-        'inset-[40%] border border-[#1368b9]/15',
-      ],
-      centerClassName:
-        'rounded-full bg-white shadow-[0_20px_70px_-36px_rgba(19,104,185,0.45)]',
-      logoClassName: 'h-7 w-auto sm:h-9',
-      positions: [
-        'left-[52%] top-[4%]',
-        'left-[8%] top-[18%]',
-        'left-[70%] top-[28%]',
-        'left-[7%] top-[50%]',
-        'left-[58%] top-[58%]',
-        'left-[30%] top-[78%]',
-      ],
-    },
     stats: [
       { value: '1000+', label: 'Customers' },
       { value: '5+', label: 'Years of Experience' },
       { value: '20+', label: 'Companies' },
     ],
     locations: [
-      { label: 'South Carolina', image: heroPinSouthCarolina },
-      { label: 'New Mexico', image: heroPinNewMexico },
-      { label: 'California', image: heroPinCalifornia },
-      { label: 'Nebraska', image: heroPinNebraska },
-      { label: 'Alabama', image: heroPinAlabama },
-      { label: 'Colorado', image: heroPinColorado },
+      { label: 'South Carolina', image: heroPinSouthCarolina, featured: true },
+      { label: 'New Mexico', image: heroPinNewMexico, featured: false },
+      { label: 'California', image: heroPinCalifornia, featured: false },
+      { label: 'Nebraska', image: heroPinNebraska, featured: false },
+      { label: 'Alabama', image: heroPinAlabama, featured: false },
+      { label: 'Iowa', image: heroPinIowa, featured: false },
+      { label: 'Colorado', image: heroPinColorado, featured: false },
     ],
   },
   overview: {

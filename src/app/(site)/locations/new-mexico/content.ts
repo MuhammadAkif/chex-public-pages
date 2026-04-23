@@ -40,27 +40,6 @@ export const newMexicoContent = {
     titleClassName:
       'max-w-[684px] font-display text-[36px] font-bold leading-[1.18] sm:text-[40px]',
     descriptionClassName: 'max-w-[672px]',
-    orbit: {
-      mapClassName: 'max-w-[650px]',
-      backgroundClassName: 'bg-[#ff7a01]/5',
-      ringClassNames: [
-        'inset-[15%] border border-dashed border-[#ff7a01]/25',
-        'inset-[27%] border border-dashed border-[#ff7a01]/25',
-        'inset-[39%] border border-dashed border-[#ff7a01]/25',
-      ],
-      centerClassName:
-        'rounded-full bg-[#fff1e5] shadow-[0_20px_70px_-36px_rgba(255,122,1,0.55)]',
-      logoClassName: 'h-7 w-auto sm:h-8',
-      positions: [
-        'left-[56%] top-[7%]',
-        'left-[16%] top-[22%]',
-        'left-[72%] top-[30%]',
-        'left-[16%] top-[52%]',
-        'left-[58%] top-[58%]',
-        'left-[42%] top-[35%]',
-        'left-[35%] top-[80%]',
-      ],
-    },
     stats: [
       { value: '1000+', label: 'Customers' },
       { value: '5+', label: 'Years of Experience' },

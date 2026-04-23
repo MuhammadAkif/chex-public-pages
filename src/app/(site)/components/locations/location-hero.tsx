@@ -27,14 +27,6 @@ export type LocationHeroProps = {
   ratingContainerClassName?: string
   titleClassName: string
   descriptionClassName: string
-  orbit: {
-    mapClassName: string
-    backgroundClassName: string
-    ringClassNames: ReadonlyArray<string>
-    centerClassName: string
-    logoClassName: string
-    positions: ReadonlyArray<string>
-  }
 }
 
 function StarIcon() {
@@ -50,39 +42,30 @@ function StarIcon() {
 
 function OrbitMap({
   locations,
-  orbit,
-}: Pick<LocationHeroProps, 'locations' | 'orbit'>) {
-  return (
-    <div
-      className={['relative mx-auto aspect-square w-full', orbit.mapClassName]
-        .filter(Boolean)
-        .join(' ')}
-    >
-      <div
-        className={['absolute inset-0 rounded-full', orbit.backgroundClassName]
-          .filter(Boolean)
-          .join(' ')}
-      />
-      {orbit.ringClassNames.map((ringClassName) => (
-        <div
-          key={ringClassName}
-          className={['absolute rounded-full', ringClassName].filter(Boolean).join(' ')}
-        />
-      ))}
+}: Pick<LocationHeroProps, 'locations'>) {
+  const positions = [
+    'left-[56%] top-[7%]',
+    'left-[16%] top-[22%]',
+    'left-[72%] top-[30%]',
+    'left-[16%] top-[52%]',
+    'left-[58%] top-[58%]',
+    'left-[42%] top-[35%]',
+    'left-[35%] top-[80%]',
+  ]
 
-      <div
-        className={[
-          'absolute left-1/2 top-1/2 flex h-24 w-24 -translate-x-1/2 -translate-y-1/2 items-center justify-center sm:h-32 sm:w-32',
-          orbit.centerClassName,
-        ]
-          .filter(Boolean)
-          .join(' ')}
-      >
-        <Image src={logoChex} alt="Chex.AI" className={orbit.logoClassName} priority />
+  return (
+    <div className="relative mx-auto aspect-square w-full max-w-[650px]">
+      <div className="absolute inset-0 rounded-full bg-[#ff7a01]/5" />
+      <div className="absolute inset-[15%] rounded-full border border-dashed border-[#ff7a01]/25" />
+      <div className="absolute inset-[27%] rounded-full border border-dashed border-[#ff7a01]/25" />
+      <div className="absolute inset-[39%] rounded-full border border-dashed border-[#ff7a01]/25" />
+
+      <div className="absolute left-1/2 top-1/2 flex h-24 w-24 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full bg-[#fff1e5] shadow-[0_20px_70px_-36px_rgba(255,122,1,0.55)] sm:h-32 sm:w-32">
+        <Image src={logoChex} alt="Chex.AI" className="h-7 w-auto sm:h-8" priority />
       </div>
 
       {locations.map((location, index) => {
-        const position = orbit.positions[index] ?? orbit.positions[orbit.positions.length - 1] ?? ''
+        const position = positions[index] ?? positions[positions.length - 1] ?? ''
         const isFeatured = Boolean(location.featured)
 
         return (
@@ -131,7 +114,6 @@ export function LocationHero({
   ratingContainerClassName = '',
   titleClassName,
   descriptionClassName,
-  orbit,
 }: LocationHeroProps) {
   return (
     <section
@@ -147,7 +129,7 @@ export function LocationHero({
           .filter(Boolean)
           .join(' ')}
       >
-        <OrbitMap locations={locations} orbit={orbit} />
+        <OrbitMap locations={locations} />
 
         <div>
           <div
