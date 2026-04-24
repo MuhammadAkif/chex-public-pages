@@ -75,10 +75,10 @@ If `graphify-out/GRAPH_REPORT.md` exists, read it before broad file searches whe
 
 Useful Graphify commands from repo root:
 
-- `graphify .`
-- `graphify query "how are Nevada location pages assembled?"`
-- `graphify explain "LocationPage"`
-- `graphify path "src/app/(site)/locations/nevada/page.tsx" "src/app/(site)/components/locations/location-showcase.tsx"`
+- `python3 scripts/build_graphify_graph.py`
+- `python3 -m graphify query "how are Nevada location pages assembled?" --graph graphify-out/graph.json`
+- `python3 -m graphify explain "LocationPage()" --graph graphify-out/graph.json`
+- `python3 -m graphify path "NevadaRoutePage()" "LocationShowcase()" --graph graphify-out/graph.json`
 
 When Graphify and raw files disagree, treat source files as ground truth and regenerate the graph.
 
@@ -87,7 +87,8 @@ When Graphify and raw files disagree, treat source files as ground truth and reg
 This project has a graphify knowledge graph at graphify-out/.
 
 Rules:
-- Before answering architecture or codebase questions, read graphify-out/GRAPH_REPORT.md for god nodes and community structure
+- Before answering architecture or codebase questions, read graphify-out/GRAPH_REPORT.md for god nodes, major communities, and suggested questions
 - If graphify-out/wiki/index.md exists, navigate it instead of reading raw files
-- For cross-module "how does X relate to Y" questions, prefer `graphify query "<question>"`, `graphify path "<A>" "<B>"`, or `graphify explain "<concept>"` over grep — these traverse the graph's EXTRACTED + INFERRED edges instead of scanning files
-- After modifying code files in this session, run `graphify update .` to keep the graph current (AST-only, no API cost)
+- For cross-module "how does X relate to Y" questions, prefer `python3 -m graphify query "<question>" --graph graphify-out/graph.json`, `python3 -m graphify path "<A>" "<B>" --graph graphify-out/graph.json`, or `python3 -m graphify explain "<concept>" --graph graphify-out/graph.json` before broad raw-file search
+- This repo uses `python3 scripts/build_graphify_graph.py` as the preferred rebuild command because it augments Graphify's AST output with resolved alias imports and route/content/component relationships specific to this codebase
+- After modifying routes, content modules, layouts, or shared components in this session, run `python3 scripts/build_graphify_graph.py` to keep the graph current
