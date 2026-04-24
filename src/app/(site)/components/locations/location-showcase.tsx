@@ -10,6 +10,10 @@ type LocationShowcaseVisual =
       showGlow?: boolean
     }
   | {
+      variant: 'organic-frame'
+      showGlow?: boolean
+    }
+  | {
       variant: 'preview'
       label: string
     }
@@ -66,6 +70,21 @@ function WaveVisual() {
   )
 }
 
+function OrganicFrameVisual() {
+  return (
+    <div className="mt-16 overflow-hidden rounded-[38px] border border-[#2563eb]/30 bg-[#cfd7e0] shadow-[0_22px_64px_0_rgba(30,27,75,0.08)]">
+      <div className="relative min-h-[320px] overflow-hidden rounded-[38px] bg-[#cfd7e0] sm:min-h-[500px] lg:min-h-[644px]">
+        <div className="absolute inset-0 bg-[#cfd7e0]" />
+        <div className="absolute inset-y-0 right-0 w-[58%] bg-[#4b688d]" />
+        <div className="absolute left-[2%] top-[6%] h-[80%] w-[60%] rounded-[40%_60%_56%_44%/30%_34%_66%_70%] bg-[#cfd7e0]" />
+        <div className="absolute left-[34%] top-[-4%] h-[18%] w-[24%] rounded-[0_0_56%_44%/0_0_100%_100%] bg-[#4b688d]" />
+        <div className="absolute bottom-[-3%] right-[1%] h-[56%] w-[56%] rounded-[48%_52%_42%_58%/34%_38%_62%_66%] bg-[#cfd7e0]" />
+        <div className="absolute bottom-[-4%] left-[-4%] h-[42%] w-[28%] rounded-[58%_42%_0_0/100%_100%_0_0] bg-[#4b688d]" />
+      </div>
+    </div>
+  )
+}
+
 export function LocationShowcase({
   title,
   description,
@@ -107,6 +126,7 @@ export function LocationShowcase({
 
         {visual.variant === 'processing' ? <ProcessingVisual /> : null}
         {visual.variant === 'wave' ? <WaveVisual /> : null}
+        {visual.variant === 'organic-frame' ? <OrganicFrameVisual /> : null}
         {visual.variant === 'preview' ? <PreviewVisual label={visual.label} /> : null}
       </div>
     </section>
