@@ -1,133 +1,140 @@
-import { Button } from '@/app/(site)/components/ui/button'
+'use client'
 
-type LocationShowcaseVisual =
-  | {
-      variant: 'processing'
-      showGlow?: boolean
+import { useEffect, useRef } from 'react'
+
+const SHOWCASE_VIDEO_SRC = '/assets/locations/chex-ai-location.mp4'
+
+export type LocationShowcaseProps = Record<string, unknown>
+
+export function LocationShowcase(_: LocationShowcaseProps) {
+  const containerRef = useRef<HTMLDivElement | null>(null)
+  const videoRef = useRef<HTMLVideoElement | null>(null)
+  const shouldPlayRef = useRef(false)
+  const isPlayingRef = useRef(false)
+  const hasUnlockedAudioRef = useRef(false)
+  const playRequestRef = useRef<Promise<void> | null>(null)
+
+  useEffect(() => {
+    const container = containerRef.current
+    const video = videoRef.current
+
+    if (!container || !video) {
+      return
     }
-  | {
-      variant: 'wave'
-      showGlow?: boolean
+
+    video.pause()
+    video.currentTime = 0
+    video.muted = true
+    video.volume = 1
+    shouldPlayRef.current = false
+    isPlayingRef.current = false
+    hasUnlockedAudioRef.current = false
+
+    const playVideo = async () => {
+      if (!shouldPlayRef.current || isPlayingRef.current || playRequestRef.current) {
+        return
+      }
+
+      const playPromise = video.play()
+      playRequestRef.current = playPromise
+
+      try {
+        await playPromise
+
+        if (shouldPlayRef.current) {
+          isPlayingRef.current = true
+          return
+        }
+
+        video.pause()
+      } catch {
+        isPlayingRef.current = false
+      } finally {
+        playRequestRef.current = null
+      }
     }
-  | {
-      variant: 'organic-frame'
-      showGlow?: boolean
+
+    const pauseVideo = () => {
+      if (!isPlayingRef.current && video.paused) {
+        return
+      }
+
+      video.pause()
+      isPlayingRef.current = false
     }
-  | {
-      variant: 'preview'
-      label: string
+
+    const unlockAudio = () => {
+      if (hasUnlockedAudioRef.current) {
+        return
+      }
+
+      hasUnlockedAudioRef.current = true
+      video.muted = false
+
+      if (shouldPlayRef.current) {
+        void playVideo()
+      }
     }
 
-export type LocationShowcaseProps = {
-  title: string
-  description: string
-  buttonLabel: string
-  demoHref: string
-  items: ReadonlyArray<{
-    number: string
-    title: string
-    description: string
-  }>
-  visual: LocationShowcaseVisual
-}
+    const handlePointerDown = () => {
+      unlockAudio()
+    }
 
-function ProcessingVisual() {
+    const handleKeyDown = () => {
+      unlockAudio()
+    }
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        const isVisible = Boolean(entry?.isIntersecting && entry.intersectionRatio >= 0.5)
+
+        if (isVisible === shouldPlayRef.current) {
+          return
+        }
+
+        shouldPlayRef.current = isVisible
+
+        if (isVisible) {
+          void playVideo()
+          return
+        }
+
+        pauseVideo()
+      },
+      {
+        threshold: [0, 0.5, 1],
+      },
+    )
+
+    observer.observe(container)
+    window.addEventListener('pointerdown', handlePointerDown, { passive: true })
+    window.addEventListener('keydown', handleKeyDown)
+
+    return () => {
+      observer.disconnect()
+      window.removeEventListener('pointerdown', handlePointerDown)
+      window.removeEventListener('keydown', handleKeyDown)
+      shouldPlayRef.current = false
+      pauseVideo()
+    }
+  }, [])
+
   return (
-    <div className="mt-16 overflow-hidden rounded-[38px] border border-[#2563eb]/30 bg-[#d8e0e7] shadow-[0_22px_64px_0_rgba(30,27,75,0.08)]">
-      <div className="relative min-h-[360px] overflow-hidden rounded-[38px] bg-[#d8e0e7] sm:min-h-[500px] lg:min-h-[644px]">
-        <div className="absolute -left-[10%] top-[4%] h-[74%] w-[72%] rounded-[55%_45%_52%_48%] bg-[#3d5f84]" />
-        <div className="absolute left-[5%] top-[8%] h-[82%] w-[88%] rounded-[46%_54%_58%_42%] bg-[#d8e0e7]" />
-        <div className="absolute right-[-8%] top-[10%] h-[78%] w-[58%] rounded-[48%_52%_58%_42%] bg-[#3d5f84]" />
-        <div className="absolute right-[8%] top-[16%] h-[70%] w-[56%] rounded-[54%_46%_48%_52%] bg-[#d8e0e7]" />
-      </div>
-    </div>
-  )
-}
-
-function PreviewVisual({ label }: { label: string }) {
-  return (
-    <div className="mt-16 overflow-hidden rounded-[38px] border border-[#2563eb]/30 bg-[#f0f6ff] p-5 shadow-[0_22px_64px_0_rgba(30,27,75,0.08)]">
-      <div className="grid min-h-[22rem] place-items-center rounded-[30px] bg-[radial-gradient(circle_at_34%_26%,rgba(19,104,185,0.9)_0%,rgba(19,104,185,0.18)_24%,rgba(255,122,1,0.35)_58%,rgba(27,28,32,0.96)_100%)] p-8 text-center text-white">
-        <div>
-          <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-full bg-white text-[#ff7a01] shadow-[0_20px_60px_-30px_rgba(255,122,1,0.9)]">
-            ▶
-          </div>
-          <p className="type-ui-label mt-6 text-white/78">{label}</p>
-        </div>
-      </div>
-    </div>
-  )
-}
-
-function WaveVisual() {
-  return (
-    <div className="mt-16 overflow-hidden rounded-[38px] border border-[#2563eb]/30 bg-[#4b688d] shadow-[0_22px_64px_0_rgba(30,27,75,0.08)]">
-      <div className="relative min-h-[320px] overflow-hidden rounded-[38px] sm:min-h-[500px] lg:min-h-[644px]">
-        <div className="absolute left-[34%] top-[-9%] h-[24%] w-[22%] rounded-full bg-[#4b688d]" />
-        <div className="absolute -left-[6%] top-[-4%] h-[112%] w-[90%] rounded-[44%_28%_52%_42%/25%_34%_62%_68%] bg-[#d8e1eb]" />
-      </div>
-    </div>
-  )
-}
-
-function OrganicFrameVisual() {
-  return (
-    <div className="mt-16 overflow-hidden rounded-[38px] border border-[#2563eb]/30 bg-[#cfd7e0] shadow-[0_22px_64px_0_rgba(30,27,75,0.08)]">
-      <div className="relative min-h-[320px] overflow-hidden rounded-[38px] bg-[#cfd7e0] sm:min-h-[500px] lg:min-h-[644px]">
-        <div className="absolute inset-0 bg-[#cfd7e0]" />
-        <div className="absolute inset-y-0 right-0 w-[58%] bg-[#4b688d]" />
-        <div className="absolute left-[2%] top-[6%] h-[80%] w-[60%] rounded-[40%_60%_56%_44%/30%_34%_66%_70%] bg-[#cfd7e0]" />
-        <div className="absolute left-[34%] top-[-4%] h-[18%] w-[24%] rounded-[0_0_56%_44%/0_0_100%_100%] bg-[#4b688d]" />
-        <div className="absolute bottom-[-3%] right-[1%] h-[56%] w-[56%] rounded-[48%_52%_42%_58%/34%_38%_62%_66%] bg-[#cfd7e0]" />
-        <div className="absolute bottom-[-4%] left-[-4%] h-[42%] w-[28%] rounded-[58%_42%_0_0/100%_100%_0_0] bg-[#4b688d]" />
-      </div>
-    </div>
-  )
-}
-
-export function LocationShowcase({
-  title,
-  description,
-  buttonLabel,
-  demoHref,
-  items,
-  visual,
-}: LocationShowcaseProps) {
-  return (
-    <section className="relative bg-white px-4 py-20 sm:px-6 lg:px-10 lg:py-28">
-      {('showGlow' in visual && visual.showGlow) ? (
-        <div className="pointer-events-none absolute right-[4%] top-[18%] h-[34rem] w-[34rem] rounded-full bg-[radial-gradient(circle,_rgba(255,122,1,0.15)_0%,_rgba(255,122,1,0)_72%)] blur-3xl" />
-      ) : null}
-      <div className="mx-auto max-w-[1240px]">
-        <div className="mx-auto max-w-[860px] text-center">
-          <h2 className="type-location-heading text-[#1b2f4b]">{title}</h2>
-          <p className="type-location-body mt-6 text-[#41546e]">{description}</p>
-        </div>
-
-        <div className="mt-14 grid gap-x-20 gap-y-12 md:grid-cols-2">
-          {items.map((item) => (
-            <article key={item.number}>
-              <div className="font-display text-[40px] font-bold leading-none text-[#ff7a01]">
-                {item.number}
-              </div>
-              <h3 className="mt-5 font-display text-[28px] font-bold capitalize leading-normal text-[#41546e] sm:text-[32px]">
-                {item.title}
-              </h3>
-              <p className="type-location-body mt-5 max-w-xl text-[#41546e]">{item.description}</p>
-            </article>
-          ))}
-        </div>
-
-        <div className="mt-14 flex justify-center">
-          <Button href={demoHref} className="min-w-[305px]">
-            {buttonLabel}
-          </Button>
-        </div>
-
-        {visual.variant === 'processing' ? <ProcessingVisual /> : null}
-        {visual.variant === 'wave' ? <WaveVisual /> : null}
-        {visual.variant === 'organic-frame' ? <OrganicFrameVisual /> : null}
-        {visual.variant === 'preview' ? <PreviewVisual label={visual.label} /> : null}
+    <section className="bg-white px-4 py-20 sm:px-6 lg:px-10 lg:py-28">
+      <div
+        ref={containerRef}
+        className="mx-auto min-h-[256px] max-w-[1240px] overflow-hidden rounded-[38px] border border-[#2563eb]/30 bg-[#d8e0e7] shadow-[0_22px_64px_0_rgba(30,27,75,0.08)] sm:min-h-[400px] lg:min-h-[515px]"
+      >
+        <video
+          ref={videoRef}
+          src={SHOWCASE_VIDEO_SRC}
+          playsInline
+          preload="auto"
+          className="h-full w-full object-cover"
+          controls={false}
+          disablePictureInPicture
+          disableRemotePlayback
+        />
       </div>
     </section>
   )

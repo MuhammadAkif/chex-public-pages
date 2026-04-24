@@ -1,6 +1,6 @@
 {
-  "total_files": 74,
-  "total_words": 33288,
+  "total_files": 73,
+  "total_words": 32832,
   "files": {
     "code": [
       "payload.config.ts",
@@ -72,8 +72,7 @@
       "src/migrations/20260422_162945_initial_schema.ts",
       "src/migrations/index.ts",
       "src/types/env.d.ts",
-      "src/types/payload-import-map.d.ts",
-      "src/types/static-assets.d.ts"
+      "src/types/payload-import-map.d.ts"
     ],
     "document": [
       "README.md",
