@@ -274,21 +274,29 @@ export const ohioContent = {
       {
         question: 'Can A Virtual Vehicle Inspection Identify Sun Glare Damage During Ohio Springs?',
         answer:
-          `The high-desert wind carries fine grit that acts like sandpaper on your car's finish and glass. Our AI spots that early "pitting" and paint erosion before it turns into a full-blown rust issue or a costly repaint.`,
+          'Yes. Chex.ai helps document windshield, paint, trim, and lighting issues that can become harder to see in harsh spring glare. Clear guided photos give the report better evidence of surface damage, cracks, or visibility concerns.',
       },
       {
         question:
           'How Can Ohio-Based Delivery Fleets Automate Their Daily Vehicle Condition Reports (Dvcr)?',
+        answer:
+          'Ohio delivery fleets can use Chex.ai to guide drivers through repeatable daily photo checks and store each condition report digitally. Managers get a cleaner record of vehicle status, damage notes, and follow-up needs without relying on paper forms.',
       },
       {
         question:
           'Is The Uber Inspection Online Valid For Rideshare Drivers In Columbus, Cleveland, Cincinnati?',
+        answer:
+          'Chex.ai helps drivers create a structured inspection report for rideshare documentation in major Ohio markets. Because platform and city requirements can change, drivers should confirm the latest Uber instructions before submitting the report.',
       },
       {
         question: 'Can The Car Inspection App Assist With Ohio Salvage Title Inspections?',
+        answer:
+          'The app can help document visible vehicle condition, damage areas, and repair evidence before a salvage title review. It does not replace official state inspection decisions, but it gives owners a clearer visual record to prepare with.',
       },
       {
         question: 'How Does Automotive Diagnostics Ai Protect Trucks In Ohio Construction Zones?',
+        answer:
+          'Chex.ai helps teams document new dents, glass damage, tire issues, and exterior wear after rough construction-zone routes. Consistent reports make it easier to catch problems early and decide which trucks need service before the next shift.',
       },
     ],
   },

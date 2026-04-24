@@ -254,15 +254,23 @@ export const newMexicoContent = {
       },
       {
         question: 'How Does This Technology Help With Insurance Claims In New Mexico?',
+        answer:
+          'Chex.ai creates a time-stamped visual record of dents, scratches, glass damage, and other visible issues that can support a claim conversation. The report helps owners share clearer evidence with insurers, repair shops, or fleet managers.',
       },
       {
         question: 'Can The Mobile Auto Inspection Software Detect Internal Engine Problems?',
+        answer:
+          'The mobile inspection is focused on guided visual evidence, so it is not a replacement for hands-on engine diagnostics. It can document visible warning signs, leaks, or exterior condition issues that may point to the need for a mechanic review.',
       },
       {
         question: 'Is The AI Damage Detection Technology Easy For Non-Technical Users To Use?',
+        answer:
+          'Yes. The app walks users through each required photo angle with simple prompts, so drivers do not need inspection training or special technical knowledge. Clear instructions help produce a consistent report from any supported smartphone.',
       },
       {
         question: 'How Does The Software Help With I-25 And I-40 Long-Haul Fleet Inspections?',
+        answer:
+          'Fleet teams can use Chex.ai to document vehicle condition before and after long routes, making damage changes easier to spot. The shared report helps managers review issues quickly across busy I-25 and I-40 operations.',
       },
     ],
   },

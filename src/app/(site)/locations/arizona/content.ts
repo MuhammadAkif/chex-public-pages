@@ -254,15 +254,23 @@ export const arizonaContent = {
       },
       {
         question: 'Can I Inspect A Fleet Of Vehicles With One Account?',
+        answer:
+          'Yes. Chex.ai supports multi-vehicle workflows so managers can track inspection status, review reports, and keep vehicle records organized under one account instead of handling each unit separately.',
       },
       {
         question: 'Can I Use The App If I Have A Poor Internet Connection?',
+        answer:
+          'You can complete the guided inspection from your phone, but clear uploads require a stable connection. If service is weak, capture the required photos safely and submit when you are back on reliable Wi-Fi or cellular coverage.',
       },
       {
         question: 'What Happens If My Car Fails The Inspection?',
+        answer:
+          'The report highlights the visible issues that need attention so you know what to repair, document, or review before trying again. You can use the findings as a practical checklist for the next inspection attempt.',
       },
       {
         question: 'Can I Use The App For A Pre-Purchase Inspection?',
+        answer:
+          'Yes. Chex.ai is useful before buying a used car because it documents visible damage, condition inconsistencies, and potential risk areas. It gives buyers a clearer record to compare against seller claims before making a decision.',
       },
     ],
   },

@@ -255,15 +255,23 @@ export const iowaContent = {
       },
       {
         question: 'What Makes Your Ai Car Inspection Different From A Traditional Mechanic Visit?',
+        answer:
+          'Chex.ai gives drivers a fast visual condition report from a guided mobile workflow, while a mechanic visit is still best for hands-on mechanical diagnostics. The app helps document visible issues quickly so you know what needs attention before scheduling service.',
       },
       {
         question: 'What Is The Turnaround Time For A Remote Vehicle Inspection In Des Moines?',
+        answer:
+          'Most users can complete the photo capture process in minutes, and the digital report is generated without waiting for a shop appointment. Timing can vary based on photo quality, connection speed, and the type of review required.',
       },
       {
         question: 'Do I Need To Buy Special Equipment To Use The Car Inspection App?',
+        answer:
+          'No special equipment is required for the standard inspection flow. You only need a smartphone with a working camera, enough lighting, and space to safely capture the required vehicle angles.',
       },
       {
         question: 'How Does The "Multi-Marker" Annotation Feature Work?',
+        answer:
+          'Multi-marker annotations let the report call out several visible issues on the same vehicle image, such as dents, scratches, tire wear, or glass damage. This keeps each concern tied to its exact photo location for easier review.',
       },
     ],
   },

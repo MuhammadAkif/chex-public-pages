@@ -254,15 +254,23 @@ export const californiaContent = {
       },
       {
         question: 'Does The Software Support High-Volume Fleet Inspections For Dsps?',
+        answer:
+          'Yes. Chex.ai is built for repeat inspections across many vehicles, with guided capture, consistent reporting, and dashboard review for DSP and fleet teams. It helps managers spot damage trends and keep records organized at scale.',
       },
       {
         question: "Why Is This The Favorite System For California's Tech-Savvy Drivers?",
+        answer:
+          'Drivers like that the inspection process is mobile, fast, and easy to complete without a shop visit. The AI-assisted report also gives them a clearer digital record of vehicle condition for resale, insurance, rideshare, or fleet use.',
       },
       {
         question: "Is My Vehicle's Data Stored Securely In The Cloud?",
+        answer:
+          'Yes. Vehicle photos, inspection details, and account data are stored in secure cloud systems with access controls designed to protect sensitive information. Your report remains available when you need to review or share it.',
       },
       {
         question: 'How Does The Ai Distinguish Between Simple Dirt And Actual Damage?',
+        answer:
+          'The system compares surface patterns, lighting, panel shape, and repeated visual signals across guided photos. If dirt or glare affects the result, users can retake photos so the final report is based on clearer evidence.',
       },
     ],
   },

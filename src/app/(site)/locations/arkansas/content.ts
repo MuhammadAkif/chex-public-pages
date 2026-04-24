@@ -258,15 +258,23 @@ export const arkansasContent = {
       },
       {
         question: 'How Accurate Is The Ai In Identifying Hail Damage Common In Arkansas?',
+        answer:
+          'Chex.ai uses guided photos and computer vision to flag small dents, panel patterns, and surface changes that are easy to miss during a quick walkaround. The result is faster triage and clearer documentation for auction, insurance, or repair review.',
       },
       {
         question: 'Does The Software Track Tire Tread Depth And Sidewall Safety?',
+        answer:
+          'The inspection flow captures tire and sidewall condition as part of the vehicle record, helping teams spot visible wear, damage, or safety concerns. For exact tread measurements, the digital report can be paired with a manual gauge reading.',
       },
       {
         question: 'Is There A Way To Triage "Yellow Light" Caution Vehicles Automatically?',
+        answer:
+          'Yes. Chex.ai can help separate clean units from vehicles that need closer review by flagging visible condition concerns and organizing them in a structured report. That makes it easier to prioritize repairs, disclosures, or manager approval.',
       },
       {
         question: 'Does Chex Ai Support "As-Is" Sales For Units Under $3,000?',
+        answer:
+          'Chex.ai helps document the condition of lower-value units with clear photos and inspection notes before sale. It does not replace your sales terms, but it gives buyers and sellers a more transparent record for as-is decisions.',
       },
     ],
   },

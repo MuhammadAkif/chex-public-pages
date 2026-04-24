@@ -255,15 +255,23 @@ export const alabamaContent = {
       },
       {
         question: "Can I Use The App If It's Raining In Huntsville?",
+        answer:
+          'Yes. The guided capture flow works in light rain as long as photos are clear and the vehicle is safely parked. If visibility is poor, retake the inspection when the surface and lighting allow accurate damage detection.',
       },
       {
         question: 'What If My Birmingham Commute Has Caused Heavy Tire Wear?',
+        answer:
+          'Chex.ai helps document visible tire wear, sidewall concerns, and related vehicle condition notes so you can act before the issue becomes a roadside problem. The report gives owners and fleet managers a clear record to review with a service provider.',
       },
       {
         question: 'How Do I Submit My Completed Form To Uber In Montgomery?',
+        answer:
+          'After completing the inspection, you can download or share the finished report from your account and upload it through the required Uber driver portal. Always confirm the latest platform instructions before submitting, since requirements can change.',
       },
       {
         question: 'Is There A Specific App For Car Inspection For Huntsville Fleets?',
+        answer:
+          'Fleet teams in Huntsville can use the same Chex.ai inspection workflow to standardize vehicle photos, condition notes, and digital reports across multiple drivers. The dashboard keeps inspections organized so managers can review issues without chasing paper forms.',
       },
     ],
   },

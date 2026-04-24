@@ -254,15 +254,23 @@ export const coloradoContent = {
       },
       {
         question: "How Does Chex Ai Protect My Teen Driver's First Car?",
+        answer:
+          'Chex.ai creates a clear baseline record of the vehicle before regular use, then helps document new dents, tire concerns, or visible damage over time. Parents can use the report to catch issues early and decide when a professional repair check is needed.',
       },
       {
         question: 'What Makes This The "Safest" Choice For Families In Colorado Springs?',
+        answer:
+          'The guided inspection focuses attention on visible safety concerns such as tires, lights, glass, body damage, and leaks. Families get a consistent digital report instead of relying on memory or a rushed driveway check.',
       },
       {
         question: 'Does The System Check For Fluid Leaks That Could Lead To Mountain Breakdowns?',
+        answer:
+          'The photo workflow helps document visible fluid spots, underbody signs, and related exterior evidence that may indicate a leak. If the report flags a concern, the next step is to have a qualified technician inspect the vehicle mechanically.',
       },
       {
         question: 'Does The Ai Help With Visibility Issues Common In Boulder Winters?',
+        answer:
+          'Yes. The inspection prompts drivers to capture glass, lights, mirrors, and exterior condition so visibility-related damage is easier to document. Clear photos help identify cracks, clouding, broken lighting, or other issues before winter driving.',
       },
     ],
   },

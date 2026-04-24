@@ -255,15 +255,23 @@ export const nebraskaContent = {
       },
       {
         question: 'Is The Uber Inspection Online Valid For Omaha And Lincoln Drivers On Chex?',
+        answer:
+          'Chex.ai helps Omaha and Lincoln drivers prepare a structured digital inspection report for rideshare onboarding or renewal. Drivers should still confirm the latest Uber and local requirements before submitting documentation.',
       },
       {
         question: 'How Do Lincoln Dealers Benefit From Chex, The Virtual Vehicle Inspection App?',
+        answer:
+          'Dealers can use Chex.ai to create consistent condition records for trade-ins, used inventory, and customer-facing disclosures. The visual report helps sales and service teams discuss vehicle condition with less back-and-forth.',
       },
       {
         question: 'Why Is An Online Vehicle Inspection Faster Than A Traditional Shop Check?',
+        answer:
+          'The online workflow removes scheduling delays by guiding the driver through photo capture from a phone. It is faster for visual documentation, while mechanical repairs or diagnostics can still be routed to a shop when needed.',
       },
       {
         question: 'What Makes Your Technology "Safety-First"?',
+        answer:
+          'The inspection flow prioritizes evidence around vehicle condition, visible damage, tires, lights, glass, and other safety-related areas. It helps teams find problems early and keep a clearer record before a vehicle returns to the road.',
       },
     ],
   },

@@ -254,15 +254,23 @@ export const nevadaContent = {
       },
       {
         question: 'How Does The Nevada Desert Climate Affect Chex Ai’s Inspection Accuracy?',
+        answer:
+          'Desert dust, glare, and heat can make vehicle surfaces harder to inspect, so Chex.ai uses guided capture prompts to improve photo consistency. If an image is unclear, the user can retake it before the report is finalized.',
       },
       {
         question: 'Can I Integrate Chex Ai With My Existing Nevada Logistics Workflow?',
+        answer:
+          'Yes. Chex.ai reports can support fleet intake, driver handoff, maintenance review, and compliance workflows by keeping inspection evidence organized in one digital record. Teams can use the dashboard to standardize how vehicle condition is reviewed.',
       },
       {
         question: 'Why Is Chex.Ai Considered The Professional Choice For Nevada Transportation?',
+        answer:
+          'Transportation teams need speed, consistency, and clear records across many vehicles. Chex.ai gives operators a repeatable inspection process that reduces manual paperwork and makes condition issues easier to review.',
       },
       {
         question: 'How Does The System Handle The Dust And Sand Common In Rural Nevada?',
+        answer:
+          'The app guides users to capture clean, well-lit angles and retake photos when dust or sand blocks a clear view. That helps the AI evaluate the actual vehicle surface instead of relying on a single unclear image.',
       },
     ],
   },

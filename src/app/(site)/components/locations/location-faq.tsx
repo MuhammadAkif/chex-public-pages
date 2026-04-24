@@ -8,7 +8,7 @@ export type LocationFaqProps = {
   description: string
   items: ReadonlyArray<{
     question: string
-    answer?: string
+    answer: string
   }>
 }
 
@@ -32,10 +32,7 @@ function ChevronIcon({ isOpen }: { isOpen: boolean }) {
 }
 
 export function LocationFaq({ idBase, title, description, items }: LocationFaqProps) {
-  const firstOpenIndex = items.findIndex((item) => Boolean(item.answer))
-  const [activeIndex, setActiveIndex] = useState<number | null>(
-    firstOpenIndex >= 0 ? firstOpenIndex : null,
-  )
+  const [activeIndex, setActiveIndex] = useState<number | null>(items.length > 0 ? 0 : null)
 
   return (
     <section className="bg-white px-4 py-20 sm:px-6 lg:px-10 lg:py-28">
@@ -88,11 +85,9 @@ export function LocationFaq({ idBase, title, description, items }: LocationFaqPr
                   }`}
                 >
                   <div className="overflow-hidden">
-                    {item.answer ? (
-                      <p className="mt-6 max-w-5xl pl-11 font-display text-[16px] leading-[1.66] text-[#1b1c20]">
-                        {item.answer}
-                      </p>
-                    ) : null}
+                    <p className="mt-6 max-w-5xl pl-11 font-display text-[16px] leading-[1.66] text-[#1b1c20]">
+                      {item.answer}
+                    </p>
                   </div>
                 </div>
                 <span className="sr-only">FAQ item {index + 1}</span>
