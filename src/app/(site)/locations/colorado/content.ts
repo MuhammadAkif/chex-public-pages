@@ -1,26 +1,3 @@
-import caseAccuracyAlt from '@/app/(site)/assets/locations/case-accuracy-alt.png'
-import caseAccuracy from '@/app/(site)/assets/locations/case-accuracy.png'
-import caseArrow from '@/app/(site)/assets/locations/case-arrow.png'
-import caseDetection from '@/app/(site)/assets/locations/case-detection.png'
-import caseGrowth from '@/app/(site)/assets/locations/case-growth.png'
-import caseReliability from '@/app/(site)/assets/locations/case-reliability.png'
-import ctaBackground from '@/app/(site)/assets/locations/cta-background.png'
-import heroPinAlabama from '@/app/(site)/assets/locations/hero-pin-alabama.png'
-import heroPinCalifornia from '@/app/(site)/assets/locations/hero-pin-california.png'
-import heroPinColorado from '@/app/(site)/assets/locations/hero-pin-colorado.png'
-import heroPinIowa from '@/app/(site)/assets/locations/hero-pin-iowa.png'
-import heroPinNebraska from '@/app/(site)/assets/locations/hero-pin-nebraska.png'
-import heroPinNewMexico from '@/app/(site)/assets/locations/hero-pin-new-mexico.png'
-import heroPinSouthCarolina from '@/app/(site)/assets/locations/hero-pin-south-carolina.png'
-import managePhoneFrame from '@/app/(site)/assets/locations/manage-phone-frame.png'
-import managePhoneNotch from '@/app/(site)/assets/locations/manage-phone-notch.png'
-import managePhoneScreen from '@/app/(site)/assets/locations/manage-phone-screen.png'
-import serviceFleet from '@/app/(site)/assets/locations/service-fleet.png'
-import serviceRideshare from '@/app/(site)/assets/locations/service-rideshare.png'
-import serviceUber from '@/app/(site)/assets/locations/service-uber.png'
-import overviewRideshareRecord from '@/app/(site)/assets/colorado/overview-rideshare-record.png'
-import regionBoulder from '@/app/(site)/assets/colorado/region-boulder.png'
-import regionDenver from '@/app/(site)/assets/colorado/region-denver.png'
 import type { LocationPageContent } from '@/app/(site)/components/locations/location-page'
 
 export const coloradoContent = {
@@ -46,13 +23,13 @@ export const coloradoContent = {
       { value: '20+', label: 'Companies' },
     ],
     locations: [
-      { label: 'South Carolina', image: heroPinSouthCarolina },
-      { label: 'New Mexico', image: heroPinNewMexico },
-      { label: 'California', image: heroPinCalifornia },
-      { label: 'Nebraska', image: heroPinNebraska },
-      { label: 'Alabama', image: heroPinAlabama },
-      { label: 'Iowa', image: heroPinIowa },
-      { label: 'Colorado', image: heroPinColorado, featured: true },
+      { label: 'South Carolina', image: "https://chex-payload-public-pages.s3.us-east-1.amazonaws.com/hero-pin-south-carolina.png" },
+      { label: 'New Mexico', image: "https://chex-payload-public-pages.s3.us-east-1.amazonaws.com/hero-pin-new-mexico.png" },
+      { label: 'California', image: "https://chex-payload-public-pages.s3.us-east-1.amazonaws.com/hero-pin-california-580863c8.png" },
+      { label: 'Nebraska', image: "https://chex-payload-public-pages.s3.us-east-1.amazonaws.com/hero-pin-nebraska.png" },
+      { label: 'Alabama', image: "https://chex-payload-public-pages.s3.us-east-1.amazonaws.com/hero-pin-alabama.png" },
+      { label: 'Iowa', image: "https://chex-payload-public-pages.s3.us-east-1.amazonaws.com/hero-pin-iowa-155a803a.png" },
+      { label: 'Colorado', image: "https://chex-payload-public-pages.s3.us-east-1.amazonaws.com/hero-pin-colorado.png", featured: true },
     ],
   },
   overview: {
@@ -61,7 +38,7 @@ export const coloradoContent = {
       "Mileage piles up fast on I-70, and we all know that kills a car's value. But what kills it even faster is undocumented wear and tear. Whether you're commuting between Denver and Boulder or taking weekend trips down to Colorado Springs, your vehicle is constantly exposed to gravel, debris, and that brutal mountain salt. Our self-service vehicle inspection lets you track your car's health like a pro right from your driveway.",
       "In a place like Denver, where the weather changes in minutes, having a consistent digital record is a lifesaver. When you eventually go to sell that car, you aren't just saying it's in good shape, you're showing a full history of digital check-ups. It's the easiest way for a Colorado driver to prove they actually took care of their ride. Whether you're navigating the busy streets of Colorado Springs or parking in tight spots in Boulder, you'll have the evidence needed to justify a higher asking price. It's about transparency and helping you get every penny you deserve when it's time for an upgrade.",
     ],
-    image: overviewRideshareRecord.src,
+    image: "https://chex-payload-public-pages.s3.us-east-1.amazonaws.com/overview-rideshare-record.png",
     imageAlt: 'Colorado rideshare inspection history preview',
   },
   services: {
@@ -76,20 +53,20 @@ export const coloradoContent = {
         title: 'Fleet Management: Automated Compliance That Keeps You Moving',
         description:
           'Managing a fleet across the I-85 corridor or the Port of Charleston requires a forensic level of detail. Our inspection reporting software is engineered to provide exactly that, without the downtime of a traditional garage.',
-        image: serviceFleet.src,
+        image: "https://chex-payload-public-pages.s3.us-east-1.amazonaws.com/service-fleet.png",
       },
       {
         title: 'Rideshare: Certified and Ready to Drive in Minutes',
         description:
           "For drivers in Charleston, Columbia, and Greenville, getting your car cleared shouldn't be a problem. Our car inspection app is the straightest line to getting back on the app. We run a 19-point digital scan that checks exactly what South Carolina regulators require.",
-        image: serviceRideshare.src,
+        image: "https://chex-payload-public-pages.s3.us-east-1.amazonaws.com/service-rideshare.png",
         reverse: true,
       },
       {
         title: 'Uber Inspection Online: Your Driveway Is the New Shop',
         description:
           "Keeping your Uber status in South Carolina shouldn't cost you a day of earnings. Our artificial intelligence vehicle detection walks you through a full 19-point scan using just your phone. We make sure you're road-ready from the Upstate to the Lowcountry.",
-        image: serviceUber.src,
+        image: "https://chex-payload-public-pages.s3.us-east-1.amazonaws.com/service-uber.png",
       },
     ],
   },
@@ -141,12 +118,12 @@ export const coloradoContent = {
       {
         city: 'Denver',
         description: 'Keep your inventory frontline-ready with Chex AI.',
-        image: regionDenver.src,
+        image: "https://chex-payload-public-pages.s3.us-east-1.amazonaws.com/region-denver.png",
       },
       {
         city: 'Boulder',
         description: "Maintain your vehicle's resale value and structural integrity.",
-        image: regionBoulder.src,
+        image: "https://chex-payload-public-pages.s3.us-east-1.amazonaws.com/region-boulder.png",
       },
     ],
   },
@@ -160,12 +137,12 @@ export const coloradoContent = {
     ],
     buttonLabel: 'Request a demo',
     demoHref: '#colorado-demo',
-    frameImage: managePhoneFrame.src,
-    screenImage: managePhoneScreen.src,
+    frameImage: "https://chex-payload-public-pages.s3.us-east-1.amazonaws.com/manage-phone-frame.png",
+    screenImage: "https://chex-payload-public-pages.s3.us-east-1.amazonaws.com/key-differentiators.png",
     checkIconColor: '#ff7a01',
     illustration: {
       variant: 'framed-screen',
-      notchImage: managePhoneNotch.src,
+      notchImage: "https://chex-payload-public-pages.s3.us-east-1.amazonaws.com/manage-phone-notch.png",
     },
   },
   caseStudies: {
@@ -176,38 +153,38 @@ export const coloradoContent = {
         title: 'Accuracy',
         description:
           'Our AI-powered vehicle inspection system automatically detects and highlights visible damages such as dents, scratches, cracks, and broken parts from vehicle images.',
-        image: caseAccuracy.src,
+        image: "https://chex-payload-public-pages.s3.us-east-1.amazonaws.com/case-accuracy.png",
       },
       {
         metric: '95.3%',
         title: 'AI Detection',
         description:
           'The system inspects every side of the vehicle and detects damage on each body part individually. By comparing current and previous inspections.',
-        image: caseDetection.src,
+        image: "https://chex-payload-public-pages.s3.us-east-1.amazonaws.com/case-detection.png",
       },
       {
         metric: '93.6%',
         title: 'Reliability',
         description:
           'Our AI-powered vehicle inspection system automatically detects and highlights visible damages such as dents, scratches, cracks, and broken parts from vehicle images.',
-        image: caseReliability.src,
+        image: "https://chex-payload-public-pages.s3.us-east-1.amazonaws.com/case-reliability.png",
       },
       {
         metric: '92.5%',
         title: 'Growth Rate',
         description:
           'Our AI-powered vehicle inspection system automatically detects and highlights visible damages such as dents, scratches, cracks, and broken parts from vehicle images.',
-        image: caseGrowth.src,
+        image: "https://chex-payload-public-pages.s3.us-east-1.amazonaws.com/case-growth.png",
       },
       {
         metric: '81.5%',
         title: 'Accuracy',
         description:
           'Our AI-powered vehicle inspection system automatically detects and highlights visible damages such as dents, scratches, cracks, and broken parts from vehicle images.',
-        image: caseAccuracyAlt.src,
+        image: "https://chex-payload-public-pages.s3.us-east-1.amazonaws.com/case-coverage.png",
       },
     ],
-    arrowImage: caseArrow,
+    arrowImage: "https://chex-payload-public-pages.s3.us-east-1.amazonaws.com/arrow-circle.png",
     sectionClassName: 'bg-[#010e2b] px-4 py-16 text-white sm:px-6 lg:px-10 lg:py-20',
     scrollClassName: 'mt-14 overflow-x-auto pb-6 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden',
     articleClassName:
@@ -282,7 +259,7 @@ export const coloradoContent = {
     primaryLabel: 'Verify Your Next Vehicle',
     secondaryLabel: 'Request a demo',
     helperText: 'No credit card required, cancel anytime.',
-    image: ctaBackground.src,
+    image: "https://chex-payload-public-pages.s3.us-east-1.amazonaws.com/cta-background.png",
     imageOpacityClassName: 'opacity-100',
   },
 } as const satisfies LocationPageContent

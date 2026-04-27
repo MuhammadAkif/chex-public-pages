@@ -1,13 +1,11 @@
-import Image from 'next/image'
-import type { StaticImageData } from 'next/image'
-
 import heroRatingBadge from '@/app/(site)/assets/locations/hero-rating-badge.png'
 import logoChex from '@/app/(site)/assets/shared/logo-chex.png'
+import { SiteImage, type SiteImageSource } from '@/app/(site)/components/shared/site-image'
 import { Button } from '@/app/(site)/components/ui/button'
 
 export type LocationHeroProps = {
   rating: string
-  ratingBadgeImage?: StaticImageData
+  ratingBadgeImage?: SiteImageSource
   title: string
   description: string
   primaryLabel: string
@@ -20,7 +18,7 @@ export type LocationHeroProps = {
   }>
   locations: ReadonlyArray<{
     label: string
-    image: StaticImageData
+    image: SiteImageSource
     featured?: boolean
   }>
   sectionClassName?: string
@@ -62,7 +60,7 @@ function OrbitMap({
       <div className="absolute inset-[39%] rounded-full border border-dashed border-[#ff7a01]/25" />
 
       <div className="absolute left-1/2 top-1/2 flex h-24 w-24 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full bg-[#fff1e5] shadow-[0_20px_70px_-36px_rgba(255,122,1,0.55)] sm:h-32 sm:w-32">
-        <Image src={logoChex} alt="Chex.AI" className="h-7 w-auto sm:h-8" priority />
+        <SiteImage src={logoChex} alt="Chex.AI" className="h-7 w-auto sm:h-8" priority />
       </div>
 
       {locations.map((location, index) => {
@@ -74,7 +72,7 @@ function OrbitMap({
             <span className={['relative shrink-0', isFeatured ? 'h-[82px] w-[82px]' : 'h-[61px] w-[61px]'].join(' ')}>
               <span className="absolute inset-0 rounded-full bg-[#ff7a01]" />
               <span className="absolute inset-[6px] rounded-full bg-white" />
-              <Image
+              <SiteImage
                 src={location.image}
                 alt=""
                 className={[
@@ -152,7 +150,7 @@ export function LocationHero({
             </span>
             <span className="relative inline-flex h-7 w-7 items-center justify-center">
               <span className="absolute inset-0 rounded-full bg-[#fff1e5]" />
-              <Image src={ratingBadgeImage} alt="" className="relative h-[18px] w-[18px]" />
+              <SiteImage src={ratingBadgeImage} alt="" className="relative h-[18px] w-[18px]" />
             </span>
           </div>
 

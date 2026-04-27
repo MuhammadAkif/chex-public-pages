@@ -1,8 +1,6 @@
 'use client'
 
-import Image from 'next/image'
-import type { StaticImageData } from 'next/image'
-
+import { SiteImage, type SiteImageSource } from '@/app/(site)/components/shared/site-image'
 import { Button } from '@/app/(site)/components/ui/button'
 
 type HomeHeroProps = {
@@ -12,7 +10,7 @@ type HomeHeroProps = {
   primaryLabel: string
   secondaryLabel: string
   helperText: string
-  media: StaticImageData
+  media: SiteImageSource
 }
 
 export function HomeHero({
@@ -59,7 +57,7 @@ export function HomeHero({
           <div className="pointer-events-none absolute inset-x-20 top-0 h-14 rounded-full bg-[radial-gradient(circle,_rgba(255,122,1,0.18)_0%,_rgba(19,104,185,0)_72%)] blur-3xl" />
           <div className="relative overflow-hidden rounded-[28px] border border-white/80 bg-white p-3 shadow-[0_60px_140px_-70px_rgba(19,104,185,0.65)] sm:p-6">
             <div className="pointer-events-none absolute inset-x-14 top-3 h-px bg-white/90 sm:inset-x-24 sm:top-5" />
-            <Image
+            <SiteImage
               src={media}
               alt="Chex.AI inspection vehicle preview"
               className="h-auto w-full rounded-[22px] object-cover"

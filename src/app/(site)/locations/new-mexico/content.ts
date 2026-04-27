@@ -1,26 +1,3 @@
-import caseAccuracyAlt from '@/app/(site)/assets/locations/case-accuracy-alt.png'
-import caseAccuracy from '@/app/(site)/assets/locations/case-accuracy.png'
-import caseArrow from '@/app/(site)/assets/locations/case-arrow.png'
-import caseDetection from '@/app/(site)/assets/locations/case-detection.png'
-import caseGrowth from '@/app/(site)/assets/locations/case-growth.png'
-import caseReliability from '@/app/(site)/assets/locations/case-reliability.png'
-import ctaBackground from '@/app/(site)/assets/locations/cta-background.png'
-import heroPinAlabama from '@/app/(site)/assets/locations/hero-pin-alabama.png'
-import heroPinCalifornia from '@/app/(site)/assets/locations/hero-pin-california.png'
-import heroPinColorado from '@/app/(site)/assets/locations/hero-pin-colorado.png'
-import heroPinIowa from '@/app/(site)/assets/locations/hero-pin-iowa.png'
-import heroPinNebraska from '@/app/(site)/assets/locations/hero-pin-nebraska.png'
-import heroPinNewMexico from '@/app/(site)/assets/new-mexico/hero-pin-new-mexico.png'
-import heroPinSouthCarolina from '@/app/(site)/assets/locations/hero-pin-south-carolina.png'
-import impactAlbuquerque from '@/app/(site)/assets/new-mexico/impact-albuquerque.png'
-import impactSantaFe from '@/app/(site)/assets/new-mexico/impact-santa-fe.png'
-import managePhoneFrame from '@/app/(site)/assets/locations/manage-phone-frame.png'
-import managePhoneNotch from '@/app/(site)/assets/locations/manage-phone-notch.png'
-import managePhoneScreen from '@/app/(site)/assets/locations/manage-phone-screen.png'
-import overviewEdgeProcessing from '@/app/(site)/assets/new-mexico/overview-edge-processing.png'
-import serviceFleet from '@/app/(site)/assets/locations/service-fleet.png'
-import serviceRideshare from '@/app/(site)/assets/locations/service-rideshare.png'
-import serviceUber from '@/app/(site)/assets/locations/service-uber.png'
 import type { LocationPageContent } from '@/app/(site)/components/locations/location-page'
 
 export const newMexicoContent = {
@@ -46,13 +23,13 @@ export const newMexicoContent = {
       { value: '20+', label: 'Companies' },
     ],
     locations: [
-      { label: 'South Carolina', image: heroPinSouthCarolina, featured: false },
-      { label: 'New Mexico', image: heroPinNewMexico, featured: true },
-      { label: 'California', image: heroPinCalifornia, featured: false },
-      { label: 'Nebraska', image: heroPinNebraska, featured: false },
-      { label: 'Alabama', image: heroPinAlabama, featured: false },
-      { label: 'Iowa', image: heroPinIowa, featured: false },
-      { label: 'Colorado', image: heroPinColorado, featured: false },
+      { label: 'South Carolina', image: "https://chex-payload-public-pages.s3.us-east-1.amazonaws.com/hero-pin-south-carolina.png", featured: false },
+      { label: 'New Mexico', image: "https://chex-payload-public-pages.s3.us-east-1.amazonaws.com/hero-pin-new-mexico-aa79eae5.png", featured: true },
+      { label: 'California', image: "https://chex-payload-public-pages.s3.us-east-1.amazonaws.com/hero-pin-california-580863c8.png", featured: false },
+      { label: 'Nebraska', image: "https://chex-payload-public-pages.s3.us-east-1.amazonaws.com/hero-pin-nebraska.png", featured: false },
+      { label: 'Alabama', image: "https://chex-payload-public-pages.s3.us-east-1.amazonaws.com/hero-pin-alabama.png", featured: false },
+      { label: 'Iowa', image: "https://chex-payload-public-pages.s3.us-east-1.amazonaws.com/hero-pin-iowa-155a803a.png", featured: false },
+      { label: 'Colorado', image: "https://chex-payload-public-pages.s3.us-east-1.amazonaws.com/hero-pin-colorado.png", featured: false },
     ],
   },
   overview: {
@@ -61,7 +38,7 @@ export const newMexicoContent = {
       'Chex AI uses edge computing to instantly analyze data, allowing immediate triage. It flags damaged vehicles for repairs and clears healthy ones to keep moving, saving time in New Mexico, Albuquerque, and Santa Fe. With automated triage, you no longer have to deal with waiting around for manual inspections or long repair delays. Whether you are managing just a few vehicles or an entire fleet,',
       'Chex AI keeps everything running smoothly. It is the efficient and straightforward way to take care of your vehicles and make sure they are always ready to hit the road without any complications. Chex AI is the easy, smart way to keep your fleet ready and in top shape. It is designed to help you maintain your vehicles efficiently, reducing stress and making sure you are always prepared for what is next. Instead of worrying about vehicle inspections, you can focus on your operations, knowing that Chex AI is taking care of the rest.'
     ],
-    image: overviewEdgeProcessing.src,
+    image: "https://chex-payload-public-pages.s3.us-east-1.amazonaws.com/overview-edge-processing.png",
     imageAlt: 'AI based instant edge processing',
   },
   services: {
@@ -76,20 +53,20 @@ export const newMexicoContent = {
         title: 'Fleet Management: Automated Compliance That Keeps You Moving',
         description:
           'Managing a fleet across the I-85 corridor or the Port of Charleston requires a forensic level of detail. Our inspection reporting software is engineered to provide exactly that, without the downtime of a traditional garage.',
-        image: serviceFleet.src,
+        image: "https://chex-payload-public-pages.s3.us-east-1.amazonaws.com/service-fleet.png",
       },
       {
         title: 'Rideshare: Certified and Ready to Drive in Minutes',
         description:
           "For drivers in Charleston, Columbia, and Greenville, getting your car cleared should not be a problem. Our car inspection app is the straightest line to getting back on the app. We run a 19-point digital scan that checks exactly what South Carolina regulators require.",
-        image: serviceRideshare.src,
+        image: "https://chex-payload-public-pages.s3.us-east-1.amazonaws.com/service-rideshare.png",
         reverse: true,
       },
       {
         title: 'Uber Inspection Online: Your Driveway Is the New Shop',
         description:
           'Keeping your Uber status in South Carolina should not cost you a day of earnings. Our artificial intelligence vehicle detection walks you through a full 19-point scan using just your phone. We make sure you are road-ready from the Upstate to the Lowcountry.',
-        image: serviceUber.src,
+        image: "https://chex-payload-public-pages.s3.us-east-1.amazonaws.com/service-uber.png",
       },
     ],
   },
@@ -142,12 +119,12 @@ export const newMexicoContent = {
       {
         city: 'Albuquerque',
         description: 'Chex.ai speeds up the process using LiDAR technology.',
-        image: impactAlbuquerque.src,
+        image: "https://chex-payload-public-pages.s3.us-east-1.amazonaws.com/impact-albuquerque.png",
       },
       {
         city: 'Santa Fe',
         description: 'Chex.ai checks makes sure your fleet stays in great shape.',
-        image: impactSantaFe.src,
+        image: "https://chex-payload-public-pages.s3.us-east-1.amazonaws.com/impact-santa-fe.png",
       },
     ],
   },
@@ -161,12 +138,12 @@ export const newMexicoContent = {
     ],
     buttonLabel: 'Request a demo',
     demoHref: '#new-mexico-demo',
-    frameImage: managePhoneFrame.src,
-    screenImage: managePhoneScreen.src,
+    frameImage: "https://chex-payload-public-pages.s3.us-east-1.amazonaws.com/manage-phone-frame.png",
+    screenImage: "https://chex-payload-public-pages.s3.us-east-1.amazonaws.com/key-differentiators.png",
     checkIconColor: '#ff7a01',
     illustration: {
       variant: 'framed-screen',
-      notchImage: managePhoneNotch.src,
+      notchImage: "https://chex-payload-public-pages.s3.us-east-1.amazonaws.com/manage-phone-notch.png",
     },
   },
   caseStudies: {
@@ -177,38 +154,38 @@ export const newMexicoContent = {
         title: 'Accuracy',
         description:
           'Our AI-powered vehicle inspection system automatically detects and highlights visible damages such as dents, scratches, cracks, and broken parts from vehicle images.',
-        image: caseAccuracy.src,
+        image: "https://chex-payload-public-pages.s3.us-east-1.amazonaws.com/case-accuracy.png",
       },
       {
         metric: '95.3%',
         title: 'AI Detection',
         description:
           'The system inspects every side of the vehicle and detects damage on each body part individually. By comparing current and previous inspections.',
-        image: caseDetection.src,
+        image: "https://chex-payload-public-pages.s3.us-east-1.amazonaws.com/case-detection.png",
       },
       {
         metric: '93.6%',
         title: 'Reliability',
         description:
           'Our AI-powered vehicle inspection system automatically detects and highlights visible damages such as dents, scratches, cracks, and broken parts from vehicle images.',
-        image: caseReliability.src,
+        image: "https://chex-payload-public-pages.s3.us-east-1.amazonaws.com/case-reliability.png",
       },
       {
         metric: '92.5%',
         title: 'Growth Rate',
         description:
           'Our AI-powered vehicle inspection system automatically detects and highlights visible damages such as dents, scratches, cracks, and broken parts from vehicle images.',
-        image: caseGrowth.src,
+        image: "https://chex-payload-public-pages.s3.us-east-1.amazonaws.com/case-growth.png",
       },
       {
         metric: '81.5%',
         title: 'Accuracy',
         description:
           'Our AI-powered vehicle inspection system automatically detects and highlights visible damages such as dents, scratches, cracks, and broken parts from vehicle images.',
-        image: caseAccuracyAlt.src,
+        image: "https://chex-payload-public-pages.s3.us-east-1.amazonaws.com/case-coverage.png",
       },
     ],
-    arrowImage: caseArrow,
+    arrowImage: "https://chex-payload-public-pages.s3.us-east-1.amazonaws.com/arrow-circle.png",
     sectionClassName: 'bg-[#010e2b] px-4 py-16 text-white sm:px-6 lg:px-10 lg:py-20',
     scrollClassName: 'mt-14 overflow-x-auto pb-6 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden',
     articleClassName:
@@ -282,7 +259,7 @@ export const newMexicoContent = {
     primaryLabel: 'Verify Your Next Vehicle',
     secondaryLabel: 'Request a demo',
     helperText: 'No credit card required, cancel anytime.',
-    image: ctaBackground.src,
+    image: "https://chex-payload-public-pages.s3.us-east-1.amazonaws.com/cta-background.png",
     imageOpacityClassName: 'opacity-55',
   },
 } as const satisfies LocationPageContent

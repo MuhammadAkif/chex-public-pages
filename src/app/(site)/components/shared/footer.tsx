@@ -1,10 +1,9 @@
 'use client'
 
-import Image from 'next/image'
-import type { StaticImageData } from 'next/image'
+import { SiteImage, type SiteImageSource } from '@/app/(site)/components/shared/site-image'
 
 type FooterProps = {
-  logo: StaticImageData
+  logo: SiteImageSource
   description: string
   menuTitle: string
   menuItems: ReadonlyArray<string>
@@ -30,7 +29,7 @@ export function Footer({
         <div className="grid gap-10 border-b border-[#2563eb]/15 pb-12 lg:grid-cols-[1.05fr_0.9fr_0.9fr] lg:gap-16">
           <div>
             <div className="inline-flex rounded-[8px] bg-white px-4 py-2">
-              <Image src={logo} alt="Chex.AI" className="h-11 w-auto" />
+              <SiteImage src={logo} alt="Chex.AI" className="h-11 w-auto" />
             </div>
             <p className="type-footer-copy mt-8 max-w-sm text-[#e1ebf9]/80">{description}</p>
           </div>

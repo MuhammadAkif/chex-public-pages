@@ -1,8 +1,6 @@
 'use client'
 
-import Image from 'next/image'
-import type { StaticImageData } from 'next/image'
-
+import { SiteImage, type SiteImageSource } from '@/app/(site)/components/shared/site-image'
 import { SectionHeading } from '@/app/(site)/components/ui/section-heading'
 import { SurfaceCard } from '@/app/(site)/components/ui/surface-card'
 
@@ -12,7 +10,7 @@ type HomeHowItWorksProps = {
   steps: ReadonlyArray<{
     title: string
     description: string
-    image: StaticImageData
+    image: SiteImageSource
   }>
 }
 
@@ -37,7 +35,7 @@ export function HomeHowItWorks({
               </div>
 
               <div className="mt-6 overflow-hidden rounded-[22px] bg-[#f4f8ff]">
-                <Image
+                <SiteImage
                   src={step.image}
                   alt={step.title}
                   className="h-56 w-full object-cover"

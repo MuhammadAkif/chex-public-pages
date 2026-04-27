@@ -8,6 +8,13 @@
       "source_location": "L1"
     },
     {
+      "id": "payload_config_gets3publicurl",
+      "label": "getS3PublicURL()",
+      "file_type": "code",
+      "source_file": "/Users/apple/Desktop/Techling/Chex/chex-public-pages/payload.config.ts",
+      "source_location": "L28"
+    },
+    {
       "id": "next_config_ts",
       "label": "next.config.ts",
       "file_type": "code",
@@ -117,7 +124,7 @@
       "label": "HomeBusinessHelp()",
       "file_type": "code",
       "source_file": "/Users/apple/Desktop/Techling/Chex/chex-public-pages/src/app/(site)/components/home/home-business-help.tsx",
-      "source_location": "L15"
+      "source_location": "L13"
     },
     {
       "id": "src_app_site_components_home_home_call_to_action_tsx",
@@ -152,7 +159,7 @@
       "label": "HomeHero()",
       "file_type": "code",
       "source_file": "/Users/apple/Desktop/Techling/Chex/chex-public-pages/src/app/(site)/components/home/home-hero.tsx",
-      "source_location": "L18"
+      "source_location": "L16"
     },
     {
       "id": "src_app_site_components_home_home_how_it_works_tsx",
@@ -166,7 +173,7 @@
       "label": "HomeHowItWorks()",
       "file_type": "code",
       "source_file": "/Users/apple/Desktop/Techling/Chex/chex-public-pages/src/app/(site)/components/home/home-how-it-works.tsx",
-      "source_location": "L19"
+      "source_location": "L17"
     },
     {
       "id": "src_app_site_components_home_home_key_differentiators_tsx",
@@ -180,7 +187,7 @@
       "label": "HomeKeyDifferentiators()",
       "file_type": "code",
       "source_file": "/Users/apple/Desktop/Techling/Chex/chex-public-pages/src/app/(site)/components/home/home-key-differentiators.tsx",
-      "source_location": "L12"
+      "source_location": "L11"
     },
     {
       "id": "src_app_site_components_home_home_page_tsx",
@@ -208,7 +215,7 @@
       "label": "LocationCaseStudies()",
       "file_type": "code",
       "source_file": "/Users/apple/Desktop/Techling/Chex/chex-public-pages/src/app/(site)/components/locations/location-case-studies.tsx",
-      "source_location": "L31"
+      "source_location": "L30"
     },
     {
       "id": "src_app_site_components_locations_location_cta_tsx",
@@ -250,7 +257,7 @@
       "label": "StarIcon()",
       "file_type": "code",
       "source_file": "/Users/apple/Desktop/Techling/Chex/chex-public-pages/src/app/(site)/components/locations/location-hero.tsx",
-      "source_location": "L33"
+      "source_location": "L31"
     },
     {
       "id": "src_app_site_components_locations_location_manage_tsx",
@@ -362,7 +369,7 @@
       "label": "CaseStudyBackgroundImage()",
       "file_type": "code",
       "source_file": "/Users/apple/Desktop/Techling/Chex/chex-public-pages/src/app/(site)/components/shared/case-studies.tsx",
-      "source_location": "L39"
+      "source_location": "L38"
     },
     {
       "id": "src_app_site_components_shared_footer_tsx",
@@ -376,7 +383,7 @@
       "label": "Footer()",
       "file_type": "code",
       "source_file": "/Users/apple/Desktop/Techling/Chex/chex-public-pages/src/app/(site)/components/shared/footer.tsx",
-      "source_location": "L17"
+      "source_location": "L16"
     },
     {
       "id": "src_app_site_components_shared_navbar_tsx",
@@ -390,7 +397,7 @@
       "label": "updateScrollState()",
       "file_type": "code",
       "source_file": "/Users/apple/Desktop/Techling/Chex/chex-public-pages/src/app/(site)/components/shared/navbar.tsx",
-      "source_location": "L25"
+      "source_location": "L24"
     },
     {
       "id": "src_app_site_components_shared_reveal_tsx",
@@ -426,6 +433,20 @@
       "file_type": "code",
       "source_file": "/Users/apple/Desktop/Techling/Chex/chex-public-pages/src/app/(site)/components/shared/reveal.tsx",
       "source_location": "L75"
+    },
+    {
+      "id": "src_app_site_components_shared_site_image_tsx",
+      "label": "src/app/(site)/components/shared/site-image.tsx",
+      "file_type": "code",
+      "source_file": "/Users/apple/Desktop/Techling/Chex/chex-public-pages/src/app/(site)/components/shared/site-image.tsx",
+      "source_location": "L1"
+    },
+    {
+      "id": "site_image_siteimage",
+      "label": "SiteImage()",
+      "file_type": "code",
+      "source_file": "/Users/apple/Desktop/Techling/Chex/chex-public-pages/src/app/(site)/components/shared/site-image.tsx",
+      "source_location": "L15"
     },
     {
       "id": "src_app_site_components_ui_button_tsx",
@@ -712,7 +733,7 @@
       "label": "resolveAssetSrc()",
       "file_type": "code",
       "source_file": "/Users/apple/Desktop/Techling/Chex/chex-public-pages/src/app/(site)/locations/ohio/content.ts",
-      "source_location": "L29"
+      "source_location": "L3"
     },
     {
       "id": "src_app_site_locations_ohio_page_tsx",
@@ -778,6 +799,13 @@
       "source_location": "L53"
     },
     {
+      "id": "src_collections_media_ts",
+      "label": "src/collections/Media.ts",
+      "file_type": "code",
+      "source_file": "/Users/apple/Desktop/Techling/Chex/chex-public-pages/src/collections/Media.ts",
+      "source_location": "L1"
+    },
+    {
       "id": "src_collections_posts_ts",
       "label": "src/collections/Posts.ts",
       "file_type": "code",
@@ -811,6 +839,27 @@
       "file_type": "code",
       "source_file": "/Users/apple/Desktop/Techling/Chex/chex-public-pages/src/migrations/20260422_162945_initial_schema.ts",
       "source_location": "L147"
+    },
+    {
+      "id": "src_migrations_20260427_111031_media_collection_ts",
+      "label": "src/migrations/20260427_111031_media_collection.ts",
+      "file_type": "code",
+      "source_file": "/Users/apple/Desktop/Techling/Chex/chex-public-pages/src/migrations/20260427_111031_media_collection.ts",
+      "source_location": "L1"
+    },
+    {
+      "id": "20260427_111031_media_collection_up",
+      "label": "up()",
+      "file_type": "code",
+      "source_file": "/Users/apple/Desktop/Techling/Chex/chex-public-pages/src/migrations/20260427_111031_media_collection.ts",
+      "source_location": "L3"
+    },
+    {
+      "id": "20260427_111031_media_collection_down",
+      "label": "down()",
+      "file_type": "code",
+      "source_file": "/Users/apple/Desktop/Techling/Chex/chex-public-pages/src/migrations/20260427_111031_media_collection.ts",
+      "source_location": "L38"
     },
     {
       "id": "src_migrations_index_ts",
@@ -880,98 +929,98 @@
       "label": "siteContent",
       "file_type": "code",
       "source_file": "/Users/apple/Desktop/Techling/Chex/chex-public-pages/src/app/(site)/content.ts",
-      "source_location": "L2"
+      "source_location": "L1"
     },
     {
       "id": "src_app_site_home_content_ts_homecontent",
       "label": "homeContent",
       "file_type": "code",
       "source_file": "/Users/apple/Desktop/Techling/Chex/chex-public-pages/src/app/(site)/home/content.ts",
-      "source_location": "L15"
+      "source_location": "L1"
     },
     {
       "id": "src_app_site_locations_alabama_content_ts_alabamacontent",
       "label": "alabamaContent",
       "file_type": "code",
       "source_file": "/Users/apple/Desktop/Techling/Chex/chex-public-pages/src/app/(site)/locations/alabama/content.ts",
-      "source_location": "L25"
+      "source_location": "L2"
     },
     {
       "id": "src_app_site_locations_arizona_content_ts_arizonacontent",
       "label": "arizonaContent",
       "file_type": "code",
       "source_file": "/Users/apple/Desktop/Techling/Chex/chex-public-pages/src/app/(site)/locations/arizona/content.ts",
-      "source_location": "L25"
+      "source_location": "L2"
     },
     {
       "id": "src_app_site_locations_arkansas_content_ts_arkansascontent",
       "label": "arkansasContent",
       "file_type": "code",
       "source_file": "/Users/apple/Desktop/Techling/Chex/chex-public-pages/src/app/(site)/locations/arkansas/content.ts",
-      "source_location": "L29"
+      "source_location": "L9"
     },
     {
       "id": "src_app_site_locations_california_content_ts_californiacontent",
       "label": "californiaContent",
       "file_type": "code",
       "source_file": "/Users/apple/Desktop/Techling/Chex/chex-public-pages/src/app/(site)/locations/california/content.ts",
-      "source_location": "L25"
+      "source_location": "L2"
     },
     {
       "id": "src_app_site_locations_colorado_content_ts_coloradocontent",
       "label": "coloradoContent",
       "file_type": "code",
       "source_file": "/Users/apple/Desktop/Techling/Chex/chex-public-pages/src/app/(site)/locations/colorado/content.ts",
-      "source_location": "L25"
+      "source_location": "L2"
     },
     {
       "id": "src_app_site_locations_iowa_content_ts_iowacontent",
       "label": "iowaContent",
       "file_type": "code",
       "source_file": "/Users/apple/Desktop/Techling/Chex/chex-public-pages/src/app/(site)/locations/iowa/content.ts",
-      "source_location": "L25"
+      "source_location": "L2"
     },
     {
       "id": "src_app_site_locations_nebraska_content_ts_nebraskacontent",
       "label": "nebraskaContent",
       "file_type": "code",
       "source_file": "/Users/apple/Desktop/Techling/Chex/chex-public-pages/src/app/(site)/locations/nebraska/content.ts",
-      "source_location": "L25"
+      "source_location": "L2"
     },
     {
       "id": "src_app_site_locations_nevada_content_ts_nevadacontent",
       "label": "nevadaContent",
       "file_type": "code",
       "source_file": "/Users/apple/Desktop/Techling/Chex/chex-public-pages/src/app/(site)/locations/nevada/content.ts",
-      "source_location": "L25"
+      "source_location": "L2"
     },
     {
       "id": "src_app_site_locations_new_mexico_content_ts_newmexicocontent",
       "label": "newMexicoContent",
       "file_type": "code",
       "source_file": "/Users/apple/Desktop/Techling/Chex/chex-public-pages/src/app/(site)/locations/new-mexico/content.ts",
-      "source_location": "L25"
+      "source_location": "L2"
     },
     {
       "id": "src_app_site_locations_ohio_content_ts_ohiocontent",
       "label": "ohioContent",
       "file_type": "code",
       "source_file": "/Users/apple/Desktop/Techling/Chex/chex-public-pages/src/app/(site)/locations/ohio/content.ts",
-      "source_location": "L45"
+      "source_location": "L19"
     },
     {
       "id": "src_app_site_locations_south_carolina_content_ts_southcarolinacontent",
       "label": "southCarolinaContent",
       "file_type": "code",
       "source_file": "/Users/apple/Desktop/Techling/Chex/chex-public-pages/src/app/(site)/locations/south-carolina/content.ts",
-      "source_location": "L23"
+      "source_location": "L2"
     },
     {
       "id": "src_migrations_index_ts_migrations",
       "label": "migrations",
       "file_type": "code",
       "source_file": "/Users/apple/Desktop/Techling/Chex/chex-public-pages/src/migrations/index.ts",
-      "source_location": "L2"
+      "source_location": "L3"
     }
   ],
   "edges": [
@@ -1013,7 +1062,7 @@
     },
     {
       "source": "payload_config_ts",
-      "target": "payload",
+      "target": "storage_s3",
       "relation": "imports_from",
       "confidence": "EXTRACTED",
       "source_file": "/Users/apple/Desktop/Techling/Chex/chex-public-pages/payload.config.ts",
@@ -1022,11 +1071,29 @@
     },
     {
       "source": "payload_config_ts",
+      "target": "payload",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "/Users/apple/Desktop/Techling/Chex/chex-public-pages/payload.config.ts",
+      "source_location": "L6",
+      "weight": 1.0
+    },
+    {
+      "source": "payload_config_ts",
       "target": "src_collections_posts_ts",
       "relation": "imports_from",
       "confidence": "EXTRACTED",
       "source_file": "/Users/apple/Desktop/Techling/Chex/chex-public-pages/payload.config.ts",
-      "source_location": "L7",
+      "source_location": "L8",
+      "weight": 1.0
+    },
+    {
+      "source": "payload_config_ts",
+      "target": "src_collections_media_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "/Users/apple/Desktop/Techling/Chex/chex-public-pages/payload.config.ts",
+      "source_location": "L9",
       "weight": 1.0
     },
     {
@@ -1035,7 +1102,16 @@
       "relation": "imports_from",
       "confidence": "EXTRACTED",
       "source_file": "/Users/apple/Desktop/Techling/Chex/chex-public-pages/payload.config.ts",
-      "source_location": "L8",
+      "source_location": "L10",
+      "weight": 1.0
+    },
+    {
+      "source": "payload_config_ts",
+      "target": "payload_config_gets3publicurl",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "/Users/apple/Desktop/Techling/Chex/chex-public-pages/payload.config.ts",
+      "source_location": "L28",
       "weight": 1.0
     },
     {
@@ -1310,7 +1386,7 @@
     },
     {
       "source": "src_app_site_components_home_home_business_help_tsx",
-      "target": "image",
+      "target": "site_image",
       "relation": "imports_from",
       "confidence": "EXTRACTED",
       "source_file": "/Users/apple/Desktop/Techling/Chex/chex-public-pages/src/app/(site)/components/home/home-business-help.tsx",
@@ -1319,7 +1395,7 @@
     },
     {
       "source": "src_app_site_components_home_home_business_help_tsx",
-      "target": "image",
+      "target": "button",
       "relation": "imports_from",
       "confidence": "EXTRACTED",
       "source_file": "/Users/apple/Desktop/Techling/Chex/chex-public-pages/src/app/(site)/components/home/home-business-help.tsx",
@@ -1328,20 +1404,11 @@
     },
     {
       "source": "src_app_site_components_home_home_business_help_tsx",
-      "target": "button",
-      "relation": "imports_from",
-      "confidence": "EXTRACTED",
-      "source_file": "/Users/apple/Desktop/Techling/Chex/chex-public-pages/src/app/(site)/components/home/home-business-help.tsx",
-      "source_location": "L6",
-      "weight": 1.0
-    },
-    {
-      "source": "src_app_site_components_home_home_business_help_tsx",
       "target": "home_business_help_homebusinesshelp",
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "/Users/apple/Desktop/Techling/Chex/chex-public-pages/src/app/(site)/components/home/home-business-help.tsx",
-      "source_location": "L15",
+      "source_location": "L13",
       "weight": 1.0
     },
     {
@@ -1364,20 +1431,11 @@
     },
     {
       "source": "src_app_site_components_home_home_community_tsx",
-      "target": "image",
+      "target": "site_image",
       "relation": "imports_from",
       "confidence": "EXTRACTED",
       "source_file": "/Users/apple/Desktop/Techling/Chex/chex-public-pages/src/app/(site)/components/home/home-community.tsx",
       "source_location": "L3",
-      "weight": 1.0
-    },
-    {
-      "source": "src_app_site_components_home_home_community_tsx",
-      "target": "image",
-      "relation": "imports_from",
-      "confidence": "EXTRACTED",
-      "source_file": "/Users/apple/Desktop/Techling/Chex/chex-public-pages/src/app/(site)/components/home/home-community.tsx",
-      "source_location": "L4",
       "weight": 1.0
     },
     {
@@ -1386,25 +1444,16 @@
       "relation": "imports_from",
       "confidence": "EXTRACTED",
       "source_file": "/Users/apple/Desktop/Techling/Chex/chex-public-pages/src/app/(site)/components/home/home-community.tsx",
-      "source_location": "L6",
+      "source_location": "L4",
       "weight": 1.0
     },
     {
       "source": "src_app_site_components_home_home_hero_tsx",
-      "target": "image",
+      "target": "site_image",
       "relation": "imports_from",
       "confidence": "EXTRACTED",
       "source_file": "/Users/apple/Desktop/Techling/Chex/chex-public-pages/src/app/(site)/components/home/home-hero.tsx",
       "source_location": "L3",
-      "weight": 1.0
-    },
-    {
-      "source": "src_app_site_components_home_home_hero_tsx",
-      "target": "image",
-      "relation": "imports_from",
-      "confidence": "EXTRACTED",
-      "source_file": "/Users/apple/Desktop/Techling/Chex/chex-public-pages/src/app/(site)/components/home/home-hero.tsx",
-      "source_location": "L4",
       "weight": 1.0
     },
     {
@@ -1413,7 +1462,7 @@
       "relation": "imports_from",
       "confidence": "EXTRACTED",
       "source_file": "/Users/apple/Desktop/Techling/Chex/chex-public-pages/src/app/(site)/components/home/home-hero.tsx",
-      "source_location": "L6",
+      "source_location": "L4",
       "weight": 1.0
     },
     {
@@ -1422,25 +1471,16 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "/Users/apple/Desktop/Techling/Chex/chex-public-pages/src/app/(site)/components/home/home-hero.tsx",
-      "source_location": "L18",
+      "source_location": "L16",
       "weight": 1.0
     },
     {
       "source": "src_app_site_components_home_home_how_it_works_tsx",
-      "target": "image",
+      "target": "site_image",
       "relation": "imports_from",
       "confidence": "EXTRACTED",
       "source_file": "/Users/apple/Desktop/Techling/Chex/chex-public-pages/src/app/(site)/components/home/home-how-it-works.tsx",
       "source_location": "L3",
-      "weight": 1.0
-    },
-    {
-      "source": "src_app_site_components_home_home_how_it_works_tsx",
-      "target": "image",
-      "relation": "imports_from",
-      "confidence": "EXTRACTED",
-      "source_file": "/Users/apple/Desktop/Techling/Chex/chex-public-pages/src/app/(site)/components/home/home-how-it-works.tsx",
-      "source_location": "L4",
       "weight": 1.0
     },
     {
@@ -1449,7 +1489,7 @@
       "relation": "imports_from",
       "confidence": "EXTRACTED",
       "source_file": "/Users/apple/Desktop/Techling/Chex/chex-public-pages/src/app/(site)/components/home/home-how-it-works.tsx",
-      "source_location": "L6",
+      "source_location": "L4",
       "weight": 1.0
     },
     {
@@ -1458,7 +1498,7 @@
       "relation": "imports_from",
       "confidence": "EXTRACTED",
       "source_file": "/Users/apple/Desktop/Techling/Chex/chex-public-pages/src/app/(site)/components/home/home-how-it-works.tsx",
-      "source_location": "L7",
+      "source_location": "L5",
       "weight": 1.0
     },
     {
@@ -1467,12 +1507,12 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "/Users/apple/Desktop/Techling/Chex/chex-public-pages/src/app/(site)/components/home/home-how-it-works.tsx",
-      "source_location": "L19",
+      "source_location": "L17",
       "weight": 1.0
     },
     {
       "source": "src_app_site_components_home_home_key_differentiators_tsx",
-      "target": "image",
+      "target": "site_image",
       "relation": "imports_from",
       "confidence": "EXTRACTED",
       "source_file": "/Users/apple/Desktop/Techling/Chex/chex-public-pages/src/app/(site)/components/home/home-key-differentiators.tsx",
@@ -1481,20 +1521,11 @@
     },
     {
       "source": "src_app_site_components_home_home_key_differentiators_tsx",
-      "target": "image",
-      "relation": "imports_from",
-      "confidence": "EXTRACTED",
-      "source_file": "/Users/apple/Desktop/Techling/Chex/chex-public-pages/src/app/(site)/components/home/home-key-differentiators.tsx",
-      "source_location": "L4",
-      "weight": 1.0
-    },
-    {
-      "source": "src_app_site_components_home_home_key_differentiators_tsx",
       "target": "home_key_differentiators_homekeydifferentiators",
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "/Users/apple/Desktop/Techling/Chex/chex-public-pages/src/app/(site)/components/home/home-key-differentiators.tsx",
-      "source_location": "L12",
+      "source_location": "L11",
       "weight": 1.0
     },
     {
@@ -1643,7 +1674,7 @@
     },
     {
       "source": "src_app_site_components_locations_location_case_studies_tsx",
-      "target": "image",
+      "target": "case_studies",
       "relation": "imports_from",
       "confidence": "EXTRACTED",
       "source_file": "/Users/apple/Desktop/Techling/Chex/chex-public-pages/src/app/(site)/components/locations/location-case-studies.tsx",
@@ -1652,11 +1683,11 @@
     },
     {
       "source": "src_app_site_components_locations_location_case_studies_tsx",
-      "target": "case_studies",
+      "target": "site_image",
       "relation": "imports_from",
       "confidence": "EXTRACTED",
       "source_file": "/Users/apple/Desktop/Techling/Chex/chex-public-pages/src/app/(site)/components/locations/location-case-studies.tsx",
-      "source_location": "L3",
+      "source_location": "L2",
       "weight": 1.0
     },
     {
@@ -1665,7 +1696,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "/Users/apple/Desktop/Techling/Chex/chex-public-pages/src/app/(site)/components/locations/location-case-studies.tsx",
-      "source_location": "L31",
+      "source_location": "L30",
       "weight": 1.0
     },
     {
@@ -1706,7 +1737,7 @@
     },
     {
       "source": "src_app_site_components_locations_location_hero_tsx",
-      "target": "image",
+      "target": "hero_rating_badge_png",
       "relation": "imports_from",
       "confidence": "EXTRACTED",
       "source_file": "/Users/apple/Desktop/Techling/Chex/chex-public-pages/src/app/(site)/components/locations/location-hero.tsx",
@@ -1715,7 +1746,7 @@
     },
     {
       "source": "src_app_site_components_locations_location_hero_tsx",
-      "target": "image",
+      "target": "logo_chex_png",
       "relation": "imports_from",
       "confidence": "EXTRACTED",
       "source_file": "/Users/apple/Desktop/Techling/Chex/chex-public-pages/src/app/(site)/components/locations/location-hero.tsx",
@@ -1724,20 +1755,11 @@
     },
     {
       "source": "src_app_site_components_locations_location_hero_tsx",
-      "target": "hero_rating_badge_png",
+      "target": "site_image",
       "relation": "imports_from",
       "confidence": "EXTRACTED",
       "source_file": "/Users/apple/Desktop/Techling/Chex/chex-public-pages/src/app/(site)/components/locations/location-hero.tsx",
-      "source_location": "L4",
-      "weight": 1.0
-    },
-    {
-      "source": "src_app_site_components_locations_location_hero_tsx",
-      "target": "logo_chex_png",
-      "relation": "imports_from",
-      "confidence": "EXTRACTED",
-      "source_file": "/Users/apple/Desktop/Techling/Chex/chex-public-pages/src/app/(site)/components/locations/location-hero.tsx",
-      "source_location": "L5",
+      "source_location": "L3",
       "weight": 1.0
     },
     {
@@ -1746,7 +1768,7 @@
       "relation": "imports_from",
       "confidence": "EXTRACTED",
       "source_file": "/Users/apple/Desktop/Techling/Chex/chex-public-pages/src/app/(site)/components/locations/location-hero.tsx",
-      "source_location": "L6",
+      "source_location": "L4",
       "weight": 1.0
     },
     {
@@ -1755,7 +1777,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "/Users/apple/Desktop/Techling/Chex/chex-public-pages/src/app/(site)/components/locations/location-hero.tsx",
-      "source_location": "L33",
+      "source_location": "L31",
       "weight": 1.0
     },
     {
@@ -1985,29 +2007,11 @@
     },
     {
       "source": "src_app_site_components_shared_case_studies_tsx",
-      "target": "image",
-      "relation": "imports_from",
-      "confidence": "EXTRACTED",
-      "source_file": "/Users/apple/Desktop/Techling/Chex/chex-public-pages/src/app/(site)/components/shared/case-studies.tsx",
-      "source_location": "L4",
-      "weight": 1.0
-    },
-    {
-      "source": "src_app_site_components_shared_case_studies_tsx",
-      "target": "image",
-      "relation": "imports_from",
-      "confidence": "EXTRACTED",
-      "source_file": "/Users/apple/Desktop/Techling/Chex/chex-public-pages/src/app/(site)/components/shared/case-studies.tsx",
-      "source_location": "L5",
-      "weight": 1.0
-    },
-    {
-      "source": "src_app_site_components_shared_case_studies_tsx",
       "target": "react",
       "relation": "imports_from",
       "confidence": "EXTRACTED",
       "source_file": "/Users/apple/Desktop/Techling/Chex/chex-public-pages/src/app/(site)/components/shared/case-studies.tsx",
-      "source_location": "L6",
+      "source_location": "L4",
       "weight": 1.0
     },
     {
@@ -2016,7 +2020,16 @@
       "relation": "imports_from",
       "confidence": "EXTRACTED",
       "source_file": "/Users/apple/Desktop/Techling/Chex/chex-public-pages/src/app/(site)/components/shared/case-studies.tsx",
-      "source_location": "L8",
+      "source_location": "L6",
+      "weight": 1.0
+    },
+    {
+      "source": "src_app_site_components_shared_case_studies_tsx",
+      "target": "site_image",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "/Users/apple/Desktop/Techling/Chex/chex-public-pages/src/app/(site)/components/shared/case-studies.tsx",
+      "source_location": "L7",
       "weight": 1.0
     },
     {
@@ -2025,25 +2038,16 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "/Users/apple/Desktop/Techling/Chex/chex-public-pages/src/app/(site)/components/shared/case-studies.tsx",
-      "source_location": "L39",
+      "source_location": "L38",
       "weight": 1.0
     },
     {
       "source": "src_app_site_components_shared_footer_tsx",
-      "target": "image",
+      "target": "site_image",
       "relation": "imports_from",
       "confidence": "EXTRACTED",
       "source_file": "/Users/apple/Desktop/Techling/Chex/chex-public-pages/src/app/(site)/components/shared/footer.tsx",
       "source_location": "L3",
-      "weight": 1.0
-    },
-    {
-      "source": "src_app_site_components_shared_footer_tsx",
-      "target": "image",
-      "relation": "imports_from",
-      "confidence": "EXTRACTED",
-      "source_file": "/Users/apple/Desktop/Techling/Chex/chex-public-pages/src/app/(site)/components/shared/footer.tsx",
-      "source_location": "L4",
       "weight": 1.0
     },
     {
@@ -2052,25 +2056,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "/Users/apple/Desktop/Techling/Chex/chex-public-pages/src/app/(site)/components/shared/footer.tsx",
-      "source_location": "L17",
-      "weight": 1.0
-    },
-    {
-      "source": "src_app_site_components_shared_navbar_tsx",
-      "target": "image",
-      "relation": "imports_from",
-      "confidence": "EXTRACTED",
-      "source_file": "/Users/apple/Desktop/Techling/Chex/chex-public-pages/src/app/(site)/components/shared/navbar.tsx",
-      "source_location": "L3",
-      "weight": 1.0
-    },
-    {
-      "source": "src_app_site_components_shared_navbar_tsx",
-      "target": "image",
-      "relation": "imports_from",
-      "confidence": "EXTRACTED",
-      "source_file": "/Users/apple/Desktop/Techling/Chex/chex-public-pages/src/app/(site)/components/shared/navbar.tsx",
-      "source_location": "L4",
+      "source_location": "L16",
       "weight": 1.0
     },
     {
@@ -2079,12 +2065,21 @@
       "relation": "imports_from",
       "confidence": "EXTRACTED",
       "source_file": "/Users/apple/Desktop/Techling/Chex/chex-public-pages/src/app/(site)/components/shared/navbar.tsx",
-      "source_location": "L5",
+      "source_location": "L3",
       "weight": 1.0
     },
     {
       "source": "src_app_site_components_shared_navbar_tsx",
       "target": "react",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "/Users/apple/Desktop/Techling/Chex/chex-public-pages/src/app/(site)/components/shared/navbar.tsx",
+      "source_location": "L4",
+      "weight": 1.0
+    },
+    {
+      "source": "src_app_site_components_shared_navbar_tsx",
+      "target": "site_image",
       "relation": "imports_from",
       "confidence": "EXTRACTED",
       "source_file": "/Users/apple/Desktop/Techling/Chex/chex-public-pages/src/app/(site)/components/shared/navbar.tsx",
@@ -2097,7 +2092,7 @@
       "relation": "imports_from",
       "confidence": "EXTRACTED",
       "source_file": "/Users/apple/Desktop/Techling/Chex/chex-public-pages/src/app/(site)/components/shared/navbar.tsx",
-      "source_location": "L8",
+      "source_location": "L7",
       "weight": 1.0
     },
     {
@@ -2106,7 +2101,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "/Users/apple/Desktop/Techling/Chex/chex-public-pages/src/app/(site)/components/shared/navbar.tsx",
-      "source_location": "L25",
+      "source_location": "L24",
       "weight": 1.0
     },
     {
@@ -2173,6 +2168,33 @@
       "weight": 1.0
     },
     {
+      "source": "src_app_site_components_shared_site_image_tsx",
+      "target": "image",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "/Users/apple/Desktop/Techling/Chex/chex-public-pages/src/app/(site)/components/shared/site-image.tsx",
+      "source_location": "L3",
+      "weight": 1.0
+    },
+    {
+      "source": "src_app_site_components_shared_site_image_tsx",
+      "target": "image",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "/Users/apple/Desktop/Techling/Chex/chex-public-pages/src/app/(site)/components/shared/site-image.tsx",
+      "source_location": "L4",
+      "weight": 1.0
+    },
+    {
+      "source": "src_app_site_components_shared_site_image_tsx",
+      "target": "site_image_siteimage",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "/Users/apple/Desktop/Techling/Chex/chex-public-pages/src/app/(site)/components/shared/site-image.tsx",
+      "source_location": "L15",
+      "weight": 1.0
+    },
+    {
       "source": "src_app_site_components_ui_button_tsx",
       "target": "react",
       "relation": "imports_from",
@@ -2215,141 +2237,6 @@
       "confidence": "EXTRACTED",
       "source_file": "/Users/apple/Desktop/Techling/Chex/chex-public-pages/src/app/(site)/components/ui/surface-card.tsx",
       "source_location": "L18",
-      "weight": 1.0
-    },
-    {
-      "source": "src_app_site_content_ts",
-      "target": "logo_chex_png",
-      "relation": "imports_from",
-      "confidence": "EXTRACTED",
-      "source_file": "/Users/apple/Desktop/Techling/Chex/chex-public-pages/src/app/(site)/content.ts",
-      "source_location": "L1",
-      "weight": 1.0
-    },
-    {
-      "source": "src_app_site_home_content_ts",
-      "target": "analytics_dashboard_png",
-      "relation": "imports_from",
-      "confidence": "EXTRACTED",
-      "source_file": "/Users/apple/Desktop/Techling/Chex/chex-public-pages/src/app/(site)/home/content.ts",
-      "source_location": "L1",
-      "weight": 1.0
-    },
-    {
-      "source": "src_app_site_home_content_ts",
-      "target": "arrow_circle_png",
-      "relation": "imports_from",
-      "confidence": "EXTRACTED",
-      "source_file": "/Users/apple/Desktop/Techling/Chex/chex-public-pages/src/app/(site)/home/content.ts",
-      "source_location": "L2",
-      "weight": 1.0
-    },
-    {
-      "source": "src_app_site_home_content_ts",
-      "target": "case_accuracy_png",
-      "relation": "imports_from",
-      "confidence": "EXTRACTED",
-      "source_file": "/Users/apple/Desktop/Techling/Chex/chex-public-pages/src/app/(site)/home/content.ts",
-      "source_location": "L3",
-      "weight": 1.0
-    },
-    {
-      "source": "src_app_site_home_content_ts",
-      "target": "case_coverage_png",
-      "relation": "imports_from",
-      "confidence": "EXTRACTED",
-      "source_file": "/Users/apple/Desktop/Techling/Chex/chex-public-pages/src/app/(site)/home/content.ts",
-      "source_location": "L4",
-      "weight": 1.0
-    },
-    {
-      "source": "src_app_site_home_content_ts",
-      "target": "case_detection_png",
-      "relation": "imports_from",
-      "confidence": "EXTRACTED",
-      "source_file": "/Users/apple/Desktop/Techling/Chex/chex-public-pages/src/app/(site)/home/content.ts",
-      "source_location": "L5",
-      "weight": 1.0
-    },
-    {
-      "source": "src_app_site_home_content_ts",
-      "target": "case_growth_png",
-      "relation": "imports_from",
-      "confidence": "EXTRACTED",
-      "source_file": "/Users/apple/Desktop/Techling/Chex/chex-public-pages/src/app/(site)/home/content.ts",
-      "source_location": "L6",
-      "weight": 1.0
-    },
-    {
-      "source": "src_app_site_home_content_ts",
-      "target": "case_reliability_png",
-      "relation": "imports_from",
-      "confidence": "EXTRACTED",
-      "source_file": "/Users/apple/Desktop/Techling/Chex/chex-public-pages/src/app/(site)/home/content.ts",
-      "source_location": "L7",
-      "weight": 1.0
-    },
-    {
-      "source": "src_app_site_home_content_ts",
-      "target": "hero_van_png",
-      "relation": "imports_from",
-      "confidence": "EXTRACTED",
-      "source_file": "/Users/apple/Desktop/Techling/Chex/chex-public-pages/src/app/(site)/home/content.ts",
-      "source_location": "L8",
-      "weight": 1.0
-    },
-    {
-      "source": "src_app_site_home_content_ts",
-      "target": "key_differentiators_png",
-      "relation": "imports_from",
-      "confidence": "EXTRACTED",
-      "source_file": "/Users/apple/Desktop/Techling/Chex/chex-public-pages/src/app/(site)/home/content.ts",
-      "source_location": "L9",
-      "weight": 1.0
-    },
-    {
-      "source": "src_app_site_home_content_ts",
-      "target": "logo_adroit_png",
-      "relation": "imports_from",
-      "confidence": "EXTRACTED",
-      "source_file": "/Users/apple/Desktop/Techling/Chex/chex-public-pages/src/app/(site)/home/content.ts",
-      "source_location": "L10",
-      "weight": 1.0
-    },
-    {
-      "source": "src_app_site_home_content_ts",
-      "target": "logo_carepool_png",
-      "relation": "imports_from",
-      "confidence": "EXTRACTED",
-      "source_file": "/Users/apple/Desktop/Techling/Chex/chex-public-pages/src/app/(site)/home/content.ts",
-      "source_location": "L11",
-      "weight": 1.0
-    },
-    {
-      "source": "src_app_site_home_content_ts",
-      "target": "logo_oxo_png",
-      "relation": "imports_from",
-      "confidence": "EXTRACTED",
-      "source_file": "/Users/apple/Desktop/Techling/Chex/chex-public-pages/src/app/(site)/home/content.ts",
-      "source_location": "L12",
-      "weight": 1.0
-    },
-    {
-      "source": "src_app_site_home_content_ts",
-      "target": "logo_zum_png",
-      "relation": "imports_from",
-      "confidence": "EXTRACTED",
-      "source_file": "/Users/apple/Desktop/Techling/Chex/chex-public-pages/src/app/(site)/home/content.ts",
-      "source_location": "L13",
-      "weight": 1.0
-    },
-    {
-      "source": "src_app_site_home_content_ts",
-      "target": "manage_inspection_png",
-      "relation": "imports_from",
-      "confidence": "EXTRACTED",
-      "source_file": "/Users/apple/Desktop/Techling/Chex/chex-public-pages/src/app/(site)/home/content.ts",
-      "source_location": "L14",
       "weight": 1.0
     },
     {
@@ -2435,218 +2322,11 @@
     },
     {
       "source": "src_app_site_locations_alabama_content_ts",
-      "target": "case_accuracy_alt_png",
-      "relation": "imports_from",
-      "confidence": "EXTRACTED",
-      "source_file": "/Users/apple/Desktop/Techling/Chex/chex-public-pages/src/app/(site)/locations/alabama/content.ts",
-      "source_location": "L1",
-      "weight": 1.0
-    },
-    {
-      "source": "src_app_site_locations_alabama_content_ts",
-      "target": "case_accuracy_png",
-      "relation": "imports_from",
-      "confidence": "EXTRACTED",
-      "source_file": "/Users/apple/Desktop/Techling/Chex/chex-public-pages/src/app/(site)/locations/alabama/content.ts",
-      "source_location": "L2",
-      "weight": 1.0
-    },
-    {
-      "source": "src_app_site_locations_alabama_content_ts",
-      "target": "case_arrow_png",
-      "relation": "imports_from",
-      "confidence": "EXTRACTED",
-      "source_file": "/Users/apple/Desktop/Techling/Chex/chex-public-pages/src/app/(site)/locations/alabama/content.ts",
-      "source_location": "L3",
-      "weight": 1.0
-    },
-    {
-      "source": "src_app_site_locations_alabama_content_ts",
-      "target": "case_detection_png",
-      "relation": "imports_from",
-      "confidence": "EXTRACTED",
-      "source_file": "/Users/apple/Desktop/Techling/Chex/chex-public-pages/src/app/(site)/locations/alabama/content.ts",
-      "source_location": "L4",
-      "weight": 1.0
-    },
-    {
-      "source": "src_app_site_locations_alabama_content_ts",
-      "target": "case_growth_png",
-      "relation": "imports_from",
-      "confidence": "EXTRACTED",
-      "source_file": "/Users/apple/Desktop/Techling/Chex/chex-public-pages/src/app/(site)/locations/alabama/content.ts",
-      "source_location": "L5",
-      "weight": 1.0
-    },
-    {
-      "source": "src_app_site_locations_alabama_content_ts",
-      "target": "case_reliability_png",
-      "relation": "imports_from",
-      "confidence": "EXTRACTED",
-      "source_file": "/Users/apple/Desktop/Techling/Chex/chex-public-pages/src/app/(site)/locations/alabama/content.ts",
-      "source_location": "L6",
-      "weight": 1.0
-    },
-    {
-      "source": "src_app_site_locations_alabama_content_ts",
-      "target": "cta_background_png",
-      "relation": "imports_from",
-      "confidence": "EXTRACTED",
-      "source_file": "/Users/apple/Desktop/Techling/Chex/chex-public-pages/src/app/(site)/locations/alabama/content.ts",
-      "source_location": "L7",
-      "weight": 1.0
-    },
-    {
-      "source": "src_app_site_locations_alabama_content_ts",
-      "target": "hero_pin_alabama_png",
-      "relation": "imports_from",
-      "confidence": "EXTRACTED",
-      "source_file": "/Users/apple/Desktop/Techling/Chex/chex-public-pages/src/app/(site)/locations/alabama/content.ts",
-      "source_location": "L8",
-      "weight": 1.0
-    },
-    {
-      "source": "src_app_site_locations_alabama_content_ts",
-      "target": "hero_pin_california_png",
-      "relation": "imports_from",
-      "confidence": "EXTRACTED",
-      "source_file": "/Users/apple/Desktop/Techling/Chex/chex-public-pages/src/app/(site)/locations/alabama/content.ts",
-      "source_location": "L9",
-      "weight": 1.0
-    },
-    {
-      "source": "src_app_site_locations_alabama_content_ts",
-      "target": "hero_pin_colorado_png",
-      "relation": "imports_from",
-      "confidence": "EXTRACTED",
-      "source_file": "/Users/apple/Desktop/Techling/Chex/chex-public-pages/src/app/(site)/locations/alabama/content.ts",
-      "source_location": "L10",
-      "weight": 1.0
-    },
-    {
-      "source": "src_app_site_locations_alabama_content_ts",
-      "target": "hero_pin_iowa_png",
-      "relation": "imports_from",
-      "confidence": "EXTRACTED",
-      "source_file": "/Users/apple/Desktop/Techling/Chex/chex-public-pages/src/app/(site)/locations/alabama/content.ts",
-      "source_location": "L11",
-      "weight": 1.0
-    },
-    {
-      "source": "src_app_site_locations_alabama_content_ts",
-      "target": "hero_pin_nebraska_png",
-      "relation": "imports_from",
-      "confidence": "EXTRACTED",
-      "source_file": "/Users/apple/Desktop/Techling/Chex/chex-public-pages/src/app/(site)/locations/alabama/content.ts",
-      "source_location": "L12",
-      "weight": 1.0
-    },
-    {
-      "source": "src_app_site_locations_alabama_content_ts",
-      "target": "hero_pin_new_mexico_png",
-      "relation": "imports_from",
-      "confidence": "EXTRACTED",
-      "source_file": "/Users/apple/Desktop/Techling/Chex/chex-public-pages/src/app/(site)/locations/alabama/content.ts",
-      "source_location": "L13",
-      "weight": 1.0
-    },
-    {
-      "source": "src_app_site_locations_alabama_content_ts",
-      "target": "hero_pin_south_carolina_png",
-      "relation": "imports_from",
-      "confidence": "EXTRACTED",
-      "source_file": "/Users/apple/Desktop/Techling/Chex/chex-public-pages/src/app/(site)/locations/alabama/content.ts",
-      "source_location": "L14",
-      "weight": 1.0
-    },
-    {
-      "source": "src_app_site_locations_alabama_content_ts",
-      "target": "manage_phone_frame_png",
-      "relation": "imports_from",
-      "confidence": "EXTRACTED",
-      "source_file": "/Users/apple/Desktop/Techling/Chex/chex-public-pages/src/app/(site)/locations/alabama/content.ts",
-      "source_location": "L15",
-      "weight": 1.0
-    },
-    {
-      "source": "src_app_site_locations_alabama_content_ts",
-      "target": "manage_phone_notch_png",
-      "relation": "imports_from",
-      "confidence": "EXTRACTED",
-      "source_file": "/Users/apple/Desktop/Techling/Chex/chex-public-pages/src/app/(site)/locations/alabama/content.ts",
-      "source_location": "L16",
-      "weight": 1.0
-    },
-    {
-      "source": "src_app_site_locations_alabama_content_ts",
-      "target": "service_fleet_png",
-      "relation": "imports_from",
-      "confidence": "EXTRACTED",
-      "source_file": "/Users/apple/Desktop/Techling/Chex/chex-public-pages/src/app/(site)/locations/alabama/content.ts",
-      "source_location": "L17",
-      "weight": 1.0
-    },
-    {
-      "source": "src_app_site_locations_alabama_content_ts",
-      "target": "service_rideshare_png",
-      "relation": "imports_from",
-      "confidence": "EXTRACTED",
-      "source_file": "/Users/apple/Desktop/Techling/Chex/chex-public-pages/src/app/(site)/locations/alabama/content.ts",
-      "source_location": "L18",
-      "weight": 1.0
-    },
-    {
-      "source": "src_app_site_locations_alabama_content_ts",
-      "target": "service_uber_png",
-      "relation": "imports_from",
-      "confidence": "EXTRACTED",
-      "source_file": "/Users/apple/Desktop/Techling/Chex/chex-public-pages/src/app/(site)/locations/alabama/content.ts",
-      "source_location": "L19",
-      "weight": 1.0
-    },
-    {
-      "source": "src_app_site_locations_alabama_content_ts",
-      "target": "manage_phone_screen_png",
-      "relation": "imports_from",
-      "confidence": "EXTRACTED",
-      "source_file": "/Users/apple/Desktop/Techling/Chex/chex-public-pages/src/app/(site)/locations/alabama/content.ts",
-      "source_location": "L20",
-      "weight": 1.0
-    },
-    {
-      "source": "src_app_site_locations_alabama_content_ts",
-      "target": "overview_vehicle_damage_assessment_png",
-      "relation": "imports_from",
-      "confidence": "EXTRACTED",
-      "source_file": "/Users/apple/Desktop/Techling/Chex/chex-public-pages/src/app/(site)/locations/alabama/content.ts",
-      "source_location": "L21",
-      "weight": 1.0
-    },
-    {
-      "source": "src_app_site_locations_alabama_content_ts",
-      "target": "region_birmingham_png",
-      "relation": "imports_from",
-      "confidence": "EXTRACTED",
-      "source_file": "/Users/apple/Desktop/Techling/Chex/chex-public-pages/src/app/(site)/locations/alabama/content.ts",
-      "source_location": "L22",
-      "weight": 1.0
-    },
-    {
-      "source": "src_app_site_locations_alabama_content_ts",
-      "target": "region_huntsville_png",
-      "relation": "imports_from",
-      "confidence": "EXTRACTED",
-      "source_file": "/Users/apple/Desktop/Techling/Chex/chex-public-pages/src/app/(site)/locations/alabama/content.ts",
-      "source_location": "L23",
-      "weight": 1.0
-    },
-    {
-      "source": "src_app_site_locations_alabama_content_ts",
       "target": "location_page",
       "relation": "imports_from",
       "confidence": "EXTRACTED",
       "source_file": "/Users/apple/Desktop/Techling/Chex/chex-public-pages/src/app/(site)/locations/alabama/content.ts",
-      "source_location": "L24",
+      "source_location": "L1",
       "weight": 1.0
     },
     {
@@ -2687,218 +2367,11 @@
     },
     {
       "source": "src_app_site_locations_arizona_content_ts",
-      "target": "case_accuracy_alt_png",
-      "relation": "imports_from",
-      "confidence": "EXTRACTED",
-      "source_file": "/Users/apple/Desktop/Techling/Chex/chex-public-pages/src/app/(site)/locations/arizona/content.ts",
-      "source_location": "L1",
-      "weight": 1.0
-    },
-    {
-      "source": "src_app_site_locations_arizona_content_ts",
-      "target": "case_accuracy_png",
-      "relation": "imports_from",
-      "confidence": "EXTRACTED",
-      "source_file": "/Users/apple/Desktop/Techling/Chex/chex-public-pages/src/app/(site)/locations/arizona/content.ts",
-      "source_location": "L2",
-      "weight": 1.0
-    },
-    {
-      "source": "src_app_site_locations_arizona_content_ts",
-      "target": "case_arrow_png",
-      "relation": "imports_from",
-      "confidence": "EXTRACTED",
-      "source_file": "/Users/apple/Desktop/Techling/Chex/chex-public-pages/src/app/(site)/locations/arizona/content.ts",
-      "source_location": "L3",
-      "weight": 1.0
-    },
-    {
-      "source": "src_app_site_locations_arizona_content_ts",
-      "target": "case_detection_png",
-      "relation": "imports_from",
-      "confidence": "EXTRACTED",
-      "source_file": "/Users/apple/Desktop/Techling/Chex/chex-public-pages/src/app/(site)/locations/arizona/content.ts",
-      "source_location": "L4",
-      "weight": 1.0
-    },
-    {
-      "source": "src_app_site_locations_arizona_content_ts",
-      "target": "case_growth_png",
-      "relation": "imports_from",
-      "confidence": "EXTRACTED",
-      "source_file": "/Users/apple/Desktop/Techling/Chex/chex-public-pages/src/app/(site)/locations/arizona/content.ts",
-      "source_location": "L5",
-      "weight": 1.0
-    },
-    {
-      "source": "src_app_site_locations_arizona_content_ts",
-      "target": "case_reliability_png",
-      "relation": "imports_from",
-      "confidence": "EXTRACTED",
-      "source_file": "/Users/apple/Desktop/Techling/Chex/chex-public-pages/src/app/(site)/locations/arizona/content.ts",
-      "source_location": "L6",
-      "weight": 1.0
-    },
-    {
-      "source": "src_app_site_locations_arizona_content_ts",
-      "target": "cta_background_png",
-      "relation": "imports_from",
-      "confidence": "EXTRACTED",
-      "source_file": "/Users/apple/Desktop/Techling/Chex/chex-public-pages/src/app/(site)/locations/arizona/content.ts",
-      "source_location": "L7",
-      "weight": 1.0
-    },
-    {
-      "source": "src_app_site_locations_arizona_content_ts",
-      "target": "hero_pin_alabama_png",
-      "relation": "imports_from",
-      "confidence": "EXTRACTED",
-      "source_file": "/Users/apple/Desktop/Techling/Chex/chex-public-pages/src/app/(site)/locations/arizona/content.ts",
-      "source_location": "L8",
-      "weight": 1.0
-    },
-    {
-      "source": "src_app_site_locations_arizona_content_ts",
-      "target": "hero_pin_california_png",
-      "relation": "imports_from",
-      "confidence": "EXTRACTED",
-      "source_file": "/Users/apple/Desktop/Techling/Chex/chex-public-pages/src/app/(site)/locations/arizona/content.ts",
-      "source_location": "L9",
-      "weight": 1.0
-    },
-    {
-      "source": "src_app_site_locations_arizona_content_ts",
-      "target": "hero_pin_colorado_png",
-      "relation": "imports_from",
-      "confidence": "EXTRACTED",
-      "source_file": "/Users/apple/Desktop/Techling/Chex/chex-public-pages/src/app/(site)/locations/arizona/content.ts",
-      "source_location": "L10",
-      "weight": 1.0
-    },
-    {
-      "source": "src_app_site_locations_arizona_content_ts",
-      "target": "hero_pin_iowa_png",
-      "relation": "imports_from",
-      "confidence": "EXTRACTED",
-      "source_file": "/Users/apple/Desktop/Techling/Chex/chex-public-pages/src/app/(site)/locations/arizona/content.ts",
-      "source_location": "L11",
-      "weight": 1.0
-    },
-    {
-      "source": "src_app_site_locations_arizona_content_ts",
-      "target": "hero_pin_nebraska_png",
-      "relation": "imports_from",
-      "confidence": "EXTRACTED",
-      "source_file": "/Users/apple/Desktop/Techling/Chex/chex-public-pages/src/app/(site)/locations/arizona/content.ts",
-      "source_location": "L12",
-      "weight": 1.0
-    },
-    {
-      "source": "src_app_site_locations_arizona_content_ts",
-      "target": "hero_pin_new_mexico_png",
-      "relation": "imports_from",
-      "confidence": "EXTRACTED",
-      "source_file": "/Users/apple/Desktop/Techling/Chex/chex-public-pages/src/app/(site)/locations/arizona/content.ts",
-      "source_location": "L13",
-      "weight": 1.0
-    },
-    {
-      "source": "src_app_site_locations_arizona_content_ts",
-      "target": "hero_pin_south_carolina_png",
-      "relation": "imports_from",
-      "confidence": "EXTRACTED",
-      "source_file": "/Users/apple/Desktop/Techling/Chex/chex-public-pages/src/app/(site)/locations/arizona/content.ts",
-      "source_location": "L14",
-      "weight": 1.0
-    },
-    {
-      "source": "src_app_site_locations_arizona_content_ts",
-      "target": "manage_phone_frame_png",
-      "relation": "imports_from",
-      "confidence": "EXTRACTED",
-      "source_file": "/Users/apple/Desktop/Techling/Chex/chex-public-pages/src/app/(site)/locations/arizona/content.ts",
-      "source_location": "L15",
-      "weight": 1.0
-    },
-    {
-      "source": "src_app_site_locations_arizona_content_ts",
-      "target": "manage_phone_notch_png",
-      "relation": "imports_from",
-      "confidence": "EXTRACTED",
-      "source_file": "/Users/apple/Desktop/Techling/Chex/chex-public-pages/src/app/(site)/locations/arizona/content.ts",
-      "source_location": "L16",
-      "weight": 1.0
-    },
-    {
-      "source": "src_app_site_locations_arizona_content_ts",
-      "target": "service_fleet_png",
-      "relation": "imports_from",
-      "confidence": "EXTRACTED",
-      "source_file": "/Users/apple/Desktop/Techling/Chex/chex-public-pages/src/app/(site)/locations/arizona/content.ts",
-      "source_location": "L17",
-      "weight": 1.0
-    },
-    {
-      "source": "src_app_site_locations_arizona_content_ts",
-      "target": "service_rideshare_png",
-      "relation": "imports_from",
-      "confidence": "EXTRACTED",
-      "source_file": "/Users/apple/Desktop/Techling/Chex/chex-public-pages/src/app/(site)/locations/arizona/content.ts",
-      "source_location": "L18",
-      "weight": 1.0
-    },
-    {
-      "source": "src_app_site_locations_arizona_content_ts",
-      "target": "service_uber_png",
-      "relation": "imports_from",
-      "confidence": "EXTRACTED",
-      "source_file": "/Users/apple/Desktop/Techling/Chex/chex-public-pages/src/app/(site)/locations/arizona/content.ts",
-      "source_location": "L19",
-      "weight": 1.0
-    },
-    {
-      "source": "src_app_site_locations_arizona_content_ts",
-      "target": "manage_phone_screen_png",
-      "relation": "imports_from",
-      "confidence": "EXTRACTED",
-      "source_file": "/Users/apple/Desktop/Techling/Chex/chex-public-pages/src/app/(site)/locations/arizona/content.ts",
-      "source_location": "L20",
-      "weight": 1.0
-    },
-    {
-      "source": "src_app_site_locations_arizona_content_ts",
-      "target": "overview_mobile_vehicle_inspection_app_png",
-      "relation": "imports_from",
-      "confidence": "EXTRACTED",
-      "source_file": "/Users/apple/Desktop/Techling/Chex/chex-public-pages/src/app/(site)/locations/arizona/content.ts",
-      "source_location": "L21",
-      "weight": 1.0
-    },
-    {
-      "source": "src_app_site_locations_arizona_content_ts",
-      "target": "region_scottsdale_png",
-      "relation": "imports_from",
-      "confidence": "EXTRACTED",
-      "source_file": "/Users/apple/Desktop/Techling/Chex/chex-public-pages/src/app/(site)/locations/arizona/content.ts",
-      "source_location": "L22",
-      "weight": 1.0
-    },
-    {
-      "source": "src_app_site_locations_arizona_content_ts",
-      "target": "region_tucson_png",
-      "relation": "imports_from",
-      "confidence": "EXTRACTED",
-      "source_file": "/Users/apple/Desktop/Techling/Chex/chex-public-pages/src/app/(site)/locations/arizona/content.ts",
-      "source_location": "L23",
-      "weight": 1.0
-    },
-    {
-      "source": "src_app_site_locations_arizona_content_ts",
       "target": "location_page",
       "relation": "imports_from",
       "confidence": "EXTRACTED",
       "source_file": "/Users/apple/Desktop/Techling/Chex/chex-public-pages/src/app/(site)/locations/arizona/content.ts",
-      "source_location": "L24",
+      "source_location": "L1",
       "weight": 1.0
     },
     {
@@ -2939,191 +2412,11 @@
     },
     {
       "source": "src_app_site_locations_arkansas_content_ts",
-      "target": "case_accuracy_alt_png",
-      "relation": "imports_from",
-      "confidence": "EXTRACTED",
-      "source_file": "/Users/apple/Desktop/Techling/Chex/chex-public-pages/src/app/(site)/locations/arkansas/content.ts",
-      "source_location": "L1",
-      "weight": 1.0
-    },
-    {
-      "source": "src_app_site_locations_arkansas_content_ts",
-      "target": "case_accuracy_png",
-      "relation": "imports_from",
-      "confidence": "EXTRACTED",
-      "source_file": "/Users/apple/Desktop/Techling/Chex/chex-public-pages/src/app/(site)/locations/arkansas/content.ts",
-      "source_location": "L2",
-      "weight": 1.0
-    },
-    {
-      "source": "src_app_site_locations_arkansas_content_ts",
-      "target": "case_arrow_png",
-      "relation": "imports_from",
-      "confidence": "EXTRACTED",
-      "source_file": "/Users/apple/Desktop/Techling/Chex/chex-public-pages/src/app/(site)/locations/arkansas/content.ts",
-      "source_location": "L3",
-      "weight": 1.0
-    },
-    {
-      "source": "src_app_site_locations_arkansas_content_ts",
-      "target": "case_detection_png",
-      "relation": "imports_from",
-      "confidence": "EXTRACTED",
-      "source_file": "/Users/apple/Desktop/Techling/Chex/chex-public-pages/src/app/(site)/locations/arkansas/content.ts",
-      "source_location": "L4",
-      "weight": 1.0
-    },
-    {
-      "source": "src_app_site_locations_arkansas_content_ts",
-      "target": "case_growth_png",
-      "relation": "imports_from",
-      "confidence": "EXTRACTED",
-      "source_file": "/Users/apple/Desktop/Techling/Chex/chex-public-pages/src/app/(site)/locations/arkansas/content.ts",
-      "source_location": "L5",
-      "weight": 1.0
-    },
-    {
-      "source": "src_app_site_locations_arkansas_content_ts",
-      "target": "case_reliability_png",
-      "relation": "imports_from",
-      "confidence": "EXTRACTED",
-      "source_file": "/Users/apple/Desktop/Techling/Chex/chex-public-pages/src/app/(site)/locations/arkansas/content.ts",
-      "source_location": "L6",
-      "weight": 1.0
-    },
-    {
-      "source": "src_app_site_locations_arkansas_content_ts",
-      "target": "cta_background_png",
-      "relation": "imports_from",
-      "confidence": "EXTRACTED",
-      "source_file": "/Users/apple/Desktop/Techling/Chex/chex-public-pages/src/app/(site)/locations/arkansas/content.ts",
-      "source_location": "L7",
-      "weight": 1.0
-    },
-    {
-      "source": "src_app_site_locations_arkansas_content_ts",
-      "target": "hero_pin_alabama_png",
-      "relation": "imports_from",
-      "confidence": "EXTRACTED",
-      "source_file": "/Users/apple/Desktop/Techling/Chex/chex-public-pages/src/app/(site)/locations/arkansas/content.ts",
-      "source_location": "L8",
-      "weight": 1.0
-    },
-    {
-      "source": "src_app_site_locations_arkansas_content_ts",
-      "target": "hero_pin_california_png",
-      "relation": "imports_from",
-      "confidence": "EXTRACTED",
-      "source_file": "/Users/apple/Desktop/Techling/Chex/chex-public-pages/src/app/(site)/locations/arkansas/content.ts",
-      "source_location": "L9",
-      "weight": 1.0
-    },
-    {
-      "source": "src_app_site_locations_arkansas_content_ts",
-      "target": "hero_pin_colorado_png",
-      "relation": "imports_from",
-      "confidence": "EXTRACTED",
-      "source_file": "/Users/apple/Desktop/Techling/Chex/chex-public-pages/src/app/(site)/locations/arkansas/content.ts",
-      "source_location": "L10",
-      "weight": 1.0
-    },
-    {
-      "source": "src_app_site_locations_arkansas_content_ts",
-      "target": "hero_pin_iowa_png",
-      "relation": "imports_from",
-      "confidence": "EXTRACTED",
-      "source_file": "/Users/apple/Desktop/Techling/Chex/chex-public-pages/src/app/(site)/locations/arkansas/content.ts",
-      "source_location": "L11",
-      "weight": 1.0
-    },
-    {
-      "source": "src_app_site_locations_arkansas_content_ts",
-      "target": "hero_pin_nebraska_png",
-      "relation": "imports_from",
-      "confidence": "EXTRACTED",
-      "source_file": "/Users/apple/Desktop/Techling/Chex/chex-public-pages/src/app/(site)/locations/arkansas/content.ts",
-      "source_location": "L12",
-      "weight": 1.0
-    },
-    {
-      "source": "src_app_site_locations_arkansas_content_ts",
-      "target": "hero_pin_new_mexico_png",
-      "relation": "imports_from",
-      "confidence": "EXTRACTED",
-      "source_file": "/Users/apple/Desktop/Techling/Chex/chex-public-pages/src/app/(site)/locations/arkansas/content.ts",
-      "source_location": "L13",
-      "weight": 1.0
-    },
-    {
-      "source": "src_app_site_locations_arkansas_content_ts",
-      "target": "hero_pin_south_carolina_png",
-      "relation": "imports_from",
-      "confidence": "EXTRACTED",
-      "source_file": "/Users/apple/Desktop/Techling/Chex/chex-public-pages/src/app/(site)/locations/arkansas/content.ts",
-      "source_location": "L14",
-      "weight": 1.0
-    },
-    {
-      "source": "src_app_site_locations_arkansas_content_ts",
-      "target": "manage_phone_frame_png",
-      "relation": "imports_from",
-      "confidence": "EXTRACTED",
-      "source_file": "/Users/apple/Desktop/Techling/Chex/chex-public-pages/src/app/(site)/locations/arkansas/content.ts",
-      "source_location": "L15",
-      "weight": 1.0
-    },
-    {
-      "source": "src_app_site_locations_arkansas_content_ts",
-      "target": "manage_phone_notch_png",
-      "relation": "imports_from",
-      "confidence": "EXTRACTED",
-      "source_file": "/Users/apple/Desktop/Techling/Chex/chex-public-pages/src/app/(site)/locations/arkansas/content.ts",
-      "source_location": "L16",
-      "weight": 1.0
-    },
-    {
-      "source": "src_app_site_locations_arkansas_content_ts",
-      "target": "manage_phone_screen_png",
-      "relation": "imports_from",
-      "confidence": "EXTRACTED",
-      "source_file": "/Users/apple/Desktop/Techling/Chex/chex-public-pages/src/app/(site)/locations/arkansas/content.ts",
-      "source_location": "L17",
-      "weight": 1.0
-    },
-    {
-      "source": "src_app_site_locations_arkansas_content_ts",
-      "target": "service_fleet_png",
-      "relation": "imports_from",
-      "confidence": "EXTRACTED",
-      "source_file": "/Users/apple/Desktop/Techling/Chex/chex-public-pages/src/app/(site)/locations/arkansas/content.ts",
-      "source_location": "L18",
-      "weight": 1.0
-    },
-    {
-      "source": "src_app_site_locations_arkansas_content_ts",
-      "target": "service_rideshare_png",
-      "relation": "imports_from",
-      "confidence": "EXTRACTED",
-      "source_file": "/Users/apple/Desktop/Techling/Chex/chex-public-pages/src/app/(site)/locations/arkansas/content.ts",
-      "source_location": "L19",
-      "weight": 1.0
-    },
-    {
-      "source": "src_app_site_locations_arkansas_content_ts",
-      "target": "service_uber_png",
-      "relation": "imports_from",
-      "confidence": "EXTRACTED",
-      "source_file": "/Users/apple/Desktop/Techling/Chex/chex-public-pages/src/app/(site)/locations/arkansas/content.ts",
-      "source_location": "L20",
-      "weight": 1.0
-    },
-    {
-      "source": "src_app_site_locations_arkansas_content_ts",
       "target": "location_page",
       "relation": "imports_from",
       "confidence": "EXTRACTED",
       "source_file": "/Users/apple/Desktop/Techling/Chex/chex-public-pages/src/app/(site)/locations/arkansas/content.ts",
-      "source_location": "L21",
+      "source_location": "L1",
       "weight": 1.0
     },
     {
@@ -3164,218 +2457,11 @@
     },
     {
       "source": "src_app_site_locations_california_content_ts",
-      "target": "case_accuracy_alt_png",
-      "relation": "imports_from",
-      "confidence": "EXTRACTED",
-      "source_file": "/Users/apple/Desktop/Techling/Chex/chex-public-pages/src/app/(site)/locations/california/content.ts",
-      "source_location": "L1",
-      "weight": 1.0
-    },
-    {
-      "source": "src_app_site_locations_california_content_ts",
-      "target": "case_accuracy_png",
-      "relation": "imports_from",
-      "confidence": "EXTRACTED",
-      "source_file": "/Users/apple/Desktop/Techling/Chex/chex-public-pages/src/app/(site)/locations/california/content.ts",
-      "source_location": "L2",
-      "weight": 1.0
-    },
-    {
-      "source": "src_app_site_locations_california_content_ts",
-      "target": "case_arrow_png",
-      "relation": "imports_from",
-      "confidence": "EXTRACTED",
-      "source_file": "/Users/apple/Desktop/Techling/Chex/chex-public-pages/src/app/(site)/locations/california/content.ts",
-      "source_location": "L3",
-      "weight": 1.0
-    },
-    {
-      "source": "src_app_site_locations_california_content_ts",
-      "target": "case_detection_png",
-      "relation": "imports_from",
-      "confidence": "EXTRACTED",
-      "source_file": "/Users/apple/Desktop/Techling/Chex/chex-public-pages/src/app/(site)/locations/california/content.ts",
-      "source_location": "L4",
-      "weight": 1.0
-    },
-    {
-      "source": "src_app_site_locations_california_content_ts",
-      "target": "case_growth_png",
-      "relation": "imports_from",
-      "confidence": "EXTRACTED",
-      "source_file": "/Users/apple/Desktop/Techling/Chex/chex-public-pages/src/app/(site)/locations/california/content.ts",
-      "source_location": "L5",
-      "weight": 1.0
-    },
-    {
-      "source": "src_app_site_locations_california_content_ts",
-      "target": "case_reliability_png",
-      "relation": "imports_from",
-      "confidence": "EXTRACTED",
-      "source_file": "/Users/apple/Desktop/Techling/Chex/chex-public-pages/src/app/(site)/locations/california/content.ts",
-      "source_location": "L6",
-      "weight": 1.0
-    },
-    {
-      "source": "src_app_site_locations_california_content_ts",
-      "target": "cta_background_png",
-      "relation": "imports_from",
-      "confidence": "EXTRACTED",
-      "source_file": "/Users/apple/Desktop/Techling/Chex/chex-public-pages/src/app/(site)/locations/california/content.ts",
-      "source_location": "L7",
-      "weight": 1.0
-    },
-    {
-      "source": "src_app_site_locations_california_content_ts",
-      "target": "hero_pin_alabama_png",
-      "relation": "imports_from",
-      "confidence": "EXTRACTED",
-      "source_file": "/Users/apple/Desktop/Techling/Chex/chex-public-pages/src/app/(site)/locations/california/content.ts",
-      "source_location": "L8",
-      "weight": 1.0
-    },
-    {
-      "source": "src_app_site_locations_california_content_ts",
-      "target": "hero_pin_colorado_png",
-      "relation": "imports_from",
-      "confidence": "EXTRACTED",
-      "source_file": "/Users/apple/Desktop/Techling/Chex/chex-public-pages/src/app/(site)/locations/california/content.ts",
-      "source_location": "L9",
-      "weight": 1.0
-    },
-    {
-      "source": "src_app_site_locations_california_content_ts",
-      "target": "hero_pin_nebraska_png",
-      "relation": "imports_from",
-      "confidence": "EXTRACTED",
-      "source_file": "/Users/apple/Desktop/Techling/Chex/chex-public-pages/src/app/(site)/locations/california/content.ts",
-      "source_location": "L10",
-      "weight": 1.0
-    },
-    {
-      "source": "src_app_site_locations_california_content_ts",
-      "target": "hero_pin_new_mexico_png",
-      "relation": "imports_from",
-      "confidence": "EXTRACTED",
-      "source_file": "/Users/apple/Desktop/Techling/Chex/chex-public-pages/src/app/(site)/locations/california/content.ts",
-      "source_location": "L11",
-      "weight": 1.0
-    },
-    {
-      "source": "src_app_site_locations_california_content_ts",
-      "target": "hero_pin_south_carolina_png",
-      "relation": "imports_from",
-      "confidence": "EXTRACTED",
-      "source_file": "/Users/apple/Desktop/Techling/Chex/chex-public-pages/src/app/(site)/locations/california/content.ts",
-      "source_location": "L12",
-      "weight": 1.0
-    },
-    {
-      "source": "src_app_site_locations_california_content_ts",
-      "target": "manage_phone_frame_png",
-      "relation": "imports_from",
-      "confidence": "EXTRACTED",
-      "source_file": "/Users/apple/Desktop/Techling/Chex/chex-public-pages/src/app/(site)/locations/california/content.ts",
-      "source_location": "L13",
-      "weight": 1.0
-    },
-    {
-      "source": "src_app_site_locations_california_content_ts",
-      "target": "manage_phone_notch_png",
-      "relation": "imports_from",
-      "confidence": "EXTRACTED",
-      "source_file": "/Users/apple/Desktop/Techling/Chex/chex-public-pages/src/app/(site)/locations/california/content.ts",
-      "source_location": "L14",
-      "weight": 1.0
-    },
-    {
-      "source": "src_app_site_locations_california_content_ts",
-      "target": "service_fleet_png",
-      "relation": "imports_from",
-      "confidence": "EXTRACTED",
-      "source_file": "/Users/apple/Desktop/Techling/Chex/chex-public-pages/src/app/(site)/locations/california/content.ts",
-      "source_location": "L15",
-      "weight": 1.0
-    },
-    {
-      "source": "src_app_site_locations_california_content_ts",
-      "target": "service_rideshare_png",
-      "relation": "imports_from",
-      "confidence": "EXTRACTED",
-      "source_file": "/Users/apple/Desktop/Techling/Chex/chex-public-pages/src/app/(site)/locations/california/content.ts",
-      "source_location": "L16",
-      "weight": 1.0
-    },
-    {
-      "source": "src_app_site_locations_california_content_ts",
-      "target": "service_uber_png",
-      "relation": "imports_from",
-      "confidence": "EXTRACTED",
-      "source_file": "/Users/apple/Desktop/Techling/Chex/chex-public-pages/src/app/(site)/locations/california/content.ts",
-      "source_location": "L17",
-      "weight": 1.0
-    },
-    {
-      "source": "src_app_site_locations_california_content_ts",
-      "target": "hero_pin_california_png",
-      "relation": "imports_from",
-      "confidence": "EXTRACTED",
-      "source_file": "/Users/apple/Desktop/Techling/Chex/chex-public-pages/src/app/(site)/locations/california/content.ts",
-      "source_location": "L18",
-      "weight": 1.0
-    },
-    {
-      "source": "src_app_site_locations_california_content_ts",
-      "target": "hero_pin_iowa_png",
-      "relation": "imports_from",
-      "confidence": "EXTRACTED",
-      "source_file": "/Users/apple/Desktop/Techling/Chex/chex-public-pages/src/app/(site)/locations/california/content.ts",
-      "source_location": "L19",
-      "weight": 1.0
-    },
-    {
-      "source": "src_app_site_locations_california_content_ts",
-      "target": "manage_phone_screen_png",
-      "relation": "imports_from",
-      "confidence": "EXTRACTED",
-      "source_file": "/Users/apple/Desktop/Techling/Chex/chex-public-pages/src/app/(site)/locations/california/content.ts",
-      "source_location": "L20",
-      "weight": 1.0
-    },
-    {
-      "source": "src_app_site_locations_california_content_ts",
-      "target": "overview_high_resolution_damage_detection_png",
-      "relation": "imports_from",
-      "confidence": "EXTRACTED",
-      "source_file": "/Users/apple/Desktop/Techling/Chex/chex-public-pages/src/app/(site)/locations/california/content.ts",
-      "source_location": "L21",
-      "weight": 1.0
-    },
-    {
-      "source": "src_app_site_locations_california_content_ts",
-      "target": "region_los_angeles_png",
-      "relation": "imports_from",
-      "confidence": "EXTRACTED",
-      "source_file": "/Users/apple/Desktop/Techling/Chex/chex-public-pages/src/app/(site)/locations/california/content.ts",
-      "source_location": "L22",
-      "weight": 1.0
-    },
-    {
-      "source": "src_app_site_locations_california_content_ts",
-      "target": "region_san_francisco_png",
-      "relation": "imports_from",
-      "confidence": "EXTRACTED",
-      "source_file": "/Users/apple/Desktop/Techling/Chex/chex-public-pages/src/app/(site)/locations/california/content.ts",
-      "source_location": "L23",
-      "weight": 1.0
-    },
-    {
-      "source": "src_app_site_locations_california_content_ts",
       "target": "location_page",
       "relation": "imports_from",
       "confidence": "EXTRACTED",
       "source_file": "/Users/apple/Desktop/Techling/Chex/chex-public-pages/src/app/(site)/locations/california/content.ts",
-      "source_location": "L24",
+      "source_location": "L1",
       "weight": 1.0
     },
     {
@@ -3416,218 +2502,11 @@
     },
     {
       "source": "src_app_site_locations_colorado_content_ts",
-      "target": "case_accuracy_alt_png",
-      "relation": "imports_from",
-      "confidence": "EXTRACTED",
-      "source_file": "/Users/apple/Desktop/Techling/Chex/chex-public-pages/src/app/(site)/locations/colorado/content.ts",
-      "source_location": "L1",
-      "weight": 1.0
-    },
-    {
-      "source": "src_app_site_locations_colorado_content_ts",
-      "target": "case_accuracy_png",
-      "relation": "imports_from",
-      "confidence": "EXTRACTED",
-      "source_file": "/Users/apple/Desktop/Techling/Chex/chex-public-pages/src/app/(site)/locations/colorado/content.ts",
-      "source_location": "L2",
-      "weight": 1.0
-    },
-    {
-      "source": "src_app_site_locations_colorado_content_ts",
-      "target": "case_arrow_png",
-      "relation": "imports_from",
-      "confidence": "EXTRACTED",
-      "source_file": "/Users/apple/Desktop/Techling/Chex/chex-public-pages/src/app/(site)/locations/colorado/content.ts",
-      "source_location": "L3",
-      "weight": 1.0
-    },
-    {
-      "source": "src_app_site_locations_colorado_content_ts",
-      "target": "case_detection_png",
-      "relation": "imports_from",
-      "confidence": "EXTRACTED",
-      "source_file": "/Users/apple/Desktop/Techling/Chex/chex-public-pages/src/app/(site)/locations/colorado/content.ts",
-      "source_location": "L4",
-      "weight": 1.0
-    },
-    {
-      "source": "src_app_site_locations_colorado_content_ts",
-      "target": "case_growth_png",
-      "relation": "imports_from",
-      "confidence": "EXTRACTED",
-      "source_file": "/Users/apple/Desktop/Techling/Chex/chex-public-pages/src/app/(site)/locations/colorado/content.ts",
-      "source_location": "L5",
-      "weight": 1.0
-    },
-    {
-      "source": "src_app_site_locations_colorado_content_ts",
-      "target": "case_reliability_png",
-      "relation": "imports_from",
-      "confidence": "EXTRACTED",
-      "source_file": "/Users/apple/Desktop/Techling/Chex/chex-public-pages/src/app/(site)/locations/colorado/content.ts",
-      "source_location": "L6",
-      "weight": 1.0
-    },
-    {
-      "source": "src_app_site_locations_colorado_content_ts",
-      "target": "cta_background_png",
-      "relation": "imports_from",
-      "confidence": "EXTRACTED",
-      "source_file": "/Users/apple/Desktop/Techling/Chex/chex-public-pages/src/app/(site)/locations/colorado/content.ts",
-      "source_location": "L7",
-      "weight": 1.0
-    },
-    {
-      "source": "src_app_site_locations_colorado_content_ts",
-      "target": "hero_pin_alabama_png",
-      "relation": "imports_from",
-      "confidence": "EXTRACTED",
-      "source_file": "/Users/apple/Desktop/Techling/Chex/chex-public-pages/src/app/(site)/locations/colorado/content.ts",
-      "source_location": "L8",
-      "weight": 1.0
-    },
-    {
-      "source": "src_app_site_locations_colorado_content_ts",
-      "target": "hero_pin_california_png",
-      "relation": "imports_from",
-      "confidence": "EXTRACTED",
-      "source_file": "/Users/apple/Desktop/Techling/Chex/chex-public-pages/src/app/(site)/locations/colorado/content.ts",
-      "source_location": "L9",
-      "weight": 1.0
-    },
-    {
-      "source": "src_app_site_locations_colorado_content_ts",
-      "target": "hero_pin_colorado_png",
-      "relation": "imports_from",
-      "confidence": "EXTRACTED",
-      "source_file": "/Users/apple/Desktop/Techling/Chex/chex-public-pages/src/app/(site)/locations/colorado/content.ts",
-      "source_location": "L10",
-      "weight": 1.0
-    },
-    {
-      "source": "src_app_site_locations_colorado_content_ts",
-      "target": "hero_pin_iowa_png",
-      "relation": "imports_from",
-      "confidence": "EXTRACTED",
-      "source_file": "/Users/apple/Desktop/Techling/Chex/chex-public-pages/src/app/(site)/locations/colorado/content.ts",
-      "source_location": "L11",
-      "weight": 1.0
-    },
-    {
-      "source": "src_app_site_locations_colorado_content_ts",
-      "target": "hero_pin_nebraska_png",
-      "relation": "imports_from",
-      "confidence": "EXTRACTED",
-      "source_file": "/Users/apple/Desktop/Techling/Chex/chex-public-pages/src/app/(site)/locations/colorado/content.ts",
-      "source_location": "L12",
-      "weight": 1.0
-    },
-    {
-      "source": "src_app_site_locations_colorado_content_ts",
-      "target": "hero_pin_new_mexico_png",
-      "relation": "imports_from",
-      "confidence": "EXTRACTED",
-      "source_file": "/Users/apple/Desktop/Techling/Chex/chex-public-pages/src/app/(site)/locations/colorado/content.ts",
-      "source_location": "L13",
-      "weight": 1.0
-    },
-    {
-      "source": "src_app_site_locations_colorado_content_ts",
-      "target": "hero_pin_south_carolina_png",
-      "relation": "imports_from",
-      "confidence": "EXTRACTED",
-      "source_file": "/Users/apple/Desktop/Techling/Chex/chex-public-pages/src/app/(site)/locations/colorado/content.ts",
-      "source_location": "L14",
-      "weight": 1.0
-    },
-    {
-      "source": "src_app_site_locations_colorado_content_ts",
-      "target": "manage_phone_frame_png",
-      "relation": "imports_from",
-      "confidence": "EXTRACTED",
-      "source_file": "/Users/apple/Desktop/Techling/Chex/chex-public-pages/src/app/(site)/locations/colorado/content.ts",
-      "source_location": "L15",
-      "weight": 1.0
-    },
-    {
-      "source": "src_app_site_locations_colorado_content_ts",
-      "target": "manage_phone_notch_png",
-      "relation": "imports_from",
-      "confidence": "EXTRACTED",
-      "source_file": "/Users/apple/Desktop/Techling/Chex/chex-public-pages/src/app/(site)/locations/colorado/content.ts",
-      "source_location": "L16",
-      "weight": 1.0
-    },
-    {
-      "source": "src_app_site_locations_colorado_content_ts",
-      "target": "manage_phone_screen_png",
-      "relation": "imports_from",
-      "confidence": "EXTRACTED",
-      "source_file": "/Users/apple/Desktop/Techling/Chex/chex-public-pages/src/app/(site)/locations/colorado/content.ts",
-      "source_location": "L17",
-      "weight": 1.0
-    },
-    {
-      "source": "src_app_site_locations_colorado_content_ts",
-      "target": "service_fleet_png",
-      "relation": "imports_from",
-      "confidence": "EXTRACTED",
-      "source_file": "/Users/apple/Desktop/Techling/Chex/chex-public-pages/src/app/(site)/locations/colorado/content.ts",
-      "source_location": "L18",
-      "weight": 1.0
-    },
-    {
-      "source": "src_app_site_locations_colorado_content_ts",
-      "target": "service_rideshare_png",
-      "relation": "imports_from",
-      "confidence": "EXTRACTED",
-      "source_file": "/Users/apple/Desktop/Techling/Chex/chex-public-pages/src/app/(site)/locations/colorado/content.ts",
-      "source_location": "L19",
-      "weight": 1.0
-    },
-    {
-      "source": "src_app_site_locations_colorado_content_ts",
-      "target": "service_uber_png",
-      "relation": "imports_from",
-      "confidence": "EXTRACTED",
-      "source_file": "/Users/apple/Desktop/Techling/Chex/chex-public-pages/src/app/(site)/locations/colorado/content.ts",
-      "source_location": "L20",
-      "weight": 1.0
-    },
-    {
-      "source": "src_app_site_locations_colorado_content_ts",
-      "target": "overview_rideshare_record_png",
-      "relation": "imports_from",
-      "confidence": "EXTRACTED",
-      "source_file": "/Users/apple/Desktop/Techling/Chex/chex-public-pages/src/app/(site)/locations/colorado/content.ts",
-      "source_location": "L21",
-      "weight": 1.0
-    },
-    {
-      "source": "src_app_site_locations_colorado_content_ts",
-      "target": "region_boulder_png",
-      "relation": "imports_from",
-      "confidence": "EXTRACTED",
-      "source_file": "/Users/apple/Desktop/Techling/Chex/chex-public-pages/src/app/(site)/locations/colorado/content.ts",
-      "source_location": "L22",
-      "weight": 1.0
-    },
-    {
-      "source": "src_app_site_locations_colorado_content_ts",
-      "target": "region_denver_png",
-      "relation": "imports_from",
-      "confidence": "EXTRACTED",
-      "source_file": "/Users/apple/Desktop/Techling/Chex/chex-public-pages/src/app/(site)/locations/colorado/content.ts",
-      "source_location": "L23",
-      "weight": 1.0
-    },
-    {
-      "source": "src_app_site_locations_colorado_content_ts",
       "target": "location_page",
       "relation": "imports_from",
       "confidence": "EXTRACTED",
       "source_file": "/Users/apple/Desktop/Techling/Chex/chex-public-pages/src/app/(site)/locations/colorado/content.ts",
-      "source_location": "L24",
+      "source_location": "L1",
       "weight": 1.0
     },
     {
@@ -3668,218 +2547,11 @@
     },
     {
       "source": "src_app_site_locations_iowa_content_ts",
-      "target": "case_accuracy_alt_png",
-      "relation": "imports_from",
-      "confidence": "EXTRACTED",
-      "source_file": "/Users/apple/Desktop/Techling/Chex/chex-public-pages/src/app/(site)/locations/iowa/content.ts",
-      "source_location": "L1",
-      "weight": 1.0
-    },
-    {
-      "source": "src_app_site_locations_iowa_content_ts",
-      "target": "case_accuracy_png",
-      "relation": "imports_from",
-      "confidence": "EXTRACTED",
-      "source_file": "/Users/apple/Desktop/Techling/Chex/chex-public-pages/src/app/(site)/locations/iowa/content.ts",
-      "source_location": "L2",
-      "weight": 1.0
-    },
-    {
-      "source": "src_app_site_locations_iowa_content_ts",
-      "target": "case_arrow_png",
-      "relation": "imports_from",
-      "confidence": "EXTRACTED",
-      "source_file": "/Users/apple/Desktop/Techling/Chex/chex-public-pages/src/app/(site)/locations/iowa/content.ts",
-      "source_location": "L3",
-      "weight": 1.0
-    },
-    {
-      "source": "src_app_site_locations_iowa_content_ts",
-      "target": "case_detection_png",
-      "relation": "imports_from",
-      "confidence": "EXTRACTED",
-      "source_file": "/Users/apple/Desktop/Techling/Chex/chex-public-pages/src/app/(site)/locations/iowa/content.ts",
-      "source_location": "L4",
-      "weight": 1.0
-    },
-    {
-      "source": "src_app_site_locations_iowa_content_ts",
-      "target": "case_growth_png",
-      "relation": "imports_from",
-      "confidence": "EXTRACTED",
-      "source_file": "/Users/apple/Desktop/Techling/Chex/chex-public-pages/src/app/(site)/locations/iowa/content.ts",
-      "source_location": "L5",
-      "weight": 1.0
-    },
-    {
-      "source": "src_app_site_locations_iowa_content_ts",
-      "target": "case_reliability_png",
-      "relation": "imports_from",
-      "confidence": "EXTRACTED",
-      "source_file": "/Users/apple/Desktop/Techling/Chex/chex-public-pages/src/app/(site)/locations/iowa/content.ts",
-      "source_location": "L6",
-      "weight": 1.0
-    },
-    {
-      "source": "src_app_site_locations_iowa_content_ts",
-      "target": "cta_background_png",
-      "relation": "imports_from",
-      "confidence": "EXTRACTED",
-      "source_file": "/Users/apple/Desktop/Techling/Chex/chex-public-pages/src/app/(site)/locations/iowa/content.ts",
-      "source_location": "L7",
-      "weight": 1.0
-    },
-    {
-      "source": "src_app_site_locations_iowa_content_ts",
-      "target": "hero_pin_alabama_png",
-      "relation": "imports_from",
-      "confidence": "EXTRACTED",
-      "source_file": "/Users/apple/Desktop/Techling/Chex/chex-public-pages/src/app/(site)/locations/iowa/content.ts",
-      "source_location": "L8",
-      "weight": 1.0
-    },
-    {
-      "source": "src_app_site_locations_iowa_content_ts",
-      "target": "hero_pin_california_png",
-      "relation": "imports_from",
-      "confidence": "EXTRACTED",
-      "source_file": "/Users/apple/Desktop/Techling/Chex/chex-public-pages/src/app/(site)/locations/iowa/content.ts",
-      "source_location": "L9",
-      "weight": 1.0
-    },
-    {
-      "source": "src_app_site_locations_iowa_content_ts",
-      "target": "hero_pin_colorado_png",
-      "relation": "imports_from",
-      "confidence": "EXTRACTED",
-      "source_file": "/Users/apple/Desktop/Techling/Chex/chex-public-pages/src/app/(site)/locations/iowa/content.ts",
-      "source_location": "L10",
-      "weight": 1.0
-    },
-    {
-      "source": "src_app_site_locations_iowa_content_ts",
-      "target": "hero_pin_nebraska_png",
-      "relation": "imports_from",
-      "confidence": "EXTRACTED",
-      "source_file": "/Users/apple/Desktop/Techling/Chex/chex-public-pages/src/app/(site)/locations/iowa/content.ts",
-      "source_location": "L11",
-      "weight": 1.0
-    },
-    {
-      "source": "src_app_site_locations_iowa_content_ts",
-      "target": "hero_pin_new_mexico_png",
-      "relation": "imports_from",
-      "confidence": "EXTRACTED",
-      "source_file": "/Users/apple/Desktop/Techling/Chex/chex-public-pages/src/app/(site)/locations/iowa/content.ts",
-      "source_location": "L12",
-      "weight": 1.0
-    },
-    {
-      "source": "src_app_site_locations_iowa_content_ts",
-      "target": "hero_pin_south_carolina_png",
-      "relation": "imports_from",
-      "confidence": "EXTRACTED",
-      "source_file": "/Users/apple/Desktop/Techling/Chex/chex-public-pages/src/app/(site)/locations/iowa/content.ts",
-      "source_location": "L13",
-      "weight": 1.0
-    },
-    {
-      "source": "src_app_site_locations_iowa_content_ts",
-      "target": "manage_phone_frame_png",
-      "relation": "imports_from",
-      "confidence": "EXTRACTED",
-      "source_file": "/Users/apple/Desktop/Techling/Chex/chex-public-pages/src/app/(site)/locations/iowa/content.ts",
-      "source_location": "L14",
-      "weight": 1.0
-    },
-    {
-      "source": "src_app_site_locations_iowa_content_ts",
-      "target": "manage_phone_notch_png",
-      "relation": "imports_from",
-      "confidence": "EXTRACTED",
-      "source_file": "/Users/apple/Desktop/Techling/Chex/chex-public-pages/src/app/(site)/locations/iowa/content.ts",
-      "source_location": "L15",
-      "weight": 1.0
-    },
-    {
-      "source": "src_app_site_locations_iowa_content_ts",
-      "target": "manage_phone_screen_png",
-      "relation": "imports_from",
-      "confidence": "EXTRACTED",
-      "source_file": "/Users/apple/Desktop/Techling/Chex/chex-public-pages/src/app/(site)/locations/iowa/content.ts",
-      "source_location": "L16",
-      "weight": 1.0
-    },
-    {
-      "source": "src_app_site_locations_iowa_content_ts",
-      "target": "service_fleet_png",
-      "relation": "imports_from",
-      "confidence": "EXTRACTED",
-      "source_file": "/Users/apple/Desktop/Techling/Chex/chex-public-pages/src/app/(site)/locations/iowa/content.ts",
-      "source_location": "L17",
-      "weight": 1.0
-    },
-    {
-      "source": "src_app_site_locations_iowa_content_ts",
-      "target": "service_rideshare_png",
-      "relation": "imports_from",
-      "confidence": "EXTRACTED",
-      "source_file": "/Users/apple/Desktop/Techling/Chex/chex-public-pages/src/app/(site)/locations/iowa/content.ts",
-      "source_location": "L18",
-      "weight": 1.0
-    },
-    {
-      "source": "src_app_site_locations_iowa_content_ts",
-      "target": "service_uber_png",
-      "relation": "imports_from",
-      "confidence": "EXTRACTED",
-      "source_file": "/Users/apple/Desktop/Techling/Chex/chex-public-pages/src/app/(site)/locations/iowa/content.ts",
-      "source_location": "L19",
-      "weight": 1.0
-    },
-    {
-      "source": "src_app_site_locations_iowa_content_ts",
-      "target": "hero_pin_iowa_png",
-      "relation": "imports_from",
-      "confidence": "EXTRACTED",
-      "source_file": "/Users/apple/Desktop/Techling/Chex/chex-public-pages/src/app/(site)/locations/iowa/content.ts",
-      "source_location": "L20",
-      "weight": 1.0
-    },
-    {
-      "source": "src_app_site_locations_iowa_content_ts",
-      "target": "overview_vehicle_inspection_technology_png",
-      "relation": "imports_from",
-      "confidence": "EXTRACTED",
-      "source_file": "/Users/apple/Desktop/Techling/Chex/chex-public-pages/src/app/(site)/locations/iowa/content.ts",
-      "source_location": "L21",
-      "weight": 1.0
-    },
-    {
-      "source": "src_app_site_locations_iowa_content_ts",
-      "target": "region_cedar_rapids_png",
-      "relation": "imports_from",
-      "confidence": "EXTRACTED",
-      "source_file": "/Users/apple/Desktop/Techling/Chex/chex-public-pages/src/app/(site)/locations/iowa/content.ts",
-      "source_location": "L22",
-      "weight": 1.0
-    },
-    {
-      "source": "src_app_site_locations_iowa_content_ts",
-      "target": "region_des_moines_png",
-      "relation": "imports_from",
-      "confidence": "EXTRACTED",
-      "source_file": "/Users/apple/Desktop/Techling/Chex/chex-public-pages/src/app/(site)/locations/iowa/content.ts",
-      "source_location": "L23",
-      "weight": 1.0
-    },
-    {
-      "source": "src_app_site_locations_iowa_content_ts",
       "target": "location_page",
       "relation": "imports_from",
       "confidence": "EXTRACTED",
       "source_file": "/Users/apple/Desktop/Techling/Chex/chex-public-pages/src/app/(site)/locations/iowa/content.ts",
-      "source_location": "L24",
+      "source_location": "L1",
       "weight": 1.0
     },
     {
@@ -3920,218 +2592,11 @@
     },
     {
       "source": "src_app_site_locations_nebraska_content_ts",
-      "target": "case_accuracy_alt_png",
-      "relation": "imports_from",
-      "confidence": "EXTRACTED",
-      "source_file": "/Users/apple/Desktop/Techling/Chex/chex-public-pages/src/app/(site)/locations/nebraska/content.ts",
-      "source_location": "L1",
-      "weight": 1.0
-    },
-    {
-      "source": "src_app_site_locations_nebraska_content_ts",
-      "target": "case_accuracy_png",
-      "relation": "imports_from",
-      "confidence": "EXTRACTED",
-      "source_file": "/Users/apple/Desktop/Techling/Chex/chex-public-pages/src/app/(site)/locations/nebraska/content.ts",
-      "source_location": "L2",
-      "weight": 1.0
-    },
-    {
-      "source": "src_app_site_locations_nebraska_content_ts",
-      "target": "case_arrow_png",
-      "relation": "imports_from",
-      "confidence": "EXTRACTED",
-      "source_file": "/Users/apple/Desktop/Techling/Chex/chex-public-pages/src/app/(site)/locations/nebraska/content.ts",
-      "source_location": "L3",
-      "weight": 1.0
-    },
-    {
-      "source": "src_app_site_locations_nebraska_content_ts",
-      "target": "case_detection_png",
-      "relation": "imports_from",
-      "confidence": "EXTRACTED",
-      "source_file": "/Users/apple/Desktop/Techling/Chex/chex-public-pages/src/app/(site)/locations/nebraska/content.ts",
-      "source_location": "L4",
-      "weight": 1.0
-    },
-    {
-      "source": "src_app_site_locations_nebraska_content_ts",
-      "target": "case_growth_png",
-      "relation": "imports_from",
-      "confidence": "EXTRACTED",
-      "source_file": "/Users/apple/Desktop/Techling/Chex/chex-public-pages/src/app/(site)/locations/nebraska/content.ts",
-      "source_location": "L5",
-      "weight": 1.0
-    },
-    {
-      "source": "src_app_site_locations_nebraska_content_ts",
-      "target": "case_reliability_png",
-      "relation": "imports_from",
-      "confidence": "EXTRACTED",
-      "source_file": "/Users/apple/Desktop/Techling/Chex/chex-public-pages/src/app/(site)/locations/nebraska/content.ts",
-      "source_location": "L6",
-      "weight": 1.0
-    },
-    {
-      "source": "src_app_site_locations_nebraska_content_ts",
-      "target": "cta_background_png",
-      "relation": "imports_from",
-      "confidence": "EXTRACTED",
-      "source_file": "/Users/apple/Desktop/Techling/Chex/chex-public-pages/src/app/(site)/locations/nebraska/content.ts",
-      "source_location": "L7",
-      "weight": 1.0
-    },
-    {
-      "source": "src_app_site_locations_nebraska_content_ts",
-      "target": "hero_pin_alabama_png",
-      "relation": "imports_from",
-      "confidence": "EXTRACTED",
-      "source_file": "/Users/apple/Desktop/Techling/Chex/chex-public-pages/src/app/(site)/locations/nebraska/content.ts",
-      "source_location": "L8",
-      "weight": 1.0
-    },
-    {
-      "source": "src_app_site_locations_nebraska_content_ts",
-      "target": "hero_pin_california_png",
-      "relation": "imports_from",
-      "confidence": "EXTRACTED",
-      "source_file": "/Users/apple/Desktop/Techling/Chex/chex-public-pages/src/app/(site)/locations/nebraska/content.ts",
-      "source_location": "L9",
-      "weight": 1.0
-    },
-    {
-      "source": "src_app_site_locations_nebraska_content_ts",
-      "target": "hero_pin_colorado_png",
-      "relation": "imports_from",
-      "confidence": "EXTRACTED",
-      "source_file": "/Users/apple/Desktop/Techling/Chex/chex-public-pages/src/app/(site)/locations/nebraska/content.ts",
-      "source_location": "L10",
-      "weight": 1.0
-    },
-    {
-      "source": "src_app_site_locations_nebraska_content_ts",
-      "target": "hero_pin_iowa_png",
-      "relation": "imports_from",
-      "confidence": "EXTRACTED",
-      "source_file": "/Users/apple/Desktop/Techling/Chex/chex-public-pages/src/app/(site)/locations/nebraska/content.ts",
-      "source_location": "L11",
-      "weight": 1.0
-    },
-    {
-      "source": "src_app_site_locations_nebraska_content_ts",
-      "target": "hero_pin_new_mexico_png",
-      "relation": "imports_from",
-      "confidence": "EXTRACTED",
-      "source_file": "/Users/apple/Desktop/Techling/Chex/chex-public-pages/src/app/(site)/locations/nebraska/content.ts",
-      "source_location": "L12",
-      "weight": 1.0
-    },
-    {
-      "source": "src_app_site_locations_nebraska_content_ts",
-      "target": "hero_pin_south_carolina_png",
-      "relation": "imports_from",
-      "confidence": "EXTRACTED",
-      "source_file": "/Users/apple/Desktop/Techling/Chex/chex-public-pages/src/app/(site)/locations/nebraska/content.ts",
-      "source_location": "L13",
-      "weight": 1.0
-    },
-    {
-      "source": "src_app_site_locations_nebraska_content_ts",
-      "target": "manage_phone_frame_png",
-      "relation": "imports_from",
-      "confidence": "EXTRACTED",
-      "source_file": "/Users/apple/Desktop/Techling/Chex/chex-public-pages/src/app/(site)/locations/nebraska/content.ts",
-      "source_location": "L14",
-      "weight": 1.0
-    },
-    {
-      "source": "src_app_site_locations_nebraska_content_ts",
-      "target": "manage_phone_notch_png",
-      "relation": "imports_from",
-      "confidence": "EXTRACTED",
-      "source_file": "/Users/apple/Desktop/Techling/Chex/chex-public-pages/src/app/(site)/locations/nebraska/content.ts",
-      "source_location": "L15",
-      "weight": 1.0
-    },
-    {
-      "source": "src_app_site_locations_nebraska_content_ts",
-      "target": "manage_phone_screen_png",
-      "relation": "imports_from",
-      "confidence": "EXTRACTED",
-      "source_file": "/Users/apple/Desktop/Techling/Chex/chex-public-pages/src/app/(site)/locations/nebraska/content.ts",
-      "source_location": "L16",
-      "weight": 1.0
-    },
-    {
-      "source": "src_app_site_locations_nebraska_content_ts",
-      "target": "service_fleet_png",
-      "relation": "imports_from",
-      "confidence": "EXTRACTED",
-      "source_file": "/Users/apple/Desktop/Techling/Chex/chex-public-pages/src/app/(site)/locations/nebraska/content.ts",
-      "source_location": "L17",
-      "weight": 1.0
-    },
-    {
-      "source": "src_app_site_locations_nebraska_content_ts",
-      "target": "service_rideshare_png",
-      "relation": "imports_from",
-      "confidence": "EXTRACTED",
-      "source_file": "/Users/apple/Desktop/Techling/Chex/chex-public-pages/src/app/(site)/locations/nebraska/content.ts",
-      "source_location": "L18",
-      "weight": 1.0
-    },
-    {
-      "source": "src_app_site_locations_nebraska_content_ts",
-      "target": "service_uber_png",
-      "relation": "imports_from",
-      "confidence": "EXTRACTED",
-      "source_file": "/Users/apple/Desktop/Techling/Chex/chex-public-pages/src/app/(site)/locations/nebraska/content.ts",
-      "source_location": "L19",
-      "weight": 1.0
-    },
-    {
-      "source": "src_app_site_locations_nebraska_content_ts",
-      "target": "hero_pin_nebraska_png",
-      "relation": "imports_from",
-      "confidence": "EXTRACTED",
-      "source_file": "/Users/apple/Desktop/Techling/Chex/chex-public-pages/src/app/(site)/locations/nebraska/content.ts",
-      "source_location": "L20",
-      "weight": 1.0
-    },
-    {
-      "source": "src_app_site_locations_nebraska_content_ts",
-      "target": "overview_vehicle_inspection_technology_png",
-      "relation": "imports_from",
-      "confidence": "EXTRACTED",
-      "source_file": "/Users/apple/Desktop/Techling/Chex/chex-public-pages/src/app/(site)/locations/nebraska/content.ts",
-      "source_location": "L21",
-      "weight": 1.0
-    },
-    {
-      "source": "src_app_site_locations_nebraska_content_ts",
-      "target": "region_lincoln_png",
-      "relation": "imports_from",
-      "confidence": "EXTRACTED",
-      "source_file": "/Users/apple/Desktop/Techling/Chex/chex-public-pages/src/app/(site)/locations/nebraska/content.ts",
-      "source_location": "L22",
-      "weight": 1.0
-    },
-    {
-      "source": "src_app_site_locations_nebraska_content_ts",
-      "target": "region_omaha_png",
-      "relation": "imports_from",
-      "confidence": "EXTRACTED",
-      "source_file": "/Users/apple/Desktop/Techling/Chex/chex-public-pages/src/app/(site)/locations/nebraska/content.ts",
-      "source_location": "L23",
-      "weight": 1.0
-    },
-    {
-      "source": "src_app_site_locations_nebraska_content_ts",
       "target": "location_page",
       "relation": "imports_from",
       "confidence": "EXTRACTED",
       "source_file": "/Users/apple/Desktop/Techling/Chex/chex-public-pages/src/app/(site)/locations/nebraska/content.ts",
-      "source_location": "L24",
+      "source_location": "L1",
       "weight": 1.0
     },
     {
@@ -4172,218 +2637,11 @@
     },
     {
       "source": "src_app_site_locations_nevada_content_ts",
-      "target": "case_accuracy_alt_png",
-      "relation": "imports_from",
-      "confidence": "EXTRACTED",
-      "source_file": "/Users/apple/Desktop/Techling/Chex/chex-public-pages/src/app/(site)/locations/nevada/content.ts",
-      "source_location": "L1",
-      "weight": 1.0
-    },
-    {
-      "source": "src_app_site_locations_nevada_content_ts",
-      "target": "case_accuracy_png",
-      "relation": "imports_from",
-      "confidence": "EXTRACTED",
-      "source_file": "/Users/apple/Desktop/Techling/Chex/chex-public-pages/src/app/(site)/locations/nevada/content.ts",
-      "source_location": "L2",
-      "weight": 1.0
-    },
-    {
-      "source": "src_app_site_locations_nevada_content_ts",
-      "target": "case_arrow_png",
-      "relation": "imports_from",
-      "confidence": "EXTRACTED",
-      "source_file": "/Users/apple/Desktop/Techling/Chex/chex-public-pages/src/app/(site)/locations/nevada/content.ts",
-      "source_location": "L3",
-      "weight": 1.0
-    },
-    {
-      "source": "src_app_site_locations_nevada_content_ts",
-      "target": "case_detection_png",
-      "relation": "imports_from",
-      "confidence": "EXTRACTED",
-      "source_file": "/Users/apple/Desktop/Techling/Chex/chex-public-pages/src/app/(site)/locations/nevada/content.ts",
-      "source_location": "L4",
-      "weight": 1.0
-    },
-    {
-      "source": "src_app_site_locations_nevada_content_ts",
-      "target": "case_growth_png",
-      "relation": "imports_from",
-      "confidence": "EXTRACTED",
-      "source_file": "/Users/apple/Desktop/Techling/Chex/chex-public-pages/src/app/(site)/locations/nevada/content.ts",
-      "source_location": "L5",
-      "weight": 1.0
-    },
-    {
-      "source": "src_app_site_locations_nevada_content_ts",
-      "target": "case_reliability_png",
-      "relation": "imports_from",
-      "confidence": "EXTRACTED",
-      "source_file": "/Users/apple/Desktop/Techling/Chex/chex-public-pages/src/app/(site)/locations/nevada/content.ts",
-      "source_location": "L6",
-      "weight": 1.0
-    },
-    {
-      "source": "src_app_site_locations_nevada_content_ts",
-      "target": "cta_background_png",
-      "relation": "imports_from",
-      "confidence": "EXTRACTED",
-      "source_file": "/Users/apple/Desktop/Techling/Chex/chex-public-pages/src/app/(site)/locations/nevada/content.ts",
-      "source_location": "L7",
-      "weight": 1.0
-    },
-    {
-      "source": "src_app_site_locations_nevada_content_ts",
-      "target": "hero_pin_alabama_png",
-      "relation": "imports_from",
-      "confidence": "EXTRACTED",
-      "source_file": "/Users/apple/Desktop/Techling/Chex/chex-public-pages/src/app/(site)/locations/nevada/content.ts",
-      "source_location": "L8",
-      "weight": 1.0
-    },
-    {
-      "source": "src_app_site_locations_nevada_content_ts",
-      "target": "hero_pin_california_png",
-      "relation": "imports_from",
-      "confidence": "EXTRACTED",
-      "source_file": "/Users/apple/Desktop/Techling/Chex/chex-public-pages/src/app/(site)/locations/nevada/content.ts",
-      "source_location": "L9",
-      "weight": 1.0
-    },
-    {
-      "source": "src_app_site_locations_nevada_content_ts",
-      "target": "hero_pin_colorado_png",
-      "relation": "imports_from",
-      "confidence": "EXTRACTED",
-      "source_file": "/Users/apple/Desktop/Techling/Chex/chex-public-pages/src/app/(site)/locations/nevada/content.ts",
-      "source_location": "L10",
-      "weight": 1.0
-    },
-    {
-      "source": "src_app_site_locations_nevada_content_ts",
-      "target": "hero_pin_iowa_png",
-      "relation": "imports_from",
-      "confidence": "EXTRACTED",
-      "source_file": "/Users/apple/Desktop/Techling/Chex/chex-public-pages/src/app/(site)/locations/nevada/content.ts",
-      "source_location": "L11",
-      "weight": 1.0
-    },
-    {
-      "source": "src_app_site_locations_nevada_content_ts",
-      "target": "hero_pin_nebraska_png",
-      "relation": "imports_from",
-      "confidence": "EXTRACTED",
-      "source_file": "/Users/apple/Desktop/Techling/Chex/chex-public-pages/src/app/(site)/locations/nevada/content.ts",
-      "source_location": "L12",
-      "weight": 1.0
-    },
-    {
-      "source": "src_app_site_locations_nevada_content_ts",
-      "target": "hero_pin_new_mexico_png",
-      "relation": "imports_from",
-      "confidence": "EXTRACTED",
-      "source_file": "/Users/apple/Desktop/Techling/Chex/chex-public-pages/src/app/(site)/locations/nevada/content.ts",
-      "source_location": "L13",
-      "weight": 1.0
-    },
-    {
-      "source": "src_app_site_locations_nevada_content_ts",
-      "target": "hero_pin_south_carolina_png",
-      "relation": "imports_from",
-      "confidence": "EXTRACTED",
-      "source_file": "/Users/apple/Desktop/Techling/Chex/chex-public-pages/src/app/(site)/locations/nevada/content.ts",
-      "source_location": "L14",
-      "weight": 1.0
-    },
-    {
-      "source": "src_app_site_locations_nevada_content_ts",
-      "target": "manage_phone_frame_png",
-      "relation": "imports_from",
-      "confidence": "EXTRACTED",
-      "source_file": "/Users/apple/Desktop/Techling/Chex/chex-public-pages/src/app/(site)/locations/nevada/content.ts",
-      "source_location": "L15",
-      "weight": 1.0
-    },
-    {
-      "source": "src_app_site_locations_nevada_content_ts",
-      "target": "manage_phone_notch_png",
-      "relation": "imports_from",
-      "confidence": "EXTRACTED",
-      "source_file": "/Users/apple/Desktop/Techling/Chex/chex-public-pages/src/app/(site)/locations/nevada/content.ts",
-      "source_location": "L16",
-      "weight": 1.0
-    },
-    {
-      "source": "src_app_site_locations_nevada_content_ts",
-      "target": "manage_phone_screen_png",
-      "relation": "imports_from",
-      "confidence": "EXTRACTED",
-      "source_file": "/Users/apple/Desktop/Techling/Chex/chex-public-pages/src/app/(site)/locations/nevada/content.ts",
-      "source_location": "L17",
-      "weight": 1.0
-    },
-    {
-      "source": "src_app_site_locations_nevada_content_ts",
-      "target": "service_fleet_png",
-      "relation": "imports_from",
-      "confidence": "EXTRACTED",
-      "source_file": "/Users/apple/Desktop/Techling/Chex/chex-public-pages/src/app/(site)/locations/nevada/content.ts",
-      "source_location": "L18",
-      "weight": 1.0
-    },
-    {
-      "source": "src_app_site_locations_nevada_content_ts",
-      "target": "service_rideshare_png",
-      "relation": "imports_from",
-      "confidence": "EXTRACTED",
-      "source_file": "/Users/apple/Desktop/Techling/Chex/chex-public-pages/src/app/(site)/locations/nevada/content.ts",
-      "source_location": "L19",
-      "weight": 1.0
-    },
-    {
-      "source": "src_app_site_locations_nevada_content_ts",
-      "target": "service_uber_png",
-      "relation": "imports_from",
-      "confidence": "EXTRACTED",
-      "source_file": "/Users/apple/Desktop/Techling/Chex/chex-public-pages/src/app/(site)/locations/nevada/content.ts",
-      "source_location": "L20",
-      "weight": 1.0
-    },
-    {
-      "source": "src_app_site_locations_nevada_content_ts",
-      "target": "overview_carriers_png",
-      "relation": "imports_from",
-      "confidence": "EXTRACTED",
-      "source_file": "/Users/apple/Desktop/Techling/Chex/chex-public-pages/src/app/(site)/locations/nevada/content.ts",
-      "source_location": "L21",
-      "weight": 1.0
-    },
-    {
-      "source": "src_app_site_locations_nevada_content_ts",
-      "target": "region_las_vegas_png",
-      "relation": "imports_from",
-      "confidence": "EXTRACTED",
-      "source_file": "/Users/apple/Desktop/Techling/Chex/chex-public-pages/src/app/(site)/locations/nevada/content.ts",
-      "source_location": "L22",
-      "weight": 1.0
-    },
-    {
-      "source": "src_app_site_locations_nevada_content_ts",
-      "target": "region_reno_png",
-      "relation": "imports_from",
-      "confidence": "EXTRACTED",
-      "source_file": "/Users/apple/Desktop/Techling/Chex/chex-public-pages/src/app/(site)/locations/nevada/content.ts",
-      "source_location": "L23",
-      "weight": 1.0
-    },
-    {
-      "source": "src_app_site_locations_nevada_content_ts",
       "target": "location_page",
       "relation": "imports_from",
       "confidence": "EXTRACTED",
       "source_file": "/Users/apple/Desktop/Techling/Chex/chex-public-pages/src/app/(site)/locations/nevada/content.ts",
-      "source_location": "L24",
+      "source_location": "L1",
       "weight": 1.0
     },
     {
@@ -4424,218 +2682,11 @@
     },
     {
       "source": "src_app_site_locations_new_mexico_content_ts",
-      "target": "case_accuracy_alt_png",
-      "relation": "imports_from",
-      "confidence": "EXTRACTED",
-      "source_file": "/Users/apple/Desktop/Techling/Chex/chex-public-pages/src/app/(site)/locations/new-mexico/content.ts",
-      "source_location": "L1",
-      "weight": 1.0
-    },
-    {
-      "source": "src_app_site_locations_new_mexico_content_ts",
-      "target": "case_accuracy_png",
-      "relation": "imports_from",
-      "confidence": "EXTRACTED",
-      "source_file": "/Users/apple/Desktop/Techling/Chex/chex-public-pages/src/app/(site)/locations/new-mexico/content.ts",
-      "source_location": "L2",
-      "weight": 1.0
-    },
-    {
-      "source": "src_app_site_locations_new_mexico_content_ts",
-      "target": "case_arrow_png",
-      "relation": "imports_from",
-      "confidence": "EXTRACTED",
-      "source_file": "/Users/apple/Desktop/Techling/Chex/chex-public-pages/src/app/(site)/locations/new-mexico/content.ts",
-      "source_location": "L3",
-      "weight": 1.0
-    },
-    {
-      "source": "src_app_site_locations_new_mexico_content_ts",
-      "target": "case_detection_png",
-      "relation": "imports_from",
-      "confidence": "EXTRACTED",
-      "source_file": "/Users/apple/Desktop/Techling/Chex/chex-public-pages/src/app/(site)/locations/new-mexico/content.ts",
-      "source_location": "L4",
-      "weight": 1.0
-    },
-    {
-      "source": "src_app_site_locations_new_mexico_content_ts",
-      "target": "case_growth_png",
-      "relation": "imports_from",
-      "confidence": "EXTRACTED",
-      "source_file": "/Users/apple/Desktop/Techling/Chex/chex-public-pages/src/app/(site)/locations/new-mexico/content.ts",
-      "source_location": "L5",
-      "weight": 1.0
-    },
-    {
-      "source": "src_app_site_locations_new_mexico_content_ts",
-      "target": "case_reliability_png",
-      "relation": "imports_from",
-      "confidence": "EXTRACTED",
-      "source_file": "/Users/apple/Desktop/Techling/Chex/chex-public-pages/src/app/(site)/locations/new-mexico/content.ts",
-      "source_location": "L6",
-      "weight": 1.0
-    },
-    {
-      "source": "src_app_site_locations_new_mexico_content_ts",
-      "target": "cta_background_png",
-      "relation": "imports_from",
-      "confidence": "EXTRACTED",
-      "source_file": "/Users/apple/Desktop/Techling/Chex/chex-public-pages/src/app/(site)/locations/new-mexico/content.ts",
-      "source_location": "L7",
-      "weight": 1.0
-    },
-    {
-      "source": "src_app_site_locations_new_mexico_content_ts",
-      "target": "hero_pin_alabama_png",
-      "relation": "imports_from",
-      "confidence": "EXTRACTED",
-      "source_file": "/Users/apple/Desktop/Techling/Chex/chex-public-pages/src/app/(site)/locations/new-mexico/content.ts",
-      "source_location": "L8",
-      "weight": 1.0
-    },
-    {
-      "source": "src_app_site_locations_new_mexico_content_ts",
-      "target": "hero_pin_california_png",
-      "relation": "imports_from",
-      "confidence": "EXTRACTED",
-      "source_file": "/Users/apple/Desktop/Techling/Chex/chex-public-pages/src/app/(site)/locations/new-mexico/content.ts",
-      "source_location": "L9",
-      "weight": 1.0
-    },
-    {
-      "source": "src_app_site_locations_new_mexico_content_ts",
-      "target": "hero_pin_colorado_png",
-      "relation": "imports_from",
-      "confidence": "EXTRACTED",
-      "source_file": "/Users/apple/Desktop/Techling/Chex/chex-public-pages/src/app/(site)/locations/new-mexico/content.ts",
-      "source_location": "L10",
-      "weight": 1.0
-    },
-    {
-      "source": "src_app_site_locations_new_mexico_content_ts",
-      "target": "hero_pin_iowa_png",
-      "relation": "imports_from",
-      "confidence": "EXTRACTED",
-      "source_file": "/Users/apple/Desktop/Techling/Chex/chex-public-pages/src/app/(site)/locations/new-mexico/content.ts",
-      "source_location": "L11",
-      "weight": 1.0
-    },
-    {
-      "source": "src_app_site_locations_new_mexico_content_ts",
-      "target": "hero_pin_nebraska_png",
-      "relation": "imports_from",
-      "confidence": "EXTRACTED",
-      "source_file": "/Users/apple/Desktop/Techling/Chex/chex-public-pages/src/app/(site)/locations/new-mexico/content.ts",
-      "source_location": "L12",
-      "weight": 1.0
-    },
-    {
-      "source": "src_app_site_locations_new_mexico_content_ts",
-      "target": "hero_pin_new_mexico_png",
-      "relation": "imports_from",
-      "confidence": "EXTRACTED",
-      "source_file": "/Users/apple/Desktop/Techling/Chex/chex-public-pages/src/app/(site)/locations/new-mexico/content.ts",
-      "source_location": "L13",
-      "weight": 1.0
-    },
-    {
-      "source": "src_app_site_locations_new_mexico_content_ts",
-      "target": "hero_pin_south_carolina_png",
-      "relation": "imports_from",
-      "confidence": "EXTRACTED",
-      "source_file": "/Users/apple/Desktop/Techling/Chex/chex-public-pages/src/app/(site)/locations/new-mexico/content.ts",
-      "source_location": "L14",
-      "weight": 1.0
-    },
-    {
-      "source": "src_app_site_locations_new_mexico_content_ts",
-      "target": "impact_albuquerque_png",
-      "relation": "imports_from",
-      "confidence": "EXTRACTED",
-      "source_file": "/Users/apple/Desktop/Techling/Chex/chex-public-pages/src/app/(site)/locations/new-mexico/content.ts",
-      "source_location": "L15",
-      "weight": 1.0
-    },
-    {
-      "source": "src_app_site_locations_new_mexico_content_ts",
-      "target": "impact_santa_fe_png",
-      "relation": "imports_from",
-      "confidence": "EXTRACTED",
-      "source_file": "/Users/apple/Desktop/Techling/Chex/chex-public-pages/src/app/(site)/locations/new-mexico/content.ts",
-      "source_location": "L16",
-      "weight": 1.0
-    },
-    {
-      "source": "src_app_site_locations_new_mexico_content_ts",
-      "target": "manage_phone_frame_png",
-      "relation": "imports_from",
-      "confidence": "EXTRACTED",
-      "source_file": "/Users/apple/Desktop/Techling/Chex/chex-public-pages/src/app/(site)/locations/new-mexico/content.ts",
-      "source_location": "L17",
-      "weight": 1.0
-    },
-    {
-      "source": "src_app_site_locations_new_mexico_content_ts",
-      "target": "manage_phone_notch_png",
-      "relation": "imports_from",
-      "confidence": "EXTRACTED",
-      "source_file": "/Users/apple/Desktop/Techling/Chex/chex-public-pages/src/app/(site)/locations/new-mexico/content.ts",
-      "source_location": "L18",
-      "weight": 1.0
-    },
-    {
-      "source": "src_app_site_locations_new_mexico_content_ts",
-      "target": "manage_phone_screen_png",
-      "relation": "imports_from",
-      "confidence": "EXTRACTED",
-      "source_file": "/Users/apple/Desktop/Techling/Chex/chex-public-pages/src/app/(site)/locations/new-mexico/content.ts",
-      "source_location": "L19",
-      "weight": 1.0
-    },
-    {
-      "source": "src_app_site_locations_new_mexico_content_ts",
-      "target": "overview_edge_processing_png",
-      "relation": "imports_from",
-      "confidence": "EXTRACTED",
-      "source_file": "/Users/apple/Desktop/Techling/Chex/chex-public-pages/src/app/(site)/locations/new-mexico/content.ts",
-      "source_location": "L20",
-      "weight": 1.0
-    },
-    {
-      "source": "src_app_site_locations_new_mexico_content_ts",
-      "target": "service_fleet_png",
-      "relation": "imports_from",
-      "confidence": "EXTRACTED",
-      "source_file": "/Users/apple/Desktop/Techling/Chex/chex-public-pages/src/app/(site)/locations/new-mexico/content.ts",
-      "source_location": "L21",
-      "weight": 1.0
-    },
-    {
-      "source": "src_app_site_locations_new_mexico_content_ts",
-      "target": "service_rideshare_png",
-      "relation": "imports_from",
-      "confidence": "EXTRACTED",
-      "source_file": "/Users/apple/Desktop/Techling/Chex/chex-public-pages/src/app/(site)/locations/new-mexico/content.ts",
-      "source_location": "L22",
-      "weight": 1.0
-    },
-    {
-      "source": "src_app_site_locations_new_mexico_content_ts",
-      "target": "service_uber_png",
-      "relation": "imports_from",
-      "confidence": "EXTRACTED",
-      "source_file": "/Users/apple/Desktop/Techling/Chex/chex-public-pages/src/app/(site)/locations/new-mexico/content.ts",
-      "source_location": "L23",
-      "weight": 1.0
-    },
-    {
-      "source": "src_app_site_locations_new_mexico_content_ts",
       "target": "location_page",
       "relation": "imports_from",
       "confidence": "EXTRACTED",
       "source_file": "/Users/apple/Desktop/Techling/Chex/chex-public-pages/src/app/(site)/locations/new-mexico/content.ts",
-      "source_location": "L24",
+      "source_location": "L1",
       "weight": 1.0
     },
     {
@@ -4676,7 +2727,7 @@
     },
     {
       "source": "src_app_site_locations_ohio_content_ts",
-      "target": "case_accuracy_alt_png",
+      "target": "location_page",
       "relation": "imports_from",
       "confidence": "EXTRACTED",
       "source_file": "/Users/apple/Desktop/Techling/Chex/chex-public-pages/src/app/(site)/locations/ohio/content.ts",
@@ -4685,245 +2736,11 @@
     },
     {
       "source": "src_app_site_locations_ohio_content_ts",
-      "target": "case_accuracy_png",
-      "relation": "imports_from",
-      "confidence": "EXTRACTED",
-      "source_file": "/Users/apple/Desktop/Techling/Chex/chex-public-pages/src/app/(site)/locations/ohio/content.ts",
-      "source_location": "L2",
-      "weight": 1.0
-    },
-    {
-      "source": "src_app_site_locations_ohio_content_ts",
-      "target": "case_arrow_png",
-      "relation": "imports_from",
-      "confidence": "EXTRACTED",
-      "source_file": "/Users/apple/Desktop/Techling/Chex/chex-public-pages/src/app/(site)/locations/ohio/content.ts",
-      "source_location": "L3",
-      "weight": 1.0
-    },
-    {
-      "source": "src_app_site_locations_ohio_content_ts",
-      "target": "case_detection_png",
-      "relation": "imports_from",
-      "confidence": "EXTRACTED",
-      "source_file": "/Users/apple/Desktop/Techling/Chex/chex-public-pages/src/app/(site)/locations/ohio/content.ts",
-      "source_location": "L4",
-      "weight": 1.0
-    },
-    {
-      "source": "src_app_site_locations_ohio_content_ts",
-      "target": "case_growth_png",
-      "relation": "imports_from",
-      "confidence": "EXTRACTED",
-      "source_file": "/Users/apple/Desktop/Techling/Chex/chex-public-pages/src/app/(site)/locations/ohio/content.ts",
-      "source_location": "L5",
-      "weight": 1.0
-    },
-    {
-      "source": "src_app_site_locations_ohio_content_ts",
-      "target": "case_reliability_png",
-      "relation": "imports_from",
-      "confidence": "EXTRACTED",
-      "source_file": "/Users/apple/Desktop/Techling/Chex/chex-public-pages/src/app/(site)/locations/ohio/content.ts",
-      "source_location": "L6",
-      "weight": 1.0
-    },
-    {
-      "source": "src_app_site_locations_ohio_content_ts",
-      "target": "cta_background_png",
-      "relation": "imports_from",
-      "confidence": "EXTRACTED",
-      "source_file": "/Users/apple/Desktop/Techling/Chex/chex-public-pages/src/app/(site)/locations/ohio/content.ts",
-      "source_location": "L7",
-      "weight": 1.0
-    },
-    {
-      "source": "src_app_site_locations_ohio_content_ts",
-      "target": "hero_pin_alabama_png",
-      "relation": "imports_from",
-      "confidence": "EXTRACTED",
-      "source_file": "/Users/apple/Desktop/Techling/Chex/chex-public-pages/src/app/(site)/locations/ohio/content.ts",
-      "source_location": "L8",
-      "weight": 1.0
-    },
-    {
-      "source": "src_app_site_locations_ohio_content_ts",
-      "target": "hero_pin_california_png",
-      "relation": "imports_from",
-      "confidence": "EXTRACTED",
-      "source_file": "/Users/apple/Desktop/Techling/Chex/chex-public-pages/src/app/(site)/locations/ohio/content.ts",
-      "source_location": "L9",
-      "weight": 1.0
-    },
-    {
-      "source": "src_app_site_locations_ohio_content_ts",
-      "target": "hero_pin_colorado_png",
-      "relation": "imports_from",
-      "confidence": "EXTRACTED",
-      "source_file": "/Users/apple/Desktop/Techling/Chex/chex-public-pages/src/app/(site)/locations/ohio/content.ts",
-      "source_location": "L10",
-      "weight": 1.0
-    },
-    {
-      "source": "src_app_site_locations_ohio_content_ts",
-      "target": "hero_pin_iowa_png",
-      "relation": "imports_from",
-      "confidence": "EXTRACTED",
-      "source_file": "/Users/apple/Desktop/Techling/Chex/chex-public-pages/src/app/(site)/locations/ohio/content.ts",
-      "source_location": "L11",
-      "weight": 1.0
-    },
-    {
-      "source": "src_app_site_locations_ohio_content_ts",
-      "target": "hero_pin_nebraska_png",
-      "relation": "imports_from",
-      "confidence": "EXTRACTED",
-      "source_file": "/Users/apple/Desktop/Techling/Chex/chex-public-pages/src/app/(site)/locations/ohio/content.ts",
-      "source_location": "L12",
-      "weight": 1.0
-    },
-    {
-      "source": "src_app_site_locations_ohio_content_ts",
-      "target": "hero_pin_new_mexico_png",
-      "relation": "imports_from",
-      "confidence": "EXTRACTED",
-      "source_file": "/Users/apple/Desktop/Techling/Chex/chex-public-pages/src/app/(site)/locations/ohio/content.ts",
-      "source_location": "L13",
-      "weight": 1.0
-    },
-    {
-      "source": "src_app_site_locations_ohio_content_ts",
-      "target": "hero_pin_south_carolina_png",
-      "relation": "imports_from",
-      "confidence": "EXTRACTED",
-      "source_file": "/Users/apple/Desktop/Techling/Chex/chex-public-pages/src/app/(site)/locations/ohio/content.ts",
-      "source_location": "L14",
-      "weight": 1.0
-    },
-    {
-      "source": "src_app_site_locations_ohio_content_ts",
-      "target": "hero_rating_badge_png",
-      "relation": "imports_from",
-      "confidence": "EXTRACTED",
-      "source_file": "/Users/apple/Desktop/Techling/Chex/chex-public-pages/src/app/(site)/locations/ohio/content.ts",
-      "source_location": "L15",
-      "weight": 1.0
-    },
-    {
-      "source": "src_app_site_locations_ohio_content_ts",
-      "target": "manage_phone_frame_png",
-      "relation": "imports_from",
-      "confidence": "EXTRACTED",
-      "source_file": "/Users/apple/Desktop/Techling/Chex/chex-public-pages/src/app/(site)/locations/ohio/content.ts",
-      "source_location": "L16",
-      "weight": 1.0
-    },
-    {
-      "source": "src_app_site_locations_ohio_content_ts",
-      "target": "manage_phone_notch_png",
-      "relation": "imports_from",
-      "confidence": "EXTRACTED",
-      "source_file": "/Users/apple/Desktop/Techling/Chex/chex-public-pages/src/app/(site)/locations/ohio/content.ts",
-      "source_location": "L17",
-      "weight": 1.0
-    },
-    {
-      "source": "src_app_site_locations_ohio_content_ts",
-      "target": "manage_phone_screen_png",
-      "relation": "imports_from",
-      "confidence": "EXTRACTED",
-      "source_file": "/Users/apple/Desktop/Techling/Chex/chex-public-pages/src/app/(site)/locations/ohio/content.ts",
-      "source_location": "L18",
-      "weight": 1.0
-    },
-    {
-      "source": "src_app_site_locations_ohio_content_ts",
-      "target": "damage_inspection_scene_png",
-      "relation": "imports_from",
-      "confidence": "EXTRACTED",
-      "source_file": "/Users/apple/Desktop/Techling/Chex/chex-public-pages/src/app/(site)/locations/ohio/content.ts",
-      "source_location": "L19",
-      "weight": 1.0
-    },
-    {
-      "source": "src_app_site_locations_ohio_content_ts",
-      "target": "regions_cincinnati_png",
-      "relation": "imports_from",
-      "confidence": "EXTRACTED",
-      "source_file": "/Users/apple/Desktop/Techling/Chex/chex-public-pages/src/app/(site)/locations/ohio/content.ts",
-      "source_location": "L20",
-      "weight": 1.0
-    },
-    {
-      "source": "src_app_site_locations_ohio_content_ts",
-      "target": "regions_cleveland_png",
-      "relation": "imports_from",
-      "confidence": "EXTRACTED",
-      "source_file": "/Users/apple/Desktop/Techling/Chex/chex-public-pages/src/app/(site)/locations/ohio/content.ts",
-      "source_location": "L21",
-      "weight": 1.0
-    },
-    {
-      "source": "src_app_site_locations_ohio_content_ts",
-      "target": "service_fleet_png",
-      "relation": "imports_from",
-      "confidence": "EXTRACTED",
-      "source_file": "/Users/apple/Desktop/Techling/Chex/chex-public-pages/src/app/(site)/locations/ohio/content.ts",
-      "source_location": "L22",
-      "weight": 1.0
-    },
-    {
-      "source": "src_app_site_locations_ohio_content_ts",
-      "target": "service_rideshare_png",
-      "relation": "imports_from",
-      "confidence": "EXTRACTED",
-      "source_file": "/Users/apple/Desktop/Techling/Chex/chex-public-pages/src/app/(site)/locations/ohio/content.ts",
-      "source_location": "L23",
-      "weight": 1.0
-    },
-    {
-      "source": "src_app_site_locations_ohio_content_ts",
-      "target": "service_uber_png",
-      "relation": "imports_from",
-      "confidence": "EXTRACTED",
-      "source_file": "/Users/apple/Desktop/Techling/Chex/chex-public-pages/src/app/(site)/locations/ohio/content.ts",
-      "source_location": "L24",
-      "weight": 1.0
-    },
-    {
-      "source": "src_app_site_locations_ohio_content_ts",
-      "target": "testimonial_quotes_svg",
-      "relation": "imports_from",
-      "confidence": "EXTRACTED",
-      "source_file": "/Users/apple/Desktop/Techling/Chex/chex-public-pages/src/app/(site)/locations/ohio/content.ts",
-      "source_location": "L25",
-      "weight": 1.0
-    },
-    {
-      "source": "src_app_site_locations_ohio_content_ts",
-      "target": "testimonial_star_svg",
-      "relation": "imports_from",
-      "confidence": "EXTRACTED",
-      "source_file": "/Users/apple/Desktop/Techling/Chex/chex-public-pages/src/app/(site)/locations/ohio/content.ts",
-      "source_location": "L26",
-      "weight": 1.0
-    },
-    {
-      "source": "src_app_site_locations_ohio_content_ts",
-      "target": "location_page",
-      "relation": "imports_from",
-      "confidence": "EXTRACTED",
-      "source_file": "/Users/apple/Desktop/Techling/Chex/chex-public-pages/src/app/(site)/locations/ohio/content.ts",
-      "source_location": "L27",
-      "weight": 1.0
-    },
-    {
-      "source": "src_app_site_locations_ohio_content_ts",
       "target": "content_resolveassetsrc",
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "/Users/apple/Desktop/Techling/Chex/chex-public-pages/src/app/(site)/locations/ohio/content.ts",
-      "source_location": "L29",
+      "source_location": "L3",
       "weight": 1.0
     },
     {
@@ -4964,200 +2781,11 @@
     },
     {
       "source": "src_app_site_locations_south_carolina_content_ts",
-      "target": "case_arrow_png",
-      "relation": "imports_from",
-      "confidence": "EXTRACTED",
-      "source_file": "/Users/apple/Desktop/Techling/Chex/chex-public-pages/src/app/(site)/locations/south-carolina/content.ts",
-      "source_location": "L1",
-      "weight": 1.0
-    },
-    {
-      "source": "src_app_site_locations_south_carolina_content_ts",
-      "target": "case_fleet_png",
-      "relation": "imports_from",
-      "confidence": "EXTRACTED",
-      "source_file": "/Users/apple/Desktop/Techling/Chex/chex-public-pages/src/app/(site)/locations/south-carolina/content.ts",
-      "source_location": "L2",
-      "weight": 1.0
-    },
-    {
-      "source": "src_app_site_locations_south_carolina_content_ts",
-      "target": "case_insurance_png",
-      "relation": "imports_from",
-      "confidence": "EXTRACTED",
-      "source_file": "/Users/apple/Desktop/Techling/Chex/chex-public-pages/src/app/(site)/locations/south-carolina/content.ts",
-      "source_location": "L3",
-      "weight": 1.0
-    },
-    {
-      "source": "src_app_site_locations_south_carolina_content_ts",
-      "target": "case_rental_png",
-      "relation": "imports_from",
-      "confidence": "EXTRACTED",
-      "source_file": "/Users/apple/Desktop/Techling/Chex/chex-public-pages/src/app/(site)/locations/south-carolina/content.ts",
-      "source_location": "L4",
-      "weight": 1.0
-    },
-    {
-      "source": "src_app_site_locations_south_carolina_content_ts",
-      "target": "damage_inspection_scene_png",
-      "relation": "imports_from",
-      "confidence": "EXTRACTED",
-      "source_file": "/Users/apple/Desktop/Techling/Chex/chex-public-pages/src/app/(site)/locations/south-carolina/content.ts",
-      "source_location": "L5",
-      "weight": 1.0
-    },
-    {
-      "source": "src_app_site_locations_south_carolina_content_ts",
-      "target": "cta_background_png",
-      "relation": "imports_from",
-      "confidence": "EXTRACTED",
-      "source_file": "/Users/apple/Desktop/Techling/Chex/chex-public-pages/src/app/(site)/locations/south-carolina/content.ts",
-      "source_location": "L6",
-      "weight": 1.0
-    },
-    {
-      "source": "src_app_site_locations_south_carolina_content_ts",
-      "target": "diagnostics_columbia_png",
-      "relation": "imports_from",
-      "confidence": "EXTRACTED",
-      "source_file": "/Users/apple/Desktop/Techling/Chex/chex-public-pages/src/app/(site)/locations/south-carolina/content.ts",
-      "source_location": "L7",
-      "weight": 1.0
-    },
-    {
-      "source": "src_app_site_locations_south_carolina_content_ts",
-      "target": "diagnostics_greenville_png",
-      "relation": "imports_from",
-      "confidence": "EXTRACTED",
-      "source_file": "/Users/apple/Desktop/Techling/Chex/chex-public-pages/src/app/(site)/locations/south-carolina/content.ts",
-      "source_location": "L8",
-      "weight": 1.0
-    },
-    {
-      "source": "src_app_site_locations_south_carolina_content_ts",
-      "target": "hero_pin_alabama_png",
-      "relation": "imports_from",
-      "confidence": "EXTRACTED",
-      "source_file": "/Users/apple/Desktop/Techling/Chex/chex-public-pages/src/app/(site)/locations/south-carolina/content.ts",
-      "source_location": "L9",
-      "weight": 1.0
-    },
-    {
-      "source": "src_app_site_locations_south_carolina_content_ts",
-      "target": "hero_pin_california_png",
-      "relation": "imports_from",
-      "confidence": "EXTRACTED",
-      "source_file": "/Users/apple/Desktop/Techling/Chex/chex-public-pages/src/app/(site)/locations/south-carolina/content.ts",
-      "source_location": "L10",
-      "weight": 1.0
-    },
-    {
-      "source": "src_app_site_locations_south_carolina_content_ts",
-      "target": "hero_pin_colorado_png",
-      "relation": "imports_from",
-      "confidence": "EXTRACTED",
-      "source_file": "/Users/apple/Desktop/Techling/Chex/chex-public-pages/src/app/(site)/locations/south-carolina/content.ts",
-      "source_location": "L11",
-      "weight": 1.0
-    },
-    {
-      "source": "src_app_site_locations_south_carolina_content_ts",
-      "target": "hero_pin_iowa_png",
-      "relation": "imports_from",
-      "confidence": "EXTRACTED",
-      "source_file": "/Users/apple/Desktop/Techling/Chex/chex-public-pages/src/app/(site)/locations/south-carolina/content.ts",
-      "source_location": "L12",
-      "weight": 1.0
-    },
-    {
-      "source": "src_app_site_locations_south_carolina_content_ts",
-      "target": "hero_pin_nebraska_png",
-      "relation": "imports_from",
-      "confidence": "EXTRACTED",
-      "source_file": "/Users/apple/Desktop/Techling/Chex/chex-public-pages/src/app/(site)/locations/south-carolina/content.ts",
-      "source_location": "L13",
-      "weight": 1.0
-    },
-    {
-      "source": "src_app_site_locations_south_carolina_content_ts",
-      "target": "hero_pin_new_mexico_png",
-      "relation": "imports_from",
-      "confidence": "EXTRACTED",
-      "source_file": "/Users/apple/Desktop/Techling/Chex/chex-public-pages/src/app/(site)/locations/south-carolina/content.ts",
-      "source_location": "L14",
-      "weight": 1.0
-    },
-    {
-      "source": "src_app_site_locations_south_carolina_content_ts",
-      "target": "hero_pin_south_carolina_png",
-      "relation": "imports_from",
-      "confidence": "EXTRACTED",
-      "source_file": "/Users/apple/Desktop/Techling/Chex/chex-public-pages/src/app/(site)/locations/south-carolina/content.ts",
-      "source_location": "L15",
-      "weight": 1.0
-    },
-    {
-      "source": "src_app_site_locations_south_carolina_content_ts",
-      "target": "manage_phone_frame_png",
-      "relation": "imports_from",
-      "confidence": "EXTRACTED",
-      "source_file": "/Users/apple/Desktop/Techling/Chex/chex-public-pages/src/app/(site)/locations/south-carolina/content.ts",
-      "source_location": "L16",
-      "weight": 1.0
-    },
-    {
-      "source": "src_app_site_locations_south_carolina_content_ts",
-      "target": "manage_phone_screen_png",
-      "relation": "imports_from",
-      "confidence": "EXTRACTED",
-      "source_file": "/Users/apple/Desktop/Techling/Chex/chex-public-pages/src/app/(site)/locations/south-carolina/content.ts",
-      "source_location": "L17",
-      "weight": 1.0
-    },
-    {
-      "source": "src_app_site_locations_south_carolina_content_ts",
-      "target": "overview_vehicle_png",
-      "relation": "imports_from",
-      "confidence": "EXTRACTED",
-      "source_file": "/Users/apple/Desktop/Techling/Chex/chex-public-pages/src/app/(site)/locations/south-carolina/content.ts",
-      "source_location": "L18",
-      "weight": 1.0
-    },
-    {
-      "source": "src_app_site_locations_south_carolina_content_ts",
-      "target": "service_fleet_png",
-      "relation": "imports_from",
-      "confidence": "EXTRACTED",
-      "source_file": "/Users/apple/Desktop/Techling/Chex/chex-public-pages/src/app/(site)/locations/south-carolina/content.ts",
-      "source_location": "L19",
-      "weight": 1.0
-    },
-    {
-      "source": "src_app_site_locations_south_carolina_content_ts",
-      "target": "service_rideshare_png",
-      "relation": "imports_from",
-      "confidence": "EXTRACTED",
-      "source_file": "/Users/apple/Desktop/Techling/Chex/chex-public-pages/src/app/(site)/locations/south-carolina/content.ts",
-      "source_location": "L20",
-      "weight": 1.0
-    },
-    {
-      "source": "src_app_site_locations_south_carolina_content_ts",
-      "target": "service_uber_png",
-      "relation": "imports_from",
-      "confidence": "EXTRACTED",
-      "source_file": "/Users/apple/Desktop/Techling/Chex/chex-public-pages/src/app/(site)/locations/south-carolina/content.ts",
-      "source_location": "L21",
-      "weight": 1.0
-    },
-    {
-      "source": "src_app_site_locations_south_carolina_content_ts",
       "target": "location_page",
       "relation": "imports_from",
       "confidence": "EXTRACTED",
       "source_file": "/Users/apple/Desktop/Techling/Chex/chex-public-pages/src/app/(site)/locations/south-carolina/content.ts",
-      "source_location": "L22",
+      "source_location": "L1",
       "weight": 1.0
     },
     {
@@ -5269,6 +2897,15 @@
       "weight": 1.0
     },
     {
+      "source": "src_collections_media_ts",
+      "target": "payload",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "/Users/apple/Desktop/Techling/Chex/chex-public-pages/src/collections/Media.ts",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
       "source": "src_collections_posts_ts",
       "target": "payload",
       "relation": "imports_from",
@@ -5314,12 +2951,48 @@
       "weight": 1.0
     },
     {
+      "source": "src_migrations_20260427_111031_media_collection_ts",
+      "target": "db_postgres",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "/Users/apple/Desktop/Techling/Chex/chex-public-pages/src/migrations/20260427_111031_media_collection.ts",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "src_migrations_20260427_111031_media_collection_ts",
+      "target": "20260427_111031_media_collection_up",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "/Users/apple/Desktop/Techling/Chex/chex-public-pages/src/migrations/20260427_111031_media_collection.ts",
+      "source_location": "L3",
+      "weight": 1.0
+    },
+    {
+      "source": "src_migrations_20260427_111031_media_collection_ts",
+      "target": "20260427_111031_media_collection_down",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "/Users/apple/Desktop/Techling/Chex/chex-public-pages/src/migrations/20260427_111031_media_collection.ts",
+      "source_location": "L38",
+      "weight": 1.0
+    },
+    {
       "source": "src_migrations_index_ts",
       "target": "users_apple_desktop_techling_chex_chex_public_pages_src_migrations_20260422_162945_initial_schema",
       "relation": "imports_from",
       "confidence": "EXTRACTED",
       "source_file": "/Users/apple/Desktop/Techling/Chex/chex-public-pages/src/migrations/index.ts",
       "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "src_migrations_index_ts",
+      "target": "users_apple_desktop_techling_chex_chex_public_pages_src_migrations_20260427_111031_media_collection",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "/Users/apple/Desktop/Techling/Chex/chex-public-pages/src/migrations/index.ts",
+      "source_location": "L2",
       "weight": 1.0
     },
     {
@@ -5400,7 +3073,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "/Users/apple/Desktop/Techling/Chex/chex-public-pages/src/app/(site)/content.ts",
-      "source_location": "L2",
+      "source_location": "L1",
       "weight": 1.0
     },
     {
@@ -5409,7 +3082,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "/Users/apple/Desktop/Techling/Chex/chex-public-pages/src/app/(site)/home/content.ts",
-      "source_location": "L15",
+      "source_location": "L1",
       "weight": 1.0
     },
     {
@@ -5418,7 +3091,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "/Users/apple/Desktop/Techling/Chex/chex-public-pages/src/app/(site)/locations/alabama/content.ts",
-      "source_location": "L25",
+      "source_location": "L2",
       "weight": 1.0
     },
     {
@@ -5427,7 +3100,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "/Users/apple/Desktop/Techling/Chex/chex-public-pages/src/app/(site)/locations/arizona/content.ts",
-      "source_location": "L25",
+      "source_location": "L2",
       "weight": 1.0
     },
     {
@@ -5436,7 +3109,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "/Users/apple/Desktop/Techling/Chex/chex-public-pages/src/app/(site)/locations/arkansas/content.ts",
-      "source_location": "L29",
+      "source_location": "L9",
       "weight": 1.0
     },
     {
@@ -5445,7 +3118,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "/Users/apple/Desktop/Techling/Chex/chex-public-pages/src/app/(site)/locations/california/content.ts",
-      "source_location": "L25",
+      "source_location": "L2",
       "weight": 1.0
     },
     {
@@ -5454,7 +3127,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "/Users/apple/Desktop/Techling/Chex/chex-public-pages/src/app/(site)/locations/colorado/content.ts",
-      "source_location": "L25",
+      "source_location": "L2",
       "weight": 1.0
     },
     {
@@ -5463,7 +3136,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "/Users/apple/Desktop/Techling/Chex/chex-public-pages/src/app/(site)/locations/iowa/content.ts",
-      "source_location": "L25",
+      "source_location": "L2",
       "weight": 1.0
     },
     {
@@ -5472,7 +3145,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "/Users/apple/Desktop/Techling/Chex/chex-public-pages/src/app/(site)/locations/nebraska/content.ts",
-      "source_location": "L25",
+      "source_location": "L2",
       "weight": 1.0
     },
     {
@@ -5481,7 +3154,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "/Users/apple/Desktop/Techling/Chex/chex-public-pages/src/app/(site)/locations/nevada/content.ts",
-      "source_location": "L25",
+      "source_location": "L2",
       "weight": 1.0
     },
     {
@@ -5490,7 +3163,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "/Users/apple/Desktop/Techling/Chex/chex-public-pages/src/app/(site)/locations/new-mexico/content.ts",
-      "source_location": "L25",
+      "source_location": "L2",
       "weight": 1.0
     },
     {
@@ -5499,7 +3172,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "/Users/apple/Desktop/Techling/Chex/chex-public-pages/src/app/(site)/locations/ohio/content.ts",
-      "source_location": "L45",
+      "source_location": "L19",
       "weight": 1.0
     },
     {
@@ -5508,7 +3181,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "/Users/apple/Desktop/Techling/Chex/chex-public-pages/src/app/(site)/locations/south-carolina/content.ts",
-      "source_location": "L23",
+      "source_location": "L2",
       "weight": 1.0
     },
     {
@@ -5517,7 +3190,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "/Users/apple/Desktop/Techling/Chex/chex-public-pages/src/migrations/index.ts",
-      "source_location": "L2",
+      "source_location": "L3",
       "weight": 1.0
     },
     {
@@ -5526,7 +3199,16 @@
       "relation": "imports_internal",
       "confidence": "EXTRACTED",
       "source_file": "/Users/apple/Desktop/Techling/Chex/chex-public-pages/payload.config.ts",
-      "source_location": "L6",
+      "source_location": "L7",
+      "weight": 1.0
+    },
+    {
+      "source": "payload_config_ts",
+      "target": "src_collections_media_ts",
+      "relation": "imports_internal",
+      "confidence": "EXTRACTED",
+      "source_file": "/Users/apple/Desktop/Techling/Chex/chex-public-pages/payload.config.ts",
+      "source_location": "L9",
       "weight": 1.0
     },
     {
@@ -5535,7 +3217,7 @@
       "relation": "imports_internal",
       "confidence": "EXTRACTED",
       "source_file": "/Users/apple/Desktop/Techling/Chex/chex-public-pages/payload.config.ts",
-      "source_location": "L8",
+      "source_location": "L10",
       "weight": 1.0
     },
     {
@@ -5549,11 +3231,20 @@
     },
     {
       "source": "src_app_site_components_home_home_business_help_tsx",
+      "target": "src_app_site_components_shared_site_image_tsx",
+      "relation": "imports_internal",
+      "confidence": "EXTRACTED",
+      "source_file": "/Users/apple/Desktop/Techling/Chex/chex-public-pages/src/app/(site)/components/home/home-business-help.tsx",
+      "source_location": "L2",
+      "weight": 1.0
+    },
+    {
+      "source": "src_app_site_components_home_home_business_help_tsx",
       "target": "src_app_site_components_ui_button_tsx",
       "relation": "imports_internal",
       "confidence": "EXTRACTED",
       "source_file": "/Users/apple/Desktop/Techling/Chex/chex-public-pages/src/app/(site)/components/home/home-business-help.tsx",
-      "source_location": "L5",
+      "source_location": "L4",
       "weight": 1.0
     },
     {
@@ -5567,11 +3258,29 @@
     },
     {
       "source": "src_app_site_components_home_home_community_tsx",
+      "target": "src_app_site_components_shared_site_image_tsx",
+      "relation": "imports_internal",
+      "confidence": "EXTRACTED",
+      "source_file": "/Users/apple/Desktop/Techling/Chex/chex-public-pages/src/app/(site)/components/home/home-community.tsx",
+      "source_location": "L2",
+      "weight": 1.0
+    },
+    {
+      "source": "src_app_site_components_home_home_community_tsx",
       "target": "src_app_site_components_ui_surface_card_tsx",
       "relation": "imports_internal",
       "confidence": "EXTRACTED",
       "source_file": "/Users/apple/Desktop/Techling/Chex/chex-public-pages/src/app/(site)/components/home/home-community.tsx",
-      "source_location": "L5",
+      "source_location": "L4",
+      "weight": 1.0
+    },
+    {
+      "source": "src_app_site_components_home_home_hero_tsx",
+      "target": "src_app_site_components_shared_site_image_tsx",
+      "relation": "imports_internal",
+      "confidence": "EXTRACTED",
+      "source_file": "/Users/apple/Desktop/Techling/Chex/chex-public-pages/src/app/(site)/components/home/home-hero.tsx",
+      "source_location": "L2",
       "weight": 1.0
     },
     {
@@ -5580,7 +3289,16 @@
       "relation": "imports_internal",
       "confidence": "EXTRACTED",
       "source_file": "/Users/apple/Desktop/Techling/Chex/chex-public-pages/src/app/(site)/components/home/home-hero.tsx",
-      "source_location": "L5",
+      "source_location": "L4",
+      "weight": 1.0
+    },
+    {
+      "source": "src_app_site_components_home_home_how_it_works_tsx",
+      "target": "src_app_site_components_shared_site_image_tsx",
+      "relation": "imports_internal",
+      "confidence": "EXTRACTED",
+      "source_file": "/Users/apple/Desktop/Techling/Chex/chex-public-pages/src/app/(site)/components/home/home-how-it-works.tsx",
+      "source_location": "L2",
       "weight": 1.0
     },
     {
@@ -5589,7 +3307,7 @@
       "relation": "imports_internal",
       "confidence": "EXTRACTED",
       "source_file": "/Users/apple/Desktop/Techling/Chex/chex-public-pages/src/app/(site)/components/home/home-how-it-works.tsx",
-      "source_location": "L5",
+      "source_location": "L4",
       "weight": 1.0
     },
     {
@@ -5598,7 +3316,16 @@
       "relation": "imports_internal",
       "confidence": "EXTRACTED",
       "source_file": "/Users/apple/Desktop/Techling/Chex/chex-public-pages/src/app/(site)/components/home/home-how-it-works.tsx",
-      "source_location": "L7",
+      "source_location": "L5",
+      "weight": 1.0
+    },
+    {
+      "source": "src_app_site_components_home_home_key_differentiators_tsx",
+      "target": "src_app_site_components_shared_site_image_tsx",
+      "relation": "imports_internal",
+      "confidence": "EXTRACTED",
+      "source_file": "/Users/apple/Desktop/Techling/Chex/chex-public-pages/src/app/(site)/components/home/home-key-differentiators.tsx",
+      "source_location": "L2",
       "weight": 1.0
     },
     {
@@ -5733,6 +3460,15 @@
       "relation": "imports_internal",
       "confidence": "EXTRACTED",
       "source_file": "/Users/apple/Desktop/Techling/Chex/chex-public-pages/src/app/(site)/components/locations/location-case-studies.tsx",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "src_app_site_components_locations_location_case_studies_tsx",
+      "target": "src_app_site_components_shared_site_image_tsx",
+      "relation": "imports_internal",
+      "confidence": "EXTRACTED",
+      "source_file": "/Users/apple/Desktop/Techling/Chex/chex-public-pages/src/app/(site)/components/locations/location-case-studies.tsx",
       "source_location": "L2",
       "weight": 1.0
     },
@@ -5747,11 +3483,20 @@
     },
     {
       "source": "src_app_site_components_locations_location_hero_tsx",
+      "target": "src_app_site_components_shared_site_image_tsx",
+      "relation": "imports_internal",
+      "confidence": "EXTRACTED",
+      "source_file": "/Users/apple/Desktop/Techling/Chex/chex-public-pages/src/app/(site)/components/locations/location-hero.tsx",
+      "source_location": "L3",
+      "weight": 1.0
+    },
+    {
+      "source": "src_app_site_components_locations_location_hero_tsx",
       "target": "src_app_site_components_ui_button_tsx",
       "relation": "imports_internal",
       "confidence": "EXTRACTED",
       "source_file": "/Users/apple/Desktop/Techling/Chex/chex-public-pages/src/app/(site)/components/locations/location-hero.tsx",
-      "source_location": "L6",
+      "source_location": "L4",
       "weight": 1.0
     },
     {
@@ -5895,7 +3640,34 @@
       "relation": "imports_internal",
       "confidence": "EXTRACTED",
       "source_file": "/Users/apple/Desktop/Techling/Chex/chex-public-pages/src/app/(site)/components/shared/case-studies.tsx",
+      "source_location": "L5",
+      "weight": 1.0
+    },
+    {
+      "source": "src_app_site_components_shared_case_studies_tsx",
+      "target": "src_app_site_components_shared_site_image_tsx",
+      "relation": "imports_internal",
+      "confidence": "EXTRACTED",
+      "source_file": "/Users/apple/Desktop/Techling/Chex/chex-public-pages/src/app/(site)/components/shared/case-studies.tsx",
       "source_location": "L7",
+      "weight": 1.0
+    },
+    {
+      "source": "src_app_site_components_shared_footer_tsx",
+      "target": "src_app_site_components_shared_site_image_tsx",
+      "relation": "imports_internal",
+      "confidence": "EXTRACTED",
+      "source_file": "/Users/apple/Desktop/Techling/Chex/chex-public-pages/src/app/(site)/components/shared/footer.tsx",
+      "source_location": "L2",
+      "weight": 1.0
+    },
+    {
+      "source": "src_app_site_components_shared_navbar_tsx",
+      "target": "src_app_site_components_shared_site_image_tsx",
+      "relation": "imports_internal",
+      "confidence": "EXTRACTED",
+      "source_file": "/Users/apple/Desktop/Techling/Chex/chex-public-pages/src/app/(site)/components/shared/navbar.tsx",
+      "source_location": "L5",
       "weight": 1.0
     },
     {
@@ -6012,7 +3784,7 @@
       "relation": "imports_internal",
       "confidence": "EXTRACTED",
       "source_file": "/Users/apple/Desktop/Techling/Chex/chex-public-pages/src/app/(site)/locations/alabama/content.ts",
-      "source_location": "L24",
+      "source_location": "L1",
       "weight": 1.0
     },
     {
@@ -6102,7 +3874,7 @@
       "relation": "imports_internal",
       "confidence": "EXTRACTED",
       "source_file": "/Users/apple/Desktop/Techling/Chex/chex-public-pages/src/app/(site)/locations/arizona/content.ts",
-      "source_location": "L24",
+      "source_location": "L1",
       "weight": 1.0
     },
     {
@@ -6192,7 +3964,7 @@
       "relation": "imports_internal",
       "confidence": "EXTRACTED",
       "source_file": "/Users/apple/Desktop/Techling/Chex/chex-public-pages/src/app/(site)/locations/arkansas/content.ts",
-      "source_location": "L21",
+      "source_location": "L1",
       "weight": 1.0
     },
     {
@@ -6282,7 +4054,7 @@
       "relation": "imports_internal",
       "confidence": "EXTRACTED",
       "source_file": "/Users/apple/Desktop/Techling/Chex/chex-public-pages/src/app/(site)/locations/california/content.ts",
-      "source_location": "L24",
+      "source_location": "L1",
       "weight": 1.0
     },
     {
@@ -6372,7 +4144,7 @@
       "relation": "imports_internal",
       "confidence": "EXTRACTED",
       "source_file": "/Users/apple/Desktop/Techling/Chex/chex-public-pages/src/app/(site)/locations/colorado/content.ts",
-      "source_location": "L24",
+      "source_location": "L1",
       "weight": 1.0
     },
     {
@@ -6462,7 +4234,7 @@
       "relation": "imports_internal",
       "confidence": "EXTRACTED",
       "source_file": "/Users/apple/Desktop/Techling/Chex/chex-public-pages/src/app/(site)/locations/iowa/content.ts",
-      "source_location": "L24",
+      "source_location": "L1",
       "weight": 1.0
     },
     {
@@ -6552,7 +4324,7 @@
       "relation": "imports_internal",
       "confidence": "EXTRACTED",
       "source_file": "/Users/apple/Desktop/Techling/Chex/chex-public-pages/src/app/(site)/locations/nebraska/content.ts",
-      "source_location": "L24",
+      "source_location": "L1",
       "weight": 1.0
     },
     {
@@ -6642,7 +4414,7 @@
       "relation": "imports_internal",
       "confidence": "EXTRACTED",
       "source_file": "/Users/apple/Desktop/Techling/Chex/chex-public-pages/src/app/(site)/locations/nevada/content.ts",
-      "source_location": "L24",
+      "source_location": "L1",
       "weight": 1.0
     },
     {
@@ -6732,7 +4504,7 @@
       "relation": "imports_internal",
       "confidence": "EXTRACTED",
       "source_file": "/Users/apple/Desktop/Techling/Chex/chex-public-pages/src/app/(site)/locations/new-mexico/content.ts",
-      "source_location": "L24",
+      "source_location": "L1",
       "weight": 1.0
     },
     {
@@ -6822,7 +4594,7 @@
       "relation": "imports_internal",
       "confidence": "EXTRACTED",
       "source_file": "/Users/apple/Desktop/Techling/Chex/chex-public-pages/src/app/(site)/locations/ohio/content.ts",
-      "source_location": "L27",
+      "source_location": "L1",
       "weight": 1.0
     },
     {
@@ -6912,7 +4684,7 @@
       "relation": "imports_internal",
       "confidence": "EXTRACTED",
       "source_file": "/Users/apple/Desktop/Techling/Chex/chex-public-pages/src/app/(site)/locations/south-carolina/content.ts",
-      "source_location": "L22",
+      "source_location": "L1",
       "weight": 1.0
     },
     {
@@ -7003,6 +4775,15 @@
       "confidence": "EXTRACTED",
       "source_file": "/Users/apple/Desktop/Techling/Chex/chex-public-pages/src/migrations/index.ts",
       "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "src_migrations_index_ts",
+      "target": "src_migrations_20260427_111031_media_collection_ts",
+      "relation": "imports_internal",
+      "confidence": "EXTRACTED",
+      "source_file": "/Users/apple/Desktop/Techling/Chex/chex-public-pages/src/migrations/index.ts",
+      "source_location": "L2",
       "weight": 1.0
     }
   ],

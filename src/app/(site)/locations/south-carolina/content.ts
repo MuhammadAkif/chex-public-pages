@@ -1,24 +1,3 @@
-import caseArrow from '@/app/(site)/assets/locations/case-arrow.png'
-import caseFleet from '@/app/(site)/assets/south-carolina/case-fleet.png'
-import caseInsurance from '@/app/(site)/assets/south-carolina/case-insurance.png'
-import caseRental from '@/app/(site)/assets/south-carolina/case-rental.png'
-import caseRideshare from '@/app/(site)/assets/locations/damage-inspection-scene.png'
-import ctaBackground from '@/app/(site)/assets/locations/cta-background.png'
-import diagnosticsColumbia from '@/app/(site)/assets/south-carolina/diagnostics-columbia.png'
-import diagnosticsGreenville from '@/app/(site)/assets/south-carolina/diagnostics-greenville.png'
-import heroPinAlabama from '@/app/(site)/assets/locations/hero-pin-alabama.png'
-import heroPinCalifornia from '@/app/(site)/assets/locations/hero-pin-california.png'
-import heroPinColorado from '@/app/(site)/assets/locations/hero-pin-colorado.png'
-import heroPinIowa from '@/app/(site)/assets/locations/hero-pin-iowa.png'
-import heroPinNebraska from '@/app/(site)/assets/locations/hero-pin-nebraska.png'
-import heroPinNewMexico from '@/app/(site)/assets/locations/hero-pin-new-mexico.png'
-import heroPinSouthCarolina from '@/app/(site)/assets/locations/hero-pin-south-carolina.png'
-import managePhoneFrame from '@/app/(site)/assets/locations/manage-phone-frame.png'
-import managePhoneScreen from '@/app/(site)/assets/locations/manage-phone-screen.png'
-import overviewVehicle from '@/app/(site)/assets/south-carolina/overview-vehicle.png'
-import serviceFleet from '@/app/(site)/assets/locations/service-fleet.png'
-import serviceRideshare from '@/app/(site)/assets/locations/service-rideshare.png'
-import serviceUber from '@/app/(site)/assets/locations/service-uber.png'
 import type { LocationPageContent } from '@/app/(site)/components/locations/location-page'
 
 export const southCarolinaContent = {
@@ -44,13 +23,13 @@ export const southCarolinaContent = {
       { value: '20+', label: 'Companies' },
     ],
     locations: [
-      { label: 'South Carolina', image: heroPinSouthCarolina, featured: true },
-      { label: 'New Mexico', image: heroPinNewMexico, featured: false },
-      { label: 'California', image: heroPinCalifornia, featured: false },
-      { label: 'Nebraska', image: heroPinNebraska, featured: false },
-      { label: 'Alabama', image: heroPinAlabama, featured: false },
-      { label: 'Iowa', image: heroPinIowa, featured: false },
-      { label: 'Colorado', image: heroPinColorado, featured: false },
+      { label: 'South Carolina', image: "https://chex-payload-public-pages.s3.us-east-1.amazonaws.com/hero-pin-south-carolina.png", featured: true },
+      { label: 'New Mexico', image: "https://chex-payload-public-pages.s3.us-east-1.amazonaws.com/hero-pin-new-mexico.png", featured: false },
+      { label: 'California', image: "https://chex-payload-public-pages.s3.us-east-1.amazonaws.com/hero-pin-california-580863c8.png", featured: false },
+      { label: 'Nebraska', image: "https://chex-payload-public-pages.s3.us-east-1.amazonaws.com/hero-pin-nebraska.png", featured: false },
+      { label: 'Alabama', image: "https://chex-payload-public-pages.s3.us-east-1.amazonaws.com/hero-pin-alabama.png", featured: false },
+      { label: 'Iowa', image: "https://chex-payload-public-pages.s3.us-east-1.amazonaws.com/hero-pin-iowa-155a803a.png", featured: false },
+      { label: 'Colorado', image: "https://chex-payload-public-pages.s3.us-east-1.amazonaws.com/hero-pin-colorado.png", featured: false },
     ],
   },
   overview: {
@@ -59,7 +38,7 @@ export const southCarolinaContent = {
       'If you are running a business, you know that bad data costs money. At Chex.ai, we have moved away from the old way of doing inspections. Instead of waiting at a shop for a manual check that might be biased, we use artificial intelligence vehicle detection to give you a clear, high-resolution report.',
       'We have focused on integrating smart diagnostics into a simple process that removes human variability, so you get the facts you need to keep your work moving across Charleston, Columbia, and Greenville.',
     ],
-    image: overviewVehicle.src,
+    image: "https://chex-payload-public-pages.s3.us-east-1.amazonaws.com/overview-vehicle.png",
     imageAlt: 'South Carolina vehicle diagnostics',
   },
   services: {
@@ -74,20 +53,20 @@ export const southCarolinaContent = {
         title: 'Fleet Management: Automated Compliance That Keeps You Moving',
         description:
           'Managing a fleet across the I-85 corridor or the Port of Charleston requires a forensic level of detail. Our inspection reporting software is engineered to provide exactly that, without the downtime of a traditional garage.',
-        image: serviceFleet.src,
+        image: "https://chex-payload-public-pages.s3.us-east-1.amazonaws.com/service-fleet.png",
       },
       {
         title: 'Rideshare: Certified and Ready to Drive in Minutes',
         description:
           "For drivers in Charleston, Columbia, and Greenville, getting your car cleared should not be a problem. Our car inspection app is the straightest line to getting back on the app. We run a 19-point digital scan that checks exactly what South Carolina regulators require.",
-        image: serviceRideshare.src,
+        image: "https://chex-payload-public-pages.s3.us-east-1.amazonaws.com/service-rideshare.png",
         reverse: true,
       },
       {
         title: 'Uber Inspection Online: Your Driveway Is the New Shop',
         description:
           'Keeping your Uber status in South Carolina should not cost you a day of earnings. Our artificial intelligence vehicle detection walks you through a full 19-point scan using just your phone. We make sure you are road-ready from the Upstate to the Lowcountry.',
-        image: serviceUber.src,
+        image: "https://chex-payload-public-pages.s3.us-east-1.amazonaws.com/service-uber.png",
       },
     ],
   },
@@ -140,12 +119,12 @@ export const southCarolinaContent = {
       {
         city: 'Columbia',
         description: 'Fleet inspections for corporate clients bookings, and rescheduling.',
-        image: diagnosticsColumbia.src,
+        image: "https://chex-payload-public-pages.s3.us-east-1.amazonaws.com/diagnostics-columbia.png",
       },
       {
         city: 'Greenville',
         description: 'Insurance claims & compliance checks, focus on rideshare & tourism rentals',
-        image: diagnosticsGreenville.src,
+        image: "https://chex-payload-public-pages.s3.us-east-1.amazonaws.com/diagnostics-greenville.png",
       },
     ],
   },
@@ -159,8 +138,8 @@ export const southCarolinaContent = {
     ],
     buttonLabel: 'Request a demo',
     demoHref: '#south-carolina-demo',
-    frameImage: managePhoneFrame.src,
-    screenImage: managePhoneScreen.src,
+    frameImage: "https://chex-payload-public-pages.s3.us-east-1.amazonaws.com/manage-phone-frame.png",
+    screenImage: "https://chex-payload-public-pages.s3.us-east-1.amazonaws.com/key-differentiators.png",
     checkIconColor: '#1368b9',
     illustration: {
       variant: 'offset-screen',
@@ -175,7 +154,7 @@ export const southCarolinaContent = {
         caption: 'Inspect level',
         description:
           'Our AI-powered vehicle inspection system automatically detects and highlights visible damages such as dents, scratches, cracks.',
-        image: caseRental.src,
+        image: "https://chex-payload-public-pages.s3.us-east-1.amazonaws.com/case-rental.png",
         linkHref: '#south-carolina-demo',
         linkLabel: 'Read more...',
       },
@@ -185,7 +164,7 @@ export const southCarolinaContent = {
         caption: 'faster onboarding',
         description:
           'Uber drivers in South Carolina using Chex.ai for instant onboarding inspections. Our AI-powered vehicle inspection system.',
-        image: caseRideshare.src,
+        image: "https://chex-payload-public-pages.s3.us-east-1.amazonaws.com/manage-inspection.png",
         linkHref: '#south-carolina-demo',
         linkLabel: 'Read more...',
       },
@@ -195,7 +174,7 @@ export const southCarolinaContent = {
         caption: 'fewer disputes',
         description:
           'Local rental company reduced claims disputes by 40% using AI damage detection.',
-        image: caseFleet.src,
+        image: "https://chex-payload-public-pages.s3.us-east-1.amazonaws.com/case-fleet.png",
         linkHref: '#south-carolina-demo',
         linkLabel: 'Read more...',
       },
@@ -205,12 +184,12 @@ export const southCarolinaContent = {
         caption: 'Faster payouts',
         description:
           'Regional insurer integrated Chex.ai SDK for faster claims processing. Our AI-powered vehicle inspection system automatically.',
-        image: caseInsurance.src,
+        image: "https://chex-payload-public-pages.s3.us-east-1.amazonaws.com/case-insurance.png",
         linkHref: '#south-carolina-demo',
         linkLabel: 'Read more...',
       },
     ],
-    arrowImage: caseArrow,
+    arrowImage: "https://chex-payload-public-pages.s3.us-east-1.amazonaws.com/arrow-circle.png",
     sectionClassName: 'bg-[#010e2b] px-4 py-20 text-white sm:px-6 lg:px-10 lg:py-28',
     scrollClassName: 'mt-14 overflow-x-auto pb-6 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden',
     articleClassName:
@@ -286,7 +265,7 @@ export const southCarolinaContent = {
     primaryLabel: 'Verify Your Next Vehicle',
     secondaryLabel: 'Request a demo',
     helperText: 'No credit card required, cancel anytime.',
-    image: ctaBackground.src,
+    image: "https://chex-payload-public-pages.s3.us-east-1.amazonaws.com/cta-background.png",
     imageOpacityClassName: 'opacity-35',
   },
 } as const satisfies LocationPageContent

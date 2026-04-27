@@ -1,13 +1,12 @@
 'use client'
 /* eslint-disable @next/next/no-img-element */
 
-import Image from 'next/image'
-import type { StaticImageData } from 'next/image'
 import type { ReactNode } from 'react'
 
 import { Reveal, RevealArticle } from '@/app/(site)/components/shared/reveal'
+import { SiteImage, type SiteImageSource } from '@/app/(site)/components/shared/site-image'
 
-type CaseStudyImage = StaticImageData | string
+type CaseStudyImage = SiteImageSource
 
 type CaseStudy = {
   metric: string
@@ -23,7 +22,7 @@ type CaseStudiesProps = {
   title: string
   heading?: ReactNode
   items: ReadonlyArray<CaseStudy>
-  arrowImage: StaticImageData
+  arrowImage: SiteImageSource
   sectionClassName: string
   scrollClassName: string
   articleClassName: string
@@ -49,7 +48,7 @@ function CaseStudyBackgroundImage({
     return <img src={image} alt={title} className={className} />
   }
 
-  return <Image src={image} alt={title} className={className} />
+  return <SiteImage src={image} alt={title} className={className} />
 }
 
 export function CaseStudies({
@@ -92,7 +91,7 @@ export function CaseStudies({
                 <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(102,102,102,0)_18%,rgba(19,104,185,0.92)_100%)]" />
 
                 <div className="relative flex h-full flex-col justify-end p-6 text-white">
-                  <Image src={arrowImage} alt="" className={arrowClassName} />
+                  <SiteImage src={arrowImage} alt="" className={arrowClassName} />
 
                   {item.caption ? (
                     <div className="flex items-start gap-4">
