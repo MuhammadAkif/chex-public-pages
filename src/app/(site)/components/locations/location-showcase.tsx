@@ -2,7 +2,8 @@
 
 import { useEffect, useRef } from 'react'
 
-const SHOWCASE_VIDEO_SRC = '/assets/locations/chex-ai-location.mp4'
+const SHOWCASE_VIDEO_SRC =
+  'https://chex-payload-public-pages.s3.us-east-1.amazonaws.com/chex-ai-location.mp4'
 
 export type LocationShowcaseProps = Record<string, unknown>
 
