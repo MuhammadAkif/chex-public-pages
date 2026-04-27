@@ -1,55 +1,53 @@
-# Graph Report - .  (2026-04-27)
+# Graph Report - chex-public-pages  (2026-04-28)
 
 ## Corpus Check
-- Corpus is ~22,465 words - fits in a single context window. You may not need a graph.
+- 72 files · ~22,465 words
+- Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
-- 409 nodes · 502 edges · 17 communities detected
-- Extraction: 89% EXTRACTED · 11% INFERRED · 0% AMBIGUOUS · INFERRED: 55 edges (avg confidence: 0.8)
+- 233 nodes · 315 edges · 14 communities detected
+- Extraction: 86% EXTRACTED · 14% INFERRED · 0% AMBIGUOUS · INFERRED: 43 edges (avg confidence: 0.8)
 - Token cost: 0 input · 0 output
 
 ## Community Hubs (Navigation)
-- [[_COMMUNITY_Repository Tooling|Repository Tooling]]
-- [[_COMMUNITY_Location CMS Model|Location CMS Model]]
-- [[_COMMUNITY_Shared Marketing Sections|Shared Marketing Sections]]
-- [[_COMMUNITY_Payload Database Migrations|Payload Database Migrations]]
-- [[_COMMUNITY_State Location Routes|State Location Routes]]
-- [[_COMMUNITY_Location Page UI|Location Page UI]]
-- [[_COMMUNITY_Home Marketing Model|Home Marketing Model]]
-- [[_COMMUNITY_Graphify Builder Script|Graphify Builder Script]]
-- [[_COMMUNITY_Media Import Script|Media Import Script]]
-- [[_COMMUNITY_Graphify Documentation|Graphify Documentation]]
-- [[_COMMUNITY_Location Seed Script|Location Seed Script]]
-- [[_COMMUNITY_App Configuration|App Configuration]]
-- [[_COMMUNITY_Reveal Accessibility|Reveal Accessibility]]
-- [[_COMMUNITY_Reveal Utilities|Reveal Utilities]]
-- [[_COMMUNITY_Payload Import Map|Payload Import Map]]
-- [[_COMMUNITY_Announcement Message Bar|Announcement Message Bar]]
-- [[_COMMUNITY_Section Heading Controls|Section Heading Controls]]
+- [[_COMMUNITY_Community 0|Community 0]]
+- [[_COMMUNITY_Community 1|Community 1]]
+- [[_COMMUNITY_Community 2|Community 2]]
+- [[_COMMUNITY_Community 3|Community 3]]
+- [[_COMMUNITY_Community 4|Community 4]]
+- [[_COMMUNITY_Community 5|Community 5]]
+- [[_COMMUNITY_Community 6|Community 6]]
+- [[_COMMUNITY_Community 7|Community 7]]
+- [[_COMMUNITY_Community 8|Community 8]]
+- [[_COMMUNITY_Community 9|Community 9]]
+- [[_COMMUNITY_Community 10|Community 10]]
+- [[_COMMUNITY_Community 11|Community 11]]
+- [[_COMMUNITY_Community 12|Community 12]]
+- [[_COMMUNITY_Community 13|Community 13]]
 
 ## God Nodes (most connected - your core abstractions)
-1. `rebuild_graph()` - 16 edges
-2. `getLocationPageBySlug()` - 14 edges
-3. `Get Location Page By Slug` - 14 edges
-4. `generateMetadata()` - 13 edges
-5. `HomePage Component` - 13 edges
-6. `LocationPage Component` - 12 edges
-7. `Location Page Content Contract` - 12 edges
-8. `Home Marketing Content` - 11 edges
-9. `Locations Collection` - 11 edges
-10. `Home Content Section Contract` - 9 edges
+1. `Get Location Page By Slug` - 14 edges
+2. `HomePage Component` - 13 edges
+3. `LocationPage Component` - 12 edges
+4. `Location Page Content Contract` - 12 edges
+5. `Home Marketing Content` - 11 edges
+6. `Locations Collection` - 11 edges
+7. `Home Content Section Contract` - 9 edges
+8. `Payload Runtime Config` - 8 edges
+9. `Locations Table` - 8 edges
+10. `CaseStudies Component` - 8 edges
 
 ## Surprising Connections (you probably didn't know these)
-- `Imported Media Public URL` --semantically_similar_to--> `S3 Public URL Generation`  [INFERRED] [semantically similar]
-  scripts/import-site-media.ts → payload.config.ts
+- `S3 Public URL Generation` --semantically_similar_to--> `Imported Media Public URL`  [INFERRED] [semantically similar]
+  payload.config.ts → scripts/import-site-media.ts
 - `Payload Postgres Adapter` --references--> `Next Payload PostgreSQL Application Stack`  [EXTRACTED]
   payload.config.ts → README.md
 - `Font And Metadata System` --references--> `Next Payload PostgreSQL Application Stack`  [EXTRACTED]
   src/app/layout.tsx → README.md
-- `Media Fallback Resolution` --semantically_similar_to--> `String Image Source Fallback`  [INFERRED] [semantically similar]
-  src/app/(site)/locations/payload.ts → src/app/(site)/components/shared/site-image.tsx
-- `Footer()` --implements--> `Footer Menus Contact and Social Links`  [EXTRACTED]
-  /Users/apple/Desktop/Techling/Chex/chex-public-pages/src/app/(site)/components/shared/footer.tsx → src/app/(site)/components/shared/footer.tsx
+- `Payload Server Function Bridge` --references--> `Payload Runtime Config`  [EXTRACTED]
+  src/app/(payload)/layout.tsx → payload.config.ts
+- `Payload Admin Catchall Page` --references--> `Payload Runtime Config`  [EXTRACTED]
+  src/app/(payload)/admin/[[...segments]]/page.tsx → payload.config.ts
 
 ## Hyperedges (group relationships)
 - **Payload Runtime Surface** — payload_config_runtime, payload_layout_shell, payload_admin_page, payload_api_routes, payload_import_map_typed_bridge [INFERRED 0.86]
@@ -67,98 +65,84 @@
 
 ## Communities
 
-### Community 0 - "Repository Tooling"
-Cohesion: 0.06
-Nodes (40): Generated Artifact Ignores, Repository ESLint Config, Type Checked TypeScript Rules, Content Asset Import Rewrite To URLs, Source Hash Prevents Duplicate Uploads Rationale, Asset Hash Deduplication, Payload Media Upload Or Reuse, Site Media Import Pipeline (+32 more)
-
-### Community 1 - "Location CMS Model"
-Cohesion: 0.06
-Nodes (38): Authenticated or Published Read Access, Class Name Override Pattern, Location Draft Versions, Location FAQ and CTA Content Groups, Location Hero Content Group, Locations Collection, Location Manage Case Studies and Testimonials Groups, Location Media Fields Pattern (+30 more)
-
-### Community 2 - "Shared Marketing Sections"
-Cohesion: 0.09
-Nodes (34): CaseStudies Component, Case Study Background Image Resolver, Horizontal Reveal Case Study Gallery, Case Study Optional Caption and Link Rendering, Footer Menus Contact and Social Links, Footer(), Site Footer Navigation, Home Conversion Panel (+26 more)
-
-### Community 3 - "Payload Database Migrations"
-Cohesion: 0.09
-Nodes (33): Draft Published Post Status, Initial Payload Schema Migration, Payload Locked Documents Relations Table, Payload Migrations Table, Payload Preferences Relations Table, Posts Table, Posts Versions Table, Users Sessions Table (+25 more)
-
-### Community 4 - "State Location Routes"
+### Community 0 - "Community 0"
 Cohesion: 0.1
-Nodes (18): AlabamaRoutePage(), ArizonaRoutePage(), ArkansasRoutePage(), CaliforniaRoutePage(), ColoradoRoutePage(), generateMetadata(), IowaRoutePage(), NebraskaRoutePage() (+10 more)
+Nodes (34): CaseStudies Component, Case Study Background Image Resolver, Horizontal Reveal Case Study Gallery, Case Study Optional Caption and Link Rendering, Footer Menus Contact and Social Links, Footer Component, Site Footer Navigation, Home Conversion Panel (+26 more)
 
-### Community 5 - "Location Page UI"
+### Community 1 - "Community 1"
 Cohesion: 0.11
 Nodes (31): LocationCaseStudies Component, LocationCta Component, Location FAQ Accessible Panel IDs, Location FAQ Accordion State, Location FAQ Chevron Icon, LocationFaq Component, LocationHero Component, Location Hero Orbit Map (+23 more)
 
-### Community 6 - "Home Marketing Model"
-Cohesion: 0.13
-Nodes (20): Button Component, Button Variant System, Focus Visible Accessibility, Polymorphic Href Button Behavior, AI Damage Findings Workflow, AI Vehicle Inspection Value Proposition, Benefits and Differentiators, Case Study Metrics (+12 more)
+### Community 2 - "Community 2"
+Cohesion: 0.08
+Nodes (30): Authenticated or Published Read Access, Class Name Override Pattern, Location Draft Versions, Location FAQ and CTA Content Groups, Location Hero Content Group, Locations Collection, Location Manage Case Studies and Testimonials Groups, Location SEO Metadata Group (+22 more)
 
-### Community 7 - "Graphify Builder Script"
-Cohesion: 0.25
-Nodes (18): add_edge(), add_node(), build_detection_result(), file_node_id(), find_block(), function_bodies(), gather_files(), import_statements() (+10 more)
+### Community 3 - "Community 3"
+Cohesion: 0.09
+Nodes (27): Font And Metadata System, Root App Layout, Generated Artifact Ignores, Repository ESLint Config, Type Checked TypeScript Rules, Payload Admin Metadata Generation, Payload Admin Catchall Page, Payload REST Route Handlers (+19 more)
 
-### Community 8 - "Media Import Script"
-Cohesion: 0.27
-Nodes (11): collectAssetImports(), dedupeAssets(), escapeRegExp(), getContentFiles(), main(), publicURLFor(), removeImportDeclarations(), requiredEnv() (+3 more)
+### Community 4 - "Community 4"
+Cohesion: 0.12
+Nodes (26): Draft Published Post Status, Initial Payload Schema Migration, Payload Locked Documents Relations Table, Payload Migrations Table, Posts Table, Posts Versions Table, Idempotent Media Schema Guards, Media Deduplication Indexes (+18 more)
 
-### Community 9 - "Graphify Documentation"
+### Community 5 - "Community 5"
+Cohesion: 0.1
+Nodes (23): Content Asset Import Rewrite To URLs, Source Hash Prevents Duplicate Uploads Rationale, Asset Hash Deduplication, Payload Media Upload Or Reuse, Site Media Import Pipeline, Imported Media Public URL, Next Application Config, Payload Next Wrapper (+15 more)
+
+### Community 6 - "Community 6"
+Cohesion: 0.15
+Nodes (17): Button Component, Button Variant System, Focus Visible Accessibility, Polymorphic Href Button Behavior, AI Damage Findings Workflow, AI Vehicle Inspection Value Proposition, Benefits and Differentiators, Case Study Metrics (+9 more)
+
+### Community 7 - "Community 7"
 Cohesion: 0.16
 Nodes (14): Graphify Report JSON HTML Exports, Repo Aware Graphify Pipeline, Route Content To Component Mapping, Repo Aware Semantic Augmentation, AST Plus Repo Aware Augmentation Rationale, Benefit Surface Card Grid, Benefit Icon Switch, Home Benefits Section (+6 more)
 
-### Community 10 - "Location Seed Script"
-Cohesion: 0.28
-Nodes (11): buildLocationData(), createMediaFromURL(), findMediaByField(), loadContent(), main(), mediaField(), mediaSourceURL(), resolveMediaID() (+3 more)
+### Community 8 - "Community 8"
+Cohesion: 0.22
+Nodes (11): Location Media Fields Pattern, Migration Fallback URL Pattern, Media Alternative Text, Media Collection, Media Import Deduplication, Media Upload Policy, Default Showcase Video, Media Fallback Resolution (+3 more)
 
-### Community 11 - "App Configuration"
-Cohesion: 0.2
-Nodes (10): Font And Metadata System, Root App Layout, Payload Postgres Adapter, PostCSS Tailwind Pipeline, Next Payload PostgreSQL Application Stack, Chex Public Pages, Docker Defaults Work Out Of The Box Rationale, Environment Variable Contract (+2 more)
+### Community 9 - "Community 9"
+Cohesion: 0.38
+Nodes (7): Payload Preferences Relations Table, Users Sessions Table, Users Table, Email Admin Title, Required Name Text Field, Payload Auth Collection, Users Collection
 
-### Community 13 - "Reveal Accessibility"
+### Community 10 - "Community 10"
 Cohesion: 0.47
 Nodes (6): Intersection Observer Reveal Trigger, Motion Reveal Dataset Contract, Reduced Motion Reveal Fallback, Reveal Article Component, Reveal Component, useReveal Hook
 
-### Community 14 - "Reveal Utilities"
-Cohesion: 0.5
-Nodes (2): Reveal(), useReveal()
-
-### Community 20 - "Payload Import Map"
+### Community 11 - "Community 11"
 Cohesion: 0.67
 Nodes (3): Admin Import Map Module, Payload Import Map Declarations, Root Import Map Module
 
-### Community 45 - "Announcement Message Bar"
-Cohesion: 1.0
-Nodes (2): AnnouncementHeader Component, Site Announcement Message Bar
-
-### Community 46 - "Section Heading Controls"
+### Community 12 - "Community 12"
 Cohesion: 1.0
 Nodes (2): SectionHeading Component, Theme and Alignment Controls
 
+### Community 13 - "Community 13"
+Cohesion: 1.0
+Nodes (2): AnnouncementHeader Component, Site Announcement Message Bar
+
 ## Knowledge Gaps
-- **63 isolated node(s):** `Chex Public Pages`, `Docker Defaults Work Out Of The Box Rationale`, `Type Checked TypeScript Rules`, `Do Not Edit Generated Next Env Rationale`, `Payload Next Wrapper` (+58 more)
+- **63 isolated node(s):** `Do Not Edit Generated Next Env Rationale`, `PostCSS Tailwind Pipeline`, `Type Checked TypeScript Rules`, `Payload Next Wrapper`, `Content Asset Import Rewrite To URLs` (+58 more)
   These have ≤1 connection - possible missing edges or undocumented components.
-- **Thin community `Reveal Utilities`** (5 nodes): `Reveal()`, `revealClassName()`, `revealStyle()`, `useReveal()`, `reveal.tsx`
+- **Thin community `Community 12`** (2 nodes): `SectionHeading Component`, `Theme and Alignment Controls`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Announcement Message Bar`** (2 nodes): `AnnouncementHeader Component`, `Site Announcement Message Bar`
-  Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Section Heading Controls`** (2 nodes): `SectionHeading Component`, `Theme and Alignment Controls`
+- **Thin community `Community 13`** (2 nodes): `AnnouncementHeader Component`, `Site Announcement Message Bar`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
 
 ## Suggested Questions
 _Questions this graph is uniquely positioned to answer:_
 
-- **Why does `Location Page Content Contract` connect `Location Page UI` to `Shared Marketing Sections`?**
-  _High betweenness centrality (0.011) - this node is a cross-community bridge._
-- **Why does `Home Marketing Content` connect `Home Marketing Model` to `Location CMS Model`?**
-  _High betweenness centrality (0.010) - this node is a cross-community bridge._
-- **Why does `Location Page Payload Adapter` connect `Location CMS Model` to `Home Marketing Model`?**
-  _High betweenness centrality (0.009) - this node is a cross-community bridge._
-- **Are the 12 inferred relationships involving `getLocationPageBySlug()` (e.g. with `generateMetadata()` and `AlabamaRoutePage()`) actually correct?**
-  _`getLocationPageBySlug()` has 12 INFERRED edges - model-reasoned connections that need verification._
-- **What connects `Chex Public Pages`, `Docker Defaults Work Out Of The Box Rationale`, `Type Checked TypeScript Rules` to the rest of the system?**
+- **Why does `Location Page Content Contract` connect `Community 1` to `Community 0`?**
+  _High betweenness centrality (0.034) - this node is a cross-community bridge._
+- **Why does `Home Marketing Content` connect `Community 6` to `Community 8`, `Community 2`?**
+  _High betweenness centrality (0.030) - this node is a cross-community bridge._
+- **Why does `Location Page Payload Adapter` connect `Community 2` to `Community 6`?**
+  _High betweenness centrality (0.028) - this node is a cross-community bridge._
+- **Are the 3 inferred relationships involving `Home Marketing Content` (e.g. with `Home Metadata` and `SiteImage Component`) actually correct?**
+  _`Home Marketing Content` has 3 INFERRED edges - model-reasoned connections that need verification._
+- **What connects `Do Not Edit Generated Next Env Rationale`, `PostCSS Tailwind Pipeline`, `Type Checked TypeScript Rules` to the rest of the system?**
   _63 weakly-connected nodes found - possible documentation gaps or missing edges._
-- **Should `Repository Tooling` be split into smaller, more focused modules?**
-  _Cohesion score 0.06 - nodes in this community are weakly interconnected._
-- **Should `Location CMS Model` be split into smaller, more focused modules?**
-  _Cohesion score 0.06 - nodes in this community are weakly interconnected._
+- **Should `Community 0` be split into smaller, more focused modules?**
+  _Cohesion score 0.1 - nodes in this community are weakly interconnected._
+- **Should `Community 1` be split into smaller, more focused modules?**
+  _Cohesion score 0.11 - nodes in this community are weakly interconnected._
