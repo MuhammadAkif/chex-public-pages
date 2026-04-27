@@ -1,0 +1,45 @@
+# Dependencies
+node_modules/
+
+# Build outputs
+dist/
+build/
+.next/
+out/
+
+# Cache / coverage
+.cache/
+coverage/
+
+# Environment
+.env
+.env.*
+*.log
+
+# Generated files
+*.generated.*
+*.min.js
+*.bundle.js
+
+# Tests (optional)
+__tests__/
+tests/
+mocks/
+fixtures/
+
+# AI assistant configs (IMPORTANT)
+AGENTS.md
+CLAUDE.md
+GEMINI.md
+.github/copilot-instructions.md
+.codex/
+.cursor/
+.gemini/
+.opencode/
+
+# Graphify output
+graphify-out/
+
+# Docs (optional)
+docs/generated/
+docs/translations/
