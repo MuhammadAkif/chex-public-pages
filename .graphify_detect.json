@@ -1,6 +1,6 @@
 {
-  "total_files": 76,
-  "total_words": 35528,
+  "total_files": 79,
+  "total_words": 41038,
   "files": {
     "code": [
       "payload.config.ts",
@@ -64,15 +64,18 @@
       "src/app/(site)/locations/new-mexico/page.tsx",
       "src/app/(site)/locations/ohio/content.ts",
       "src/app/(site)/locations/ohio/page.tsx",
+      "src/app/(site)/locations/payload.ts",
       "src/app/(site)/locations/south-carolina/content.ts",
       "src/app/(site)/locations/south-carolina/page.tsx",
       "src/app/(site)/page.tsx",
       "src/app/layout.tsx",
+      "src/collections/Locations.ts",
       "src/collections/Media.ts",
       "src/collections/Posts.ts",
       "src/collections/Users.ts",
       "src/migrations/20260422_162945_initial_schema.ts",
       "src/migrations/20260427_111031_media_collection.ts",
+      "src/migrations/20260427_122450_locations_collection.ts",
       "src/migrations/index.ts",
       "src/types/env.d.ts",
       "src/types/payload-import-map.d.ts"

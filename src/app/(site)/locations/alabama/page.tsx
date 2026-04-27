@@ -1,14 +1,25 @@
 import type { Metadata } from 'next'
+import { notFound } from 'next/navigation'
 
 import { LocationPage } from '@/app/(site)/components/locations/location-page'
-import { alabamaContent } from '@/app/(site)/locations/alabama/content'
+import { getLocationPageBySlug } from '@/app/(site)/locations/payload'
 
-export const metadata: Metadata = {
-  title: 'Alabama Vehicle Damage Assessment AI | Chex.AI',
-  description:
-    'Remote vehicle damage assessment, mobile car inspections, and AI-powered compliance workflows for Birmingham, Montgomery, and Huntsville drivers.',
+const LOCATION_SLUG = 'alabama'
+
+export const dynamic = 'force-dynamic'
+
+export async function generateMetadata(): Promise<Metadata> {
+  const page = await getLocationPageBySlug(LOCATION_SLUG)
+
+  return page?.metadata ?? {}
 }
 
-export default function AlabamaRoutePage() {
-  return <LocationPage content={alabamaContent} />
+export default async function AlabamaRoutePage() {
+  const page = await getLocationPageBySlug(LOCATION_SLUG)
+
+  if (!page) {
+    notFound()
+  }
+
+  return <LocationPage content={page.content} />
 }

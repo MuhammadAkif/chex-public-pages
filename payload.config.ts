@@ -5,6 +5,7 @@ import { lexicalEditor } from '@payloadcms/richtext-lexical'
 import { s3Storage } from '@payloadcms/storage-s3'
 import { buildConfig } from 'payload'
 
+import { Locations } from './src/collections/Locations.ts'
 import { Posts } from './src/collections/Posts.ts'
 import { Media } from './src/collections/Media.ts'
 import { Users } from './src/collections/Users.ts'
@@ -35,7 +36,7 @@ export default buildConfig({
     },
     user: Users.slug,
   },
-  collections: [Users, Posts, Media],
+  collections: [Users, Posts, Media, Locations],
   cors: [serverURL],
   csrf: [serverURL],
   db: postgresAdapter({

@@ -21,6 +21,7 @@
     "payload:migrate:status": "yarn payload migrate:status",
     "payload:migrate:refresh": "yarn payload migrate:refresh",
     "media:import": "node --import tsx scripts/import-site-media.ts",
+    "locations:seed": "node --import tsx scripts/seed-locations.ts",
     "db:up": "docker compose up -d postgres",
     "db:down": "docker compose down"
   },

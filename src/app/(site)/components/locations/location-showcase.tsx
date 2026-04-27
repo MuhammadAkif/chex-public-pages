@@ -5,9 +5,11 @@ import { useEffect, useRef } from 'react'
 const SHOWCASE_VIDEO_SRC =
   'https://chex-payload-public-pages.s3.us-east-1.amazonaws.com/chex-ai-location.mp4'
 
-export type LocationShowcaseProps = Record<string, unknown>
+export type LocationShowcaseProps = Record<string, unknown> & {
+  video?: string
+}
 
-export function LocationShowcase(_: LocationShowcaseProps) {
+export function LocationShowcase({ video = SHOWCASE_VIDEO_SRC }: LocationShowcaseProps) {
   const containerRef = useRef<HTMLDivElement | null>(null)
   const videoRef = useRef<HTMLVideoElement | null>(null)
   const shouldPlayRef = useRef(false)
@@ -128,7 +130,7 @@ export function LocationShowcase(_: LocationShowcaseProps) {
       >
         <video
           ref={videoRef}
-          src={SHOWCASE_VIDEO_SRC}
+          src={video}
           playsInline
           preload="auto"
           className="h-full w-full object-cover"
