@@ -36,10 +36,10 @@ services:
       NODE_ENV: production
       NEXT_PUBLIC_SERVER_URL: ${NEXT_PUBLIC_SERVER_URL:-http://localhost:3000}
 
-      # Connects to the postgres service over the internal Docker network.
-      # Never use localhost here — use the service name "postgres".
+      # Uses DATABASE_URL from .env when present. If absent, it falls back to
+      # the local postgres service over the internal Docker network.
       DATABASE_URL: >-
-        postgresql://${POSTGRES_USER:-payload}:${POSTGRES_PASSWORD:-payload}@postgres:5432/${POSTGRES_DB:-payload_app}
+        ${DATABASE_URL:-postgresql://${POSTGRES_USER:-payload}:${POSTGRES_PASSWORD:-payload}@postgres:5432/${POSTGRES_DB:-payload_app}}
 
       # Change this to a long random string in production.
       PAYLOAD_SECRET: ${PAYLOAD_SECRET:-change-me-before-going-to-production}

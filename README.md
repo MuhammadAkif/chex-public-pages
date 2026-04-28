@@ -31,7 +31,7 @@ yarn install
 cp .env.example .env
 ```
 
-Update the values in `.env` as needed. The defaults in `.env.example` work out of the box with the Docker setup below.
+Update the values in `.env` as needed. If `DATABASE_URL` is omitted, local development falls back to `postgresql://payload:payload@localhost:5433/payload_app`, while Docker falls back to its internal `postgres` service.
 
 ### 3. Start the database
 
@@ -55,7 +55,8 @@ The Payload admin panel is available at [http://localhost:3000/admin](http://loc
 |---|---|---|
 | `NEXT_PUBLIC_SERVER_URL` | Public URL of the server | `http://localhost:3000` |
 | `PAYLOAD_SECRET` | Secret key for Payload CMS (use a long random string in production) | — |
-| `DATABASE_URL` | PostgreSQL connection string | — |
+| `DATABASE_URL` | Optional PostgreSQL connection string. Hosted databases can be set here. | local PostgreSQL |
+| `SOURCE_DATABASE_URL` | Optional source database for `db:migrate:local-to-env` | `postgresql://payload:payload@localhost:5433/payload_app` |
 | `POSTGRES_DB` | PostgreSQL database name | `payload_app` |
 | `POSTGRES_USER` | PostgreSQL user | `payload` |
 | `POSTGRES_PASSWORD` | PostgreSQL password | `payload` |
@@ -69,6 +70,7 @@ The Payload admin panel is available at [http://localhost:3000/admin](http://loc
 | `yarn build` | Build for production |
 | `yarn start` | Start the production server |
 | `yarn typecheck` | Run TypeScript type checking |
+| `yarn db:migrate:local-to-env --yes` | Copy the local PostgreSQL database into the database configured by `DATABASE_URL` |
 | `yarn db:up` | Start the PostgreSQL Docker container |
 | `yarn db:down` | Stop the PostgreSQL Docker container |
 | `yarn payload` | Run Payload CLI commands |

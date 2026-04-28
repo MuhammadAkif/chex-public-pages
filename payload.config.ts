@@ -13,6 +13,8 @@ import { Users } from './src/collections/Users.ts'
 const filename = fileURLToPath(import.meta.url)
 const dirname = path.dirname(filename)
 const serverURL = process.env.NEXT_PUBLIC_SERVER_URL || 'http://localhost:3000'
+const databaseURL =
+  process.env.DATABASE_URL || 'postgresql://payload:payload@localhost:5433/payload_app'
 const s3Bucket = process.env.S3_BUCKET || ''
 const s3Region = process.env.S3_REGION || ''
 const s3Enabled = Boolean(
@@ -43,7 +45,7 @@ export default buildConfig({
     idType: 'uuid',
     migrationDir: path.resolve(dirname, 'src/migrations'),
     pool: {
-      connectionString: process.env.DATABASE_URL || '',
+      connectionString: databaseURL,
     },
     push: process.env.NODE_ENV === 'development',
   }),

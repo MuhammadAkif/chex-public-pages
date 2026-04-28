@@ -65,6 +65,8 @@ export default defineConfig([
     },
   },
   globalIgnores([
+    '.claude/**',
+    '.codex/**',
     '.next/**',
     'out/**',
     'build/**',
