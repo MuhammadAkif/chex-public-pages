@@ -1,0 +1,14 @@
+node_modules
+.next
+.env
+.env.local
+.env.*.local
+.git
+.gitignore
+coverage
+graphify-out
+*.log
+*.tsbuildinfo
+README.md
+AGENTS.md
+CLAUDE.md
