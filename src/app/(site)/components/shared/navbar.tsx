@@ -1,14 +1,13 @@
 'use client'
 
-import Image from 'next/image'
-import type { StaticImageData } from 'next/image'
 import { usePathname } from 'next/navigation'
 import { useEffect, useState } from 'react'
 
+import { SiteImage, type SiteImageSource } from '@/app/(site)/components/shared/site-image'
 import { Button } from '@/app/(site)/components/ui/button'
 
 type NavbarProps = {
-  logo: StaticImageData
+  logo: SiteImageSource
   links: ReadonlyArray<{
     label: string
     href: string
@@ -42,7 +41,7 @@ export function Navbar({ logo, links }: NavbarProps) {
     >
       <div className="mx-auto flex max-w-[1240px] items-center justify-between gap-6 px-4 py-4 sm:px-6 lg:px-10">
         <a href="/home" className="shrink-0">
-          <Image src={logo} alt="Chex.AI" className="h-11 w-auto" priority />
+          <SiteImage src={logo} alt="Chex.AI" className="h-11 w-auto" priority />
         </a>
 
         <nav className="hidden items-center gap-8 lg:flex">

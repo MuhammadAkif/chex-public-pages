@@ -1,30 +1,14 @@
 /* eslint-disable @next/next/no-img-element */
 
-import type { StaticImageData } from 'next/image'
-
-import quoteImage from '@/app/(site)/assets/locations/testimonial-quotes.svg'
-import starImage from '@/app/(site)/assets/locations/testimonial-star.svg'
 import { SectionHeading } from '@/app/(site)/components/ui/section-heading'
 import { SurfaceCard } from '@/app/(site)/components/ui/surface-card'
 
-type TestimonialAsset = StaticImageData | string
+type TestimonialAsset = string
 
-function resolveAssetSrc(asset: unknown): string {
-  if (typeof asset === 'string') {
-    return asset
-  }
-
-  if (
-    typeof asset === 'object' &&
-    asset !== null &&
-    'src' in asset &&
-    typeof asset.src === 'string'
-  ) {
-    return asset.src
-  }
-
-  return ''
-}
+const QUOTE_IMAGE =
+  'https://chex-payload-public-pages.s3.us-east-1.amazonaws.com/testimonial-quotes.svg'
+const STAR_IMAGE =
+  'https://chex-payload-public-pages.s3.us-east-1.amazonaws.com/testimonial-star.svg'
 
 export type LocationTestimonialsProps = {
   title: string
@@ -49,8 +33,8 @@ export function LocationTestimonials({
   items,
 }: LocationTestimonialsProps) {
   const [featured, secondary] = items
-  const resolvedQuoteImage = resolveAssetSrc(customQuoteImage ?? quoteImage)
-  const resolvedStarImage = resolveAssetSrc(customStarImage ?? starImage)
+  const resolvedQuoteImage = customQuoteImage ?? QUOTE_IMAGE
+  const resolvedStarImage = customStarImage ?? STAR_IMAGE
 
   return (
     <section className="bg-white px-4 py-20 sm:px-6 lg:px-10 lg:py-28">

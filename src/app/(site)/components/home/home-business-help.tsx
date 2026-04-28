@@ -1,15 +1,13 @@
 'use client'
 
-import Image from 'next/image'
-import type { StaticImageData } from 'next/image'
-
+import { SiteImage, type SiteImageSource } from '@/app/(site)/components/shared/site-image'
 import { Button } from '@/app/(site)/components/ui/button'
 
 type HomeBusinessHelpProps = {
   title: string
   description: string
   buttonLabel: string
-  image: StaticImageData
+  image: SiteImageSource
 }
 
 export function HomeBusinessHelp({
@@ -38,7 +36,7 @@ export function HomeBusinessHelp({
           <div className="relative">
             <div className="absolute inset-x-6 top-0 h-full rounded-[18px] bg-[#1368b9]" />
             <div className="relative translate-y-6 overflow-hidden rounded-[16px] border border-white/10 bg-white/5 p-4 shadow-[0_40px_120px_-60px_rgba(19,104,185,0.6)] backdrop-blur">
-              <Image
+              <SiteImage
                 src={image}
                 alt="Chex analytics dashboard"
                 className="h-auto w-full rounded-[12px] object-cover"

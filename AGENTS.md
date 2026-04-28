@@ -1,94 +1,41 @@
-# Chex Public Pages Agent Guide
+# Agent Instructions
 
-This repository is a Next.js 16 App Router project with two distinct surfaces:
+## Graphify
 
-- `src/app/(site)`: public marketing pages, including the home page and state/location landing pages
-- `src/app/(payload)`: Payload CMS admin and REST endpoints backed by PostgreSQL
+This repository uses graphify as a persistent knowledge graph for codebase navigation.
 
-Prefer targeted edits inside the correct surface. Do not mix site-page changes with Payload schema changes unless the task explicitly requires both.
+Graph outputs live in `graphify-out/`:
 
-## Working Model
+- `graphify-out/GRAPH_REPORT.md` is the human-readable architecture report.
+- `graphify-out/graph.json` is the GraphRAG-ready graph data.
+- `graphify-out/graph.html` is the interactive browser visualization.
 
-- Route entry files are intentionally thin. Most route files only export `metadata` and render one page component.
-- Public page copy and imagery are primarily driven by co-located `content.ts` modules.
-- Shared layout, navigation, footer, and UI primitives live under `src/app/(site)/components/shared` and `src/app/(site)/components/ui`.
-- Location pages are composed by `src/app/(site)/components/locations/location-page.tsx`, which renders a fixed sequence of reusable sections.
-- Payload collections are defined in `src/collections`, wired in `payload.config.ts`, and persisted through migrations in `src/migrations`.
+Before answering architecture, dependency, cross-module, or "how does X relate to Y" questions, consult `graphify-out/GRAPH_REPORT.md` first. Use the God Nodes, Community Hubs, Surprising Connections, and Suggested Questions sections to orient the investigation before reading raw source files.
 
-## Repo Map
+For graph traversal questions, prefer the graphify workflow over broad text search:
 
-- `src/app/layout.tsx`: global fonts, metadata, and `globals.css`
-- `src/app/globals.css`: Tailwind v4 theme tokens, typography utilities, motion reveal styles
-- `src/app/(site)/layout.tsx`: site chrome using shared announcement, navbar, and footer content
-- `src/app/(site)/content.ts`: global site navigation and footer content
-- `src/app/(site)/home/content.ts`: home page content model
-- `src/app/(site)/home/page.tsx`: thin route for the home page
-- `src/app/(site)/components/home/*`: home page sections
-- `src/app/(site)/locations/<state>/content.ts`: state-specific content objects
-- `src/app/(site)/locations/<state>/page.tsx`: thin route for each state page
-- `src/app/(site)/components/locations/*`: reusable section components for all location pages
-- `src/app/(payload)/admin/[[...segments]]/page.tsx`: Payload admin entrypoint
-- `src/app/(payload)/api/[...slug]/route.ts`: Payload REST bindings
-- `payload.config.ts`: Payload configuration, Postgres adapter, type generation
+- `/graphify query "<question>"` for broad neighborhood context.
+- `/graphify path "<A>" "<B>"` for shortest paths between concepts.
+- `/graphify explain "<concept>"` for one node and its direct relationships.
 
-## Editing Rules
+Use source files to verify behavior before making code changes. Graph edges are audit-tagged:
 
-- For home page copy/layout updates, start with `src/app/(site)/home/content.ts` and `src/app/(site)/components/home`.
-- For a location page update, check whether the change belongs in:
-  - the route metadata file in `src/app/(site)/locations/<state>/page.tsx`
-  - the state content object in `src/app/(site)/locations/<state>/content.ts`
-  - a shared section component in `src/app/(site)/components/locations`
-- Keep route files thin. Do not move large content objects into `page.tsx`.
-- Reuse existing shared UI components before adding new primitives.
-- Preserve the existing content-driven pattern. If one location needs new section behavior, prefer extending the shared section API rather than hardcoding that behavior in one route.
-- Only edit `payload.config.ts`, `src/collections/*`, generated import maps, or migrations for tasks that explicitly involve CMS or schema work.
-- Treat generated files carefully:
-  - `src/payload-types.ts`
-  - `src/app/(payload)/admin/importMap.ts`
-  - `src/app/(payload)/admin/importMap.js`
-  Update them only when the related Payload workflow requires regeneration.
+- `EXTRACTED` means the relationship was explicit in source.
+- `INFERRED` means the relationship is model-reasoned and should be checked.
+- `AMBIGUOUS` means the relationship is uncertain.
 
-## Architecture Notes
+After modifying code, keep the graph current with `/graphify . --update`. If the graph is missing, stale, or structurally wrong, run `/graphify .` to rebuild it.
 
-- The site side is mostly static and asset-heavy. Images are imported directly from `src/app/(site)/assets/...`.
-- The project uses Next.js path aliasing via `@/* -> ./src/*`.
-- Tailwind v4 is configured through `@theme inline` tokens in `src/app/globals.css`.
-- Reveal-on-scroll behavior is implemented in `src/app/(site)/components/shared/reveal.tsx`.
-- `src/app/(site)/page.tsx` redirects `/` to `/home`.
+Do not add secrets, build outputs, dependency folders, or generated graph artifacts to the corpus. `.graphifyignore` already excludes `.env`, build output, `node_modules/`, `graphify-out/`, and assistant configuration files.
 
-## Verification
+## Project Notes
 
-Use the smallest relevant checks after edits:
+This is a Next.js and Payload CMS public pages project. The current graph highlights these major areas:
 
-- `yarn typecheck`
-- `yarn lint`
-- `yarn build`
+- App and Payload configuration.
+- Home marketing page content and reusable sections.
+- Location CMS model, state routes, and location page UI.
+- Payload database migrations.
+- Media import and location seed scripts.
 
-For Payload changes, verify the database workflow as needed:
-
-- `yarn payload:migrate:status`
-- `yarn payload:migrate`
-
-## Graphify Notes
-
-If `graphify-out/GRAPH_REPORT.md` exists, read it before broad file searches when the task is architectural, cross-cutting, or ambiguous.
-
-Useful Graphify commands from repo root:
-
-- `python3 scripts/build_graphify_graph.py`
-- `python3 -m graphify query "how are Nevada location pages assembled?" --graph graphify-out/graph.json`
-- `python3 -m graphify explain "LocationPage()" --graph graphify-out/graph.json`
-- `python3 -m graphify path "NevadaRoutePage()" "LocationShowcase()" --graph graphify-out/graph.json`
-
-When Graphify and raw files disagree, treat source files as ground truth and regenerate the graph.
-
-## graphify
-
-This project has a graphify knowledge graph at graphify-out/.
-
-Rules:
-- Before answering architecture or codebase questions, read graphify-out/GRAPH_REPORT.md for god nodes, major communities, and suggested questions
-- If graphify-out/wiki/index.md exists, navigate it instead of reading raw files
-- For cross-module "how does X relate to Y" questions, prefer `python3 -m graphify query "<question>" --graph graphify-out/graph.json`, `python3 -m graphify path "<A>" "<B>" --graph graphify-out/graph.json`, or `python3 -m graphify explain "<concept>" --graph graphify-out/graph.json` before broad raw-file search
-- This repo uses `python3 scripts/build_graphify_graph.py` as the preferred rebuild command because it augments Graphify's AST output with resolved alias imports and route/content/component relationships specific to this codebase
-- After modifying routes, content modules, layouts, or shared components in this session, run `python3 scripts/build_graphify_graph.py` to keep the graph current
+When changing the site, prefer existing component and content patterns under `src/app/(site)/` and the Payload collection contracts under `src/collections/`.

@@ -1,12 +1,11 @@
 'use client'
 
-import Image from 'next/image'
-import type { StaticImageData } from 'next/image'
+import { SiteImage, type SiteImageSource } from '@/app/(site)/components/shared/site-image'
 
 type HomeKeyDifferentiatorsProps = {
   title: string
   items: ReadonlyArray<string>
-  image: StaticImageData
+  image: SiteImageSource
 }
 
 export function HomeKeyDifferentiators({
@@ -37,7 +36,7 @@ export function HomeKeyDifferentiators({
 
           <div className="rounded-[28px] bg-white p-5 shadow-[0_20px_60px_-30px_rgba(0,0,0,0.45)]">
             <div className="rounded-[24px] border border-[#2563eb]/30 p-4">
-              <Image
+              <SiteImage
                 src={image}
                 alt="Chex.AI key differentiators"
                 className="h-auto w-full rounded-[20px] object-cover"

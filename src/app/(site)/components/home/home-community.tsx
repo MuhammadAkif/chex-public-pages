@@ -1,8 +1,6 @@
 'use client'
 
-import Image from 'next/image'
-import type { StaticImageData } from 'next/image'
-
+import { SiteImage, type SiteImageSource } from '@/app/(site)/components/shared/site-image'
 import { SurfaceCard } from '@/app/(site)/components/ui/surface-card'
 
 type HomeCommunityProps = {
@@ -15,10 +13,10 @@ type HomeCommunityProps = {
   }>
   manageTitle: string
   manageBullets: ReadonlyArray<string>
-  manageImage: StaticImageData
+  manageImage: SiteImageSource
   trustedTitle: string
   trustedLogos: ReadonlyArray<{
-    image: StaticImageData
+    image: SiteImageSource
     label: string
   }>
 }
@@ -102,7 +100,7 @@ export function HomeCommunity({
             </div>
 
             <div className="rounded-[28px] border-8 border-[#d5d5d5] bg-white p-4 shadow-[0_50px_120px_-70px_rgba(0,0,0,0.65)]">
-              <Image
+              <SiteImage
                 src={manageImage}
                 alt="Chex.AI mobile and desktop inspection interfaces"
                 className="h-auto w-full rounded-[22px] object-cover"
@@ -122,7 +120,7 @@ export function HomeCommunity({
                 key={`${logo.label}-${index}`}
                 className="flex min-h-24 items-center justify-center rounded-[12px] bg-white px-6 py-5"
               >
-                <Image src={logo.image} alt={logo.label} className="h-12 w-auto object-contain" />
+                <SiteImage src={logo.image} alt={logo.label} className="h-12 w-auto object-contain" />
               </div>
             ))}
           </div>

@@ -1,4 +1,3 @@
-import logoChex from '@/app/(site)/assets/shared/logo-chex.png'
 
 export const siteContent = {
   announcement: 'Your competitors already downloaded this. Catch up',
@@ -9,7 +8,7 @@ export const siteContent = {
     { label: 'Contact us', href: '/home#footer' },
     { label: 'Dashboard', href: '/home#business-help' },
   ],
-  logo: logoChex,
+  logo: "https://chex-payload-public-pages.s3.us-east-1.amazonaws.com/logo-chex.png",
   footer: {
     description:
       'Chex.AI is a licensed vehicle inspection solution and damage detection platform using AI. Our automated workflows simplify and expedite driver acquisition.',

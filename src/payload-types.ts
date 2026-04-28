@@ -69,6 +69,8 @@ export interface Config {
   collections: {
     users: User;
     posts: Post;
+    media: Media;
+    locations: Location;
     'payload-kv': PayloadKv;
     'payload-locked-documents': PayloadLockedDocument;
     'payload-preferences': PayloadPreference;
@@ -78,6 +80,8 @@ export interface Config {
   collectionsSelect: {
     users: UsersSelect<false> | UsersSelect<true>;
     posts: PostsSelect<false> | PostsSelect<true>;
+    media: MediaSelect<false> | MediaSelect<true>;
+    locations: LocationsSelect<false> | LocationsSelect<true>;
     'payload-kv': PayloadKvSelect<false> | PayloadKvSelect<true>;
     'payload-locked-documents': PayloadLockedDocumentsSelect<false> | PayloadLockedDocumentsSelect<true>;
     'payload-preferences': PayloadPreferencesSelect<false> | PayloadPreferencesSelect<true>;
@@ -177,6 +181,394 @@ export interface Post {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "media".
+ */
+export interface Media {
+  id: string;
+  /**
+   * Alternative text for images when used in page content.
+   */
+  alt?: string | null;
+  /**
+   * SHA-256 hash used by the media import script to avoid duplicate uploads.
+   */
+  sourceHash?: string | null;
+  /**
+   * Original local asset path for the first file imported with this hash.
+   */
+  sourcePath?: string | null;
+  updatedAt: string;
+  createdAt: string;
+  url?: string | null;
+  thumbnailURL?: string | null;
+  filename?: string | null;
+  mimeType?: string | null;
+  filesize?: number | null;
+  width?: number | null;
+  height?: number | null;
+  focalX?: number | null;
+  focalY?: number | null;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "locations".
+ */
+export interface Location {
+  id: string;
+  /**
+   * Internal CMS title, usually the state name.
+   */
+  title: string;
+  /**
+   * URL segment under /locations, for example "alabama".
+   */
+  slug: string;
+  /**
+   * SEO metadata used by the App Router route metadata.
+   */
+  meta: {
+    title: string;
+    description: string;
+  };
+  /**
+   * Advanced layout/style override used by the existing location page components.
+   */
+  pageClassName?: string | null;
+  hero: {
+    rating: string;
+    /**
+     * Rating badge image selected from the Payload media library.
+     */
+    ratingBadgeImage?: (string | null) | Media;
+    /**
+     * Migration fallback URL. The frontend prefers the media relationship when it is present.
+     */
+    ratingBadgeImageFallbackUrl?: string | null;
+    title: string;
+    description: string;
+    primaryLabel: string;
+    secondaryLabel: string;
+    helperText: string;
+    demoHref: string;
+    stats: {
+      value: string;
+      label: string;
+      id?: string | null;
+    }[];
+    locations: {
+      label: string;
+      /**
+       * Pin image selected from the Payload media library.
+       */
+      image?: (string | null) | Media;
+      /**
+       * Migration fallback URL. The frontend prefers the media relationship when it is present.
+       */
+      imageFallbackUrl?: string | null;
+      featured?: boolean | null;
+      id?: string | null;
+    }[];
+    /**
+     * Advanced hero layout values retained from the current implementation.
+     */
+    style?: {
+      /**
+       * Advanced layout/style override used by the existing location page components.
+       */
+      sectionClassName?: string | null;
+      /**
+       * Advanced layout/style override used by the existing location page components.
+       */
+      layoutClassName?: string | null;
+      /**
+       * Advanced layout/style override used by the existing location page components.
+       */
+      ratingContainerClassName?: string | null;
+      /**
+       * Advanced layout/style override used by the existing location page components.
+       */
+      titleClassName?: string | null;
+      /**
+       * Advanced layout/style override used by the existing location page components.
+       */
+      descriptionClassName?: string | null;
+    };
+  };
+  overview: {
+    title: string;
+    paragraphs: {
+      text: string;
+      id?: string | null;
+    }[];
+    /**
+     * Overview image selected from the Payload media library.
+     */
+    image?: (string | null) | Media;
+    /**
+     * Migration fallback URL. The frontend prefers the media relationship when it is present.
+     */
+    imageFallbackUrl?: string | null;
+    imageAlt: string;
+  };
+  services: {
+    eyebrow: string;
+    title: string;
+    description: string;
+    ctaLabel: string;
+    demoHref: string;
+    items: {
+      title: string;
+      description: string;
+      /**
+       * Service image selected from the Payload media library.
+       */
+      image?: (string | null) | Media;
+      /**
+       * Migration fallback URL. The frontend prefers the media relationship when it is present.
+       */
+      imageFallbackUrl?: string | null;
+      reverse?: boolean | null;
+      id?: string | null;
+    }[];
+  };
+  showcase: {
+    title: string;
+    description: string;
+    buttonLabel: string;
+    demoHref: string;
+    /**
+     * Showcase video selected from the Payload media library.
+     */
+    video?: (string | null) | Media;
+    /**
+     * Migration fallback URL. The frontend prefers the media relationship when it is present.
+     */
+    videoFallbackUrl?: string | null;
+    items: {
+      number: string;
+      title: string;
+      description: string;
+      id?: string | null;
+    }[];
+    visual: {
+      variant: 'organic-frame' | 'wave' | 'processing' | 'preview';
+      showGlow?: boolean | null;
+    };
+  };
+  regions: {
+    title: string;
+    description: string;
+    demoHref: string;
+    style?: {
+      /**
+       * Advanced layout/style override used by the existing location page components.
+       */
+      sectionClassName?: string | null;
+      /**
+       * Advanced layout/style override used by the existing location page components.
+       */
+      headingClassName?: string | null;
+      /**
+       * Advanced layout/style override used by the existing location page components.
+       */
+      titleClassName?: string | null;
+      /**
+       * Advanced layout/style override used by the existing location page components.
+       */
+      articleClassName?: string | null;
+    };
+    items: {
+      city: string;
+      description: string;
+      /**
+       * Region image selected from the Payload media library.
+       */
+      image?: (string | null) | Media;
+      /**
+       * Migration fallback URL. The frontend prefers the media relationship when it is present.
+       */
+      imageFallbackUrl?: string | null;
+      id?: string | null;
+    }[];
+  };
+  manage: {
+    title: string;
+    bullets: {
+      text: string;
+      id?: string | null;
+    }[];
+    buttonLabel: string;
+    demoHref: string;
+    /**
+     * Phone frame image selected from the Payload media library.
+     */
+    frameImage?: (string | null) | Media;
+    /**
+     * Migration fallback URL. The frontend prefers the media relationship when it is present.
+     */
+    frameImageFallbackUrl?: string | null;
+    /**
+     * Phone screen image selected from the Payload media library.
+     */
+    screenImage?: (string | null) | Media;
+    /**
+     * Migration fallback URL. The frontend prefers the media relationship when it is present.
+     */
+    screenImageFallbackUrl?: string | null;
+    /**
+     * Advanced layout/style override used by the existing location page components.
+     */
+    screenClassName?: string | null;
+    checkIconColor: string;
+    illustration: {
+      variant: 'framed-screen' | 'offset-screen';
+      /**
+       * Phone notch image selected from the Payload media library.
+       */
+      notchImage?: (string | null) | Media;
+      /**
+       * Migration fallback URL. The frontend prefers the media relationship when it is present.
+       */
+      notchImageFallbackUrl?: string | null;
+    };
+  };
+  caseStudies: {
+    title: string;
+    items: {
+      metric: string;
+      title: string;
+      description: string;
+      /**
+       * Case study image selected from the Payload media library.
+       */
+      image?: (string | null) | Media;
+      /**
+       * Migration fallback URL. The frontend prefers the media relationship when it is present.
+       */
+      imageFallbackUrl?: string | null;
+      caption?: string | null;
+      linkHref?: string | null;
+      linkLabel?: string | null;
+      id?: string | null;
+    }[];
+    /**
+     * Arrow image selected from the Payload media library.
+     */
+    arrowImage?: (string | null) | Media;
+    /**
+     * Migration fallback URL. The frontend prefers the media relationship when it is present.
+     */
+    arrowImageFallbackUrl?: string | null;
+    style?: {
+      /**
+       * Advanced layout/style override used by the existing location page components.
+       */
+      sectionClassName?: string | null;
+      /**
+       * Advanced layout/style override used by the existing location page components.
+       */
+      scrollClassName?: string | null;
+      /**
+       * Advanced layout/style override used by the existing location page components.
+       */
+      articleClassName?: string | null;
+      /**
+       * Advanced layout/style override used by the existing location page components.
+       */
+      imageClassName?: string | null;
+      /**
+       * Advanced layout/style override used by the existing location page components.
+       */
+      arrowClassName?: string | null;
+      /**
+       * Advanced layout/style override used by the existing location page components.
+       */
+      metricClassName?: string | null;
+      /**
+       * Advanced layout/style override used by the existing location page components.
+       */
+      titleClassName?: string | null;
+      /**
+       * Advanced layout/style override used by the existing location page components.
+       */
+      descriptionClassName?: string | null;
+      /**
+       * Advanced layout/style override used by the existing location page components.
+       */
+      captionClassName?: string | null;
+      /**
+       * Advanced layout/style override used by the existing location page components.
+       */
+      linkClassName?: string | null;
+    };
+  };
+  testimonials: {
+    title: string;
+    description: string;
+    label: string;
+    /**
+     * Quote image selected from the Payload media library.
+     */
+    quoteImage?: (string | null) | Media;
+    /**
+     * Migration fallback URL. The frontend prefers the media relationship when it is present.
+     */
+    quoteImageFallbackUrl?: string | null;
+    /**
+     * Star image selected from the Payload media library.
+     */
+    starImage?: (string | null) | Media;
+    /**
+     * Migration fallback URL. The frontend prefers the media relationship when it is present.
+     */
+    starImageFallbackUrl?: string | null;
+    items: {
+      name: string;
+      role: string;
+      quote: string;
+      featured?: boolean | null;
+      id?: string | null;
+    }[];
+  };
+  faq: {
+    /**
+     * Stable DOM ID prefix for accordion controls.
+     */
+    idBase: string;
+    title: string;
+    description: string;
+    items: {
+      question: string;
+      answer: string;
+      id?: string | null;
+    }[];
+  };
+  cta: {
+    sectionId: string;
+    title: string;
+    description: string;
+    primaryLabel: string;
+    secondaryLabel: string;
+    helperText: string;
+    /**
+     * CTA background image selected from the Payload media library.
+     */
+    image?: (string | null) | Media;
+    /**
+     * Migration fallback URL. The frontend prefers the media relationship when it is present.
+     */
+    imageFallbackUrl?: string | null;
+    /**
+     * Advanced layout/style override used by the existing location page components.
+     */
+    imageOpacityClassName?: string | null;
+  };
+  updatedAt: string;
+  createdAt: string;
+  _status?: ('draft' | 'published') | null;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "payload-kv".
  */
 export interface PayloadKv {
@@ -206,6 +598,14 @@ export interface PayloadLockedDocument {
     | ({
         relationTo: 'posts';
         value: string | Post;
+      } | null)
+    | ({
+        relationTo: 'media';
+        value: string | Media;
+      } | null)
+    | ({
+        relationTo: 'locations';
+        value: string | Location;
       } | null);
   globalSlug?: string | null;
   user: {
@@ -282,6 +682,270 @@ export interface PostsSelect<T extends boolean = true> {
   excerpt?: T;
   content?: T;
   publishedAt?: T;
+  updatedAt?: T;
+  createdAt?: T;
+  _status?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "media_select".
+ */
+export interface MediaSelect<T extends boolean = true> {
+  alt?: T;
+  sourceHash?: T;
+  sourcePath?: T;
+  updatedAt?: T;
+  createdAt?: T;
+  url?: T;
+  thumbnailURL?: T;
+  filename?: T;
+  mimeType?: T;
+  filesize?: T;
+  width?: T;
+  height?: T;
+  focalX?: T;
+  focalY?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "locations_select".
+ */
+export interface LocationsSelect<T extends boolean = true> {
+  title?: T;
+  slug?: T;
+  meta?:
+    | T
+    | {
+        title?: T;
+        description?: T;
+      };
+  pageClassName?: T;
+  hero?:
+    | T
+    | {
+        rating?: T;
+        ratingBadgeImage?: T;
+        ratingBadgeImageFallbackUrl?: T;
+        title?: T;
+        description?: T;
+        primaryLabel?: T;
+        secondaryLabel?: T;
+        helperText?: T;
+        demoHref?: T;
+        stats?:
+          | T
+          | {
+              value?: T;
+              label?: T;
+              id?: T;
+            };
+        locations?:
+          | T
+          | {
+              label?: T;
+              image?: T;
+              imageFallbackUrl?: T;
+              featured?: T;
+              id?: T;
+            };
+        style?:
+          | T
+          | {
+              sectionClassName?: T;
+              layoutClassName?: T;
+              ratingContainerClassName?: T;
+              titleClassName?: T;
+              descriptionClassName?: T;
+            };
+      };
+  overview?:
+    | T
+    | {
+        title?: T;
+        paragraphs?:
+          | T
+          | {
+              text?: T;
+              id?: T;
+            };
+        image?: T;
+        imageFallbackUrl?: T;
+        imageAlt?: T;
+      };
+  services?:
+    | T
+    | {
+        eyebrow?: T;
+        title?: T;
+        description?: T;
+        ctaLabel?: T;
+        demoHref?: T;
+        items?:
+          | T
+          | {
+              title?: T;
+              description?: T;
+              image?: T;
+              imageFallbackUrl?: T;
+              reverse?: T;
+              id?: T;
+            };
+      };
+  showcase?:
+    | T
+    | {
+        title?: T;
+        description?: T;
+        buttonLabel?: T;
+        demoHref?: T;
+        video?: T;
+        videoFallbackUrl?: T;
+        items?:
+          | T
+          | {
+              number?: T;
+              title?: T;
+              description?: T;
+              id?: T;
+            };
+        visual?:
+          | T
+          | {
+              variant?: T;
+              showGlow?: T;
+            };
+      };
+  regions?:
+    | T
+    | {
+        title?: T;
+        description?: T;
+        demoHref?: T;
+        style?:
+          | T
+          | {
+              sectionClassName?: T;
+              headingClassName?: T;
+              titleClassName?: T;
+              articleClassName?: T;
+            };
+        items?:
+          | T
+          | {
+              city?: T;
+              description?: T;
+              image?: T;
+              imageFallbackUrl?: T;
+              id?: T;
+            };
+      };
+  manage?:
+    | T
+    | {
+        title?: T;
+        bullets?:
+          | T
+          | {
+              text?: T;
+              id?: T;
+            };
+        buttonLabel?: T;
+        demoHref?: T;
+        frameImage?: T;
+        frameImageFallbackUrl?: T;
+        screenImage?: T;
+        screenImageFallbackUrl?: T;
+        screenClassName?: T;
+        checkIconColor?: T;
+        illustration?:
+          | T
+          | {
+              variant?: T;
+              notchImage?: T;
+              notchImageFallbackUrl?: T;
+            };
+      };
+  caseStudies?:
+    | T
+    | {
+        title?: T;
+        items?:
+          | T
+          | {
+              metric?: T;
+              title?: T;
+              description?: T;
+              image?: T;
+              imageFallbackUrl?: T;
+              caption?: T;
+              linkHref?: T;
+              linkLabel?: T;
+              id?: T;
+            };
+        arrowImage?: T;
+        arrowImageFallbackUrl?: T;
+        style?:
+          | T
+          | {
+              sectionClassName?: T;
+              scrollClassName?: T;
+              articleClassName?: T;
+              imageClassName?: T;
+              arrowClassName?: T;
+              metricClassName?: T;
+              titleClassName?: T;
+              descriptionClassName?: T;
+              captionClassName?: T;
+              linkClassName?: T;
+            };
+      };
+  testimonials?:
+    | T
+    | {
+        title?: T;
+        description?: T;
+        label?: T;
+        quoteImage?: T;
+        quoteImageFallbackUrl?: T;
+        starImage?: T;
+        starImageFallbackUrl?: T;
+        items?:
+          | T
+          | {
+              name?: T;
+              role?: T;
+              quote?: T;
+              featured?: T;
+              id?: T;
+            };
+      };
+  faq?:
+    | T
+    | {
+        idBase?: T;
+        title?: T;
+        description?: T;
+        items?:
+          | T
+          | {
+              question?: T;
+              answer?: T;
+              id?: T;
+            };
+      };
+  cta?:
+    | T
+    | {
+        sectionId?: T;
+        title?: T;
+        description?: T;
+        primaryLabel?: T;
+        secondaryLabel?: T;
+        helperText?: T;
+        image?: T;
+        imageFallbackUrl?: T;
+        imageOpacityClassName?: T;
+      };
   updatedAt?: T;
   createdAt?: T;
   _status?: T;

@@ -1,17 +1,3 @@
-import analyticsDashboard from '@/app/(site)/assets/home/analytics-dashboard.png'
-import arrowCircle from '@/app/(site)/assets/home/arrow-circle.png'
-import caseAccuracy from '@/app/(site)/assets/home/case-accuracy.png'
-import caseCoverage from '@/app/(site)/assets/home/case-coverage.png'
-import caseDetection from '@/app/(site)/assets/home/case-detection.png'
-import caseGrowth from '@/app/(site)/assets/home/case-growth.png'
-import caseReliability from '@/app/(site)/assets/home/case-reliability.png'
-import heroVan from '@/app/(site)/assets/home/hero-van.png'
-import keyDifferentiators from '@/app/(site)/assets/home/key-differentiators.png'
-import logoAdroit from '@/app/(site)/assets/home/logo-adroit.png'
-import logoCarepool from '@/app/(site)/assets/home/logo-carepool.png'
-import logoOxo from '@/app/(site)/assets/home/logo-oxo.png'
-import logoZum from '@/app/(site)/assets/home/logo-zum.png'
-import manageInspection from '@/app/(site)/assets/home/manage-inspection.png'
 
 export const homeContent = {
   hero: {
@@ -22,7 +8,7 @@ export const homeContent = {
     primaryLabel: 'Register your inspection today',
     secondaryLabel: 'Request a demo',
     helperText: 'No Credit Card Required',
-    media: heroVan,
+    media: "https://chex-payload-public-pages.s3.us-east-1.amazonaws.com/hero-van.png",
   },
   community: {
     title: 'Our Community of Chex.AI is Trending Fast',
@@ -40,14 +26,14 @@ export const homeContent = {
       'Powered by advanced AI, allowing for real-time reporting on every inspected vehicle',
       'AI based reviews for pinpoint damage and safety items reporting',
     ],
-    manageImage: manageInspection,
+    manageImage: "https://chex-payload-public-pages.s3.us-east-1.amazonaws.com/manage-inspection.png",
     trustedTitle: 'Trusted by brands that refuse to compromise on customer experience',
     trustedLogos: [
-      { image: logoAdroit, label: 'Adroit' },
-      { image: logoOxo, label: 'OXO' },
-      { image: logoCarepool, label: 'Carepool' },
-      { image: logoZum, label: 'Zum' },
-      { image: logoAdroit, label: 'Adroit repeat' },
+      { image: "https://chex-payload-public-pages.s3.us-east-1.amazonaws.com/logo-adroit.png", label: 'Adroit' },
+      { image: "https://chex-payload-public-pages.s3.us-east-1.amazonaws.com/logo-oxo.png", label: 'OXO' },
+      { image: "https://chex-payload-public-pages.s3.us-east-1.amazonaws.com/logo-carepool.png", label: 'Carepool' },
+      { image: "https://chex-payload-public-pages.s3.us-east-1.amazonaws.com/logo-zum.png", label: 'Zum' },
+      { image: "https://chex-payload-public-pages.s3.us-east-1.amazonaws.com/logo-adroit.png", label: 'Adroit repeat' },
     ],
   },
   howItWorks: {
@@ -59,19 +45,19 @@ export const homeContent = {
         title: 'Capture guided evidence',
         description:
           'Scalable photo and video collection through a customizable mobile and web inspection flow.',
-        image: heroVan,
+        image: "https://chex-payload-public-pages.s3.us-east-1.amazonaws.com/hero-van.png",
       },
       {
         title: 'Review every inspection',
         description:
           'Partner dashboards provide real-time inspection access, compliance records, and advanced analytics.',
-        image: manageInspection,
+        image: "https://chex-payload-public-pages.s3.us-east-1.amazonaws.com/manage-inspection.png",
       },
       {
         title: 'Surface AI findings',
         description:
           'AI-based reviews pinpoint damage, safety items, and newly detected issues in one workflow.',
-        image: analyticsDashboard,
+        image: "https://chex-payload-public-pages.s3.us-east-1.amazonaws.com/analytics-dashboard.png",
       },
     ],
   },
@@ -123,14 +109,14 @@ export const homeContent = {
       'Highly scalable technology enabling businesses to expand quicker.',
       'Reduces business overhead & operations cost.',
     ],
-    image: keyDifferentiators,
+    image: "https://chex-payload-public-pages.s3.us-east-1.amazonaws.com/key-differentiators.png",
   },
   businessHelp: {
     title: 'How can we help your business?',
     description:
       'We can help your business optimize asset inspection process. Our interactive dashboard allows you to review data in real time and provide feedback to your customers instantaneously!',
     buttonLabel: 'Contact us',
-    image: analyticsDashboard,
+    image: "https://chex-payload-public-pages.s3.us-east-1.amazonaws.com/analytics-dashboard.png",
   },
   caseStudies: {
     title: 'Case Studies',
@@ -140,38 +126,38 @@ export const homeContent = {
         title: 'Accuracy',
         description:
           'Our AI-powered vehicle inspection system automatically detects and highlights visible damages such as dents, scratches, cracks, and broken parts from vehicle images.',
-        image: caseAccuracy,
+        image: "https://chex-payload-public-pages.s3.us-east-1.amazonaws.com/case-accuracy.png",
       },
       {
         metric: '95.3%',
         title: 'AI Detection',
         description:
           'The system inspects every side of the vehicle and detects damage on each body part individually by comparing current and previous inspections.',
-        image: caseDetection,
+        image: "https://chex-payload-public-pages.s3.us-east-1.amazonaws.com/case-detection.png",
       },
       {
         metric: '93.6%',
         title: 'Reliability',
         description:
           'Automated condition assessments give operations teams a dependable, repeatable decisioning baseline.',
-        image: caseReliability,
+        image: "https://chex-payload-public-pages.s3.us-east-1.amazonaws.com/case-reliability.png",
       },
       {
         metric: '92.5%',
         title: 'Growth Rate',
         description:
           'Actionable inspection data creates smoother customer handoffs and supports higher program throughput.',
-        image: caseGrowth,
+        image: "https://chex-payload-public-pages.s3.us-east-1.amazonaws.com/case-growth.png",
       },
       {
         metric: '81.5%',
         title: 'Coverage',
         description:
           'Multi-angle inspection capture keeps more of the vehicle lifecycle visible across distributed fleets.',
-        image: caseCoverage,
+        image: "https://chex-payload-public-pages.s3.us-east-1.amazonaws.com/case-coverage.png",
       },
     ],
-    arrowImage: arrowCircle,
+    arrowImage: "https://chex-payload-public-pages.s3.us-east-1.amazonaws.com/arrow-circle.png",
   },
   testimonials: {
     title: 'Feedback from our verified clients',

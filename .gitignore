@@ -15,3 +15,7 @@ yarn-debug.log*
 yarn-error.log*
 pnpm-debug.log*
 package-lock.json
+
+graphify-out/cache/
+graphify-out/manifest.json
+graphify-out/cost.json

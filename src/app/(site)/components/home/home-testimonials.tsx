@@ -1,10 +1,11 @@
 'use client'
 /* eslint-disable @next/next/no-img-element */
 
-import quoteImage from '@/app/(site)/assets/home/quotes.svg'
-import starImage from '@/app/(site)/assets/home/star.svg'
 import { SectionHeading } from '@/app/(site)/components/ui/section-heading'
 import { SurfaceCard } from '@/app/(site)/components/ui/surface-card'
+
+const QUOTE_IMAGE = 'https://chex-payload-public-pages.s3.us-east-1.amazonaws.com/quotes.svg'
+const STAR_IMAGE = 'https://chex-payload-public-pages.s3.us-east-1.amazonaws.com/star.svg'
 
 type HomeTestimonialsProps = {
   title: string
@@ -34,7 +35,7 @@ export function HomeTestimonials({
         <div className="relative mt-16 min-h-[34rem] overflow-hidden rounded-[36px] bg-[radial-gradient(circle_at_50%_0%,rgba(19,104,185,0.12)_0%,rgba(255,255,255,1)_44%)] px-4 py-8 sm:px-8 lg:px-10">
           <div className="pointer-events-none absolute left-[14%] top-20 h-[420px] w-[240px] rounded-[16px] bg-white shadow-[0_94px_200px_0_rgba(21,21,21,0.1)]" />
           <img
-            src={String(quoteImage)}
+            src={QUOTE_IMAGE}
             alt=""
             className="pointer-events-none absolute right-[20%] top-10 h-24 w-auto opacity-12 sm:h-32"
           />
@@ -59,7 +60,7 @@ export function HomeTestimonials({
 
               <div className="mx-auto mt-4 flex max-w-max items-center gap-2 rounded-[12px] bg-white px-6 py-5 shadow-[0_58px_124px_0_rgba(21,21,21,0.15)]">
                 {Array.from({ length: 5 }).map((_, index) => (
-                  <img key={index} src={String(starImage)} alt="" className="h-8 w-8" />
+                  <img key={index} src={STAR_IMAGE} alt="" className="h-8 w-8" />
                 ))}
               </div>
             </div>

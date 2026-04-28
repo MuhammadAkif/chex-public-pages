@@ -1,8 +1,7 @@
-import type { StaticImageData } from 'next/image'
-
 import { CaseStudies } from '@/app/(site)/components/shared/case-studies'
+import type { SiteImageSource } from '@/app/(site)/components/shared/site-image'
 
-type LocationCaseStudyImage = StaticImageData | string
+type LocationCaseStudyImage = SiteImageSource
 
 export type LocationCaseStudiesProps = {
   title: string
@@ -15,7 +14,7 @@ export type LocationCaseStudiesProps = {
     linkHref?: string
     linkLabel?: string
   }>
-  arrowImage: StaticImageData
+  arrowImage: SiteImageSource
   sectionClassName: string
   scrollClassName: string
   articleClassName: string
