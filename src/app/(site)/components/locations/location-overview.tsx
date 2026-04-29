@@ -7,12 +7,66 @@ export type LocationOverviewProps = {
   imageAlt: string
 }
 
+type OverviewBlock =
+  | { type: 'paragraph'; text: string }
+  | { type: 'list'; items: string[] }
+
+const BR_TAG_PATTERN = /<br\s*\/?>/gi
+
+function toOverviewBlocks(paragraphs: ReadonlyArray<string>): OverviewBlock[] {
+  const blocks: OverviewBlock[] = []
+  let pendingListItems: string[] = []
+
+  const flushPendingList = () => {
+    if (!pendingListItems.length) {
+      return
+    }
+
+    blocks.push({ items: pendingListItems, type: 'list' })
+    pendingListItems = []
+  }
+
+  for (const paragraph of paragraphs) {
+    const lines = paragraph
+      .replace(BR_TAG_PATTERN, '\n')
+      .split('\n')
+      .map((line) => line.trim())
+      .filter(Boolean)
+
+    for (const line of lines) {
+      const isCheckBullet = line.startsWith('✅')
+      const isDashBullet = line.startsWith('- ')
+      const isBullet = isCheckBullet || isDashBullet
+
+      if (isBullet) {
+        const normalized = isCheckBullet
+          ? line.replace(/^✅\s*/, '').trim()
+          : line.replace(/^-+\s*/, '').trim()
+
+        if (normalized) {
+          pendingListItems.push(normalized)
+        }
+        continue
+      }
+
+      flushPendingList()
+      blocks.push({ text: line, type: 'paragraph' })
+    }
+  }
+
+  flushPendingList()
+
+  return blocks
+}
+
 export function LocationOverview({
   title,
   paragraphs,
   image,
   imageAlt,
 }: LocationOverviewProps) {
+  const blocks = toOverviewBlocks(paragraphs)
+
   return (
     <section className="relative bg-white px-4 py-16 sm:px-6 lg:px-10 lg:py-24">
       <div className="pointer-events-none absolute right-[7%] top-10 h-[28rem] w-[28rem] rounded-full bg-[radial-gradient(circle,_rgba(255,122,1,0.18)_0%,_rgba(255,122,1,0)_72%)] blur-3xl" />
@@ -25,9 +79,24 @@ export function LocationOverview({
 
         <div className="mt-10 grid gap-10 lg:grid-cols-[0.95fr_0.75fr] lg:items-start">
           <div className="type-location-body-relaxed space-y-6 text-justify text-[#1b1c20]">
-            {paragraphs.map((paragraph) => (
-              <p key={paragraph}>{paragraph}</p>
-            ))}
+            {blocks.map((block, index) => {
+              if (block.type === 'list') {
+                return (
+                  <ul key={`list-${index}`} className="space-y-3 pl-1 text-left">
+                    {block.items.map((item) => (
+                      <li key={item} className="flex items-start gap-3">
+                        <span aria-hidden="true" className="mt-1 text-[#16a34a]">
+                          ✅
+                        </span>
+                        <span>{item}</span>
+                      </li>
+                    ))}
+                  </ul>
+                )
+              }
+
+              return <p key={`paragraph-${index}`}>{block.text}</p>
+            })}
           </div>
 
           <div className="overflow-hidden rounded-[16px] shadow-[0_22px_64px_0_rgba(30,27,75,0.08)]">

@@ -466,6 +466,40 @@ async function buildLocationData(
       ),
       title: content.services.title,
     },
+    pricing: {
+      description: content.pricing.description,
+      highlights:
+        content.pricing.highlights?.map((item) => ({
+          text: item.text,
+        })) ?? [],
+      plans:
+        content.pricing.plans?.map((plan) => ({
+          buttonHref: plan.buttonHref,
+          buttonLabel: plan.buttonLabel,
+          caption: plan.caption ?? null,
+          name: plan.name,
+          price: plan.price,
+          priceTone: plan.priceTone ?? 'primary',
+          subtitle: plan.subtitle,
+        })) ??
+        ((content.pricing as {
+          rows?: Array<{
+            notes?: string | null
+            price: string
+            service: string
+            turnaround?: string | null
+          }>
+        }).rows ?? []).map((row, index) => ({
+          buttonHref: content.services.demoHref,
+          buttonLabel: content.services.ctaLabel,
+          caption: row.notes ?? null,
+          name: row.service,
+          price: row.price,
+          priceTone: index === 1 ? 'accent' : 'primary',
+          subtitle: row.turnaround ?? 'Inspection',
+        })),
+      title: content.pricing.title,
+    },
     showcase: {
       ...(await mediaField(payload, 'video', SHOWCASE_VIDEO_URL)),
       buttonLabel: content.showcase.buttonLabel,

@@ -331,6 +331,33 @@ export interface Location {
       id?: string | null;
     }[];
   };
+  pricing: {
+    /**
+     * Section heading shown above the pricing table.
+     */
+    title: string;
+    /**
+     * Short callout under the pricing heading.
+     */
+    description: string;
+    plans: {
+      name: string;
+      price: string;
+      subtitle: string;
+      caption?: string | null;
+      buttonLabel: string;
+      buttonHref: string;
+      priceTone: 'primary' | 'accent';
+      id?: string | null;
+    }[];
+    /**
+     * Short highlights shown below the pricing cards.
+     */
+    highlights: {
+      text: string;
+      id?: string | null;
+    }[];
+  };
   showcase: {
     title: string;
     description: string;
@@ -788,6 +815,30 @@ export interface LocationsSelect<T extends boolean = true> {
               image?: T;
               imageFallbackUrl?: T;
               reverse?: T;
+              id?: T;
+            };
+      };
+  pricing?:
+    | T
+    | {
+        title?: T;
+        description?: T;
+        plans?:
+          | T
+          | {
+              name?: T;
+              price?: T;
+              subtitle?: T;
+              caption?: T;
+              buttonLabel?: T;
+              buttonHref?: T;
+              priceTone?: T;
+              id?: T;
+            };
+        highlights?:
+          | T
+          | {
+              text?: T;
               id?: T;
             };
       };

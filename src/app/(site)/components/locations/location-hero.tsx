@@ -1,35 +1,38 @@
-import { SiteImage, type SiteImageSource } from '@/app/(site)/components/shared/site-image'
-import { Button } from '@/app/(site)/components/ui/button'
+import {
+  SiteImage,
+  type SiteImageSource,
+} from "@/app/(site)/components/shared/site-image";
+import { Button } from "@/app/(site)/components/ui/button";
 
 const HERO_RATING_BADGE_IMAGE =
-  'https://chex-payload-public-pages.s3.us-east-1.amazonaws.com/hero-rating-badge.png'
+  "https://chex-payload-public-pages.s3.us-east-1.amazonaws.com/hero-rating-badge.png";
 const LOGO_CHEX_IMAGE =
-  'https://chex-payload-public-pages.s3.us-east-1.amazonaws.com/logo-chex.png'
+  "https://chex-payload-public-pages.s3.us-east-1.amazonaws.com/logo-chex.png";
 
 export type LocationHeroProps = {
-  rating: string
-  ratingBadgeImage?: SiteImageSource
-  title: string
-  description: string
-  primaryLabel: string
-  secondaryLabel: string
-  helperText: string
-  demoHref: string
+  rating: string;
+  ratingBadgeImage?: SiteImageSource;
+  title: string;
+  description: string;
+  primaryLabel: string;
+  secondaryLabel: string;
+  helperText: string;
+  demoHref: string;
   stats: ReadonlyArray<{
-    value: string
-    label: string
-  }>
+    value: string;
+    label: string;
+  }>;
   locations: ReadonlyArray<{
-    label: string
-    image: SiteImageSource
-    featured?: boolean
-  }>
-  sectionClassName?: string
-  layoutClassName: string
-  ratingContainerClassName?: string
-  titleClassName: string
-  descriptionClassName: string
-}
+    label: string;
+    image: SiteImageSource;
+    featured?: boolean;
+  }>;
+  sectionClassName?: string;
+  layoutClassName: string;
+  ratingContainerClassName?: string;
+  titleClassName: string;
+  descriptionClassName: string;
+};
 
 function StarIcon() {
   return (
@@ -39,21 +42,19 @@ function StarIcon() {
         fill="#ff7a01"
       />
     </svg>
-  )
+  );
 }
 
-function OrbitMap({
-  locations,
-}: Pick<LocationHeroProps, 'locations'>) {
+function OrbitMap({ locations }: Pick<LocationHeroProps, "locations">) {
   const positions = [
-    'left-[56%] top-[7%]',
-    'left-[16%] top-[22%]',
-    'left-[72%] top-[30%]',
-    'left-[16%] top-[52%]',
-    'left-[58%] top-[58%]',
-    'left-[42%] top-[35%]',
-    'left-[35%] top-[80%]',
-  ]
+    "left-[56%] top-[7%]",
+    "left-[16%] top-[22%]",
+    "left-[72%] top-[30%]",
+    "left-[16%] top-[52%]",
+    "left-[58%] top-[58%]",
+    "left-[42%] top-[35%]",
+    "left-[35%] top-[80%]",
+  ];
 
   return (
     <div className="relative mx-auto aspect-square w-full max-w-[650px]">
@@ -63,42 +64,58 @@ function OrbitMap({
       <div className="absolute inset-[39%] rounded-full border border-dashed border-[#ff7a01]/25" />
 
       <div className="absolute left-1/2 top-1/2 flex h-24 w-24 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full bg-[#fff1e5] shadow-[0_20px_70px_-36px_rgba(255,122,1,0.55)] sm:h-32 sm:w-32">
-        <SiteImage src={LOGO_CHEX_IMAGE} alt="Chex.AI" className="h-7 w-auto sm:h-8" priority />
+        <SiteImage
+          src={LOGO_CHEX_IMAGE}
+          alt="Chex.AI"
+          className="h-7 w-auto sm:h-8"
+          priority
+        />
       </div>
 
       {locations.map((location, index) => {
-        const position = positions[index] ?? positions[positions.length - 1] ?? ''
-        const isFeatured = Boolean(location.featured)
+        const position =
+          positions[index] ?? positions[positions.length - 1] ?? "";
+        const isFeatured = Boolean(location.featured);
 
         return (
-          <div key={location.label} className={['absolute flex items-center gap-2', position].join(' ')}>
-            <span className={['relative shrink-0', isFeatured ? 'h-[82px] w-[82px]' : 'h-[61px] w-[61px]'].join(' ')}>
+          <div
+            key={location.label}
+            className={["absolute flex items-center gap-2", position].join(" ")}
+          >
+            <span
+              className={[
+                "relative shrink-0",
+                isFeatured ? "h-[82px] w-[82px]" : "h-[61px] w-[61px]",
+              ].join(" ")}
+            >
               <span className="absolute inset-0 rounded-full bg-[#ff7a01]" />
               <span className="absolute inset-[6px] rounded-full bg-white" />
               <SiteImage
                 src={location.image}
                 alt=""
                 className={[
-                  'absolute rounded-full object-cover',
+                  "absolute rounded-full object-cover",
                   isFeatured
-                    ? 'inset-[8px] h-[66px] w-[66px]'
-                    : 'inset-[6px] h-[49px] w-[49px]',
-                ].join(' ')}
+                    ? "inset-[8px] h-[66px] w-[66px]"
+                    : "inset-[6px] h-[49px] w-[49px]",
+                ].join(" ")}
               />
             </span>
             <span
               className={[
-                'rounded-full border border-white bg-[#fff0e8] font-display text-[#1b2f4b]/65 shadow-sm',
-                isFeatured ? 'px-4 py-1.5 text-[14px] font-bold' : 'px-3 py-1 text-[10px] font-medium',
-              ].join(' ')}
+                "rounded-full border border-white bg-[#fff0e8] font-display text-[#1b2f4b]/65 shadow-sm",
+                isFeatured
+                  ? "px-4 py-1.5 text-[14px] font-bold"
+                  : "px-3 py-1 text-[10px] font-medium",
+              ].join(" ")}
             >
               {location.label}
             </span>
           </div>
-        )
+        );
       })}
     </div>
-  )
+  );
 }
 
 export function LocationHero({
@@ -112,36 +129,39 @@ export function LocationHero({
   demoHref,
   stats,
   locations,
-  sectionClassName = '',
+  sectionClassName = "",
   layoutClassName,
-  ratingContainerClassName = '',
+  ratingContainerClassName = "",
   titleClassName,
   descriptionClassName,
 }: LocationHeroProps) {
   return (
     <section
-      className={['px-4 pb-16 pt-14 sm:px-6 lg:px-10 lg:pb-24 lg:pt-20', sectionClassName]
+      className={[
+        "px-4 pb-16 pt-14 sm:px-6 lg:px-10 lg:pb-24 lg:pt-20",
+        sectionClassName,
+      ]
         .filter(Boolean)
-        .join(' ')}
+        .join(" ")}
     >
       <div
         className={[
-          'mx-auto grid max-w-[1240px] items-center gap-10',
+          "mx-auto grid max-w-[1240px] items-center gap-10",
           layoutClassName,
         ]
           .filter(Boolean)
-          .join(' ')}
+          .join(" ")}
       >
         <OrbitMap locations={locations} />
 
         <div>
           <div
             className={[
-              'inline-flex items-center gap-3',
+              "inline-flex items-center gap-3",
               ratingContainerClassName,
             ]
               .filter(Boolean)
-              .join(' ')}
+              .join(" ")}
           >
             <span className="flex items-center gap-1">
               {Array.from({ length: 5 }).map((_, index) => (
@@ -153,22 +173,28 @@ export function LocationHero({
             </span>
             <span className="relative inline-flex h-7 w-7 items-center justify-center">
               <span className="absolute inset-0 rounded-full bg-[#fff1e5]" />
-              <SiteImage src={ratingBadgeImage} alt="" className="relative h-[18px] w-[18px]" />
+              <SiteImage
+                src={ratingBadgeImage}
+                alt=""
+                className="relative h-[18px] w-[18px]"
+              />
             </span>
           </div>
 
           <h1
-            className={['mt-8 text-[#1b2f4b]', titleClassName].filter(Boolean).join(' ')}
+            className={["mt-8 text-[#1b2f4b]", titleClassName]
+              .filter(Boolean)
+              .join(" ")}
           >
             {title}
           </h1>
           <p
             className={[
-              'type-body-lg mt-6 text-[#41546e]',
+              "type-body-lg mt-6 text-[#41546e]",
               descriptionClassName,
             ]
               .filter(Boolean)
-              .join(' ')}
+              .join(" ")}
           >
             {description}
           </p>
@@ -187,15 +213,13 @@ export function LocationHero({
           </div>
 
           <div className="mt-10 flex flex-col gap-4 sm:flex-row">
-            <Button href="#services" variant="outline" className="bg-white">
-              {primaryLabel}
-              <span aria-hidden="true">↗</span>
-            </Button>
-            <Button href={demoHref}>{secondaryLabel}</Button>
+            <Button href="#services">{primaryLabel}</Button>
           </div>
-          <p className="type-body-sm mt-4 capitalize text-[#010e2b]/80">{helperText}</p>
+          <p className="type-body-sm mt-4 capitalize text-[#010e2b]/80">
+            {helperText}
+          </p>
         </div>
       </div>
     </section>
-  )
+  );
 }

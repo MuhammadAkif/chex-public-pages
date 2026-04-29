@@ -1,14 +1,14 @@
-'use client'
+"use client";
 
-import { Button } from '@/app/(site)/components/ui/button'
+import { Button } from "@/app/(site)/components/ui/button";
 
 type HomeCallToActionProps = {
-  title: string
-  description: string
-  primaryLabel: string
-  secondaryLabel: string
-  helperText: string
-}
+  title: string;
+  description: string;
+  primaryLabel: string;
+  secondaryLabel: string;
+  helperText: string;
+};
 
 export function HomeCallToAction({
   title,
@@ -38,5 +38,5 @@ export function HomeCallToAction({
         <p className="type-body-lg mt-6 text-white/86">{helperText}</p>
       </div>
     </section>
-  )
+  );
 }

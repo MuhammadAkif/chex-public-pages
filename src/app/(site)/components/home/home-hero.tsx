@@ -1,17 +1,20 @@
-'use client'
+"use client";
 
-import { SiteImage, type SiteImageSource } from '@/app/(site)/components/shared/site-image'
-import { Button } from '@/app/(site)/components/ui/button'
+import {
+  SiteImage,
+  type SiteImageSource,
+} from "@/app/(site)/components/shared/site-image";
+import { Button } from "@/app/(site)/components/ui/button";
 
 type HomeHeroProps = {
-  rating: string
-  title: string
-  description: string
-  primaryLabel: string
-  secondaryLabel: string
-  helperText: string
-  media: SiteImageSource
-}
+  rating: string;
+  title: string;
+  description: string;
+  primaryLabel: string;
+  secondaryLabel: string;
+  helperText: string;
+  media: SiteImageSource;
+};
 
 export function HomeHero({
   rating,
@@ -99,7 +102,12 @@ export function HomeHero({
           </div>
 
           <div className="mt-6 flex justify-center">
-            <Button href="#how-it-works" variant="outline" size="sm" className="border-[#252525]">
+            <Button
+              href="#how-it-works"
+              variant="outline"
+              size="sm"
+              className="border-[#252525]"
+            >
               Watch video
               <span className="inline-flex h-5 w-5 items-center justify-center rounded-full bg-[#2d2d2d] text-[10px] text-white">
                 ▶
@@ -109,5 +117,5 @@ export function HomeHero({
         </div>
       </div>
     </section>
-  )
+  );
 }

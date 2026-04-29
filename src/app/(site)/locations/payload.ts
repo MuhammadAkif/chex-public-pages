@@ -1,43 +1,46 @@
-import type { Metadata } from 'next'
-import { cache } from 'react'
-import config from '@payload-config'
-import { getPayload } from 'payload'
+import type { Metadata } from "next";
+import { cache } from "react";
+import config from "@payload-config";
+import { getPayload } from "payload";
 
-import type { LocationPageContent } from '@/app/(site)/components/locations/location-page'
-import type { Location, Media } from '@/payload-types'
+import type { LocationPageContent } from "@/app/(site)/components/locations/location-page";
+import type { Location, Media } from "@/payload-types";
 
-type MediaRelationship = Media | string | null | undefined
+type MediaRelationship = Media | string | null | undefined;
 type LocationPagePayload = {
-  content: LocationPageContent
-  metadata: Metadata
-}
+  content: LocationPageContent;
+  metadata: Metadata;
+};
 
 const DEFAULT_SHOWCASE_VIDEO =
-  'https://chex-payload-public-pages.s3.us-east-1.amazonaws.com/chex-ai-location.mp4'
+  "https://chex-payload-public-pages.s3.us-east-1.amazonaws.com/chex-ai-location.mp4";
 
 const textItems = (items?: Array<{ text?: string | null }> | null) =>
-  (items ?? []).map((item) => item.text ?? '').filter(Boolean)
+  (items ?? []).map((item) => item.text ?? "").filter(Boolean);
 
 const mediaURL = (media: MediaRelationship, fallback?: string | null) => {
-  if (media && typeof media === 'object' && media.url) {
-    return media.url
+  if (media && typeof media === "object" && media.url) {
+    return media.url;
   }
 
-  return fallback ?? ''
-}
+  return fallback ?? "";
+};
 
-const optionalMediaURL = (media: MediaRelationship, fallback?: string | null) => {
-  const url = mediaURL(media, fallback)
+const optionalMediaURL = (
+  media: MediaRelationship,
+  fallback?: string | null,
+) => {
+  const url = mediaURL(media, fallback);
 
-  return url || undefined
-}
+  return url || undefined;
+};
 
-const optionalString = (value?: string | null) => value || undefined
+const optionalString = (value?: string | null) => value || undefined;
 
 export const getLocationDocumentBySlug = cache(async (slug: string) => {
-  const payload = await getPayload({ config })
+  const payload = await getPayload({ config });
   const result = await payload.find({
-    collection: 'locations',
+    collection: "locations",
     depth: 1,
     draft: false,
     limit: 1,
@@ -47,19 +50,21 @@ export const getLocationDocumentBySlug = cache(async (slug: string) => {
         equals: slug,
       },
     },
-  })
+  });
 
-  return result.docs[0] ?? null
-})
+  return result.docs[0] ?? null;
+});
 
-export async function getLocationPageBySlug(slug: string): Promise<LocationPagePayload | null> {
-  const location = await getLocationDocumentBySlug(slug)
+export async function getLocationPageBySlug(
+  slug: string,
+): Promise<LocationPagePayload | null> {
+  const location = await getLocationDocumentBySlug(slug);
 
   if (!location) {
-    return null
+    return null;
   }
 
-  const content = toLocationPageContent(location)
+  const content = toLocationPageContent(location);
 
   return {
     content,
@@ -67,45 +72,47 @@ export async function getLocationPageBySlug(slug: string): Promise<LocationPageP
       description: location.meta.description,
       title: location.meta.title,
     },
-  }
+  };
 }
 
 function toLocationPageContent(location: Location): LocationPageContent {
   const heroRatingBadgeImage = optionalMediaURL(
     location.hero.ratingBadgeImage,
     location.hero.ratingBadgeImageFallbackUrl,
-  )
+  );
   const testimonialsQuoteImage = optionalMediaURL(
     location.testimonials.quoteImage,
     location.testimonials.quoteImageFallbackUrl,
-  )
+  );
   const testimonialsStarImage = optionalMediaURL(
     location.testimonials.starImage,
     location.testimonials.starImageFallbackUrl,
-  )
-  const manageIllustrationVariant = location.manage.illustration.variant
+  );
+  const manageIllustrationVariant = location.manage.illustration.variant;
   const manageIllustration =
-    manageIllustrationVariant === 'offset-screen'
+    manageIllustrationVariant === "offset-screen"
       ? ({
-          variant: 'offset-screen',
+          variant: "offset-screen",
         } as const)
       : ({
-          variant: 'framed-screen',
+          variant: "framed-screen",
           notchImage: mediaURL(
             location.manage.illustration.notchImage,
             location.manage.illustration.notchImageFallbackUrl,
           ),
-        } as const)
+        } as const);
 
   return {
-    pageClassName: location.pageClassName ?? '',
+    pageClassName: location.pageClassName ?? "",
     hero: {
-      ...(heroRatingBadgeImage ? { ratingBadgeImage: heroRatingBadgeImage } : {}),
+      ...(heroRatingBadgeImage
+        ? { ratingBadgeImage: heroRatingBadgeImage }
+        : {}),
       description: location.hero.description,
-      descriptionClassName: location.hero.style?.descriptionClassName ?? '',
+      descriptionClassName: location.hero.style?.descriptionClassName ?? "",
       demoHref: location.hero.demoHref,
       helperText: location.hero.helperText,
-      layoutClassName: location.hero.style?.layoutClassName ?? '',
+      layoutClassName: location.hero.style?.layoutClassName ?? "",
       locations: (location.hero.locations ?? []).map((item) => ({
         featured: Boolean(item.featured),
         image: mediaURL(item.image, item.imageFallbackUrl),
@@ -113,7 +120,9 @@ function toLocationPageContent(location: Location): LocationPageContent {
       })),
       primaryLabel: location.hero.primaryLabel,
       rating: location.hero.rating,
-      ratingContainerClassName: optionalString(location.hero.style?.ratingContainerClassName),
+      ratingContainerClassName: optionalString(
+        location.hero.style?.ratingContainerClassName,
+      ),
       secondaryLabel: location.hero.secondaryLabel,
       sectionClassName: optionalString(location.hero.style?.sectionClassName),
       stats: (location.hero.stats ?? []).map((stat) => ({
@@ -121,10 +130,13 @@ function toLocationPageContent(location: Location): LocationPageContent {
         value: stat.value,
       })),
       title: location.hero.title,
-      titleClassName: location.hero.style?.titleClassName ?? '',
+      titleClassName: location.hero.style?.titleClassName ?? "",
     },
     overview: {
-      image: mediaURL(location.overview.image, location.overview.imageFallbackUrl),
+      image: mediaURL(
+        location.overview.image,
+        location.overview.imageFallbackUrl,
+      ),
       imageAlt: location.overview.imageAlt,
       paragraphs: textItems(location.overview.paragraphs),
       title: location.overview.title,
@@ -142,6 +154,22 @@ function toLocationPageContent(location: Location): LocationPageContent {
       })),
       title: location.services.title,
     },
+    pricing: {
+      description: location.pricing.description,
+      highlights: (location.pricing.highlights ?? []).map((item) => ({
+        text: item.text,
+      })),
+      plans: (location.pricing.plans ?? []).map((plan) => ({
+        buttonHref: plan.buttonHref,
+        buttonLabel: plan.buttonLabel,
+        caption: optionalString(plan.caption),
+        name: plan.name,
+        price: plan.price,
+        priceTone: plan.priceTone === 'accent' ? 'accent' : 'primary',
+        subtitle: plan.subtitle,
+      })),
+      title: location.pricing.title,
+    },
     showcase: {
       buttonLabel: location.showcase.buttonLabel,
       demoHref: location.showcase.demoHref,
@@ -152,23 +180,27 @@ function toLocationPageContent(location: Location): LocationPageContent {
         title: item.title,
       })),
       title: location.showcase.title,
-      video: mediaURL(location.showcase.video, location.showcase.videoFallbackUrl) || DEFAULT_SHOWCASE_VIDEO,
+      video:
+        mediaURL(location.showcase.video, location.showcase.videoFallbackUrl) ||
+        DEFAULT_SHOWCASE_VIDEO,
       visual: {
         showGlow: Boolean(location.showcase.visual?.showGlow),
-        variant: location.showcase.visual?.variant ?? 'organic-frame',
+        variant: location.showcase.visual?.variant ?? "organic-frame",
       },
     },
     regions: {
-      articleClassName: location.regions.style?.articleClassName ?? '',
+      articleClassName: location.regions.style?.articleClassName ?? "",
       demoHref: location.regions.demoHref,
       description: location.regions.description,
-      headingClassName: location.regions.style?.headingClassName ?? '',
+      headingClassName: location.regions.style?.headingClassName ?? "",
       items: (location.regions.items ?? []).map((item) => ({
         city: item.city,
         description: item.description,
         image: mediaURL(item.image, item.imageFallbackUrl),
       })),
-      sectionClassName: optionalString(location.regions.style?.sectionClassName),
+      sectionClassName: optionalString(
+        location.regions.style?.sectionClassName,
+      ),
       title: location.regions.title,
       titleClassName: optionalString(location.regions.style?.titleClassName),
     },
@@ -177,19 +209,31 @@ function toLocationPageContent(location: Location): LocationPageContent {
       buttonLabel: location.manage.buttonLabel,
       checkIconColor: location.manage.checkIconColor,
       demoHref: location.manage.demoHref,
-      frameImage: mediaURL(location.manage.frameImage, location.manage.frameImageFallbackUrl),
+      frameImage: mediaURL(
+        location.manage.frameImage,
+        location.manage.frameImageFallbackUrl,
+      ),
       illustration: manageIllustration,
       screenClassName: optionalString(location.manage.screenClassName),
-      screenImage: mediaURL(location.manage.screenImage, location.manage.screenImageFallbackUrl),
+      screenImage: mediaURL(
+        location.manage.screenImage,
+        location.manage.screenImageFallbackUrl,
+      ),
       title: location.manage.title,
     },
     caseStudies: {
-      arrowClassName: location.caseStudies.style?.arrowClassName ?? '',
-      arrowImage: mediaURL(location.caseStudies.arrowImage, location.caseStudies.arrowImageFallbackUrl),
-      articleClassName: location.caseStudies.style?.articleClassName ?? '',
-      captionClassName: optionalString(location.caseStudies.style?.captionClassName),
-      descriptionClassName: location.caseStudies.style?.descriptionClassName ?? '',
-      imageClassName: location.caseStudies.style?.imageClassName ?? '',
+      arrowClassName: location.caseStudies.style?.arrowClassName ?? "",
+      arrowImage: mediaURL(
+        location.caseStudies.arrowImage,
+        location.caseStudies.arrowImageFallbackUrl,
+      ),
+      articleClassName: location.caseStudies.style?.articleClassName ?? "",
+      captionClassName: optionalString(
+        location.caseStudies.style?.captionClassName,
+      ),
+      descriptionClassName:
+        location.caseStudies.style?.descriptionClassName ?? "",
+      imageClassName: location.caseStudies.style?.imageClassName ?? "",
       items: (location.caseStudies.items ?? []).map((item) => ({
         caption: optionalString(item.caption),
         description: item.description,
@@ -200,11 +244,11 @@ function toLocationPageContent(location: Location): LocationPageContent {
         title: item.title,
       })),
       linkClassName: optionalString(location.caseStudies.style?.linkClassName),
-      metricClassName: location.caseStudies.style?.metricClassName ?? '',
-      scrollClassName: location.caseStudies.style?.scrollClassName ?? '',
-      sectionClassName: location.caseStudies.style?.sectionClassName ?? '',
+      metricClassName: location.caseStudies.style?.metricClassName ?? "",
+      scrollClassName: location.caseStudies.style?.scrollClassName ?? "",
+      sectionClassName: location.caseStudies.style?.sectionClassName ?? "",
       title: location.caseStudies.title,
-      titleClassName: location.caseStudies.style?.titleClassName ?? '',
+      titleClassName: location.caseStudies.style?.titleClassName ?? "",
     },
     testimonials: {
       description: location.testimonials.description,
@@ -232,11 +276,11 @@ function toLocationPageContent(location: Location): LocationPageContent {
       description: location.cta.description,
       helperText: location.cta.helperText,
       image: mediaURL(location.cta.image, location.cta.imageFallbackUrl),
-      imageOpacityClassName: location.cta.imageOpacityClassName ?? '',
+      imageOpacityClassName: location.cta.imageOpacityClassName ?? "",
       primaryLabel: location.cta.primaryLabel,
       secondaryLabel: location.cta.secondaryLabel,
       sectionId: location.cta.sectionId,
       title: location.cta.title,
     },
-  }
+  };
 }

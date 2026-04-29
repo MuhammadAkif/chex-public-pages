@@ -301,6 +301,99 @@ export const Locations: CollectionConfig = {
       required: true,
     },
     {
+      name: 'pricing',
+      type: 'group',
+      fields: [
+        {
+          name: 'title',
+          type: 'text',
+          admin: {
+            description: 'Section heading shown above the pricing table.',
+          },
+          required: true,
+        },
+        {
+          name: 'description',
+          type: 'textarea',
+          admin: {
+            description: 'Short callout under the pricing heading.',
+          },
+          required: true,
+        },
+        {
+          name: 'plans',
+          type: 'array',
+          maxRows: 2,
+          minRows: 2,
+          fields: [
+            {
+              name: 'name',
+              type: 'text',
+              required: true,
+            },
+            {
+              name: 'price',
+              type: 'text',
+              required: true,
+            },
+            {
+              name: 'subtitle',
+              type: 'text',
+              required: true,
+            },
+            {
+              name: 'caption',
+              type: 'text',
+            },
+            {
+              name: 'buttonLabel',
+              type: 'text',
+              required: true,
+            },
+            {
+              name: 'buttonHref',
+              type: 'text',
+              required: true,
+            },
+            {
+              name: 'priceTone',
+              type: 'select',
+              defaultValue: 'primary',
+              options: [
+                {
+                  label: 'Primary (blue)',
+                  value: 'primary',
+                },
+                {
+                  label: 'Accent (orange)',
+                  value: 'accent',
+                },
+              ],
+              required: true,
+            },
+          ],
+          required: true,
+        },
+        {
+          name: 'highlights',
+          type: 'array',
+          fields: [
+            {
+              name: 'text',
+              type: 'text',
+              required: true,
+            },
+          ],
+          admin: {
+            description: 'Short highlights shown below the pricing cards.',
+          },
+          minRows: 1,
+          required: true,
+        },
+      ],
+      required: true,
+    },
+    {
       name: 'showcase',
       type: 'group',
       fields: [
