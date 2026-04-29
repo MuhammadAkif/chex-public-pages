@@ -6,6 +6,10 @@ import { getPayload } from 'payload'
 
 import type { LocationPageContent } from '../src/app/(site)/components/locations/location-page'
 import type { Location, Media } from '../src/payload-types'
+import {
+  defaultPricingRideShareSection,
+  defaultRegisterRideShareSection,
+} from './rideshare-section-defaults'
 
 type PayloadClient = Awaited<ReturnType<typeof getPayload>>
 type LocationSeedData = Omit<Location, 'createdAt' | 'id' | 'updatedAt'>
@@ -25,7 +29,11 @@ type LegacyShowcase = {
     variant?: 'organic-frame' | 'preview' | 'processing' | 'wave'
   }
 }
-type LegacyLocationContent = Omit<LocationPageContent, 'showcase'> & {
+type LegacyLocationContent = Omit<
+  LocationPageContent,
+  'pricingRideShareSection' | 'registerRideShareSection' | 'showcase'
+> &
+  Partial<Pick<LocationPageContent, 'pricingRideShareSection' | 'registerRideShareSection'>> & {
   showcase: LegacyShowcase
 }
 
@@ -329,6 +337,11 @@ async function buildLocationData(
   seed: (typeof seedDefinitions)[number],
   content: LegacyLocationContent,
 ): Promise<LocationSeedData> {
+  const registerRideShareSection =
+    content.registerRideShareSection ?? defaultRegisterRideShareSection
+  const pricingRideShareSection =
+    content.pricingRideShareSection ?? defaultPricingRideShareSection
+
   return {
     _status: 'published',
     caseStudies: {
@@ -465,6 +478,46 @@ async function buildLocationData(
         })),
       ),
       title: content.services.title,
+    },
+    registerRideShareSection: {
+      ...(await mediaField(payload, 'initialImage', registerRideShareSection.initialImage)),
+      ctaHref: registerRideShareSection.ctaHref,
+      ctaLabel: registerRideShareSection.ctaLabel,
+      eyebrow: registerRideShareSection.eyebrow,
+      initialImageAlt: registerRideShareSection.initialImageAlt ?? null,
+      steps: await Promise.all(
+        registerRideShareSection.steps.map(async (step) => ({
+          ...(await mediaField(payload, 'icon', step.icon)),
+          ...(await mediaField(payload, 'image', step.image)),
+          description: step.description,
+          iconAlt: step.iconAlt,
+          imageAlt: step.imageAlt,
+          step: step.step,
+          title: step.title,
+        })),
+      ),
+      title: registerRideShareSection.title,
+    },
+    pricingRideShareSection: {
+      ...(await mediaField(payload, 'highlightIcon', pricingRideShareSection.highlightIcon)),
+      currencySymbol: pricingRideShareSection.currencySymbol,
+      description: pricingRideShareSection.description,
+      highlightIconAlt: pricingRideShareSection.highlightIconAlt ?? null,
+      highlights: pricingRideShareSection.highlights.map((highlight) => ({
+        emphasis: highlight.emphasis ?? null,
+        emphasisTone: highlight.emphasisTone ?? 'accent',
+        text: highlight.text,
+      })),
+      plans: pricingRideShareSection.plans.map((plan) => ({
+        buttonHref: plan.buttonHref,
+        buttonLabel: plan.buttonLabel,
+        description: plan.description,
+        name: plan.name,
+        price: plan.price,
+        subDescription: plan.subDescription ?? null,
+        tone: plan.tone ?? 'primary',
+      })),
+      title: pricingRideShareSection.title,
     },
     pricing: {
       description: content.pricing.description,

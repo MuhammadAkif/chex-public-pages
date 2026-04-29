@@ -301,6 +301,194 @@ export const Locations: CollectionConfig = {
       required: true,
     },
     {
+      name: 'registerRideShareSection',
+      type: 'group',
+      admin: {
+        description: 'Rideshare inspection registration process shown between services and showcase.',
+      },
+      fields: [
+        {
+          name: 'eyebrow',
+          type: 'text',
+          required: true,
+        },
+        {
+          name: 'title',
+          type: 'text',
+          required: true,
+        },
+        {
+          name: 'ctaLabel',
+          type: 'text',
+          required: true,
+        },
+        {
+          name: 'ctaHref',
+          type: 'text',
+          required: true,
+        },
+        ...mediaFields('initialImage', 'Initial process image'),
+        {
+          name: 'initialImageAlt',
+          type: 'text',
+        },
+        {
+          name: 'steps',
+          type: 'array',
+          fields: [
+            {
+              name: 'step',
+              type: 'text',
+              required: true,
+            },
+            {
+              name: 'title',
+              type: 'text',
+              required: true,
+            },
+            {
+              name: 'description',
+              type: 'textarea',
+              required: true,
+            },
+            ...mediaFields('icon', 'Step icon'),
+            {
+              name: 'iconAlt',
+              type: 'text',
+              required: true,
+            },
+            ...mediaFields('image', 'Step image'),
+            {
+              name: 'imageAlt',
+              type: 'text',
+              required: true,
+            },
+          ],
+          minRows: 1,
+          required: true,
+        },
+      ],
+      required: true,
+    },
+    {
+      name: 'pricingRideShareSection',
+      type: 'group',
+      admin: {
+        description: 'Rideshare inspection pricing cards and supporting highlights.',
+      },
+      fields: [
+        {
+          name: 'title',
+          type: 'text',
+          required: true,
+        },
+        {
+          name: 'description',
+          type: 'textarea',
+          required: true,
+        },
+        {
+          name: 'currencySymbol',
+          type: 'text',
+          required: true,
+        },
+        ...mediaFields('highlightIcon', 'Pricing highlight icon'),
+        {
+          name: 'highlightIconAlt',
+          type: 'text',
+        },
+        {
+          name: 'plans',
+          type: 'array',
+          fields: [
+            {
+              name: 'name',
+              type: 'text',
+              required: true,
+            },
+            {
+              name: 'price',
+              type: 'text',
+              required: true,
+            },
+            {
+              name: 'description',
+              type: 'text',
+              required: true,
+            },
+            {
+              name: 'subDescription',
+              type: 'text',
+            },
+            {
+              name: 'buttonLabel',
+              type: 'text',
+              required: true,
+            },
+            {
+              name: 'buttonHref',
+              type: 'text',
+              required: true,
+            },
+            {
+              name: 'tone',
+              type: 'select',
+              enumName: 'loc_rs_plan_tone',
+              defaultValue: 'primary',
+              options: [
+                {
+                  label: 'Primary (blue)',
+                  value: 'primary',
+                },
+                {
+                  label: 'Accent (orange)',
+                  value: 'accent',
+                },
+              ],
+              required: true,
+            },
+          ],
+          minRows: 1,
+          required: true,
+        },
+        {
+          name: 'highlights',
+          type: 'array',
+          fields: [
+            {
+              name: 'emphasis',
+              type: 'text',
+            },
+            {
+              name: 'text',
+              type: 'text',
+              required: true,
+            },
+            {
+              name: 'emphasisTone',
+              type: 'select',
+              enumName: 'loc_rs_highlight_tone',
+              defaultValue: 'accent',
+              options: [
+                {
+                  label: 'Primary (blue)',
+                  value: 'primary',
+                },
+                {
+                  label: 'Accent (orange)',
+                  value: 'accent',
+                },
+              ],
+              required: true,
+            },
+          ],
+          minRows: 1,
+          required: true,
+        },
+      ],
+      required: true,
+    },
+    {
       name: 'pricing',
       type: 'group',
       fields: [

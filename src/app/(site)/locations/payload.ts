@@ -7,6 +7,7 @@ import type { LocationPageContent } from "@/app/(site)/components/locations/loca
 import type { Location, Media } from "@/payload-types";
 
 type MediaRelationship = Media | string | null | undefined;
+type RideShareTone = "accent" | "primary";
 type LocationPagePayload = {
   content: LocationPageContent;
   metadata: Metadata;
@@ -36,6 +37,9 @@ const optionalMediaURL = (
 };
 
 const optionalString = (value?: string | null) => value || undefined;
+
+const rideShareTone = (value?: string | null): RideShareTone =>
+  value === "accent" ? "accent" : "primary";
 
 export const getLocationDocumentBySlug = cache(async (slug: string) => {
   const payload = await getPayload({ config });
@@ -153,6 +157,56 @@ function toLocationPageContent(location: Location): LocationPageContent {
         title: item.title,
       })),
       title: location.services.title,
+    },
+    registerRideShareSection: {
+      ctaHref: location.registerRideShareSection.ctaHref,
+      ctaLabel: location.registerRideShareSection.ctaLabel,
+      eyebrow: location.registerRideShareSection.eyebrow,
+      initialImage: optionalMediaURL(
+        location.registerRideShareSection.initialImage,
+        location.registerRideShareSection.initialImageFallbackUrl,
+      ),
+      initialImageAlt: optionalString(
+        location.registerRideShareSection.initialImageAlt,
+      ),
+      steps: (location.registerRideShareSection.steps ?? []).map((step) => ({
+        description: step.description,
+        icon: mediaURL(step.icon, step.iconFallbackUrl),
+        iconAlt: step.iconAlt,
+        image: mediaURL(step.image, step.imageFallbackUrl),
+        imageAlt: step.imageAlt,
+        step: step.step,
+        title: step.title,
+      })),
+      title: location.registerRideShareSection.title,
+    },
+    pricingRideShareSection: {
+      currencySymbol: location.pricingRideShareSection.currencySymbol,
+      description: location.pricingRideShareSection.description,
+      highlightIcon: optionalMediaURL(
+        location.pricingRideShareSection.highlightIcon,
+        location.pricingRideShareSection.highlightIconFallbackUrl,
+      ),
+      highlightIconAlt: optionalString(
+        location.pricingRideShareSection.highlightIconAlt,
+      ),
+      highlights: (location.pricingRideShareSection.highlights ?? []).map(
+        (highlight) => ({
+          emphasis: optionalString(highlight.emphasis),
+          emphasisTone: rideShareTone(highlight.emphasisTone),
+          text: highlight.text,
+        }),
+      ),
+      plans: (location.pricingRideShareSection.plans ?? []).map((plan) => ({
+        buttonHref: plan.buttonHref,
+        buttonLabel: plan.buttonLabel,
+        description: plan.description,
+        name: plan.name,
+        price: plan.price,
+        subDescription: optionalString(plan.subDescription),
+        tone: rideShareTone(plan.tone),
+      })),
+      title: location.pricingRideShareSection.title,
     },
     pricing: {
       description: location.pricing.description,

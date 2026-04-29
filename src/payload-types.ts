@@ -331,6 +331,81 @@ export interface Location {
       id?: string | null;
     }[];
   };
+  /**
+   * Rideshare inspection registration process shown between services and showcase.
+   */
+  registerRideShareSection: {
+    eyebrow: string;
+    title: string;
+    ctaLabel: string;
+    ctaHref: string;
+    /**
+     * Initial process image selected from the Payload media library.
+     */
+    initialImage?: (string | null) | Media;
+    /**
+     * Migration fallback URL. The frontend prefers the media relationship when it is present.
+     */
+    initialImageFallbackUrl?: string | null;
+    initialImageAlt?: string | null;
+    steps: {
+      step: string;
+      title: string;
+      description: string;
+      /**
+       * Step icon selected from the Payload media library.
+       */
+      icon?: (string | null) | Media;
+      /**
+       * Migration fallback URL. The frontend prefers the media relationship when it is present.
+       */
+      iconFallbackUrl?: string | null;
+      iconAlt: string;
+      /**
+       * Step image selected from the Payload media library.
+       */
+      image?: (string | null) | Media;
+      /**
+       * Migration fallback URL. The frontend prefers the media relationship when it is present.
+       */
+      imageFallbackUrl?: string | null;
+      imageAlt: string;
+      id?: string | null;
+    }[];
+  };
+  /**
+   * Rideshare inspection pricing cards and supporting highlights.
+   */
+  pricingRideShareSection: {
+    title: string;
+    description: string;
+    currencySymbol: string;
+    /**
+     * Pricing highlight icon selected from the Payload media library.
+     */
+    highlightIcon?: (string | null) | Media;
+    /**
+     * Migration fallback URL. The frontend prefers the media relationship when it is present.
+     */
+    highlightIconFallbackUrl?: string | null;
+    highlightIconAlt?: string | null;
+    plans: {
+      name: string;
+      price: string;
+      description: string;
+      subDescription?: string | null;
+      buttonLabel: string;
+      buttonHref: string;
+      tone: 'primary' | 'accent';
+      id?: string | null;
+    }[];
+    highlights: {
+      emphasis?: string | null;
+      text: string;
+      emphasisTone: 'primary' | 'accent';
+      id?: string | null;
+    }[];
+  };
   pricing: {
     /**
      * Section heading shown above the pricing table.
@@ -815,6 +890,61 @@ export interface LocationsSelect<T extends boolean = true> {
               image?: T;
               imageFallbackUrl?: T;
               reverse?: T;
+              id?: T;
+            };
+      };
+  registerRideShareSection?:
+    | T
+    | {
+        eyebrow?: T;
+        title?: T;
+        ctaLabel?: T;
+        ctaHref?: T;
+        initialImage?: T;
+        initialImageFallbackUrl?: T;
+        initialImageAlt?: T;
+        steps?:
+          | T
+          | {
+              step?: T;
+              title?: T;
+              description?: T;
+              icon?: T;
+              iconFallbackUrl?: T;
+              iconAlt?: T;
+              image?: T;
+              imageFallbackUrl?: T;
+              imageAlt?: T;
+              id?: T;
+            };
+      };
+  pricingRideShareSection?:
+    | T
+    | {
+        title?: T;
+        description?: T;
+        currencySymbol?: T;
+        highlightIcon?: T;
+        highlightIconFallbackUrl?: T;
+        highlightIconAlt?: T;
+        plans?:
+          | T
+          | {
+              name?: T;
+              price?: T;
+              description?: T;
+              subDescription?: T;
+              buttonLabel?: T;
+              buttonHref?: T;
+              tone?: T;
+              id?: T;
+            };
+        highlights?:
+          | T
+          | {
+              emphasis?: T;
+              text?: T;
+              emphasisTone?: T;
               id?: T;
             };
       };

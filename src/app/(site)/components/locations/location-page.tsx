@@ -18,6 +18,14 @@ import {
   type LocationServicesProps,
 } from "./location-services";
 import {
+  PricingRideShareSection,
+  type PricingRideShareSectionProps,
+} from "./pricing-rideshare-section";
+import {
+  RegisterRideShareSection,
+  type RegisterRideShareSectionProps,
+} from "./register-rideshare-section";
+import {
   LocationShowcase,
   type LocationShowcaseProps,
 } from "./location-showcase";
@@ -25,13 +33,15 @@ import {
   LocationTestimonials,
   type LocationTestimonialsProps,
 } from "./location-testimonials";
-import { LocationPricing, type LocationPricingProps } from "./location-pricing";
+import { type LocationPricingProps } from "./location-pricing";
 
 export type LocationPageContent = {
   pageClassName: string;
   hero: LocationHeroProps;
   overview: LocationOverviewProps;
   services: LocationServicesProps;
+  registerRideShareSection: RegisterRideShareSectionProps;
+  pricingRideShareSection: PricingRideShareSectionProps;
   pricing: LocationPricingProps;
   showcase: LocationShowcaseProps;
   regions: LocationRegionsProps;
@@ -56,7 +66,10 @@ export function LocationPage({ content }: { content: LocationPageContent }) {
           <LocationServices {...content.services} />
         </Reveal>
         <Reveal>
-          <LocationPricing {...content.pricing} />
+          <RegisterRideShareSection {...content.registerRideShareSection} />
+        </Reveal>
+        <Reveal>
+          <PricingRideShareSection {...content.pricingRideShareSection} />
         </Reveal>
         <Reveal>
           <LocationShowcase {...content.showcase} />
