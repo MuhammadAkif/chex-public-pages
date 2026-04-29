@@ -1,12 +1,12 @@
 # Graph Report - chex-public-pages  (2026-04-29)
 
 ## Corpus Check
-- 73 files · ~23,676 words
+- 79 files · ~28,651 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
-- 200 nodes · 251 edges · 6 communities detected
-- Extraction: 91% EXTRACTED · 9% INFERRED · 0% AMBIGUOUS · INFERRED: 23 edges (avg confidence: 0.66)
+- 220 nodes · 274 edges · 7 communities detected
+- Extraction: 92% EXTRACTED · 8% INFERRED · 0% AMBIGUOUS · INFERRED: 23 edges (avg confidence: 0.66)
 - Token cost: 0 input · 0 output
 
 ## Community Hubs (Navigation)
@@ -15,7 +15,8 @@
 - [[_COMMUNITY_Community 2|Community 2]]
 - [[_COMMUNITY_Community 3|Community 3]]
 - [[_COMMUNITY_Community 4|Community 4]]
-- [[_COMMUNITY_Community 6|Community 6]]
+- [[_COMMUNITY_Community 5|Community 5]]
+- [[_COMMUNITY_Community 7|Community 7]]
 
 ## God Nodes (most connected - your core abstractions)
 1. `rebuild_graph()` - 16 edges
@@ -44,7 +45,7 @@
 ## Communities
 
 ### Community 0 - "Community 0"
-Cohesion: 0.11
+Cohesion: 0.1
 Nodes (19): LocationPage(), AlabamaRoutePage(), ArizonaRoutePage(), ArkansasRoutePage(), CaliforniaRoutePage(), ColoradoRoutePage(), generateMetadata(), IowaRoutePage() (+11 more)
 
 ### Community 1 - "Community 1"
@@ -63,12 +64,16 @@ Nodes (11): collectAssetImports(), dedupeAssets(), escapeRegExp(), getContentFil
 Cohesion: 0.28
 Nodes (11): buildLocationData(), createMediaFromURL(), findMediaByField(), loadContent(), main(), mediaField(), mediaSourceURL(), resolveMediaID() (+3 more)
 
-### Community 6 - "Community 6"
+### Community 5 - "Community 5"
+Cohesion: 0.35
+Nodes (10): buildSectionData(), createMediaFromURL(), filenameFromURL(), findMediaByHash(), main(), mediaField(), patchLocationDocuments(), resolveMediaID() (+2 more)
+
+### Community 7 - "Community 7"
 Cohesion: 0.5
 Nodes (2): Reveal(), useReveal()
 
 ## Knowledge Gaps
-- **Thin community `Community 6`** (5 nodes): `Reveal()`, `revealClassName()`, `revealStyle()`, `useReveal()`, `reveal.tsx`
+- **Thin community `Community 7`** (5 nodes): `Reveal()`, `revealClassName()`, `revealStyle()`, `useReveal()`, `reveal.tsx`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
 
 ## Suggested Questions
@@ -79,4 +84,4 @@ _Questions this graph is uniquely positioned to answer:_
 - **Are the 11 inferred relationships involving `LocationPage()` (e.g. with `AlabamaRoutePage()` and `ArizonaRoutePage()`) actually correct?**
   _`LocationPage()` has 11 INFERRED edges - model-reasoned connections that need verification._
 - **Should `Community 0` be split into smaller, more focused modules?**
-  _Cohesion score 0.11 - nodes in this community are weakly interconnected._
+  _Cohesion score 0.1 - nodes in this community are weakly interconnected._
