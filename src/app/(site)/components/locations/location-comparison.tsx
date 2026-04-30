@@ -17,53 +17,9 @@ export type LocationComparisonProps = {
   ctaHref?: string;
 };
 
-// ─── Value-sentiment helpers ────────────────────────────────────────────────
-
-const POSITIVE_SIGNALS = [
-  "instant",
-  "digital",
-  "handled",
-  "same day",
-  "half hour",
-  "always",
-  "yes",
-  "statewide",
-  "full",
-  "auto",
-  "confirmed",
-  "correct",
-  "flexible",
-  "anytime",
-  "stored",
-  "covered",
-];
-
-const NEGATIVE_SIGNALS = [
-  "usually yes",
-  "paper",
-  "you handle",
-  "you do it",
-  "1–3 days",
-  "1-3 days",
-  "not always",
-  "limited",
-  "business hours",
-  "inconsistent",
-  "generic",
-  "rejection",
-  "sometimes",
-  "easy to lose",
-];
-
-const isPositive = (val: string) => {
-  const lc = val.toLowerCase();
-  return POSITIVE_SIGNALS.some((s) => lc.includes(s));
-};
-
-const isNegative = (val: string) => {
-  const lc = val.toLowerCase();
-  return NEGATIVE_SIGNALS.some((s) => lc.includes(s));
-};
+/** Table + intro body: 17px ui-sans (matches location-services) */
+const tableSans =
+  "font-[ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif] text-[17px] leading-[1.65]";
 
 // ─── SVG icons ───────────────────────────────────────────────────────────────
 
@@ -127,7 +83,7 @@ export function LocationComparison({
           <h2 className="font-display text-[32px] font-bold leading-[1.15] tracking-[-1.6px] text-[#0f172a] sm:text-[40px] lg:text-[48px]">
             {title}
           </h2>
-          <p className="mt-4 text-[17px] leading-[1.65] text-[#475569]">
+          <p className={`mt-4 text-[#475569] ${tableSans}`}>
             {description}
           </p>
         </div>
@@ -143,9 +99,9 @@ export function LocationComparison({
               <div
                 key={`header-${header}`}
                 className={[
-                  "px-5 py-4 text-[12px] font-bold uppercase tracking-widest",
-                  hi === 0 ? "text-slate-400" : "",
-                  hi === 1 ? "text-slate-600 border-x border-slate-200" : "",
+                  `${tableSans} px-5 py-4 font-bold`,
+                  hi === 0 ? "text-[#0f172a]" : "",
+                  hi === 1 ? "text-[#0f172a] border-x border-slate-200" : "",
                   hi === colCount - 1
                     ? "bg-[#fff7ed] text-[#c2540a] border-x border-[#ff7a01]/15"
                     : "",
@@ -163,7 +119,6 @@ export function LocationComparison({
               row.traditionalValue,
               row.chexValue,
             ];
-            const tradNeg = isNegative(row.traditionalValue);
             const chexPos = row.chexValue.trim().length > 0;
             const isEven = ri % 2 === 0;
 
@@ -184,10 +139,10 @@ export function LocationComparison({
                     <div
                       key={`cell-${ci}`}
                       className={[
-                        "flex items-center gap-2.5 px-5 py-4 text-[14px] leading-5",
-                        isFeature ? "font-semibold text-[#0f172a]" : "",
+                        `${tableSans} flex items-center gap-2.5 px-5 py-4`,
+                        isFeature ? "font-bold text-[#0f172a]" : "",
                         isTrad
-                          ? `border-x border-slate-100 ${showCross ? "text-slate-400" : "text-slate-600"}`
+                          ? "border-x border-slate-100 text-[#334155]"
                           : "",
                         isChex
                           ? "bg-[#fff7ed]/60 border-x border-[#ff7a01]/10 font-semibold text-[#1e293b]"

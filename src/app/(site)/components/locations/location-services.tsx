@@ -108,6 +108,11 @@ const NEGATIVE_SIGNALS = [
 const isPositiveCell = (v: string) => POSITIVE_SIGNALS.some((s) => v.toLowerCase().includes(s))
 const isNegativeCell = (v: string) => NEGATIVE_SIGNALS.some((s) => v.toLowerCase().includes(s))
 
+/** Body copy: 17px ui-sans stack (color applied per context) */
+const bodySansBase =
+  "font-[ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif] text-[17px] leading-[1.65]"
+const bodySans = `${bodySansBase} text-slate-600`
+
 // ─── Component ───────────────────────────────────────────────────────────────
 
 export function LocationServices({
@@ -121,165 +126,161 @@ export function LocationServices({
   return (
     <section
       id="services"
-      className="relative overflow-hidden bg-white px-4 py-20 sm:px-6 lg:px-10 lg:py-28"
+      className="relative overflow-hidden bg-gradient-to-b from-slate-50/90 via-white to-white px-4 py-20 sm:px-6 lg:px-10 lg:py-28"
     >
-      {/* Subtle top-center radial hint */}
-      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_70%_40%_at_50%_0%,rgba(255,122,1,0.05),transparent)]" />
+      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_80%_50%_at_50%_-20%,rgba(255,122,1,0.06),transparent)]" />
+      <div className="pointer-events-none absolute bottom-0 left-1/2 h-[420px] w-[900px] -translate-x-1/2 rounded-full bg-[radial-gradient(circle,rgba(19,104,185,0.06)_0%,transparent_70%)] blur-3xl" />
 
       <div className="relative mx-auto max-w-[1240px]">
 
         {/* ── Section heading ── */}
         <div className="mx-auto max-w-5xl text-center">
-          <p className="text-[13px] font-semibold uppercase tracking-[0.12em] text-[#ff7a01]">
+          <p className="text-[12px] font-semibold uppercase tracking-[0.14em] text-[#ff7a01]">
             {eyebrow}
           </p>
-          <h2 className="mt-4 font-display text-[36px] font-bold leading-[1.12] tracking-[-1.8px] text-[#0f172a] sm:text-[48px] lg:text-[56px] lg:leading-[62px] lg:tracking-[-2.8px]">
+          <h2 className="mt-4 font-display text-[34px] font-bold leading-[1.1] tracking-[-1.6px] text-[#0f172a] sm:text-[44px] lg:text-[52px]">
             {title}
           </h2>
-          <p className="mx-auto mt-5 max-w-3xl text-[17px] leading-[1.7] text-[#475569]">
+          <p className={`mx-auto mt-6 max-w-3xl ${bodySans}`}>
             {description}
           </p>
         </div>
 
         {/* ── Service cards ── */}
-        <div className="mt-16 space-y-8">
+        <div className="mt-14 space-y-10">
           {items.map((item) => (
             <article
               key={item.title}
-              className="overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-[0_4px_32px_rgba(15,23,42,0.07)] transition-shadow hover:shadow-[0_8px_48px_rgba(15,23,42,0.11)]"
+              className="group relative overflow-hidden rounded-[28px] border border-slate-200/80 bg-white/90 shadow-[0_20px_60px_-24px_rgba(15,23,42,0.12)] backdrop-blur-sm ring-1 ring-slate-900/5 transition-[box-shadow,transform] duration-300 hover:-translate-y-0.5 hover:shadow-[0_28px_70px_-28px_rgba(15,23,42,0.15)]"
             >
-              {/* Orange top accent bar */}
-              <div className="h-1 w-full bg-gradient-to-r from-[#ff7a01] via-[#ff9a3c] to-transparent" />
+              <div className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-[#ff7a01]/40 to-transparent" />
 
-              <div
-                className={`grid gap-10 p-6 sm:p-10 lg:p-[52px] lg:grid-cols-[0.9fr_1fr] lg:items-center ${
-                  item.reverse ? 'lg:grid-cols-[1fr_0.9fr]' : ''
-                }`}
-              >
-                {/* ── Text side ── */}
-                <div className={item.reverse ? 'lg:order-2' : ''}>
-                  <h3 className="text-[22px] font-bold leading-[1.25] tracking-[-0.5px] text-[#0f172a] sm:text-[26px] lg:text-[30px]">
-                    {item.title}
-                  </h3>
+              <div className="p-6 sm:p-9 lg:p-12">
+                <h3 className="text-center font-display text-[24px] font-bold leading-[1.2] tracking-[-0.02em] text-[#0f172a] sm:text-[28px] lg:text-[32px]">
+                  {item.title}
+                </h3>
 
-                  {(() => {
-                    const { bullets, paragraphs, table } = parseServiceDescription(item.description)
+                {(() => {
+                  const { bullets, paragraphs, table } = parseServiceDescription(item.description)
 
-                    return (
-                      <div className="mt-5 max-w-xl space-y-3 text-[15px] leading-7 text-[#475569]">
+                  return (
+                    <>
+                      <div className={`mx-auto mt-6 max-w-3xl space-y-4 text-center ${bodySans}`}>
                         {paragraphs.map((paragraph) => (
                           <p key={paragraph}>{paragraph}</p>
                         ))}
-
-                        {bullets.length ? (
-                          <ul className="space-y-2 text-left">
-                            {bullets.map((bullet) => (
-                              <li key={bullet} className="flex items-start gap-2.5">
-                                <span className="mt-1.5 flex h-4 w-4 shrink-0 items-center justify-center rounded-full bg-[#ff7a01]/15">
-                                  <svg className="h-2.5 w-2.5 text-[#ff7a01]" viewBox="0 0 10 10" fill="currentColor">
-                                    <path d="M3.5 7.5L1 5l1-1 1.5 1.5 4-4 1 1z"/>
-                                  </svg>
-                                </span>
-                                <span>{bullet}</span>
-                              </li>
-                            ))}
-                          </ul>
-                        ) : null}
-
-                        {/* ── Inline table (white theme) ── */}
-                        {table ? (
-                          <div className="mt-6 overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-[0_4px_20px_rgba(15,23,42,0.06)]">
-
-                            {/* Column headers */}
-                            <div
-                              className="grid border-b border-slate-200 bg-slate-50"
-                              style={{ gridTemplateColumns: `repeat(${table.headers.length}, 1fr)` }}
-                            >
-                              {table.headers.map((header, hi) => (
-                                <div
-                                  key={header}
-                                  className={[
-                                    'px-4 py-3 text-[11px] font-bold uppercase tracking-widest',
-                                    hi === 0 ? 'text-slate-400' : '',
-                                    hi === 1 ? 'text-slate-600 border-x border-slate-200' : '',
-                                    hi === table.headers.length - 1
-                                      ? 'bg-[#fff7ed] text-[#c2540a] border-x border-[#ff7a01]/15'
-                                      : '',
-                                  ].join(' ')}
-                                >
-                                  {header}
-                                </div>
-                              ))}
-                            </div>
-
-                            {/* Data rows */}
-                            {table.rows.map((row, ri) => {
-                              const isEven = ri % 2 === 0
-                              return (
-                                <div
-                                  key={row.join('|')}
-                                  className={`grid border-b border-slate-100 last:border-0 ${isEven ? 'bg-white' : 'bg-slate-50/50'}`}
-                                  style={{ gridTemplateColumns: `repeat(${row.length}, 1fr)` }}
-                                >
-                                  {row.map((cell, ci) => {
-                                    const isChex = ci === row.length - 1
-                                    const isTrad = ci === 1
-                                    const showCheck = isChex && isPositiveCell(cell)
-                                    const showCross = isTrad && isNegativeCell(cell)
-
-                                    return (
-                                      <div
-                                        key={`${ci}-${cell}`}
-                                        className={[
-                                          'flex items-center gap-2 px-4 py-3 text-[13px] leading-5',
-                                          ci === 0 ? 'font-semibold text-[#0f172a]' : '',
-                                          isTrad ? `border-x border-slate-100 ${showCross ? 'text-slate-400' : 'text-slate-600'}` : '',
-                                          isChex ? 'bg-[#fff7ed]/60 border-x border-[#ff7a01]/10 font-semibold text-[#1e293b]' : '',
-                                        ].join(' ')}
-                                      >
-                                        {showCheck && (
-                                          <span className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-emerald-100">
-                                            <svg className="h-3 w-3 text-emerald-600" viewBox="0 0 12 12" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
-                                              <polyline points="2,6 5,9 10,3" />
-                                            </svg>
-                                          </span>
-                                        )}
-                                        {showCross && (
-                                          <span className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-red-50">
-                                            <svg className="h-3 w-3 text-red-400" viewBox="0 0 12 12" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round">
-                                              <line x1="3" y1="3" x2="9" y2="9" /><line x1="9" y1="3" x2="3" y2="9" />
-                                            </svg>
-                                          </span>
-                                        )}
-                                        <span>{cell}</span>
-                                      </div>
-                                    )
-                                  })}
-                                </div>
-                              )
-                            })}
-                          </div>
-                        ) : null}
                       </div>
-                    )
-                  })()}
 
-                  <div className="mt-8">
-                    <Button href={demoHref}>Read more</Button>
-                  </div>
-                </div>
+                      <div className="mx-auto mt-8 max-w-4xl">
+                        <div className="overflow-hidden rounded-[24px] border border-slate-200/90 bg-gradient-to-br from-slate-50 to-blue-50/50 p-1 shadow-inner shadow-slate-200/60 ring-1 ring-slate-900/5">
+                          <div className="overflow-hidden rounded-[22px] border border-white/80 bg-white shadow-[0_12px_40px_-16px_rgba(37,99,235,0.2)]">
+                            <img
+                              src={item.image}
+                              alt={item.title}
+                              className="aspect-[515/262] w-full object-cover transition duration-500 group-hover:scale-[1.02]"
+                            />
+                          </div>
+                        </div>
+                      </div>
 
-                {/* ── Image side ── */}
-                <div className={item.reverse ? 'lg:order-1' : ''}>
-                  <div className="overflow-hidden rounded-[24px] border border-slate-200 bg-[#f0f6ff] p-4 shadow-[0_4px_24px_rgba(15,23,42,0.08)]">
-                    <div className="overflow-hidden rounded-[18px] border border-[#2563eb]/20 shadow-[0_2px_8px_rgba(0,0,0,0.10)]">
-                      <img
-                        src={item.image}
-                        alt={item.title}
-                        className="aspect-[515/262] w-full object-cover"
-                      />
-                    </div>
-                  </div>
+                      {bullets.length ? (
+                        <ul
+                          className={`mx-auto mt-10 grid max-w-4xl grid-cols-1 gap-3 sm:grid-cols-2 sm:gap-x-8 sm:gap-y-3 ${bodySans} text-left`}
+                        >
+                          {bullets.map((bullet) => (
+                            <li
+                              key={bullet}
+                              className="flex gap-3 rounded-xl border border-slate-100 bg-slate-50/70 px-4 py-3 shadow-sm shadow-slate-200/40 transition-colors hover:bg-slate-50"
+                            >
+                              <span className="mt-0.5 flex h-6 w-6 shrink-0 items-center justify-center rounded-lg bg-[#ff7a01]/12 ring-1 ring-[#ff7a01]/15">
+                                <svg className="h-3.5 w-3.5 text-[#ea580c]" viewBox="0 0 12 12" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
+                                  <polyline points="2.5 6 5 8.5 9.5 3.5" />
+                                </svg>
+                              </span>
+                              <span className="min-w-0 flex-1">{bullet}</span>
+                            </li>
+                          ))}
+                        </ul>
+                      ) : null}
+
+                      {table ? (
+                        <div className="mx-auto mt-10 max-w-4xl overflow-hidden rounded-2xl border border-slate-200/90 bg-white shadow-[0_8px_30px_-12px_rgba(15,23,42,0.08)]">
+                          <div
+                            className="grid border-b border-slate-200 bg-slate-50/90"
+                            style={{ gridTemplateColumns: `repeat(${table.headers.length}, 1fr)` }}
+                          >
+                            {table.headers.map((header, hi) => (
+                              <div
+                                key={header}
+                                className={[
+                                  'px-4 py-3.5 text-[11px] font-bold uppercase tracking-[0.14em]',
+                                  hi === 0 ? 'text-slate-500' : '',
+                                  hi === 1 ? 'border-x border-orange-200 bg-orange-50/80 text-[#b45309]' : '',
+                                  hi === table.headers.length - 1
+                                    ? 'border-x border-emerald-200 bg-emerald-50/80 text-emerald-700'
+                                    : '',
+                                ].join(' ')}
+                              >
+                                {header}
+                              </div>
+                            ))}
+                          </div>
+
+                          {table.rows.map((row, ri) => {
+                            const isEven = ri % 2 === 0
+                            return (
+                              <div
+                                key={row.join('|')}
+                                className={`grid border-b border-slate-100 last:border-0 ${isEven ? 'bg-white' : 'bg-slate-50/40'}`}
+                                style={{ gridTemplateColumns: `repeat(${row.length}, 1fr)` }}
+                              >
+                                {row.map((cell, ci) => {
+                                  const isChex = ci === row.length - 1
+                                  const isTrad = ci === 1
+                                  const showCheck = isChex && isPositiveCell(cell)
+                                  const showCross = isTrad && isNegativeCell(cell)
+
+                                  return (
+                                    <div
+                                      key={`${ci}-${cell}`}
+                                      className={[
+                                        `${bodySansBase} flex items-center gap-2.5 px-4 py-3.5`,
+                                        ci === 0 ? 'font-semibold text-slate-900' : 'text-slate-600',
+                                        isTrad
+                                          ? `border-x border-orange-200 bg-orange-50/35 ${showCross ? 'text-[#9a3412]' : 'text-[#b45309]'}`
+                                          : '',
+                                        isChex ? 'border-x border-emerald-200 bg-emerald-50/40 font-semibold text-emerald-950' : '',
+                                      ].join(' ')}
+                                    >
+                                      {showCheck && (
+                                        <span className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-emerald-100">
+                                          <svg className="h-3 w-3 text-emerald-600" viewBox="0 0 12 12" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
+                                            <polyline points="2,6 5,9 10,3" />
+                                          </svg>
+                                        </span>
+                                      )}
+                                      {showCross && (
+                                        <span className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-red-50">
+                                          <svg className="h-3 w-3 text-red-400" viewBox="0 0 12 12" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round">
+                                            <line x1="3" y1="3" x2="9" y2="9" /><line x1="9" y1="3" x2="3" y2="9" />
+                                          </svg>
+                                        </span>
+                                      )}
+                                      <span>{cell}</span>
+                                    </div>
+                                  )
+                                })}
+                              </div>
+                            )
+                          })}
+                        </div>
+                      ) : null}
+                    </>
+                  )
+                })()}
+
+                <div className="mt-10 flex justify-center">
+                  <Button href={demoHref}>Read more</Button>
                 </div>
               </div>
             </article>

@@ -65,6 +65,9 @@ export function LocationPage({ content }: { content: LocationPageContent }) {
           <LocationHero {...content.hero} />
         </Reveal>
         <Reveal>
+          <LocationShowcase {...content.showcase} />
+        </Reveal>
+        <Reveal>
           <LocationOverview {...content.overview} />
         </Reveal>
         <Reveal>
@@ -78,9 +81,6 @@ export function LocationPage({ content }: { content: LocationPageContent }) {
         </Reveal>
         <Reveal>
           <PricingRideShareSection {...content.pricingRideShareSection} />
-        </Reveal>
-        <Reveal>
-          <LocationShowcase {...content.showcase} />
         </Reveal>
         <Reveal>
           <LocationRegions {...content.regions} />
