@@ -16,6 +16,101 @@ export type LocationServicesProps = {
   }>
 }
 
+const BR_TAG_PATTERN = /<br\s*\/?>/gi
+const BULLET_PREFIX_PATTERN = /^(?:[-*]\s+|✅\s*|•\s*)/
+const TABLE_BLOCK_PATTERN = /\[TABLE\]([\s\S]*?)\[\/TABLE\]/i
+
+type ParsedTable = {
+  headers: string[]
+  rows: string[][]
+}
+
+function parseServiceDescription(description: string) {
+  const tableMatch = description.match(TABLE_BLOCK_PATTERN)
+  let parsedTable: ParsedTable | null = null
+  let normalizedDescription = description
+
+  if (tableMatch?.[1]) {
+    const lines = tableMatch[1]
+      .split('\n')
+      .map((line) => line.trim())
+      .filter(Boolean)
+    const matrix = lines
+      .map((line) => line.split('|').map((cell) => cell.trim()))
+      .filter((cells) => cells.length >= 3)
+
+    if (matrix.length >= 2) {
+      parsedTable = {
+        headers: matrix[0] ?? [],
+        rows: matrix.slice(1),
+      }
+    }
+
+    normalizedDescription = description.replace(tableMatch[0], '').trim()
+  }
+
+  const paragraphs: string[] = []
+  const bullets: string[] = []
+  const normalizedLines = normalizedDescription
+    .replace(BR_TAG_PATTERN, '\n')
+    .split('\n')
+    .map((line) => line.trim())
+  let currentParagraph = ''
+
+  const flushParagraph = () => {
+    if (!currentParagraph) {
+      return
+    }
+
+    paragraphs.push(currentParagraph.trim())
+    currentParagraph = ''
+  }
+
+  for (const line of normalizedLines) {
+    if (!line) {
+      flushParagraph()
+      continue
+    }
+
+    if (BULLET_PREFIX_PATTERN.test(line)) {
+      flushParagraph()
+      bullets.push(line.replace(BULLET_PREFIX_PATTERN, '').trim())
+      continue
+    }
+
+    if (line.includes('•')) {
+      flushParagraph()
+      const parts = line
+        .split('•')
+        .map((part) => part.trim())
+        .filter(Boolean)
+
+      if (parts.length) {
+        const [lead, ...rest] = parts
+
+        if (lead) {
+          currentParagraph = lead
+          flushParagraph()
+        }
+
+        for (const item of rest) {
+          if (item) {
+            bullets.push(item.replace(BULLET_PREFIX_PATTERN, '').trim())
+          }
+        }
+      }
+
+      continue
+    }
+
+    currentParagraph = currentParagraph ? `${currentParagraph} ${line}` : line
+  }
+
+  flushParagraph()
+
+  return { bullets, paragraphs, table: parsedTable }
+}
+
 export function LocationServices({
   eyebrow,
   title,
@@ -52,9 +147,53 @@ export function LocationServices({
               >
                 <div className={item.reverse ? 'lg:order-2' : ''}>
                   <h3 className="type-location-card-title max-w-xl text-white">{item.title}</h3>
-                  <p className="mt-5 max-w-xl font-display text-[16px] leading-8 tracking-[-0.16px] text-white/84">
-                    {item.description}
-                  </p>
+                  {(() => {
+                    const { bullets, paragraphs, table } = parseServiceDescription(item.description)
+
+                    return (
+                      <div className="mt-5 max-w-xl space-y-3 font-display text-[16px] leading-7 tracking-[-0.16px] text-white/84">
+                        {paragraphs.map((paragraph) => (
+                          <p key={paragraph}>{paragraph}</p>
+                        ))}
+                        {bullets.length ? (
+                          <ul className="space-y-2 text-left">
+                            {bullets.map((bullet) => (
+                              <li key={bullet} className="flex items-start gap-2">
+                                <span aria-hidden="true">•</span>
+                                <span>{bullet}</span>
+                              </li>
+                            ))}
+                          </ul>
+                        ) : null}
+                        {table ? (
+                          <div className="overflow-hidden rounded-[14px] border border-white/20 bg-black/20">
+                            <table className="w-full border-collapse text-left font-ui text-[14px] leading-6 text-white/90">
+                              <thead className="bg-white/10 text-white">
+                                <tr>
+                                  {table.headers.map((header) => (
+                                    <th key={header} className="px-4 py-3 font-semibold">
+                                      {header}
+                                    </th>
+                                  ))}
+                                </tr>
+                              </thead>
+                              <tbody>
+                                {table.rows.map((row) => (
+                                  <tr key={row.join('|')} className="border-t border-white/10">
+                                    {row.map((cell) => (
+                                      <td key={cell} className="px-4 py-3 align-top">
+                                        {cell}
+                                      </td>
+                                    ))}
+                                  </tr>
+                                ))}
+                              </tbody>
+                            </table>
+                          </div>
+                        ) : null}
+                      </div>
+                    )
+                  })()}
                   <div className="mt-9">
                     <Button href={demoHref}>Read more</Button>
                   </div>
