@@ -479,6 +479,20 @@ async function buildLocationData(
       ),
       title: content.services.title,
     },
+    comparison: {
+      title: content.comparison.title,
+      description: content.comparison.description,
+      winnerLabel: content.comparison.winnerLabel ?? 'Best Choice',
+      footerText: content.comparison.footerText ?? '✓ Faster · Easier · More Reliable',
+      columnHeaders: content.comparison.columnHeaders.map((label) => ({ label })),
+      rows: content.comparison.rows.map((row) => ({
+        featureLabel: row.featureLabel,
+        traditionalValue: row.traditionalValue,
+        chexValue: row.chexValue,
+      })),
+      ctaLabel: content.comparison.ctaLabel ?? null,
+      ctaHref: content.comparison.ctaHref ?? null,
+    },
     registerRideShareSection: {
       ...(await mediaField(payload, 'initialImage', registerRideShareSection.initialImage)),
       ctaHref: registerRideShareSection.ctaHref,

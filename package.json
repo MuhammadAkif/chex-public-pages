@@ -23,6 +23,7 @@
     "media:import": "node --import tsx scripts/import-site-media.ts",
     "locations:seed": "node --import tsx scripts/seed-locations.ts",
     "locations:seed-rideshare": "node --import tsx scripts/seed-rideshare-sections.ts",
+    "locations:patch-comparison": "node --import tsx scripts/patch-comparison.ts",
     "db:migrate:local-to-env": "node --import tsx scripts/migrate-local-db-to-env.ts",
     "db:up": "docker compose up -d postgres",
     "db:down": "docker compose down"

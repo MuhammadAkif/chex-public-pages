@@ -301,6 +301,102 @@ export const Locations: CollectionConfig = {
       required: true,
     },
     {
+      name: 'comparison',
+      type: 'group',
+      admin: {
+        description: 'Standalone comparison table section rendered after the services cards.',
+      },
+      fields: [
+        {
+          name: 'title',
+          type: 'text',
+          required: true,
+        },
+        {
+          name: 'description',
+          type: 'textarea',
+          required: true,
+        },
+        {
+          name: 'winnerLabel',
+          type: 'text',
+          admin: {
+            description: 'Badge label on the winner (last) column. Defaults to "Best Choice".',
+          },
+          defaultValue: 'Best Choice',
+        },
+        {
+          name: 'footerText',
+          type: 'text',
+          admin: {
+            description: 'Small print shown at the bottom of the winner column.',
+          },
+          defaultValue: '✓ Faster · Easier · More Reliable',
+        },
+        {
+          name: 'columnHeaders',
+          type: 'array',
+          admin: {
+            description: 'Table column headers in order — e.g. Feature, Traditional Shop, Chex.ai.',
+          },
+          fields: [
+            {
+              name: 'label',
+              type: 'text',
+              required: true,
+            },
+          ],
+          minRows: 3,
+          maxRows: 3,
+          required: true,
+        },
+        {
+          name: 'rows',
+          type: 'array',
+          admin: {
+            description: 'One entry per comparison row. Each row has exactly 3 cells matching the column headers.',
+          },
+          fields: [
+            {
+              name: 'featureLabel',
+              type: 'text',
+              label: 'Feature (column 1)',
+              required: true,
+            },
+            {
+              name: 'traditionalValue',
+              type: 'text',
+              label: 'Traditional Shop value (column 2)',
+              required: true,
+            },
+            {
+              name: 'chexValue',
+              type: 'text',
+              label: 'Chex.ai value (column 3)',
+              required: true,
+            },
+          ],
+          minRows: 1,
+          required: true,
+        },
+        {
+          name: 'ctaLabel',
+          type: 'text',
+          admin: {
+            description: 'Optional CTA button label shown below the table.',
+          },
+        },
+        {
+          name: 'ctaHref',
+          type: 'text',
+          admin: {
+            description: 'Optional CTA button URL.',
+          },
+        },
+      ],
+      required: true,
+    },
+    {
       name: 'registerRideShareSection',
       type: 'group',
       admin: {

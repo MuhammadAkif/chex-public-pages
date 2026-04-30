@@ -332,6 +332,45 @@ export interface Location {
     }[];
   };
   /**
+   * Standalone comparison table section rendered after the services cards.
+   */
+  comparison: {
+    title: string;
+    description: string;
+    /**
+     * Badge label on the winner (last) column. Defaults to "Best Choice".
+     */
+    winnerLabel?: string | null;
+    /**
+     * Small print shown at the bottom of the winner column.
+     */
+    footerText?: string | null;
+    /**
+     * Table column headers in order — e.g. Feature, Traditional Shop, Chex.ai.
+     */
+    columnHeaders: {
+      label: string;
+      id?: string | null;
+    }[];
+    /**
+     * One entry per comparison row. Each row has exactly 3 cells matching the column headers.
+     */
+    rows: {
+      featureLabel: string;
+      traditionalValue: string;
+      chexValue: string;
+      id?: string | null;
+    }[];
+    /**
+     * Optional CTA button label shown below the table.
+     */
+    ctaLabel?: string | null;
+    /**
+     * Optional CTA button URL.
+     */
+    ctaHref?: string | null;
+  };
+  /**
    * Rideshare inspection registration process shown between services and showcase.
    */
   registerRideShareSection: {
@@ -892,6 +931,30 @@ export interface LocationsSelect<T extends boolean = true> {
               reverse?: T;
               id?: T;
             };
+      };
+  comparison?:
+    | T
+    | {
+        title?: T;
+        description?: T;
+        winnerLabel?: T;
+        footerText?: T;
+        columnHeaders?:
+          | T
+          | {
+              label?: T;
+              id?: T;
+            };
+        rows?:
+          | T
+          | {
+              featureLabel?: T;
+              traditionalValue?: T;
+              chexValue?: T;
+              id?: T;
+            };
+        ctaLabel?: T;
+        ctaHref?: T;
       };
   registerRideShareSection?:
     | T

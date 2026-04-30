@@ -18,6 +18,10 @@ import {
   type LocationServicesProps,
 } from "./location-services";
 import {
+  LocationComparison,
+  type LocationComparisonProps,
+} from "./location-comparison";
+import {
   PricingRideShareSection,
   type PricingRideShareSectionProps,
 } from "./pricing-rideshare-section";
@@ -40,6 +44,7 @@ export type LocationPageContent = {
   hero: LocationHeroProps;
   overview: LocationOverviewProps;
   services: LocationServicesProps;
+  comparison: LocationComparisonProps;
   registerRideShareSection: RegisterRideShareSectionProps;
   pricingRideShareSection: PricingRideShareSectionProps;
   pricing: LocationPricingProps;
@@ -64,6 +69,9 @@ export function LocationPage({ content }: { content: LocationPageContent }) {
         </Reveal>
         <Reveal>
           <LocationServices {...content.services} />
+        </Reveal>
+        <Reveal>
+          <LocationComparison {...content.comparison} />
         </Reveal>
         <Reveal>
           <RegisterRideShareSection {...content.registerRideShareSection} />

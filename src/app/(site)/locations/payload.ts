@@ -158,6 +158,20 @@ function toLocationPageContent(location: Location): LocationPageContent {
       })),
       title: location.services.title,
     },
+    comparison: {
+      title: location.comparison.title,
+      description: location.comparison.description,
+      winnerLabel: location.comparison.winnerLabel ?? 'Best Choice',
+      footerText: location.comparison.footerText ?? '✓ Faster · Easier · More Reliable',
+      columnHeaders: (location.comparison.columnHeaders ?? []).map((h) => h.label),
+      rows: (location.comparison.rows ?? []).map((row) => ({
+        featureLabel: row.featureLabel,
+        traditionalValue: row.traditionalValue,
+        chexValue: row.chexValue,
+      })),
+      ctaLabel: optionalString(location.comparison.ctaLabel),
+      ctaHref: optionalString(location.comparison.ctaHref),
+    },
     registerRideShareSection: {
       ctaHref: location.registerRideShareSection.ctaHref,
       ctaLabel: location.registerRideShareSection.ctaLabel,
