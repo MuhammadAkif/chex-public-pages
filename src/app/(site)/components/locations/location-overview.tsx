@@ -1,62 +1,62 @@
 /* eslint-disable @next/next/no-img-element */
 
 export type LocationOverviewProps = {
-  title: string
-  paragraphs: ReadonlyArray<string>
-  image: string
-  imageAlt: string
-}
+  title: string;
+  paragraphs: ReadonlyArray<string>;
+  image: string;
+  imageAlt: string;
+};
 
 type OverviewBlock =
-  | { type: 'paragraph'; text: string }
-  | { type: 'list'; items: string[] }
+  | { type: "paragraph"; text: string }
+  | { type: "list"; items: string[] };
 
-const BR_TAG_PATTERN = /<br\s*\/?>/gi
+const BR_TAG_PATTERN = /<br\s*\/?>/gi;
 
 function toOverviewBlocks(paragraphs: ReadonlyArray<string>): OverviewBlock[] {
-  const blocks: OverviewBlock[] = []
-  let pendingListItems: string[] = []
+  const blocks: OverviewBlock[] = [];
+  let pendingListItems: string[] = [];
 
   const flushPendingList = () => {
     if (!pendingListItems.length) {
-      return
+      return;
     }
 
-    blocks.push({ items: pendingListItems, type: 'list' })
-    pendingListItems = []
-  }
+    blocks.push({ items: pendingListItems, type: "list" });
+    pendingListItems = [];
+  };
 
   for (const paragraph of paragraphs) {
     const lines = paragraph
-      .replace(BR_TAG_PATTERN, '\n')
-      .split('\n')
+      .replace(BR_TAG_PATTERN, "\n")
+      .split("\n")
       .map((line) => line.trim())
-      .filter(Boolean)
+      .filter(Boolean);
 
     for (const line of lines) {
-      const isCheckBullet = line.startsWith('✅')
-      const isDashBullet = line.startsWith('- ')
-      const isBullet = isCheckBullet || isDashBullet
+      const isCheckBullet = line.startsWith("✅");
+      const isDashBullet = line.startsWith("- ");
+      const isBullet = isCheckBullet || isDashBullet;
 
       if (isBullet) {
         const normalized = isCheckBullet
-          ? line.replace(/^✅\s*/, '').trim()
-          : line.replace(/^-+\s*/, '').trim()
+          ? line.replace(/^✅\s*/, "").trim()
+          : line.replace(/^-+\s*/, "").trim();
 
         if (normalized) {
-          pendingListItems.push(normalized)
+          pendingListItems.push(normalized);
         }
-        continue
+        continue;
       }
 
-      flushPendingList()
-      blocks.push({ text: line, type: 'paragraph' })
+      flushPendingList();
+      blocks.push({ text: line, type: "paragraph" });
     }
   }
 
-  flushPendingList()
+  flushPendingList();
 
-  return blocks
+  return blocks;
 }
 
 export function LocationOverview({
@@ -65,7 +65,7 @@ export function LocationOverview({
   image,
   imageAlt,
 }: LocationOverviewProps) {
-  const blocks = toOverviewBlocks(paragraphs)
+  const blocks = toOverviewBlocks(paragraphs);
 
   return (
     <section className="relative bg-white px-4 py-16 sm:px-6 lg:px-10 lg:py-24">
@@ -78,32 +78,43 @@ export function LocationOverview({
         </h2>
 
         <div className="mt-10 grid gap-10 lg:grid-cols-[0.95fr_0.75fr] lg:items-start">
-          <div className="type-location-body-relaxed space-y-6 text-justify text-[#1b1c20]">
+          <div className="type-location-body-relaxed space-y-4 text-justify text-[#1b1c20]">
             {blocks.map((block, index) => {
-              if (block.type === 'list') {
+              if (block.type === "list") {
                 return (
-                  <ul key={`list-${index}`} className="space-y-3 pl-1 text-left">
+                  <ul
+                    key={`list-${index}`}
+                    className="space-y-2 pl-1 text-left"
+                  >
                     {block.items.map((item) => (
-                      <li key={item} className="flex items-start gap-3">
-                        <span aria-hidden="true" className="mt-1 text-[#16a34a]">
+                      <li key={item} className="flex items-center gap-2">
+                        <span aria-hidden="true" className="text-[#16a34a]">
                           ✅
                         </span>
-                        <span>{item}</span>
+                        <span className="leading-[1.5]">{item}</span>
                       </li>
                     ))}
                   </ul>
-                )
+                );
               }
 
-              return <p key={`paragraph-${index}`}>{block.text}</p>
+              return (
+                <p key={`paragraph-${index}`} className="leading-[1.55]">
+                  {block.text}
+                </p>
+              );
             })}
           </div>
 
           <div className="overflow-hidden rounded-[16px] shadow-[0_22px_64px_0_rgba(30,27,75,0.08)]">
-            <img src={image} alt={imageAlt} className="h-full min-h-[320px] w-full object-cover" />
+            <img
+              src={image}
+              alt={imageAlt}
+              className="h-full min-h-[320px] w-full object-cover"
+            />
           </div>
         </div>
       </div>
     </section>
-  )
+  );
 }
