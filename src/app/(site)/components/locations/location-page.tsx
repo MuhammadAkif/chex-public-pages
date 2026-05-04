@@ -88,7 +88,7 @@ export function LocationPage({ content }: { content: LocationPageContent }) {
         <Reveal>
           <LocationManage {...content.manage} />
         </Reveal>
-        <LocationCaseStudies {...content.caseStudies} />
+       {/* <LocationCaseStudies {...content.caseStudies} /> */}
         <Reveal>
           <LocationTestimonials {...content.testimonials} />
         </Reveal>
