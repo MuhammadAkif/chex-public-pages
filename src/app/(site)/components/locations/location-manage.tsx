@@ -47,7 +47,7 @@ function ManageIllustration({
   if (illustration.variant === 'framed-screen') {
     return (
       <div className="relative mx-auto h-[380px] max-w-[230px] overflow-hidden rounded-[24px] bg-white shadow-[0_24px_80px_-40px_rgba(27,47,75,0.65)]">
-        <img src={frameImage} alt="Chex mobile inspection app" className="absolute inset-0 h-full w-full object-cover" />
+        {/* <img src={frameImage} alt="Chex mobile inspection app" className="absolute inset-0 h-full w-full object-cover" /> */}
         <img
           src={screenImage}
           alt=""
