@@ -427,6 +427,13 @@ export interface Location {
        */
       imageFallbackUrl?: string | null;
       imageAlt: string;
+      review: {
+        name: string;
+        stars: number;
+        quote: string;
+        avatar: string;
+        reviewLinkHref: string;
+      };
       id?: string | null;
     }[];
   };
@@ -1062,6 +1069,15 @@ export interface LocationsSelect<T extends boolean = true> {
               image?: T;
               imageFallbackUrl?: T;
               imageAlt?: T;
+              review?:
+                | T
+                | {
+                    name?: T;
+                    stars?: T;
+                    quote?: T;
+                    avatar?: T;
+                    reviewLinkHref?: T;
+                  };
               id?: T;
             };
       };

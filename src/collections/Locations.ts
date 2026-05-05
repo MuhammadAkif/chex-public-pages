@@ -500,6 +500,40 @@ export const Locations: CollectionConfig = {
               type: 'text',
               required: true,
             },
+            {
+              name: 'review',
+              type: 'group',
+              fields: [
+                {
+                  name: 'name',
+                  type: 'text',
+                  required: true,
+                },
+                {
+                  name: 'stars',
+                  type: 'number',
+                  min: 1,
+                  max: 5,
+                  required: true,
+                },
+                {
+                  name: 'quote',
+                  type: 'textarea',
+                  required: true,
+                },
+                {
+                  name: 'avatar',
+                  type: 'text',
+                  required: true,
+                },
+                {
+                  name: 'reviewLinkHref',
+                  type: 'text',
+                  required: true,
+                },
+              ],
+              required: true,
+            },
           ],
           minRows: 1,
           required: true,

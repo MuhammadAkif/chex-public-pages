@@ -1,7 +1,10 @@
 import nextEnv from '@next/env'
 import { getPayload } from 'payload'
 import { defaultRegisterSection } from './register-section-defaults'
-import { defaultPricingRideShareSection } from './rideshare-section-defaults'
+import {
+  defaultPricingRideShareSection,
+  defaultRegisterRideShareSection,
+} from './rideshare-section-defaults'
 
 const repoRoot = process.cwd()
 const { loadEnvConfig } = nextEnv
@@ -96,6 +99,27 @@ async function main() {
               price: plan.price,
               subDescription: plan.subDescription ?? null,
               tone: plan.tone ?? 'primary',
+            })),
+          },
+          registerRideShareSection: {
+            ...(location.registerRideShareSection ?? {}),
+            steps: defaultRegisterRideShareSection.steps.map((step) => ({
+              description: step.description,
+              icon: null,
+              iconAlt: step.iconAlt,
+              iconFallbackUrl: step.icon,
+              image: null,
+              imageAlt: step.imageAlt,
+              imageFallbackUrl: step.image,
+              review: {
+                avatar: step.review.avatar,
+                name: step.review.name,
+                quote: step.review.quote,
+                reviewLinkHref: step.review.reviewLinkHref,
+                stars: step.review.stars,
+              },
+              step: step.step,
+              title: step.title,
             })),
           },
           registerSection: {

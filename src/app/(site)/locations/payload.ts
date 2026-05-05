@@ -203,6 +203,13 @@ function toLocationPageContent(location: Location): LocationPageContent {
         iconAlt: step.iconAlt,
         image: mediaURL(step.image, step.imageFallbackUrl),
         imageAlt: step.imageAlt,
+        review: {
+          avatar: step.review.avatar,
+          name: step.review.name,
+          quote: step.review.quote,
+          reviewLinkHref: step.review.reviewLinkHref,
+          stars: step.review.stars ?? 5,
+        },
         step: step.step,
         title: step.title,
       })),

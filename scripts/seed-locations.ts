@@ -546,6 +546,13 @@ async function buildLocationData(
           description: step.description,
           iconAlt: step.iconAlt,
           imageAlt: step.imageAlt,
+          review: {
+            avatar: step.review.avatar,
+            name: step.review.name,
+            quote: step.review.quote,
+            reviewLinkHref: step.review.reviewLinkHref,
+            stars: step.review.stars,
+          },
           step: step.step,
           title: step.title,
         })),

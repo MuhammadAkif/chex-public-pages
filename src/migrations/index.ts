@@ -4,6 +4,8 @@ import * as migration_20260427_122450_locations_collection from './20260427_1224
 import * as migration_20260429_000000_rideshare_sections from './20260429_000000_rideshare_sections';
 import * as migration_20260505_081314_location_register_section from './20260505_081314_location_register_section';
 import * as migration_20260505_115759_hero_google_review_widget from './20260505_115759_hero_google_review_widget';
+import * as migration_20260505_123050_rideshare_step_reviews from './20260505_123050_rideshare_step_reviews';
+import * as migration_20260505_124044_rideshare_review_links from './20260505_124044_rideshare_review_links';
 
 export const migrations = [
   {
@@ -34,6 +36,16 @@ export const migrations = [
   {
     up: migration_20260505_115759_hero_google_review_widget.up,
     down: migration_20260505_115759_hero_google_review_widget.down,
-    name: '20260505_115759_hero_google_review_widget'
+    name: '20260505_115759_hero_google_review_widget',
+  },
+  {
+    up: migration_20260505_123050_rideshare_step_reviews.up,
+    down: migration_20260505_123050_rideshare_step_reviews.down,
+    name: '20260505_123050_rideshare_step_reviews',
+  },
+  {
+    up: migration_20260505_124044_rideshare_review_links.up,
+    down: migration_20260505_124044_rideshare_review_links.down,
+    name: '20260505_124044_rideshare_review_links'
   },
 ];

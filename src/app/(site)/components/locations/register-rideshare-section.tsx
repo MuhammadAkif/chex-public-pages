@@ -1,28 +1,35 @@
-'use client'
+"use client";
 
 /* eslint-disable @next/next/no-img-element */
 
-import { useMemo, useState } from 'react'
+import { useMemo, useState } from "react";
 
-import { Button } from '@/app/(site)/components/ui/button'
+import { Button } from "@/app/(site)/components/ui/button";
 
 export type RegisterRideShareSectionProps = {
-  eyebrow: string
-  title: string
-  ctaLabel: string
-  ctaHref: string
-  initialImage?: string
-  initialImageAlt?: string
+  eyebrow: string;
+  title: string;
+  ctaLabel: string;
+  ctaHref: string;
+  initialImage?: string;
+  initialImageAlt?: string;
   steps: ReadonlyArray<{
-    step: string
-    title: string
-    description: string
-    icon: string
-    iconAlt: string
-    image: string
-    imageAlt: string
-  }>
-}
+    step: string;
+    title: string;
+    description: string;
+    icon: string;
+    iconAlt: string;
+    image: string;
+    imageAlt: string;
+    review: {
+      name: string;
+      stars: number;
+      quote: string;
+      avatar: string;
+      reviewLinkHref: string;
+    };
+  }>;
+};
 
 export function RegisterRideShareSection({
   eyebrow,
@@ -33,33 +40,63 @@ export function RegisterRideShareSection({
   initialImageAlt,
   steps,
 }: RegisterRideShareSectionProps) {
-  const [activeStepIndex, setActiveStepIndex] = useState(0)
-  const activeStep = steps[activeStepIndex] ?? steps[0]
-  const activeImage = activeStep?.image || initialImage
-  const activeImageAlt = activeStep?.imageAlt || initialImageAlt || title
+  const [activeStepIndex, setActiveStepIndex] = useState(0);
+  const activeStep = steps[activeStepIndex] ?? steps[0];
+  const activeImage = activeStep?.image || initialImage;
+  const activeImageAlt = activeStep?.imageAlt || initialImageAlt || title;
+  const activeReview = activeStep?.review;
 
   const timelineBounds = useMemo(() => {
     if (steps.length <= 1) {
-      return 'hidden'
+      return "hidden";
     }
 
-    return 'absolute left-[34px] top-[70px] bottom-[92px] hidden border-l-2 border-dashed border-[#aec0ce] sm:block'
-  }, [steps.length])
+    return "absolute left-[34px] top-[70px] bottom-[92px] hidden border-l-2 border-dashed border-[#aec0ce] sm:block";
+  }, [steps.length]);
 
   if (!steps.length) {
-    return null
+    return null;
   }
 
   return (
     <section className="bg-white px-4 py-16 sm:px-6 lg:px-10 lg:py-24">
       <div className="mx-auto grid max-w-[1240px] gap-12 lg:grid-cols-[0.82fr_1.18fr] lg:items-center lg:gap-20">
         {activeImage ? (
-          <div className="flex justify-center lg:justify-start">
-            <img
-              src={activeImage}
-              alt={activeImageAlt}
-              className="w-full max-w-[320px] object-contain sm:max-w-[380px] lg:max-w-[430px]"
-            />
+          <div className="mx-auto w-full max-w-[360px] lg:mx-0 lg:max-w-[420px]">
+            <div className="flex justify-center lg:justify-start">
+              <img
+                src={activeImage}
+                alt={activeImageAlt}
+                className="w-full max-w-[360px] max-h-[560px] object-contain lg:max-w-[420px] lg:max-h-[620px]"
+              />
+            </div>
+            {activeReview ? (
+              <a
+                href={activeReview.reviewLinkHref}
+                target="_blank"
+                rel="noreferrer"
+                className="mt-6 block rounded-[12px] border border-[#dfe7f2] bg-white p-4 shadow-[0_20px_46px_-30px_rgba(27,47,75,0.5)] transition-colors hover:bg-[#f8fbff]"
+              >
+                <div className="flex items-center gap-3">
+                  <img
+                    src={activeReview.avatar}
+                    alt={activeReview.name}
+                    className="h-11 w-11 rounded-full object-cover"
+                  />
+                  <div>
+                    <p className="font-ui text-[15px] font-semibold text-[#1b2f4b]">
+                      {activeReview.name}
+                    </p>
+                    <p className="font-ui text-[14px] leading-none text-[#ff7a01]">
+                      {"★".repeat(Math.max(1, Math.min(5, activeReview.stars)))}
+                    </p>
+                  </div>
+                </div>
+                <p className="mt-3 font-ui text-[14px] leading-6 text-[#41546e]">
+                  {activeReview.quote}
+                </p>
+              </a>
+            ) : null}
           </div>
         ) : null}
 
@@ -83,9 +120,11 @@ export function RegisterRideShareSection({
                   onMouseEnter={() => setActiveStepIndex(index)}
                   onClick={() => setActiveStepIndex(index)}
                   className={[
-                    'group grid w-full grid-cols-[56px_1fr] gap-5 rounded-[8px] p-3 text-left transition-colors sm:grid-cols-[68px_1fr] sm:gap-7',
-                    index === activeStepIndex ? 'bg-[#1468ba]/10' : 'hover:bg-[#1468ba]/8',
-                  ].join(' ')}
+                    "group grid w-full grid-cols-[56px_1fr] gap-5 rounded-[8px] p-3 text-left transition-colors sm:grid-cols-[68px_1fr] sm:gap-7",
+                    index === activeStepIndex
+                      ? "bg-[#1468ba]/10"
+                      : "hover:bg-[#1468ba]/8",
+                  ].join(" ")}
                 >
                   <span className="relative z-10 flex h-14 w-14 items-center justify-center rounded-full bg-[#1468ba] shadow-[0_12px_30px_-18px_rgba(20,104,186,0.95)] sm:h-[60px] sm:w-[60px]">
                     <img
@@ -110,7 +149,10 @@ export function RegisterRideShareSection({
             </div>
 
             <div className="mt-8 flex justify-center sm:justify-start sm:pl-[100px]">
-              <Button href={ctaHref} className="min-h-12 w-full max-w-[420px] rounded-[10px] text-[16px] sm:text-[18px]">
+              <Button
+                href={ctaHref}
+                className="min-h-12 w-full max-w-[420px] rounded-[10px] text-[16px] sm:text-[18px]"
+              >
                 {ctaLabel}
               </Button>
             </div>
@@ -118,5 +160,5 @@ export function RegisterRideShareSection({
         </div>
       </div>
     </section>
-  )
+  );
 }
