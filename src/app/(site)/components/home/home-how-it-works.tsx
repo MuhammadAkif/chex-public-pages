@@ -1,18 +1,21 @@
-'use client'
+"use client";
 
-import { SiteImage, type SiteImageSource } from '@/app/(site)/components/shared/site-image'
-import { SectionHeading } from '@/app/(site)/components/ui/section-heading'
-import { SurfaceCard } from '@/app/(site)/components/ui/surface-card'
+import {
+  SiteImage,
+  type SiteImageSource,
+} from "@/app/(site)/components/shared/site-image";
+import { SectionHeading } from "@/app/(site)/components/ui/section-heading";
+import { SurfaceCard } from "@/app/(site)/components/ui/surface-card";
 
 type HomeHowItWorksProps = {
-  title: string
-  description: string
+  title: string;
+  description: string;
   steps: ReadonlyArray<{
-    title: string
-    description: string
-    image: SiteImageSource
-  }>
-}
+    title: string;
+    description: string;
+    image: SiteImageSource;
+  }>;
+};
 
 export function HomeHowItWorks({
   title,
@@ -24,9 +27,12 @@ export function HomeHowItWorks({
       <div className="mx-auto max-w-[1240px]">
         <SectionHeading title={title} description={description} />
 
-        <div className="mt-14 grid gap-6 lg:grid-cols-3">
+        <div className="mt-14 grid gap-6 md:grid-cols-2 xl:grid-cols-4">
           {steps.map((step, index) => (
-            <SurfaceCard key={step.title} className="overflow-hidden p-5 sm:p-6">
+            <SurfaceCard
+              key={step.title}
+              className="overflow-hidden p-5 sm:p-6"
+            >
               <div className="flex items-center justify-between">
                 <span className="inline-flex h-10 w-10 items-center justify-center rounded-full bg-[#fff1e5] text-sm font-semibold text-[#ff7a01]">
                   0{index + 1}
@@ -45,11 +51,13 @@ export function HomeHowItWorks({
               <h3 className="mt-6 font-display text-[28px] font-bold leading-[1.15] tracking-[-0.03em] text-[#1b2f4b]">
                 {step.title}
               </h3>
-              <p className="type-body-md mt-3 text-[#41546e]">{step.description}</p>
+              <p className="type-body-md mt-3 text-[#41546e]">
+                {step.description}
+              </p>
             </SurfaceCard>
           ))}
         </div>
       </div>
     </section>
-  )
+  );
 }

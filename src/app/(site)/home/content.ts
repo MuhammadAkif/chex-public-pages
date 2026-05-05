@@ -63,25 +63,32 @@ export const homeContent = {
       "With a user-friendly app and comprehensive dashboard, Get your certified rideshare vehicle inspection done in four simple steps — no appointments, no paperwork, no delays",
     steps: [
       {
-        title: "Capture guided evidence",
+        title: "Register",
         description:
-          "Scalable photo and video collection through a customizable mobile and web inspection flow.",
+          "Please register your account by filling out the form above to get started",
         image:
-          "https://chex-payload-public-pages.s3.us-east-1.amazonaws.com/hero-van.png",
+          "https://chex-payload-public-pages.s3.us-east-1.amazonaws.com/step-1.png",
       },
       {
-        title: "Review every inspection",
+        title: "Complete Inspection",
         description:
-          "Partner dashboards provide real-time inspection access, compliance records, and advanced analytics.",
+          "Follow the instructions for each inspection point within our app and upload photo and video clips",
         image:
-          "https://chex-payload-public-pages.s3.us-east-1.amazonaws.com/manage-inspection.png",
+          "https://chex-payload-public-pages.s3.us-east-1.amazonaws.com/step-2.png",
       },
       {
-        title: "Surface AI findings",
+        title: "Complete Payment",
         description:
-          "AI-based reviews pinpoint damage, safety items, and newly detected issues in one workflow.",
+          "Enter payment details. If you don't pass, your first re-inspection is free",
         image:
-          "https://chex-payload-public-pages.s3.us-east-1.amazonaws.com/analytics-dashboard.png",
+          "https://chex-payload-public-pages.s3.us-east-1.amazonaws.com/step-3.png",
+      },
+      {
+        title: "Same-day Certification",
+        description:
+          "All certifications completed within 4 hours or less. Downloadable verification in-app",
+        image:
+          "https://chex-payload-public-pages.s3.us-east-1.amazonaws.com/step-4.png",
       },
     ],
   },
