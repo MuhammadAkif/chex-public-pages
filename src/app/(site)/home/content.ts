@@ -1,6 +1,6 @@
 export const homeContent = {
   hero: {
-    rating: "4.9 (1667+ reviews)",
+    rating: "4.8 (1667+ reviews)",
     title: "AI powered vehicle safety inspection & damage detection",
     description:
       "CHEX.AI's Car Damage Recognition is an advanced AI solution that instantly detects dents, scratches, and body defects in vehicles using smartphone photos.",
@@ -8,14 +8,14 @@ export const homeContent = {
     secondaryLabel: "Start My Inspection",
     helperText: "No Credit Card Required",
     media:
-      "https://chex-payload-public-pages.s3.us-east-1.amazonaws.com/hero-van.png",
+      "https://chex-payload-public-pages.s3.us-east-1.amazonaws.com/chex-video.mp4",
   },
   community: {
     title: "Our Community of Chex.AI is Trending Fast",
     subtitle:
       "Our AI based solution simplifies vehicle inspections and automates damage documentation for the mobility industry",
     stats: [
-      { value: "1000+", label: "Customers", tone: "sky" },
+      { value: "10000+", label: "Customers", tone: "sky" },
       { value: "5+", label: "Years of Experience", tone: "sand" },
       { value: "20+", label: "Companies", tone: "ice" },
     ],

@@ -12,6 +12,7 @@ async function main() {
 
   try {
     const backgroundMediaFilename = 'register-bg-image.png'
+    const showcaseVideoFilename = 'chex-video.mp4'
     const backgroundMedia = await payload.find({
       collection: 'media',
       limit: 1,
@@ -28,6 +29,23 @@ async function main() {
     const backgroundImageID = backgroundImageDoc?.id ?? null
     const backgroundImageURL =
       backgroundImageDoc?.url || defaultRegisterSection.backgroundImage
+    const showcaseVideoMedia = await payload.find({
+      collection: 'media',
+      limit: 1,
+      overrideAccess: true,
+      where: {
+        filename: {
+          equals: showcaseVideoFilename,
+        },
+      },
+    })
+    const showcaseVideoDoc = showcaseVideoMedia.docs[0] as
+      | { id?: string; url?: string }
+      | undefined
+    const showcaseVideoID = showcaseVideoDoc?.id ?? null
+    const showcaseVideoURL =
+      showcaseVideoDoc?.url ||
+      'https://chex-payload-public-pages.s3.us-east-1.amazonaws.com/chex-video.mp4'
 
     const result = await payload.find({
       collection: 'locations',
@@ -47,6 +65,11 @@ async function main() {
         data: {
           hero: {
             demoHref: '#signup',
+          },
+          showcase: {
+            ...(location.showcase ?? {}),
+            video: showcaseVideoID,
+            videoFallbackUrl: showcaseVideoURL,
           },
           registerSection: {
             sectionId: defaultRegisterSection.sectionId ?? null,
@@ -82,6 +105,7 @@ async function main() {
       JSON.stringify(
         {
           backgroundImageApplied: backgroundImageID ? backgroundMediaFilename : 'fallback-url-only',
+          showcaseVideoApplied: showcaseVideoID ? showcaseVideoFilename : 'fallback-url-only',
           locationsFound: result.docs.length,
           locationsUpdated: updated,
         },

@@ -14,7 +14,7 @@ type LocationPagePayload = {
 };
 
 const DEFAULT_SHOWCASE_VIDEO =
-  "https://chex-payload-public-pages.s3.us-east-1.amazonaws.com/chex-ai-location.mp4";
+  "https://chex-payload-public-pages.s3.us-east-1.amazonaws.com/chex-video.mp4";
 
 const textItems = (items?: Array<{ text?: string | null }> | null) =>
   (items ?? []).map((item) => item.text ?? "").filter(Boolean);
