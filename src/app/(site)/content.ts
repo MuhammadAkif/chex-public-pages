@@ -1,5 +1,5 @@
 export const siteContent = {
-  announcement: "4.9 stars · 127+ drivers approved · Uber & Lyft accepted",
+  announcement: "4.8 stars · 127+ drivers approved · Uber & Lyft accepted",
   navigationLinks: [
     { label: "Home", href: "/home", active: true },
     { label: "Services", href: "/home#how-it-works" },

@@ -132,6 +132,47 @@ export const Locations: CollectionConfig = {
         },
         ...mediaFields('ratingBadgeImage', 'Rating badge image'),
         {
+          name: 'googleReview',
+          type: 'group',
+          admin: {
+            description: 'Google review widget content shown above the hero title.',
+          },
+          fields: [
+            ...mediaFields('logo', 'Google logo'),
+            {
+              name: 'label',
+              type: 'text',
+              defaultValue: 'Google Rating',
+              required: true,
+            },
+            {
+              name: 'score',
+              type: 'text',
+              defaultValue: '4.8',
+              required: true,
+            },
+            {
+              name: 'stars',
+              type: 'number',
+              defaultValue: 5,
+              min: 1,
+              max: 5,
+              required: true,
+            },
+            {
+              name: 'reviewLinkLabel',
+              type: 'text',
+              defaultValue: 'See all our reviews',
+              required: true,
+            },
+            {
+              name: 'reviewLinkHref',
+              type: 'text',
+              required: true,
+            },
+          ],
+        },
+        {
           name: 'title',
           type: 'text',
           required: true,

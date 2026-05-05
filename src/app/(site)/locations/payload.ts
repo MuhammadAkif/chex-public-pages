@@ -124,6 +124,20 @@ function toLocationPageContent(location: Location): LocationPageContent {
       })),
       primaryLabel: location.hero.primaryLabel,
       rating: location.hero.rating,
+      googleReview: {
+        label: location.hero.googleReview?.label ?? "Google Rating",
+        logo: optionalMediaURL(
+          location.hero.googleReview?.logo,
+          location.hero.googleReview?.logoFallbackUrl,
+        ),
+        reviewLinkHref:
+          location.hero.googleReview?.reviewLinkHref ??
+          "https://www.google.com/search?q=chex.ai&sca_esv=393fe94135c43729&gl=us&hl=en&pws=0&sxsrf=ANbL-n4obf_WmJWKaa4aVCOwo7ZKvKblzw%3A1777974250419&ei=6rv5aaWjGdymkdUPlbbi0Ac&biw=1536&bih=730&ved=0ahUKEwilwPac7qGUAxVcU6QEHRWbGHoQ4dUDCBM&uact=5&oq=chex.ai&gs_lp=Egxnd3Mtd2l6LXNlcnAiB2NoZXguYWkyBBAAGB4yBBAAGB4yBBAAGB4yBBAAGB4yBBAAGB4yBBAAGB4yBBAAGB4yBBAAGB4yBBAAGB4yBBAAGB5IiAlQvwNYoQdwAXgAkAEAmAH5AaABzQOqAQMyLTK4AQPIAQD4AQGYAgOgAtsDwgIMEAAYgAQYDRiwAxgKwgIJEAAYBxgeGLADwgIKEAAYgAQYDRiwA8ICBBAjGCfCAgsQABiABBiKBRiRAsICBRAuGIAEwgIFEAAYgASYAwCIBgGQBgiSBwUxLjAuMqAH1w-yBwMyLTK4B9cDwgcFMC4yLjHIBwmACAE&sclient=gws-wiz-serp",
+        reviewLinkLabel:
+          location.hero.googleReview?.reviewLinkLabel ?? "See all our reviews",
+        score: location.hero.googleReview?.score ?? "4.8",
+        stars: location.hero.googleReview?.stars ?? 5,
+      },
       ratingContainerClassName: optionalString(
         location.hero.style?.ratingContainerClassName,
       ),

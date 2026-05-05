@@ -244,6 +244,24 @@ export interface Location {
      * Migration fallback URL. The frontend prefers the media relationship when it is present.
      */
     ratingBadgeImageFallbackUrl?: string | null;
+    /**
+     * Google review widget content shown above the hero title.
+     */
+    googleReview: {
+      /**
+       * Google logo selected from the Payload media library.
+       */
+      logo?: (string | null) | Media;
+      /**
+       * Migration fallback URL. The frontend prefers the media relationship when it is present.
+       */
+      logoFallbackUrl?: string | null;
+      label: string;
+      score: string;
+      stars: number;
+      reviewLinkLabel: string;
+      reviewLinkHref: string;
+    };
     title: string;
     description: string;
     primaryLabel: string;
@@ -922,6 +940,17 @@ export interface LocationsSelect<T extends boolean = true> {
         rating?: T;
         ratingBadgeImage?: T;
         ratingBadgeImageFallbackUrl?: T;
+        googleReview?:
+          | T
+          | {
+              logo?: T;
+              logoFallbackUrl?: T;
+              label?: T;
+              score?: T;
+              stars?: T;
+              reviewLinkLabel?: T;
+              reviewLinkHref?: T;
+            };
         title?: T;
         description?: T;
         primaryLabel?: T;

@@ -4,10 +4,12 @@ import {
 } from "@/app/(site)/components/shared/site-image";
 import { Button } from "@/app/(site)/components/ui/button";
 
-const HERO_RATING_BADGE_IMAGE =
-  "https://chex-payload-public-pages.s3.us-east-1.amazonaws.com/hero-rating-badge.png";
 const LOGO_CHEX_IMAGE =
   "https://chex-payload-public-pages.s3.us-east-1.amazonaws.com/logo-chex.png";
+const GOOGLE_REVIEW_LOGO =
+  "https://www.gstatic.com/images/branding/product/1x/googleg_64dp.png";
+const GOOGLE_REVIEW_LINK =
+  "https://www.google.com/search?q=chex.ai&sca_esv=393fe94135c43729&gl=us&hl=en&pws=0&sxsrf=ANbL-n4obf_WmJWKaa4aVCOwo7ZKvKblzw%3A1777974250419&ei=6rv5aaWjGdymkdUPlbbi0Ac&biw=1536&bih=730&ved=0ahUKEwilwPac7qGUAxVcU6QEHRWbGHoQ4dUDCBM&uact=5&oq=chex.ai&gs_lp=Egxnd3Mtd2l6LXNlcnAiB2NoZXguYWkyBBAAGB4yBBAAGB4yBBAAGB4yBBAAGB4yBBAAGB4yBBAAGB4yBBAAGB4yBBAAGB4yBBAAGB4yBBAAGB5IiAlQvwNYoQdwAXgAkAEAmAH5AaABzQOqAQMyLTK4AQPIAQD4AQGYAgOgAtsDwgIMEAAYgAQYDRiwAxgKwgIJEAAYBxgeGLADwgIKEAAYgAQYDRiwA8ICBBAjGCfCAgsQABiABBiKBRiRAsICBRAuGIAEwgIFEAAYgASYAwCIBgGQBgiSBwUxLjAuMqAH1w-yBwMyLTK4B9cDwgcFMC4yLjHIBwmACAE&sclient=gws-wiz-serp";
 
 export type LocationHeroProps = {
   rating: string;
@@ -32,16 +34,78 @@ export type LocationHeroProps = {
   ratingContainerClassName?: string;
   titleClassName: string;
   descriptionClassName: string;
+  googleReview?: {
+    label: string;
+    reviewLinkHref: string;
+    reviewLinkLabel: string;
+    score: string;
+    stars: number;
+    logo?: SiteImageSource;
+  };
 };
 
 function StarIcon() {
   return (
-    <svg viewBox="0 0 14 14" className="h-[14px] w-[14px]" aria-hidden="true">
+    <svg viewBox="0 0 14 14" className="h-5 w-5 sm:h-6 sm:w-6" aria-hidden="true">
       <path
         d="M7 1.05l1.77 3.58 3.95.57-2.86 2.79.68 3.94L7 10.07l-3.54 1.86.68-3.94L1.28 5.2l3.95-.57L7 1.05Z"
         fill="#ff7a01"
       />
     </svg>
+  );
+}
+
+function GoogleReviewWidget({
+  googleReview,
+  ratingContainerClassName,
+}: Pick<LocationHeroProps, "googleReview" | "ratingContainerClassName">) {
+  const review = {
+    label: googleReview?.label || "Google Rating",
+    logo: googleReview?.logo || GOOGLE_REVIEW_LOGO,
+    reviewLinkHref: googleReview?.reviewLinkHref || GOOGLE_REVIEW_LINK,
+    reviewLinkLabel: googleReview?.reviewLinkLabel || "See all our reviews",
+    score: googleReview?.score || "4.8",
+    stars: Math.max(1, Math.min(5, googleReview?.stars ?? 5)),
+  };
+
+  return (
+    <div
+      className={[
+        "inline-flex w-fit min-h-[64px] items-center gap-2 rounded-[10px] border border-[#e4e9f2] bg-white/90 px-2 py-1.5 shadow-[0_18px_45px_-30px_rgba(27,47,75,0.5)] sm:min-h-[72px] sm:px-2.5 sm:py-2",
+        ratingContainerClassName,
+      ]
+        .filter(Boolean)
+        .join(" ")}
+    >
+      <SiteImage
+        src={review.logo}
+        alt="Google"
+        className="mx-2 h-10 w-10 object-contain sm:mx-3 sm:h-12 sm:w-12"
+      />
+      <div className="min-w-0">
+        <p className="font-ui text-[16px] font-semibold leading-none text-[#5f6368] sm:text-[18px]">
+          {review.label}
+        </p>
+        <div className="mt-1 flex flex-wrap items-center gap-3">
+          <span className="font-display text-[20px] font-bold leading-none text-[#f6a300] sm:text-[24px]">
+            {review.score}
+          </span>
+          <span className="flex items-center gap-1">
+            {Array.from({ length: review.stars }).map((_, index) => (
+              <StarIcon key={index} />
+            ))}
+          </span>
+        </div>
+        <a
+          href={review.reviewLinkHref}
+          target="_blank"
+          rel="noreferrer"
+          className="mt-1 inline-block font-ui text-[10px] text-[#6d7178] underline decoration-[#6d7178]/40 underline-offset-2 hover:text-[#1b2f4b] sm:text-[11px]"
+        >
+          {review.reviewLinkLabel}
+        </a>
+      </div>
+    </div>
   );
 }
 
@@ -119,8 +183,6 @@ function OrbitMap({ locations }: Pick<LocationHeroProps, "locations">) {
 }
 
 export function LocationHero({
-  rating,
-  ratingBadgeImage = HERO_RATING_BADGE_IMAGE,
   title,
   description,
   primaryLabel,
@@ -134,6 +196,7 @@ export function LocationHero({
   ratingContainerClassName = "",
   titleClassName,
   descriptionClassName,
+  googleReview,
 }: LocationHeroProps) {
   return (
     <section
@@ -155,31 +218,10 @@ export function LocationHero({
         <OrbitMap locations={locations} />
 
         <div>
-          <div
-            className={[
-              "inline-flex items-center gap-3",
-              ratingContainerClassName,
-            ]
-              .filter(Boolean)
-              .join(" ")}
-          >
-            <span className="flex items-center gap-1">
-              {Array.from({ length: 5 }).map((_, index) => (
-                <StarIcon key={index} />
-              ))}
-            </span>
-            <span className="font-ui text-[14px] font-normal leading-[21px] text-[#41546e]">
-              {rating}
-            </span>
-            <span className="relative inline-flex h-7 w-7 items-center justify-center">
-              <span className="absolute inset-0 rounded-full bg-[#fff1e5]" />
-              <SiteImage
-                src={ratingBadgeImage}
-                alt=""
-                className="relative h-[18px] w-[18px]"
-              />
-            </span>
-          </div>
+          <GoogleReviewWidget
+            googleReview={googleReview}
+            ratingContainerClassName={ratingContainerClassName}
+          />
 
           <h1
             className={["mt-8 text-[#1b2f4b]", titleClassName]

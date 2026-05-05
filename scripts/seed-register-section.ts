@@ -14,6 +14,10 @@ async function main() {
   try {
     const backgroundMediaFilename = 'register-bg-image.png'
     const showcaseVideoFilename = 'chex-video.mp4'
+    const googleLogoFallbackURL =
+      'https://www.gstatic.com/images/branding/product/1x/googleg_64dp.png'
+    const googleReviewLink =
+      'https://www.google.com/search?q=chex.ai&sca_esv=393fe94135c43729&gl=us&hl=en&pws=0&sxsrf=ANbL-n4obf_WmJWKaa4aVCOwo7ZKvKblzw%3A1777974250419&ei=6rv5aaWjGdymkdUPlbbi0Ac&biw=1536&bih=730&ved=0ahUKEwilwPac7qGUAxVcU6QEHRWbGHoQ4dUDCBM&uact=5&oq=chex.ai&gs_lp=Egxnd3Mtd2l6LXNlcnAiB2NoZXguYWkyBBAAGB4yBBAAGB4yBBAAGB4yBBAAGB4yBBAAGB4yBBAAGB4yBBAAGB4yBBAAGB4yBBAAGB4yBBAAGB5IiAlQvwNYoQdwAXgAkAEAmAH5AaABzQOqAQMyLTK4AQPIAQD4AQGYAgOgAtsDwgIMEAAYgAQYDRiwAxgKwgIJEAAYBxgeGLADwgIKEAAYgAQYDRiwA8ICBBAjGCfCAgsQABiABBiKBRiRAsICBRAuGIAEwgIFEAAYgASYAwCIBgGQBgiSBwUxLjAuMqAH1w-yBwMyLTK4B9cDwgcFMC4yLjHIBwmACAE&sclient=gws-wiz-serp'
     const backgroundMedia = await payload.find({
       collection: 'media',
       limit: 1,
@@ -66,6 +70,16 @@ async function main() {
         data: {
           hero: {
             demoHref: '#signup',
+            googleReview: {
+              ...(location.hero?.googleReview ?? {}),
+              label: 'Google Rating',
+              logo: null,
+              logoFallbackUrl: googleLogoFallbackURL,
+              reviewLinkHref: googleReviewLink,
+              reviewLinkLabel: 'See all our reviews',
+              score: '4.8',
+              stars: 5,
+            },
           },
           showcase: {
             ...(location.showcase ?? {}),

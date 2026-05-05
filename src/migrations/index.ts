@@ -3,6 +3,7 @@ import * as migration_20260427_111031_media_collection from './20260427_111031_m
 import * as migration_20260427_122450_locations_collection from './20260427_122450_locations_collection';
 import * as migration_20260429_000000_rideshare_sections from './20260429_000000_rideshare_sections';
 import * as migration_20260505_081314_location_register_section from './20260505_081314_location_register_section';
+import * as migration_20260505_115759_hero_google_review_widget from './20260505_115759_hero_google_review_widget';
 
 export const migrations = [
   {
@@ -28,6 +29,11 @@ export const migrations = [
   {
     up: migration_20260505_081314_location_register_section.up,
     down: migration_20260505_081314_location_register_section.down,
-    name: '20260505_081314_location_register_section'
+    name: '20260505_081314_location_register_section',
+  },
+  {
+    up: migration_20260505_115759_hero_google_review_widget.up,
+    down: migration_20260505_115759_hero_google_review_widget.down,
+    name: '20260505_115759_hero_google_review_widget'
   },
 ];
