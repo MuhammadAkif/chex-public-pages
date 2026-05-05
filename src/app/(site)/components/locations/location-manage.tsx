@@ -139,7 +139,7 @@ export function LocationManage({
             Learn more
           </a>
           <div className="mt-8">
-            <Button href={demoHref}>{buttonLabel}</Button>
+            <Button href="#signup">{buttonLabel}</Button>
           </div>
         </div>
       </div>

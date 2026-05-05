@@ -53,7 +53,7 @@ export function LocationCta({
               {primaryLabel}
               <span aria-hidden="true">↗</span>
             </Button> */}
-            <Button href="#footer">{secondaryLabel}</Button>
+            <Button href="#signup">{secondaryLabel}</Button>
           </div>
 
           <p className="type-body-sm mt-6 capitalize text-white/86">
