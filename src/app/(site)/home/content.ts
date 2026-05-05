@@ -28,8 +28,7 @@ export const homeContent = {
     ],
     manageImage:
       "https://chex-payload-public-pages.s3.us-east-1.amazonaws.com/manage-inspection.png",
-    trustedTitle:
-      "Trusted by drivers on every major rideshare platforms",
+    trustedTitle: "Trusted by drivers on every major rideshare platforms",
     trustedLogos: [
       {
         image:
@@ -140,7 +139,7 @@ export const homeContent = {
   businessHelp: {
     title: "How we help Rideshare Drivers?",
     description:
-      "We help your business optimize asset inspection process. Our interactive dashboard allows you to review data in real time and provide feedback to your customers instantaneously!",
+      "We help drivers to optimize their inspection process. Feedback from Our Verified Drivers!",
     buttonLabel: "Contact us",
     image:
       "https://chex-payload-public-pages.s3.us-east-1.amazonaws.com/analytics-dashboard.png",

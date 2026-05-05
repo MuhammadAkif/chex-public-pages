@@ -1,25 +1,28 @@
-'use client'
+"use client";
 
-import { SiteImage, type SiteImageSource } from '@/app/(site)/components/shared/site-image'
-import { SurfaceCard } from '@/app/(site)/components/ui/surface-card'
+import {
+  SiteImage,
+  type SiteImageSource,
+} from "@/app/(site)/components/shared/site-image";
+import { SurfaceCard } from "@/app/(site)/components/ui/surface-card";
 
 type HomeCommunityProps = {
-  title: string
-  subtitle: string
+  title: string;
+  subtitle: string;
   stats: ReadonlyArray<{
-    value: string
-    label: string
-    tone: string
-  }>
-  manageTitle: string
-  manageBullets: ReadonlyArray<string>
-  manageImage: SiteImageSource
-  trustedTitle: string
+    value: string;
+    label: string;
+    tone: string;
+  }>;
+  manageTitle: string;
+  manageBullets: ReadonlyArray<string>;
+  manageImage: SiteImageSource;
+  trustedTitle: string;
   trustedLogos: ReadonlyArray<{
-    image: SiteImageSource
-    label: string
-  }>
-}
+    image: SiteImageSource;
+    label: string;
+  }>;
+};
 
 export function HomeCommunity({
   title,
@@ -32,11 +35,11 @@ export function HomeCommunity({
   trustedLogos,
 }: HomeCommunityProps) {
   const toneClasses: Record<string, string> = {
-    sky: 'bg-[#bad9f7] text-[#111111]',
-    sand: 'bg-[#f8e4d2] text-[#111111]',
-    ice: 'bg-[#eef5ff] text-[#111111]',
-  }
-  const [titlePrefix, titleSuffix = ''] = title.split('Chex.AI')
+    sky: "bg-[#bad9f7] text-[#111111]",
+    sand: "bg-[#f8e4d2] text-[#111111]",
+    ice: "bg-[#eef5ff] text-[#111111]",
+  };
+  const [titlePrefix, titleSuffix = ""] = title.split("Chex.AI");
 
   return (
     <section className="bg-[#1b1c20] px-4 py-20 text-white sm:px-6 lg:px-10 lg:py-28">
@@ -56,15 +59,18 @@ export function HomeCommunity({
                 key={stat.label}
                 className={`px-6 py-8 text-center ${toneClasses[stat.tone] ?? toneClasses.ice}`}
               >
-                <div className="font-display text-[44px] font-bold leading-none">{stat.value}</div>
-                <div className="type-body-md mt-2 leading-normal">{stat.label}</div>
+                <div className="font-display text-[44px] font-bold leading-none">
+                  {stat.value}
+                </div>
+                <div className="type-body-md mt-2 leading-normal">
+                  {stat.label}
+                </div>
               </SurfaceCard>
             ))}
           </div>
 
           <p className="mx-auto mt-14 max-w-4xl text-balance font-display text-3xl font-bold leading-[1.28] tracking-[-0.04em] text-white sm:text-4xl lg:text-[56px] lg:leading-[1.257]">
-            {subtitle.split('mobility industry')[0]}
-            <span className="text-[#848484]">mobility industry</span>
+            {subtitle.split("mobility industry")[0]}
           </p>
         </div>
 
@@ -76,7 +82,10 @@ export function HomeCommunity({
 
             <ul className="mt-8 space-y-5">
               {manageBullets.map((bullet) => (
-                <li key={bullet} className="type-body-md flex items-start gap-4 text-white/78">
+                <li
+                  key={bullet}
+                  className="type-body-md flex items-start gap-4 text-white/78"
+                >
                   <span className="mt-2 inline-flex h-5 w-5 flex-none items-center justify-center rounded-full border border-[#ff7a01]/40 bg-[#ff7a01]/15 text-[10px] text-[#ff7a01]">
                     ✓
                   </span>
@@ -93,8 +102,8 @@ export function HomeCommunity({
                   ✓
                 </span>
                 <p className="font-ui max-w-[200px] text-[16px] font-medium leading-6 text-[#1b1c20]">
-                  <span className="font-semibold">AI-powered</span> scan complete exterior condition
-                  verified with high precision.
+                  <span className="font-semibold">AI-powered</span> scan
+                  complete exterior condition verified with high precision.
                 </p>
               </div>
             </div>
@@ -111,7 +120,10 @@ export function HomeCommunity({
 
         <div className="mt-20 rounded-[28px] bg-[radial-gradient(circle_at_50%_88%,rgba(19,104,185,0.95)_0%,rgba(19,104,185,0.25)_28%,rgba(255,122,1,0.48)_56%,rgba(8,14,28,0.92)_100%)] px-6 py-10 shadow-[0_40px_120px_-80px_rgba(255,122,1,0.7)] sm:px-10">
           <h3 className="mx-auto max-w-3xl text-center font-display text-3xl font-bold tracking-[-0.03em] text-white sm:text-4xl">
-            Trusted by <span className="text-white/70">{trustedTitle.replace('Trusted by ', '')}</span>
+            Trusted by{" "}
+            <span className="text-white/70">
+              {trustedTitle.replace("Trusted by ", "")}
+            </span>
           </h3>
 
           <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-5">
@@ -120,12 +132,16 @@ export function HomeCommunity({
                 key={`${logo.label}-${index}`}
                 className="flex min-h-24 items-center justify-center rounded-[12px] bg-white px-6 py-5"
               >
-                <SiteImage src={logo.image} alt={logo.label} className="h-12 w-auto object-contain" />
+                <SiteImage
+                  src={logo.image}
+                  alt={logo.label}
+                  className="h-12 w-auto object-contain"
+                />
               </div>
             ))}
           </div>
         </div>
       </div>
     </section>
-  )
+  );
 }

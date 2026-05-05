@@ -1,18 +1,18 @@
-'use client'
+"use client";
 
-import { homeContent } from '@/app/(site)/home/content'
+import { homeContent } from "@/app/(site)/home/content";
 
-import { HomeBusinessHelp } from './home-business-help'
-import { HomeCallToAction } from './home-call-to-action'
-import { HomeCommunity } from './home-community'
-import { HomeHero } from './home-hero'
-import { HomeHowItWorks } from './home-how-it-works'
-import { HomeKeyDifferentiators } from './home-key-differentiators'
-import { HomeBenefits } from './home-benefits'
-import { HomeTestimonials } from './home-testimonials'
-import { CaseStudies } from '../shared/case-studies'
-import { Reveal } from '../shared/reveal'
-import { SectionHeading } from '../ui/section-heading'
+import { HomeBusinessHelp } from "./home-business-help";
+import { HomeCallToAction } from "./home-call-to-action";
+import { HomeCommunity } from "./home-community";
+import { HomeHero } from "./home-hero";
+import { HomeHowItWorks } from "./home-how-it-works";
+import { HomeKeyDifferentiators } from "./home-key-differentiators";
+import { HomeBenefits } from "./home-benefits";
+import { HomeTestimonials } from "./home-testimonials";
+import { CaseStudies } from "../shared/case-studies";
+import { Reveal } from "../shared/reveal";
+import { SectionHeading } from "../ui/section-heading";
 
 export function HomePage() {
   return (
@@ -55,16 +55,19 @@ export function HomePage() {
         </Reveal>
 
         <Reveal>
-          <HomeBenefits title={homeContent.benefits.title} items={homeContent.benefits.items} />
+          <HomeBenefits
+            title={homeContent.benefits.title}
+            items={homeContent.benefits.items}
+          />
         </Reveal>
 
-        <Reveal>
+        {/* <Reveal>
           <HomeKeyDifferentiators
             title={homeContent.keyDifferentiators.title}
             items={homeContent.keyDifferentiators.items}
             image={homeContent.keyDifferentiators.image}
           />
-        </Reveal>
+        </Reveal> */}
 
         <section className="bg-[linear-gradient(180deg,#07132d_0%,#03112a_100%)]">
           <Reveal>
@@ -76,9 +79,14 @@ export function HomePage() {
             />
           </Reveal>
 
-          <CaseStudies
+          {/* <CaseStudies
             title={homeContent.caseStudies.title}
-            heading={<SectionHeading title={homeContent.caseStudies.title} theme="dark" />}
+            heading={
+              <SectionHeading
+                title={homeContent.caseStudies.title}
+                theme="dark"
+              />
+            }
             items={homeContent.caseStudies.items}
             arrowImage={homeContent.caseStudies.arrowImage}
             sectionClassName="px-4 pb-24 pt-10 sm:px-6 lg:px-10 lg:pb-28"
@@ -89,17 +97,17 @@ export function HomePage() {
             metricClassName="font-display text-5xl font-bold tracking-[-0.05em] sm:text-[64px] sm:leading-[70.4px]"
             titleClassName="mt-1 font-display text-[28px] font-medium leading-[1.1] tracking-[-0.03em]"
             descriptionClassName="type-body-md mt-5 max-w-[18rem] text-white/92"
-          />
+          /> */}
         </section>
 
-        <Reveal>
+        {/* <Reveal>
           <HomeTestimonials
             title={homeContent.testimonials.title}
             description={homeContent.testimonials.description}
             label={homeContent.testimonials.label}
             items={homeContent.testimonials.items}
           />
-        </Reveal>
+        </Reveal> */}
 
         <Reveal>
           <HomeCallToAction
@@ -112,5 +120,5 @@ export function HomePage() {
         </Reveal>
       </main>
     </div>
-  )
+  );
 }
