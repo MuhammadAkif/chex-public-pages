@@ -2,6 +2,7 @@ import * as migration_20260422_162945_initial_schema from './20260422_162945_ini
 import * as migration_20260427_111031_media_collection from './20260427_111031_media_collection';
 import * as migration_20260427_122450_locations_collection from './20260427_122450_locations_collection';
 import * as migration_20260429_000000_rideshare_sections from './20260429_000000_rideshare_sections';
+import * as migration_20260505_081314_location_register_section from './20260505_081314_location_register_section';
 
 export const migrations = [
   {
@@ -17,11 +18,16 @@ export const migrations = [
   {
     up: migration_20260427_122450_locations_collection.up,
     down: migration_20260427_122450_locations_collection.down,
-    name: '20260427_122450_locations_collection'
+    name: '20260427_122450_locations_collection',
   },
   {
     up: migration_20260429_000000_rideshare_sections.up,
     down: migration_20260429_000000_rideshare_sections.down,
-    name: '20260429_000000_rideshare_sections'
+    name: '20260429_000000_rideshare_sections',
+  },
+  {
+    up: migration_20260505_081314_location_register_section.up,
+    down: migration_20260505_081314_location_register_section.down,
+    name: '20260505_081314_location_register_section'
   },
 ];

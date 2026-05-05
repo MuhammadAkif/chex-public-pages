@@ -22,6 +22,8 @@ export function Navbar({ logo, links }: NavbarProps) {
   const pathname = usePathname();
   const [menuOpen, setMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
+  const inspectionHref =
+    pathname?.startsWith("/locations/") ? "#signup" : "/home#business-help";
 
   useEffect(() => {
     const updateScrollState = () => {
@@ -75,7 +77,7 @@ export function Navbar({ logo, links }: NavbarProps) {
         </nav>
 
         <div className="hidden lg:block">
-          <Button href="/home#business-help" size="sm">
+          <Button href={inspectionHref} size="sm">
             Start My Inspection
           </Button>
         </div>
@@ -116,7 +118,7 @@ export function Navbar({ logo, links }: NavbarProps) {
                 </a>
               );
             })}
-            <Button href="/home#business-help" fullWidth>
+            <Button href={inspectionHref} fullWidth>
               Start My Inspection
             </Button>
           </nav>

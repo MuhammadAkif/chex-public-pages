@@ -1006,6 +1006,129 @@ export const Locations: CollectionConfig = {
       required: true,
     },
     {
+      name: 'registerSection',
+      type: 'group',
+      admin: {
+        description:
+          'Full-width registration block with background image, headline, and sign-up form (after testimonials).',
+      },
+      fields: [
+        {
+          name: 'sectionId',
+          type: 'text',
+          admin: {
+            description: 'Optional anchor ID for in-page links (e.g. signup).',
+          },
+        },
+        ...mediaFields('backgroundImage', 'Background image'),
+        {
+          name: 'backgroundImageAlt',
+          type: 'text',
+          required: true,
+        },
+        {
+          name: 'headlineLines',
+          type: 'array',
+          admin: {
+            description: 'One row per line of the left headline (e.g. YOU CAN / MANAGE & / …).',
+          },
+          fields: [textItemField('text', 'Line')],
+          minRows: 1,
+          required: true,
+        },
+        {
+          name: 'formHeadingAccent',
+          type: 'text',
+          admin: {
+            description: 'Leading phrase shown in accent orange (e.g. Sign up).',
+          },
+          required: true,
+        },
+        {
+          name: 'formHeadingRest',
+          type: 'text',
+          admin: {
+            description: 'Remainder of the form title in white.',
+          },
+          required: true,
+        },
+        {
+          name: 'firstNamePlaceholder',
+          type: 'text',
+          required: true,
+        },
+        {
+          name: 'lastNamePlaceholder',
+          type: 'text',
+          required: true,
+        },
+        {
+          name: 'emailPlaceholder',
+          type: 'text',
+          required: true,
+        },
+        {
+          name: 'phonePlaceholder',
+          type: 'text',
+          required: true,
+        },
+        {
+          name: 'passwordPlaceholder',
+          type: 'text',
+          required: true,
+        },
+        {
+          name: 'termsPrefix',
+          type: 'text',
+          admin: {
+            description: 'Text before the Terms link (e.g. "By checking the box, you accept our ").',
+          },
+          required: true,
+        },
+        {
+          name: 'termsLinkLabel',
+          type: 'text',
+          required: true,
+        },
+        {
+          name: 'termsLinkHref',
+          type: 'text',
+          required: true,
+        },
+        {
+          name: 'registerButtonLabel',
+          type: 'text',
+          required: true,
+        },
+        {
+          name: 'registerButtonHref',
+          type: 'text',
+          admin: {
+            description: 'URL to open when the user submits (e.g. external app sign-up).',
+          },
+        },
+        {
+          name: 'loginPrefix',
+          type: 'text',
+          admin: {
+            description: 'Text before the Login link.',
+          },
+          required: true,
+        },
+        {
+          name: 'loginLinkLabel',
+          type: 'text',
+          required: true,
+        },
+        {
+          name: 'loginLinkHref',
+          type: 'text',
+          required: true,
+        },
+      ],
+      required: true,
+    },
+    {
       name: 'faq',
       type: 'group',
       fields: [

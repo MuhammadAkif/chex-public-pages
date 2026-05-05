@@ -6,6 +6,7 @@ import { getPayload } from 'payload'
 
 import type { LocationPageContent } from '../src/app/(site)/components/locations/location-page'
 import type { Location, Media } from '../src/payload-types'
+import { defaultRegisterSection } from './register-section-defaults'
 import {
   defaultPricingRideShareSection,
   defaultRegisterRideShareSection,
@@ -446,6 +447,31 @@ async function buildLocationData(
       title: content.overview.title,
     },
     pageClassName: content.pageClassName,
+    registerSection: {
+      ...(await mediaField(
+        payload,
+        'backgroundImage',
+        defaultRegisterSection.backgroundImage,
+      )),
+      backgroundImageAlt: defaultRegisterSection.backgroundImageAlt,
+      emailPlaceholder: defaultRegisterSection.emailPlaceholder,
+      firstNamePlaceholder: defaultRegisterSection.firstNamePlaceholder,
+      formHeadingAccent: defaultRegisterSection.formHeadingAccent,
+      formHeadingRest: defaultRegisterSection.formHeadingRest,
+      headlineLines: textRows(defaultRegisterSection.headlineLines),
+      lastNamePlaceholder: defaultRegisterSection.lastNamePlaceholder,
+      loginLinkHref: defaultRegisterSection.loginLinkHref,
+      loginLinkLabel: defaultRegisterSection.loginLinkLabel,
+      loginPrefix: defaultRegisterSection.loginPrefix,
+      passwordPlaceholder: defaultRegisterSection.passwordPlaceholder,
+      phonePlaceholder: defaultRegisterSection.phonePlaceholder,
+      registerButtonHref: defaultRegisterSection.registerButtonHref ?? null,
+      registerButtonLabel: defaultRegisterSection.registerButtonLabel,
+      sectionId: defaultRegisterSection.sectionId ?? null,
+      termsLinkHref: defaultRegisterSection.termsLinkHref,
+      termsLinkLabel: defaultRegisterSection.termsLinkLabel,
+      termsPrefix: defaultRegisterSection.termsPrefix,
+    },
     regions: {
       demoHref: content.regions.demoHref,
       description: content.regions.description,

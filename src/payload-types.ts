@@ -671,6 +671,61 @@ export interface Location {
       id?: string | null;
     }[];
   };
+  /**
+   * Full-width registration block with background image, headline, and sign-up form (after testimonials).
+   */
+  registerSection: {
+    /**
+     * Optional anchor ID for in-page links (e.g. signup).
+     */
+    sectionId?: string | null;
+    /**
+     * Background image selected from the Payload media library.
+     */
+    backgroundImage?: (string | null) | Media;
+    /**
+     * Migration fallback URL. The frontend prefers the media relationship when it is present.
+     */
+    backgroundImageFallbackUrl?: string | null;
+    backgroundImageAlt: string;
+    /**
+     * One row per line of the left headline (e.g. YOU CAN / MANAGE & / …).
+     */
+    headlineLines: {
+      text: string;
+      id?: string | null;
+    }[];
+    /**
+     * Leading phrase shown in accent orange (e.g. Sign up).
+     */
+    formHeadingAccent: string;
+    /**
+     * Remainder of the form title in white.
+     */
+    formHeadingRest: string;
+    firstNamePlaceholder: string;
+    lastNamePlaceholder: string;
+    emailPlaceholder: string;
+    phonePlaceholder: string;
+    passwordPlaceholder: string;
+    /**
+     * Text before the Terms link (e.g. "By checking the box, you accept our ").
+     */
+    termsPrefix: string;
+    termsLinkLabel: string;
+    termsLinkHref: string;
+    registerButtonLabel: string;
+    /**
+     * URL to open when the user submits (e.g. external app sign-up).
+     */
+    registerButtonHref?: string | null;
+    /**
+     * Text before the Login link.
+     */
+    loginPrefix: string;
+    loginLinkLabel: string;
+    loginLinkHref: string;
+  };
   faq: {
     /**
      * Stable DOM ID prefix for accordion controls.
@@ -1162,6 +1217,35 @@ export interface LocationsSelect<T extends boolean = true> {
               featured?: T;
               id?: T;
             };
+      };
+  registerSection?:
+    | T
+    | {
+        sectionId?: T;
+        backgroundImage?: T;
+        backgroundImageFallbackUrl?: T;
+        backgroundImageAlt?: T;
+        headlineLines?:
+          | T
+          | {
+              text?: T;
+              id?: T;
+            };
+        formHeadingAccent?: T;
+        formHeadingRest?: T;
+        firstNamePlaceholder?: T;
+        lastNamePlaceholder?: T;
+        emailPlaceholder?: T;
+        phonePlaceholder?: T;
+        passwordPlaceholder?: T;
+        termsPrefix?: T;
+        termsLinkLabel?: T;
+        termsLinkHref?: T;
+        registerButtonLabel?: T;
+        registerButtonHref?: T;
+        loginPrefix?: T;
+        loginLinkLabel?: T;
+        loginLinkHref?: T;
       };
   faq?:
     | T

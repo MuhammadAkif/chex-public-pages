@@ -126,7 +126,7 @@ export function LocationHero({
   primaryLabel,
   secondaryLabel: _secondaryLabel,
   helperText,
-  demoHref: _demoHref,
+  demoHref,
   stats,
   locations,
   sectionClassName = "",
@@ -213,7 +213,7 @@ export function LocationHero({
           </div>
 
           <div className="mt-10 flex flex-col gap-4 sm:flex-row">
-            <Button href="#services">{primaryLabel}</Button>
+            <Button href={demoHref || "#signup"}>{primaryLabel}</Button>
           </div>
           <p className="type-body-sm mt-4 capitalize text-[#010e2b]/80">
             {helperText}

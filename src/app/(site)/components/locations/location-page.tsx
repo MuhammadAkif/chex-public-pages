@@ -38,6 +38,10 @@ import {
   type LocationTestimonialsProps,
 } from "./location-testimonials";
 import { type LocationPricingProps } from "./location-pricing";
+import {
+  LocationRegister,
+  type LocationRegisterProps,
+} from "./location-register";
 
 export type LocationPageContent = {
   pageClassName: string;
@@ -53,6 +57,7 @@ export type LocationPageContent = {
   manage: LocationManageProps;
   caseStudies: LocationCaseStudiesProps;
   testimonials: LocationTestimonialsProps;
+  registerSection: LocationRegisterProps;
   faq: LocationFaqProps;
   cta: LocationCtaProps;
 };
@@ -88,9 +93,12 @@ export function LocationPage({ content }: { content: LocationPageContent }) {
         <Reveal>
           <LocationManage {...content.manage} />
         </Reveal>
-       {/* <LocationCaseStudies {...content.caseStudies} /> */}
+        {/* <LocationCaseStudies {...content.caseStudies} /> */}
         <Reveal>
           <LocationTestimonials {...content.testimonials} />
+        </Reveal>
+        <Reveal>
+          <LocationRegister {...content.registerSection} />
         </Reveal>
         <Reveal>
           <LocationFaq {...content.faq} />
