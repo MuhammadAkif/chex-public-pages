@@ -6,6 +6,9 @@ import {
 } from "@/app/(site)/components/shared/site-image";
 import { SurfaceCard } from "@/app/(site)/components/ui/surface-card";
 
+const COMMUNITY_RIGHT_IMAGE =
+  "https://chex-payload-public-pages.s3.us-east-1.amazonaws.com/Group%2048095685.png";
+
 type HomeCommunityProps = {
   title: string;
   subtitle: string;
@@ -110,7 +113,7 @@ export function HomeCommunity({
 
             <div className="rounded-[28px] border-8 border-[#d5d5d5] bg-white p-4 shadow-[0_50px_120px_-70px_rgba(0,0,0,0.65)]">
               <SiteImage
-                src={manageImage}
+                src={COMMUNITY_RIGHT_IMAGE || manageImage}
                 alt="Chex.AI mobile and desktop inspection interfaces"
                 className="h-auto w-full rounded-[22px] object-cover"
               />
