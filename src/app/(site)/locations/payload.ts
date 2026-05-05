@@ -342,10 +342,9 @@ function toLocationPageContent(location: Location): LocationPageContent {
     testimonials: {
       description: location.testimonials.description,
       items: (location.testimonials.items ?? []).map((item) => ({
-        featured: Boolean(item.featured),
         name: item.name,
         quote: item.quote,
-        role: item.role,
+        stars: item.stars ?? 5,
       })),
       label: location.testimonials.label,
       ...(testimonialsQuoteImage ? { quoteImage: testimonialsQuoteImage } : {}),

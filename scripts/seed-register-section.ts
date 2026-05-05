@@ -5,6 +5,7 @@ import {
   defaultPricingRideShareSection,
   defaultRegisterRideShareSection,
 } from './rideshare-section-defaults'
+import { locationTestimonialsSeed } from './location-testimonials-seed'
 
 const repoRoot = process.cwd()
 const { loadEnvConfig } = nextEnv
@@ -66,6 +67,23 @@ async function main() {
     let updated = 0
 
     for (const location of result.docs) {
+      const slug = String(location.slug ?? '')
+      const distributedTestimonials = locationTestimonialsSeed[slug] ?? []
+      const existingTestimonials = (location.testimonials?.items ?? [])
+        .filter((item) => item?.name && item?.quote)
+        .map((item) => ({
+          name: item.name,
+          quote: item.quote,
+          stars: item.stars ?? 5,
+        }))
+      const mergedTestimonials = [...distributedTestimonials, ...existingTestimonials].filter(
+        (item, index, all) =>
+          all.findIndex(
+            (candidate) =>
+              candidate.name === item.name && candidate.quote === item.quote,
+          ) === index,
+      )
+
       await payload.update({
         collection: 'locations',
         id: location.id,
@@ -145,6 +163,14 @@ async function main() {
             loginPrefix: defaultRegisterSection.loginPrefix,
             loginLinkLabel: defaultRegisterSection.loginLinkLabel,
             loginLinkHref: defaultRegisterSection.loginLinkHref,
+          },
+          testimonials: {
+            ...(location.testimonials ?? {}),
+            items: mergedTestimonials.map((item) => ({
+              name: item.name,
+              quote: item.quote,
+              stars: Math.max(1, Math.min(5, item.stars)),
+            })),
           },
         },
       })

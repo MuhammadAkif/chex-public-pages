@@ -636,10 +636,9 @@ async function buildLocationData(
       ...(await mediaField(payload, 'starImage', content.testimonials.starImage)),
       description: content.testimonials.description,
       items: content.testimonials.items.map((item) => ({
-        featured: Boolean(item.featured),
         name: item.name,
         quote: item.quote,
-        role: item.role,
+        stars: (item as { stars?: number }).stars ?? 5,
       })),
       label: content.testimonials.label,
       title: content.testimonials.title,

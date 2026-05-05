@@ -30,9 +30,8 @@ export type LocationTestimonialsProps = {
   starImage?: TestimonialAsset
   items: ReadonlyArray<{
     name: string
-    role: string
     quote: string
-    featured: boolean
+    stars: number
   }>
 }
 
@@ -364,10 +363,11 @@ function TestimonialStarIcon({ className }: { className?: string }) {
   )
 }
 
-function TestimonialFiveStars() {
+function TestimonialStars({ stars }: { stars: number }) {
+  const total = Math.max(1, Math.min(5, stars))
   return (
-    <div className="flex gap-1" aria-label="5 out of 5 stars">
-      {Array.from({ length: 5 }).map((_, i) => (
+    <div className="flex gap-1" aria-label={`${total} out of 5 stars`}>
+      {Array.from({ length: total }).map((_, i) => (
         <TestimonialStarIcon key={i} className="h-5 w-5 shrink-0 sm:h-6 sm:w-6" />
       ))}
     </div>
@@ -375,19 +375,20 @@ function TestimonialFiveStars() {
 }
 
 function TestimonialCard({ item }: { item: Item }) {
+  const avatarLetter = item.name.trim().charAt(0).toUpperCase() || 'R'
   return (
     <div className="group h-full min-h-0 cursor-default rounded-[16px] bg-[#e8e8e8] p-px transition-colors duration-200 ease-out group-hover:bg-[#1368b9] sm:rounded-[20px]">
       <div className="isolate flex h-full min-h-0 flex-col overflow-hidden rounded-[15px] bg-white p-6 text-left shadow-none transition-colors duration-200 ease-out [backface-visibility:hidden] [transform:translateZ(0)] group-hover:bg-[#1368b9] sm:rounded-[19px] sm:p-7">
-        <TestimonialFiveStars />
+        <TestimonialStars stars={item.stars} />
         <p className="font-ui mt-8 min-h-[5rem] flex-1 text-pretty text-[15px] font-normal leading-[1.55] text-[#666666] transition-colors duration-200 group-hover:text-white/90 sm:min-h-[5.5rem] sm:text-base sm:leading-[1.6]">
           {item.quote}
         </p>
-        <div className="mt-8">
+        <div className="mt-8 flex items-center gap-3">
+          <div className="flex h-11 w-11 items-center justify-center rounded-full bg-[#1368b9] font-ui text-[16px] font-bold text-white">
+            {avatarLetter}
+          </div>
           <p className="font-ui text-[18px] font-bold leading-snug text-black transition-colors duration-200 group-hover:text-white sm:text-[20px]">
             {item.name}
-          </p>
-          <p className="font-ui mt-1 text-[13px] font-normal leading-snug text-[#999999] transition-colors duration-200 group-hover:text-white/80 sm:text-sm">
-            {item.role}
           </p>
         </div>
       </div>
