@@ -46,7 +46,11 @@ export type LocationHeroProps = {
 
 function StarIcon() {
   return (
-    <svg viewBox="0 0 14 14" className="h-5 w-5 sm:h-6 sm:w-6" aria-hidden="true">
+    <svg
+      viewBox="0 0 14 14"
+      className="h-5 w-5 sm:h-6 sm:w-6"
+      aria-hidden="true"
+    >
       <path
         d="M7 1.05l1.77 3.58 3.95.57-2.86 2.79.68 3.94L7 10.07l-3.54 1.86.68-3.94L1.28 5.2l3.95-.57L7 1.05Z"
         fill="#ff7a01"
@@ -118,6 +122,9 @@ function OrbitMap({ locations }: Pick<LocationHeroProps, "locations">) {
     "left-[58%] top-[58%]",
     "left-[42%] top-[35%]",
     "left-[35%] top-[80%]",
+    "left-[52%] top-[80%]",
+    "left-[69%] top-[66%]",
+    "left-[25%] top-[67%]",
   ];
 
   return (
@@ -137,8 +144,7 @@ function OrbitMap({ locations }: Pick<LocationHeroProps, "locations">) {
       </div>
 
       {locations.map((location, index) => {
-        const position =
-          positions[index] ?? positions[positions.length - 1] ?? "";
+        const position = positions[index % positions.length] ?? "";
         const isFeatured = Boolean(location.featured);
 
         return (
