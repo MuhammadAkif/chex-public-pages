@@ -1,9 +1,9 @@
 export const homeContent = {
   hero: {
     rating: "4.8 (1667+ reviews)",
-    title: "AI powered vehicle safety inspection & damage detection",
+    title: "AI Powered Rideshare Vehicle Inspection & Instant Approval",
     description:
-      "CHEX.AI's Car Damage Recognition is an advanced AI solution that instantly detects dents, scratches, and body defects in vehicles using smartphone photos.",
+      "Chex.ai is the only certified AI inspection service accepted by Uber, Lyft, Turo, HopSkipDrive, Zum, Adroit, and Tribur. Complete your vehicle inspection from your phone in 30 minutes.",
     primaryLabel: "Register your inspection today",
     secondaryLabel: "Start My Inspection",
     helperText: "No Credit Card Required",
@@ -11,9 +11,9 @@ export const homeContent = {
       "https://chex-payload-public-pages.s3.us-east-1.amazonaws.com/chex-video.mp4",
   },
   community: {
-    title: "Our Community of Chex.AI is Trending Fast",
+    title: "Our Community of Chex.AI Drivers Is Growing Fast",
     subtitle:
-      "Our AI based solution simplifies vehicle inspections and automates damage documentation for the mobility industry",
+      "Our AI rideshare inspection solution simplifies vehicle inspections for every rideshare driver on every major platform",
     stats: [
       { value: "10000+", label: "Customers", tone: "sky" },
       { value: "5+", label: "Years of Experience", tone: "sand" },
@@ -22,14 +22,14 @@ export const homeContent = {
     manageTitle: "You can manage & inspect your car online",
     manageBullets: [
       "A Chex Verified Ecosystem interconnecting all of the various stakeholders",
-      "User-friendly app and comprehensive dashboard",
+      "User-friendly app",
       "Powered by advanced AI, allowing for real-time reporting on every inspected vehicle",
       "AI based reviews for pinpoint damage and safety items reporting",
     ],
     manageImage:
       "https://chex-payload-public-pages.s3.us-east-1.amazonaws.com/manage-inspection.png",
     trustedTitle:
-      "Trusted by brands that refuse to compromise on customer experience",
+      "Trusted by drivers on every major rideshare platforms",
     trustedLogos: [
       {
         image:
@@ -61,7 +61,7 @@ export const homeContent = {
   howItWorks: {
     title: "How it works",
     description:
-      "With a user-friendly app and comprehensive dashboard, Chex.AI streamlines inspection reviews and provides detailed insights, enhancing operational efficiency",
+      "With a user-friendly app and comprehensive dashboard, Get your certified rideshare vehicle inspection done in four simple steps — no appointments, no paperwork, no delays",
     steps: [
       {
         title: "Capture guided evidence",
@@ -92,35 +92,35 @@ export const homeContent = {
       {
         title: "Fast and convenient",
         description:
-          "Chex.AI's Inspection solution modernizes operations and is easy to use",
+          "No appointments. No waiting rooms. No shop visits Complete your entire rideshare vehicle inspection from your phone in 30 minutes or less — anytime, anywhere across all 50 states.",
         tone: "accent",
         icon: "spark",
       },
       {
         title: "Cost-effective",
         description:
-          "We provide the best service at a lower cost when compared to competition",
+          "One inspection starting at $24.99 covers every platform you drive.",
         tone: "muted",
         icon: "cost",
       },
       {
         title: "Increased accuracy",
         description:
-          "High accuracy levels and advanced machine vision technology to accurately pinpoint the damage",
+          "Chex.ai's AI inspection detects damage, lighting failures, and safety issues with precision",
         tone: "muted",
         icon: "target",
       },
       {
         title: "Improved customer experience",
         description:
-          "With Easy To Follow Guidelines Provided In App, customers can complete inspection in minutes",
+          " Drivers report faster platform approval times with Chex.ai compared to traditional mechanic inspections. Stay active on your platform without losing earning days to slow inspection processes",
         tone: "muted",
         icon: "people",
       },
       {
         title: "Better risk management",
         description:
-          "Visibility allows for strategic loss mitigation, allowing partners to higher profitability",
+          " Chex.ai's annual renewal reminders and inspection history storage ensure you never miss a deadline",
         tone: "muted",
         icon: "shield",
       },
@@ -138,9 +138,9 @@ export const homeContent = {
       "https://chex-payload-public-pages.s3.us-east-1.amazonaws.com/key-differentiators.png",
   },
   businessHelp: {
-    title: "How can we help your business?",
+    title: "How we help Rideshare Drivers?",
     description:
-      "We can help your business optimize asset inspection process. Our interactive dashboard allows you to review data in real time and provide feedback to your customers instantaneously!",
+      "We help your business optimize asset inspection process. Our interactive dashboard allows you to review data in real time and provide feedback to your customers instantaneously!",
     buttonLabel: "Contact us",
     image:
       "https://chex-payload-public-pages.s3.us-east-1.amazonaws.com/analytics-dashboard.png",
