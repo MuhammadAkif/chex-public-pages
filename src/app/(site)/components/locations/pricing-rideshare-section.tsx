@@ -1,6 +1,8 @@
 /* eslint-disable @next/next/no-img-element */
 
 type Tone = 'accent' | 'primary'
+const UBER_LOGO = 'https://chex-payload-public-pages.s3.us-east-1.amazonaws.com/uber-logo.png'
+const LYFT_LOGO = 'https://chex-payload-public-pages.s3.us-east-1.amazonaws.com/lyft-logo.png'
 
 export type PricingRideShareSectionProps = {
   title: string
@@ -35,6 +37,21 @@ const toneClasses: Record<Tone, { button: string; price: string }> = {
   },
 }
 
+const logoRowForPlan = (planName: string) => {
+  const normalized = planName.toLowerCase()
+  const hasUber = normalized.includes('uber')
+  const hasLyft = normalized.includes('lyft')
+
+  return {
+    hasLogo: hasUber || hasLyft,
+    logos: [
+      ...(hasUber ? [{ alt: 'Uber', src: UBER_LOGO }] : []),
+      ...(hasLyft ? [{ alt: 'Lyft', src: LYFT_LOGO }] : []),
+    ],
+    label: hasUber && hasLyft ? 'PLUS INSPECTION' : hasUber || hasLyft ? 'INSPECTION' : planName.toUpperCase(),
+  }
+}
+
 export function PricingRideShareSection({
   title,
   description,
@@ -58,18 +75,46 @@ export function PricingRideShareSection({
           {description}
         </p>
 
-        <div className="mt-11 grid gap-6 md:grid-cols-2 lg:gap-8">
+        <div className="mt-11 grid gap-5 md:grid-cols-2 lg:grid-cols-3 lg:gap-6">
           {plans.map((plan) => {
             const tone = plan.tone === 'accent' ? 'accent' : 'primary'
+            const logoRow = logoRowForPlan(plan.name)
+            const ctaHref = (plan.buttonHref || '').trim() || '#signup'
 
             return (
               <article
                 key={`${plan.name}-${plan.price}`}
-                className="flex min-h-[392px] flex-col items-center rounded-[8px] border border-[#e5edf7] bg-[#f7f9fc] px-6 py-8 shadow-[0_18px_55px_-36px_rgba(20,104,186,0.5)] sm:px-9"
+                className="flex min-h-[360px] flex-col items-center rounded-[8px] border border-[#e5edf7] bg-[#f7f9fc] px-5 py-7 shadow-[0_18px_55px_-36px_rgba(20,104,186,0.5)] sm:px-7"
               >
-                <h3 className="max-w-[13ch] whitespace-pre-line font-display text-[30px] font-semibold uppercase leading-[1.18] text-[#20242c] sm:text-[34px]">
-                  {plan.name}
-                </h3>
+                {logoRow.hasLogo ? (
+                  <div className="flex min-h-[70px] flex-col items-center justify-center">
+                    <div className="flex items-center justify-center gap-3">
+                      {logoRow.logos.map((logo, index) => (
+                        <div key={logo.alt} className="flex items-center gap-3">
+                          <img
+                            src={logo.src}
+                            alt={`${logo.alt} logo`}
+                            className={
+                              logo.alt === 'Lyft'
+                                ? 'h-14 w-auto object-contain sm:h-[60px]'
+                                : 'h-10 w-auto object-contain sm:h-11'
+                            }
+                          />
+                          {logoRow.logos.length === 2 && index === 0 ? (
+                            <span className="font-display text-[28px] font-bold leading-none text-[#1468ba]">+</span>
+                          ) : null}
+                        </div>
+                      ))}
+                    </div>
+                    <p className="mt-2 font-ui text-[28px] font-semibold tracking-[0.02em] text-[#20242c] sm:text-[32px]">
+                      {logoRow.label}
+                    </p>
+                  </div>
+                ) : (
+                  <h3 className="max-w-[13ch] whitespace-pre-line font-display text-[30px] font-semibold uppercase leading-[1.18] text-[#20242c] sm:text-[34px]">
+                    {plan.name}
+                  </h3>
+                )}
 
                 <div className="mt-7 flex items-start justify-center leading-none">
                   <span className={`mt-2 font-display text-[38px] font-bold ${toneClasses[tone].price}`}>
@@ -92,8 +137,8 @@ export function PricingRideShareSection({
                 )}
 
                 <a
-                  href={plan.buttonHref}
-                  className={`mt-auto inline-flex min-h-12 w-full max-w-[300px] items-center justify-center rounded-[8px] px-6 font-ui text-[16px] font-semibold transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#1368b9] focus-visible:ring-offset-2 ${toneClasses[tone].button}`}
+                  href={ctaHref}
+                  className={`mt-auto inline-flex min-h-12 w-full max-w-[300px] items-center justify-center rounded-[8px] px-6 font-ui text-[16px] font-semibold text-white visited:text-white hover:text-white transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#1368b9] focus-visible:ring-offset-2 ${toneClasses[tone].button}`}
                 >
                   {plan.buttonLabel}
                 </a>

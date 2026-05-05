@@ -1,6 +1,7 @@
 import nextEnv from '@next/env'
 import { getPayload } from 'payload'
 import { defaultRegisterSection } from './register-section-defaults'
+import { defaultPricingRideShareSection } from './rideshare-section-defaults'
 
 const repoRoot = process.cwd()
 const { loadEnvConfig } = nextEnv
@@ -70,6 +71,18 @@ async function main() {
             ...(location.showcase ?? {}),
             video: showcaseVideoID,
             videoFallbackUrl: showcaseVideoURL,
+          },
+          pricingRideShareSection: {
+            ...(location.pricingRideShareSection ?? {}),
+            plans: defaultPricingRideShareSection.plans.map((plan) => ({
+              buttonHref: plan.buttonHref,
+              buttonLabel: plan.buttonLabel,
+              description: plan.description,
+              name: plan.name,
+              price: plan.price,
+              subDescription: plan.subDescription ?? null,
+              tone: plan.tone ?? 'primary',
+            })),
           },
           registerSection: {
             sectionId: defaultRegisterSection.sectionId ?? null,
