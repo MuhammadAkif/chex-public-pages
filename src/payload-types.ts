@@ -690,6 +690,7 @@ export interface Location {
     starImageFallbackUrl?: string | null;
     items: {
       name: string;
+      avatar?: string | null;
       quote: string;
       stars: number;
       id?: string | null;
@@ -1256,6 +1257,7 @@ export interface LocationsSelect<T extends boolean = true> {
           | T
           | {
               name?: T;
+              avatar?: T;
               quote?: T;
               stars?: T;
               id?: T;

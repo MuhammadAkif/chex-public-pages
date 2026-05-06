@@ -1059,6 +1059,10 @@ export const Locations: CollectionConfig = {
               required: true,
             },
             {
+              name: 'avatar',
+              type: 'text',
+            },
+            {
               name: 'quote',
               type: 'textarea',
               required: true,

@@ -13,6 +13,7 @@ export type LocationTestimonialsProps = {
     name: string;
     quote: string;
     stars: number;
+    avatar?: string;
   }>;
 };
 
@@ -59,9 +60,18 @@ function TestimonialCard({ item }: { item: Item }) {
         {item.quote}
       </p>
       <div className="mt-5 flex items-center gap-3">
-        <div className="flex h-11 w-11 items-center justify-center rounded-full bg-[#1368b9] font-ui text-[16px] font-semibold text-white">
-          {letter}
-        </div>
+        {item.avatar ? (
+          // eslint-disable-next-line @next/next/no-img-element
+          <img
+            src={item.avatar}
+            alt={item.name}
+            className="h-11 w-11 rounded-full object-cover"
+          />
+        ) : (
+          <div className="flex h-11 w-11 items-center justify-center rounded-full bg-[#1368b9] font-ui text-[16px] font-semibold text-white">
+            {letter}
+          </div>
+        )}
         <div className="min-w-0">
           <p className="font-ui truncate text-[16px] font-semibold text-[#1b2f4b]">
             {item.name}

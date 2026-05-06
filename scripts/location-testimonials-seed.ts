@@ -1,4 +1,5 @@
 export type SeedTestimonial = {
+  avatar?: string | null
   name: string
   quote: string
   stars: number

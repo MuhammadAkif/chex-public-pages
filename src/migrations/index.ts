@@ -7,6 +7,7 @@ import * as migration_20260505_115759_hero_google_review_widget from './20260505
 import * as migration_20260505_123050_rideshare_step_reviews from './20260505_123050_rideshare_step_reviews';
 import * as migration_20260505_124044_rideshare_review_links from './20260505_124044_rideshare_review_links';
 import * as migration_20260505_131500_testimonials_distribution_cleanup from './20260505_131500_testimonials_distribution_cleanup';
+import * as migration_20260506_113000_testimonials_avatar from './20260506_113000_testimonials_avatar';
 
 export const migrations = [
   {
@@ -53,5 +54,10 @@ export const migrations = [
     up: migration_20260505_131500_testimonials_distribution_cleanup.up,
     down: migration_20260505_131500_testimonials_distribution_cleanup.down,
     name: '20260505_131500_testimonials_distribution_cleanup'
+  },
+  {
+    up: migration_20260506_113000_testimonials_avatar.up,
+    down: migration_20260506_113000_testimonials_avatar.down,
+    name: '20260506_113000_testimonials_avatar'
   },
 ];

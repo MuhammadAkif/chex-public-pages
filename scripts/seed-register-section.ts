@@ -6,14 +6,24 @@ import {
   defaultRegisterRideShareSection,
 } from './rideshare-section-defaults'
 import { locationTestimonialsSeed } from './location-testimonials-seed'
+import { reviewerAvatarMap } from './reviewer-avatar-map'
 
 const repoRoot = process.cwd()
 const { loadEnvConfig } = nextEnv
 loadEnvConfig(repoRoot)
 
+const normalizeReviewerName = (value: string) =>
+  value.trim().toLowerCase().replace(/\s+/g, ' ')
+
 async function main() {
   const { default: config } = await import('../payload.config')
   const payload = await getPayload({ config })
+  const reviewAvatarLookup = Object.fromEntries(
+    Object.entries(reviewerAvatarMap).map(([name, avatar]) => [
+      normalizeReviewerName(name),
+      avatar,
+    ]),
+  )
 
   try {
     const backgroundMediaFilename = 'register-bg-image.png'
@@ -72,6 +82,7 @@ async function main() {
       const existingTestimonials = (location.testimonials?.items ?? [])
         .filter((item) => item?.name && item?.quote)
         .map((item) => ({
+          avatar: item.avatar ?? null,
           name: item.name,
           quote: item.quote,
           stars: item.stars ?? 5,
@@ -167,6 +178,10 @@ async function main() {
           testimonials: {
             ...(location.testimonials ?? {}),
             items: mergedTestimonials.map((item) => ({
+              avatar:
+                item.avatar ??
+                reviewAvatarLookup[normalizeReviewerName(item.name)] ??
+                null,
               name: item.name,
               quote: item.quote,
               stars: Math.max(1, Math.min(5, item.stars)),

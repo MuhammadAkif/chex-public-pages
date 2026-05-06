@@ -342,6 +342,7 @@ function toLocationPageContent(location: Location): LocationPageContent {
     testimonials: {
       description: location.testimonials.description,
       items: (location.testimonials.items ?? []).map((item) => ({
+        avatar: optionalString(item.avatar),
         name: item.name,
         quote: item.quote,
         stars: item.stars ?? 5,
