@@ -15,9 +15,10 @@ export const homeContent = {
     subtitle:
       "Our AI rideshare inspection solution simplifies vehicle inspections for every rideshare driver on every major platform",
     stats: [
-      { value: "10000+", label: "Customers", tone: "sky" },
+      { value: "50k+", label: "Inspections", tone: "sky" },
       { value: "5+", label: "Years of Experience", tone: "sand" },
-      { value: "20+", label: "Companies", tone: "ice" },
+      { value: "4.8*", label: "Average Driver Rating", tone: "ice" },
+       { value: "5 min", label: "Average Inspection Time", tone: "ice" },
     ],
     manageTitle: "You can manage & inspect your car online",
     manageBullets: [
@@ -223,8 +224,7 @@ export const homeContent = {
     title: "Ready to modernize your inspections?",
     description:
       "Join the hundreds of automotive brands leading the AI revolution. Start your risk-free 14-day trial today.",
-    primaryLabel: "Start free Inspection",
-    secondaryLabel: "Talk to an expert",
+    secondaryLabel: "Start My Inspection",
     helperText: "No Credit Card Required, Cancel Anytime.",
   },
 } as const;

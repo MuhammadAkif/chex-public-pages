@@ -56,7 +56,7 @@ export function HomeCommunity({
             {titleSuffix}
           </h2>
 
-          <div className="mt-12 grid gap-4 md:grid-cols-3">
+              <div className="mt-12 grid grid-cols-2 gap-4 md:grid-cols-4">
             {stats.map((stat) => (
               <SurfaceCard
                 key={stat.label}
@@ -65,7 +65,7 @@ export function HomeCommunity({
                 <div className="font-display text-[44px] font-bold leading-none">
                   {stat.value}
                 </div>
-                <div className="type-body-md mt-2 leading-normal">
+                <div className="type-body-sm mt-2 leading-normal">
                   {stat.label}
                 </div>
               </SurfaceCard>

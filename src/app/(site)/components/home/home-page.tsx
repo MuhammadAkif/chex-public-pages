@@ -113,7 +113,7 @@ export function HomePage() {
           <HomeCallToAction
             title={homeContent.cta.title}
             description={homeContent.cta.description}
-            primaryLabel={homeContent.cta.primaryLabel}
+
             secondaryLabel={homeContent.cta.secondaryLabel}
             helperText={homeContent.cta.helperText}
           />
