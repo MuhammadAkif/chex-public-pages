@@ -1,5 +1,6 @@
 "use client";
 
+import { useEffect, useRef } from "react";
 import { SectionHeading } from "@/app/(site)/components/ui/section-heading";
 
 export type LocationTestimonialsProps = {
@@ -74,6 +75,8 @@ function TestimonialCard({ item }: { item: Item }) {
   );
 }
 
+const CARD_GAP = 16; // matches gap-4
+
 function Column({
   items,
   direction,
@@ -85,16 +88,63 @@ function Column({
 }) {
   if (!items.length) return null;
   const loop = [...items, ...items];
-  const animationName = direction === "up" ? "locLoveUp" : "locLoveDown";
+
+  const innerRef = useRef<HTMLDivElement>(null);
+  const rafRef = useRef<number>(0);
+  const halfHeightRef = useRef(0);
+
+  useEffect(() => {
+    const el = innerRef.current;
+    if (!el) return;
+
+    // Measure the pixel height of the first half (N items + N gaps).
+    // N gaps because flex gap also appears between the last card of copy 1
+    // and the first card of copy 2.
+    function measureHalfHeight() {
+      const children = Array.from(el!.children) as HTMLElement[];
+      const N = items.length;
+      let h = 0;
+      for (let i = 0; i < N; i++) {
+        h += children[i]?.offsetHeight ?? 0;
+      }
+      halfHeightRef.current = h + N * CARD_GAP;
+    }
+
+    measureHalfHeight();
+    const ro = new ResizeObserver(measureHalfHeight);
+    ro.observe(el);
+
+    let progress = 0;
+    let lastTime: number | null = null;
+    const totalMs = durationSeconds * 1000;
+
+    function frame(now: number) {
+      if (lastTime === null) lastTime = now;
+      // Clamp dt so a hidden-tab resume doesn't cause a visible jump
+      const dt = Math.min(now - lastTime, 100);
+      lastTime = now;
+
+      progress = (progress + dt / totalMs) % 1;
+
+      const h = halfHeightRef.current;
+      if (h > 0) {
+        const ty = direction === "up" ? -progress * h : -(1 - progress) * h;
+        el!.style.transform = `translateY(${ty}px)`;
+      }
+
+      rafRef.current = requestAnimationFrame(frame);
+    }
+
+    rafRef.current = requestAnimationFrame(frame);
+    return () => {
+      cancelAnimationFrame(rafRef.current);
+      ro.disconnect();
+    };
+  }, [items, direction, durationSeconds]);
 
   return (
     <div className="relative h-[620px] overflow-hidden">
-      <div
-        className="flex flex-col gap-4 will-change-transform"
-        style={{
-          animation: `${animationName} ${durationSeconds}s linear infinite`,
-        }}
-      >
+      <div ref={innerRef} className="flex flex-col gap-4 will-change-transform">
         {loop.map((item, index) => (
           <TestimonialCard key={`${item.name}-${index}`} item={item} />
         ))}
@@ -127,26 +177,6 @@ export function LocationTestimonials({
           <Column items={col3} direction="up" durationSeconds={42} />
         </div>
       </div>
-
-      <style jsx global>{`
-        @keyframes locLoveUp {
-          0% {
-            transform: translateY(0);
-          }
-          100% {
-            transform: translateY(calc(-50% - 8px));
-          }
-        }
-
-        @keyframes locLoveDown {
-          0% {
-            transform: translateY(calc(-50% - 8px));
-          }
-          100% {
-            transform: translateY(0);
-          }
-        }
-      `}</style>
     </section>
   );
 }
