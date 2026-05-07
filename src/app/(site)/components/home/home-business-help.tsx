@@ -1,13 +1,17 @@
 "use client";
 
 import { useRef } from "react";
-import { SiteImage, type SiteImageSource } from "@/app/(site)/components/shared/site-image";
+import {
+  SiteImage,
+  type SiteImageSource,
+} from "@/app/(site)/components/shared/site-image";
 import { Button } from "@/app/(site)/components/ui/button";
 
 // Add more cards here to extend the scroller
 const BUSINESS_CARDS = [
   {
-    image: "https://chex-payload-public-pages.s3.us-east-1.amazonaws.com/reviews%20card-1.png",
+    image:
+      "https://chex-payload-public-pages.s3.us-east-1.amazonaws.com/reviews%20card-1.png",
     quoteBefore: "Fast and easy!... Received my certificate ",
     quoteHighlight: "within 5 minutes",
     quoteAfter: " after submitting the inspection.",
@@ -15,20 +19,55 @@ const BUSINESS_CARDS = [
     role: "Founder: @XYZ",
   },
   {
-    image: "https://chex-payload-public-pages.s3.us-east-1.amazonaws.com/reviews%20card-2.png",
-    quoteBefore: "Great fast service! Beats going all over town when you can have your ",
+    image:
+      "https://chex-payload-public-pages.s3.us-east-1.amazonaws.com/reviews%20card-2.png",
+    quoteBefore:
+      "Great fast service! Beats going all over town when you can have your ",
     quoteHighlight: "inspection immediately from home.",
     quoteAfter: "",
     name: "Kent Malveaux",
     role: "Founder: @XYZ",
   },
+  {
+    image:
+      "https://chex-payload-public-pages.s3.us-east-1.amazonaws.com/reviews%20card-3-1.png",
+    quoteBefore:
+      "Super fast and work with Uber and Lyft! 5 stars and would highly recommend",
+    quoteHighlight: "5 stars",
+    quoteAfter: "",
+    name: "Kent Malveaux",
+    role: "Founder: @XYZ",
+  },
+  {
+    image:
+      "https://chex-payload-public-pages.s3.us-east-1.amazonaws.com/reviews%20card-4.png",
+    quoteBefore: "Thank you for your assistance....",
+    quoteHighlight: "assistance",
+    quoteAfter: "",
+    name: "Venessa Fairley",
+    role: "Founder: @XYZ",
+  },
+  {
+    image:
+      "https://chex-payload-public-pages.s3.us-east-1.amazonaws.com/reviews%20card-5.png",
+    quoteBefore: "Smooth transaction. Will definitely use again.",
+    quoteHighlight: "use again",
+    quoteAfter: "",
+    name: "Manuel beronilla",
+    role: "Founder: @XYZ",
+  },
+  {
+    image:
+      "https://chex-payload-public-pages.s3.us-east-1.amazonaws.com/reviews%20card-6.png",
+    quoteBefore: "Quick cheap and easy with same day results - tough to beat.",
+    quoteHighlight: "tough to beat",
+    quoteAfter: "",
+    name: "Armando Valencia",
+    role: "Founder: @XYZ",
+  },
 ];
 
-function ImageDragger({
-  cards,
-}: {
-  cards: typeof BUSINESS_CARDS;
-}) {
+function ImageDragger({ cards }: { cards: typeof BUSINESS_CARDS }) {
   const containerRef = useRef<HTMLDivElement>(null);
   const isDragging = useRef(false);
   const startX = useRef(0);
@@ -54,18 +93,29 @@ function ImageDragger({
     containerRef.current?.classList.replace("cursor-grabbing", "cursor-grab");
   }
 
+  function onWheel(e: React.WheelEvent<HTMLDivElement>) {
+    if (!containerRef.current) return;
+    if (Math.abs(e.deltaY) <= Math.abs(e.deltaX)) return;
+    e.preventDefault();
+    containerRef.current.scrollLeft += e.deltaY;
+  }
+
   return (
     <div
       ref={containerRef}
-      className="flex cursor-grab gap-4 overflow-x-auto select-none"
-      style={{ scrollbarWidth: "none" }}
+      className="flex cursor-grab gap-4 overflow-x-auto scroll-smooth pb-2 select-none [scrollbar-width:thin]"
+      style={{ touchAction: "pan-x" }}
       onMouseDown={onMouseDown}
       onMouseMove={onMouseMove}
       onMouseUp={stopDrag}
       onMouseLeave={stopDrag}
+      onWheel={onWheel}
     >
       {cards.map((card, index) => (
-        <div key={index} className="relative w-[500px] flex-none overflow-hidden rounded-[20px]">
+        <div
+          key={index}
+          className="relative w-[500px] flex-none snap-start overflow-hidden rounded-[20px]"
+        >
           <SiteImage
             src={card.image}
             alt={card.name}
@@ -124,7 +174,10 @@ export function HomeBusinessHelp({
 
           <div
             className="shadow-[0_40px_120px_-60px_rgba(19,104,185,0.6)]"
-            style={{ marginRight: "calc(-1 * max(0px, (100vw - 1240px) / 2))", marginLeft: "7rem" }}
+            style={{
+              marginRight: "calc(-1 * max(0px, (100vw - 1240px) / 2))",
+              marginLeft: "7rem",
+            }}
           >
             <ImageDragger cards={BUSINESS_CARDS} />
           </div>
