@@ -5,6 +5,7 @@ import type { ReactNode } from 'react'
 type ButtonProps = {
   children: ReactNode
   href?: string
+  onClick?: () => void
   variant?: 'accent' | 'outline' | 'dark' | 'light'
   size?: 'sm' | 'md' | 'lg'
   className?: string
@@ -30,6 +31,7 @@ const sizeClasses: Record<NonNullable<ButtonProps['size']>, string> = {
 export function Button({
   children,
   href,
+  onClick,
   variant = 'accent',
   size = 'md',
   className = '',
@@ -49,14 +51,14 @@ export function Button({
 
   if (href) {
     return (
-      <a href={href} className={classes}>
+      <a href={href} className={classes} onClick={onClick}>
         {children}
       </a>
     )
   }
 
   return (
-    <button type={type} className={classes}>
+    <button type={type} className={classes} onClick={onClick}>
       {children}
     </button>
   )

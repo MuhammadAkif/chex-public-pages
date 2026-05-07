@@ -8,6 +8,7 @@ import {
   type SiteImageSource,
 } from "@/app/(site)/components/shared/site-image";
 import { Button } from "@/app/(site)/components/ui/button";
+import { useRegisterModal } from "@/app/(site)/components/home/register-modal";
 
 type NavbarProps = {
   logo: SiteImageSource;
@@ -22,8 +23,10 @@ export function Navbar({ logo, links }: NavbarProps) {
   const pathname = usePathname();
   const [menuOpen, setMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
-  const inspectionHref =
-    pathname?.startsWith("/locations/") ? "#signup" : "/home#business-help";
+  const { openModal } = useRegisterModal();
+  const isLocationsPage = pathname?.startsWith("/locations/");
+  const inspectionHref = isLocationsPage ? "#signup" : undefined;
+  const onInspectionClick = isLocationsPage ? undefined : openModal;
 
   useEffect(() => {
     const updateScrollState = () => {
@@ -77,7 +80,7 @@ export function Navbar({ logo, links }: NavbarProps) {
         </nav>
 
         <div className="hidden lg:block">
-          <Button href={inspectionHref} size="sm">
+          <Button href={inspectionHref} onClick={onInspectionClick} size="sm" className="cursor-pointer">
             Start My Inspection
           </Button>
         </div>
@@ -118,7 +121,7 @@ export function Navbar({ logo, links }: NavbarProps) {
                 </a>
               );
             })}
-            <Button href={inspectionHref} fullWidth>
+            <Button href={inspectionHref} onClick={onInspectionClick} fullWidth className="cursor-pointer">
               Start My Inspection
             </Button>
           </nav>

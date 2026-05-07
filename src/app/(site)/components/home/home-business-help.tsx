@@ -111,10 +111,10 @@ export function HomeBusinessHelp({
         <div className="grid items-center gap-10 lg:grid-cols-[1.1fr_0.9fr]">
           <div className="relative">
             <div className="pointer-events-none absolute -left-10 top-1/2 h-56 w-56 -translate-y-1/2 rounded-full bg-[radial-gradient(circle,_rgba(255,122,1,0.3)_0%,_rgba(255,122,1,0)_72%)] blur-2xl" />
-            <h2 className="type-section-heading max-w-md text-white">
+            <h2 className="type-section-heading max-w-xl text-white">
               {title}
             </h2>
-            <p className="type-body-lg mt-8 max-w-lg text-white/80">
+            <p className="type-body-lg mt-8 max-w-xl text-white/80">
               {description}
             </p>
             <div className="mt-10">

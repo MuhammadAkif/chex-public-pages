@@ -66,6 +66,16 @@ export const homeContent = {
           "https://chex-payload-public-pages.s3.us-east-1.amazonaws.com/logo-zum.png",
         label: "Zum",
       },
+       {
+        image:
+          "https://chex-payload-public-pages.s3.us-east-1.amazonaws.com/images.png",
+        label: "HopSkipDrive",
+      },
+       {
+        image:
+          "https://chex-payload-public-pages.s3.us-east-1.amazonaws.com/unnamed%20(1).png",
+        label: "Triburs",
+      },
     ],
   },
   howItWorks: {
@@ -214,20 +224,18 @@ export const homeContent = {
     description: "We are happy when our customers are too.",
     label: "What Our Client Say About Us?",
     items: [
-      {
-        name: "Mousa Naseer",
-        role: "Regional Markets Executive",
-        quote:
-          "The app was easy to follow, the pictures showing what was required of me to take made it simple. Upload was fast. They responded quickly and had the inspection back within a half hour! Thank you. Well worth the money.",
-        featured: true,
-      },
-      {
-        name: "Andressa Amorim",
-        role: "Regional Markets Executive",
-        quote:
-          "Chexai was really easy to use, better than going to the mechanic!",
-        featured: false,
-      },
+      { name: "Mark Melancon", quote: "The support team helped me when Uber was not accepting my inspection. Resolved it quickly and professionally.", stars: 5, avatar: "https://i.pravatar.cc/100?img=11" },
+      { name: "Kelsey Proofreads", quote: "Process was simple, quick, and informative. They make sure you have an explanation and an example photo/video for what they're looking for. I got my results (certificate) about 20 minutes after completing my inspection. Thanks Chex.AI for making this quick and affordable without needing to leave my house.", stars: 5, avatar: "https://i.pravatar.cc/100?img=5" },
+      { name: "Mary Lugo", quote: "Quick and easy to use. The interface made everything straightforward from start to finish.", stars: 5, avatar: "https://i.pravatar.cc/100?img=9" },
+      { name: "Mubarak Behi", quote: "Quick and efficient! Great price and easy to upload all photos and videos required. Will definitely recommend and use it next year!", stars: 5, avatar: "https://i.pravatar.cc/100?img=15" },
+      { name: "Angela Bishop", quote: "Chex.ai was really easy to use, better than going to the mechanic!", stars: 5, avatar: "https://i.pravatar.cc/100?img=23" },
+      { name: "Ali Alshammari", quote: "Rideshare for five years now I have tried other services and this is by far the best! Easiest to complete and lowest price that I've seen out there.", stars: 5, avatar: "https://i.pravatar.cc/100?img=33" },
+      { name: "Hovannss Kupelyan", quote: "Positive Value. Got my inspection done in under 10 minutes. Highly recommend to any rideshare driver.", stars: 5, avatar: "https://i.pravatar.cc/100?img=52" },
+      { name: "Slamnjamin Dio", quote: "Excellent customer service!!! They walked me through every step and made sure I was fully certified before the end of the day.", stars: 5, avatar: "https://i.pravatar.cc/100?img=60" },
+      { name: "Mousa Naseer", quote: "The app was easy to follow, the pictures showing what was required of me to take made it simple. Upload was fast. They responded quickly and had the inspection back within a half hour! Thank you. Well worth the money.", stars: 5, avatar: "https://i.pravatar.cc/100?img=67" },
+      { name: "Andressa Amorim", quote: "Chexai was really easy to use, better than going to the mechanic!", stars: 5, avatar: "https://i.pravatar.cc/100?img=44" },
+      { name: "James Tillman", quote: "It beats scheduling an appointment with a mechanic. A handful of snapshots and a few minutes of your time and you're done.", stars: 5, avatar: "https://i.pravatar.cc/100?img=70" },
+      { name: "Sofia Reyes", quote: "I've been using Chex.AI for two years straight. Every renewal is just as smooth as the first time.", stars: 5, avatar: "https://i.pravatar.cc/100?img=47" },
     ],
   },
   cta: {

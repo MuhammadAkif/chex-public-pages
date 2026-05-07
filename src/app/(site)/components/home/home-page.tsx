@@ -7,12 +7,9 @@ import { HomeCallToAction } from "./home-call-to-action";
 import { HomeCommunity } from "./home-community";
 import { HomeHero } from "./home-hero";
 import { HomeHowItWorks } from "./home-how-it-works";
-import { HomeKeyDifferentiators } from "./home-key-differentiators";
 import { HomeBenefits } from "./home-benefits";
-import { HomeTestimonials } from "./home-testimonials";
-import { CaseStudies } from "../shared/case-studies";
+import { LocationTestimonials } from "../locations/location-testimonials";
 import { Reveal } from "../shared/reveal";
-import { SectionHeading } from "../ui/section-heading";
 
 export function HomePage() {
   return (
@@ -108,6 +105,15 @@ export function HomePage() {
             items={homeContent.testimonials.items}
           />
         </Reveal> */}
+
+        <Reveal>
+          <LocationTestimonials
+            title={homeContent.testimonials.title}
+            description={homeContent.testimonials.description}
+            label={homeContent.testimonials.label}
+            items={homeContent.testimonials.items}
+          />
+        </Reveal>
 
         <Reveal>
           <HomeCallToAction

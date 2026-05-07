@@ -5,12 +5,12 @@ import {
   type SiteImageSource,
 } from "@/app/(site)/components/shared/site-image";
 import { Button } from "@/app/(site)/components/ui/button";
+import { useRegisterModal } from "./register-modal";
 
 type HomeHeroProps = {
   rating: string;
   title: string;
   description: string;
-  primaryLabel: string;
   secondaryLabel: string;
   helperText: string;
   media: SiteImageSource;
@@ -24,11 +24,11 @@ export function HomeHero({
   rating,
   title,
   description,
-  primaryLabel,
   secondaryLabel,
   helperText,
   media,
 }: HomeHeroProps) {
+  const { openModal } = useRegisterModal();
   const videoSource = isVideoSource(media) ? media : null;
 
   return (
@@ -53,11 +53,7 @@ export function HomeHero({
         </p>
 
         <div className="mt-10 flex flex-col items-center gap-4 sm:flex-row">
-          <Button href="#how-it-works" variant="outline">
-            {primaryLabel}
-            <span aria-hidden="true">↗</span>
-          </Button>
-          <Button href="#business-help">{secondaryLabel}</Button>
+          <Button onClick={openModal} className="cursor-pointer">{secondaryLabel}</Button>
         </div>
 
         <p className="type-body-sm mt-4 text-[#41546e]">{helperText}</p>
