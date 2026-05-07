@@ -3,7 +3,7 @@ export const siteContent = {
   navigationLinks: [
     { label: "Home", href: "/home", active: true },
     { label: "Services", href: "/home#how-it-works" },
-    { label: "Blog", href: "/home#case-studies" },
+    { label: "Blog", href: "/blogs" },
     { label: "Contact us", href: "/home#footer" },
     { label: "Dashboard", href: "/home#business-help" },
   ],
