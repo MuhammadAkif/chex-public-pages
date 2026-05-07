@@ -97,7 +97,7 @@ function ImageDragger({ cards }: { cards: typeof BUSINESS_CARDS }) {
     ro.observe(el);
 
     let lastTime: number | null = null;
-    const totalMs = 28000;
+    const totalMs = 42000;
 
     function frame(now: number) {
       if (lastTime === null) lastTime = now;
@@ -157,7 +157,7 @@ function ImageDragger({ cards }: { cards: typeof BUSINESS_CARDS }) {
         {loop.map((card, index) => (
           <div
             key={index}
-            className="relative w-[500px] flex-none overflow-hidden rounded-[20px]"
+            className="relative w-[400px] flex-none overflow-hidden rounded-[20px] xl:w-[430px]"
           >
             <SiteImage
               src={card.image}
@@ -201,9 +201,9 @@ export function HomeBusinessHelp({
       id="business-help"
       className="overflow-hidden pb-16 pt-20 lg:pb-24 lg:pt-28"
     >
-      <div className="mx-auto max-w-[1240px] px-4 sm:px-6 lg:pl-10 lg:pr-0">
-        <div className="grid items-center gap-10 lg:grid-cols-[1fr_1fr]">
-          <div className="relative">
+      <div className="mx-auto max-w-[1240px] px-4 sm:px-6 lg:px-10">
+        <div className="grid items-center gap-10 lg:grid-cols-[0.4fr_0.6fr] lg:gap-12">
+          <div className="relative min-w-0">
             <div className="pointer-events-none absolute -left-10 top-1/2 h-56 w-56 -translate-y-1/2 rounded-full bg-[radial-gradient(circle,_rgba(255,122,1,0.3)_0%,_rgba(255,122,1,0)_72%)] blur-2xl" />
             <h2 className="type-section-heading max-w-xl text-white">
               {title}
@@ -217,7 +217,7 @@ export function HomeBusinessHelp({
           </div>
 
           <div
-            className="relative shadow-[0_40px_120px_-60px_rgba(19,104,185,0.6)]"
+            className="relative min-w-0 shadow-[0_40px_120px_-60px_rgba(19,104,185,0.6)]"
             style={{
               marginRight: "calc(-1 * max(0px, (100vw - 1240px) / 2))",
             }}
