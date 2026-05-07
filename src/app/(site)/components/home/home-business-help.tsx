@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef } from "react";
+import { useEffect, useRef } from "react";
 import {
   SiteImage,
   type SiteImageSource,
@@ -67,75 +67,119 @@ const BUSINESS_CARDS = [
   },
 ];
 
-function ImageDragger({ cards }: { cards: typeof BUSINESS_CARDS }) {
-  const containerRef = useRef<HTMLDivElement>(null);
-  const isDragging = useRef(false);
-  const startX = useRef(0);
-  const scrollLeft = useRef(0);
+const CARD_GAP = 16; // gap-4
 
-  function onMouseDown(e: React.MouseEvent<HTMLDivElement>) {
-    isDragging.current = true;
-    const el = containerRef.current!;
-    startX.current = e.pageX - el.getBoundingClientRect().left;
-    scrollLeft.current = el.scrollLeft;
-    el.classList.replace("cursor-grab", "cursor-grabbing");
+function ImageDragger({ cards }: { cards: typeof BUSINESS_CARDS }) {
+  const loop = [...cards, ...cards];
+  const outerRef = useRef<HTMLDivElement>(null);
+  const innerRef = useRef<HTMLDivElement>(null);
+  const rafRef = useRef<number>(0);
+  const halfWidthRef = useRef(0);
+  const progressRef = useRef(0);
+  const isPausedRef = useRef(false);
+  const dragStartX = useRef(0);
+  const dragStartProgress = useRef(0);
+
+  useEffect(() => {
+    const el = innerRef.current;
+    if (!el) return;
+
+    function measureHalfWidth() {
+      const children = Array.from(el!.children) as HTMLElement[];
+      const N = cards.length;
+      let w = 0;
+      for (let i = 0; i < N; i++) w += children[i]?.offsetWidth ?? 0;
+      halfWidthRef.current = w + N * CARD_GAP;
+    }
+
+    measureHalfWidth();
+    const ro = new ResizeObserver(measureHalfWidth);
+    ro.observe(el);
+
+    let lastTime: number | null = null;
+    const totalMs = 28000;
+
+    function frame(now: number) {
+      if (lastTime === null) lastTime = now;
+      const dt = Math.min(now - lastTime, 100);
+      lastTime = now;
+
+      if (!isPausedRef.current) {
+        progressRef.current = (progressRef.current + dt / totalMs) % 1;
+      }
+
+      const h = halfWidthRef.current;
+      if (h > 0) {
+        el!.style.transform = `translateX(${-progressRef.current * h}px)`;
+      }
+
+      rafRef.current = requestAnimationFrame(frame);
+    }
+
+    rafRef.current = requestAnimationFrame(frame);
+    return () => {
+      cancelAnimationFrame(rafRef.current);
+      ro.disconnect();
+    };
+  }, [cards]);
+
+  function onMouseDown(e: React.MouseEvent) {
+    isPausedRef.current = true;
+    dragStartX.current = e.clientX;
+    dragStartProgress.current = progressRef.current;
+    outerRef.current?.classList.replace("cursor-grab", "cursor-grabbing");
   }
 
-  function onMouseMove(e: React.MouseEvent<HTMLDivElement>) {
-    if (!isDragging.current || !containerRef.current) return;
-    e.preventDefault();
-    const x = e.pageX - containerRef.current.getBoundingClientRect().left;
-    containerRef.current.scrollLeft = scrollLeft.current - (x - startX.current);
+  function onMouseMove(e: React.MouseEvent) {
+    if (!isPausedRef.current) return;
+    const dx = dragStartX.current - e.clientX;
+    const h = halfWidthRef.current;
+    if (h > 0) {
+      progressRef.current = ((dragStartProgress.current + dx / h) % 1 + 1) % 1;
+    }
   }
 
   function stopDrag() {
-    isDragging.current = false;
-    containerRef.current?.classList.replace("cursor-grabbing", "cursor-grab");
-  }
-
-  function onWheel(e: React.WheelEvent<HTMLDivElement>) {
-    if (!containerRef.current) return;
-    if (Math.abs(e.deltaY) <= Math.abs(e.deltaX)) return;
-    e.preventDefault();
-    containerRef.current.scrollLeft += e.deltaY;
+    isPausedRef.current = false;
+    outerRef.current?.classList.replace("cursor-grabbing", "cursor-grab");
   }
 
   return (
     <div
-      ref={containerRef}
-      className="flex cursor-grab gap-4 overflow-x-auto scroll-smooth pb-2 select-none [scrollbar-width:thin]"
-      style={{ touchAction: "pan-x" }}
+      ref={outerRef}
+      className="cursor-grab overflow-hidden"
       onMouseDown={onMouseDown}
       onMouseMove={onMouseMove}
       onMouseUp={stopDrag}
       onMouseLeave={stopDrag}
-      onWheel={onWheel}
     >
-      {cards.map((card, index) => (
-        <div
-          key={index}
-          className="relative w-[500px] flex-none snap-start overflow-hidden rounded-[20px]"
-        >
-          <SiteImage
-            src={card.image}
-            alt={card.name}
-            className="pointer-events-none h-auto w-full object-cover"
-          />
-          <div className="absolute inset-x-0 bottom-0 rounded-b-[20px] bg-gradient-to-t from-black/85 via-black/60 to-transparent px-8 pb-10 pt-16 text-white">
-            <p className="font-ui text-[20px] leading-[1.3]">
-              {card.quoteBefore}
-              <span className="text-[#1488ff]">{card.quoteHighlight}</span>
-              {card.quoteAfter}
-            </p>
-            <p className="font-ui mt-4 text-[28px] font-semibold leading-none">
-              {card.name}
-            </p>
-            <p className="font-ui mt-2 text-[18px] leading-none text-white/70">
-              {card.role}
-            </p>
+      <div ref={innerRef} className="flex gap-4 will-change-transform select-none">
+        {loop.map((card, index) => (
+          <div
+            key={index}
+            className="relative w-[500px] flex-none overflow-hidden rounded-[20px]"
+          >
+            <SiteImage
+              src={card.image}
+              alt={card.name}
+              className="pointer-events-none h-auto w-full object-cover"
+            />
+            <div className="absolute inset-x-0 bottom-0 rounded-b-[20px] bg-gradient-to-t from-black/85 via-black/60 to-transparent px-8 pb-10 pt-16 text-white">
+              <p className="font-ui text-[20px] leading-[1.3]">
+                {card.quoteBefore}
+                <span className="text-[#1488ff]">{card.quoteHighlight}</span>
+                {card.quoteAfter}
+              </p>
+              <p className="font-ui mt-4 text-[28px] font-semibold leading-none">
+                {card.name}
+              </p>
+              <p className="font-ui mt-2 text-[18px] leading-none text-white/70">
+                {card.role}
+              </p>
+            </div>
           </div>
-        </div>
-      ))}
+        ))}
+      </div>
     </div>
   );
 }
@@ -158,7 +202,7 @@ export function HomeBusinessHelp({
       className="overflow-hidden pb-16 pt-20 lg:pb-24 lg:pt-28"
     >
       <div className="mx-auto max-w-[1240px] px-4 sm:px-6 lg:pl-10 lg:pr-0">
-        <div className="grid items-center gap-10 lg:grid-cols-[1.1fr_0.9fr]">
+        <div className="grid items-center gap-10 lg:grid-cols-[1fr_1fr]">
           <div className="relative">
             <div className="pointer-events-none absolute -left-10 top-1/2 h-56 w-56 -translate-y-1/2 rounded-full bg-[radial-gradient(circle,_rgba(255,122,1,0.3)_0%,_rgba(255,122,1,0)_72%)] blur-2xl" />
             <h2 className="type-section-heading max-w-xl text-white">
@@ -173,13 +217,13 @@ export function HomeBusinessHelp({
           </div>
 
           <div
-            className="shadow-[0_40px_120px_-60px_rgba(19,104,185,0.6)]"
+            className="relative shadow-[0_40px_120px_-60px_rgba(19,104,185,0.6)]"
             style={{
               marginRight: "calc(-1 * max(0px, (100vw - 1240px) / 2))",
-              marginLeft: "7rem",
             }}
           >
             <ImageDragger cards={BUSINESS_CARDS} />
+            <div className="pointer-events-none absolute inset-y-0 left-0 w-24 bg-gradient-to-r from-[#07132d] to-transparent" />
           </div>
         </div>
       </div>
