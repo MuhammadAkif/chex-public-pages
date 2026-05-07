@@ -155,6 +155,10 @@ export interface Post {
   id: string;
   title: string;
   /**
+   * Public image URL for this post (for example an S3 link).
+   */
+  postImage?: string | null;
+  /**
    * Human-readable unique URL segment for this post.
    */
   slug: string;
@@ -899,6 +903,7 @@ export interface UsersSelect<T extends boolean = true> {
  */
 export interface PostsSelect<T extends boolean = true> {
   title?: T;
+  postImage?: T;
   slug?: T;
   excerpt?: T;
   content?: T;

@@ -26,6 +26,14 @@ export const Posts: CollectionConfig = {
       required: true,
     },
     {
+      name: 'postImage',
+      type: 'text',
+      admin: {
+        description: 'Public image URL for this post (for example an S3 link).',
+      },
+      label: 'Post image URL',
+    },
+    {
       name: 'slug',
       type: 'text',
       admin: {
