@@ -1,13 +1,94 @@
 "use client";
 
-import {
-  SiteImage,
-  type SiteImageSource,
-} from "@/app/(site)/components/shared/site-image";
+import { useRef } from "react";
+import { SiteImage, type SiteImageSource } from "@/app/(site)/components/shared/site-image";
 import { Button } from "@/app/(site)/components/ui/button";
 
-const REVIEW_CARD_IMAGE =
-  "https://chex-payload-public-pages.s3.us-east-1.amazonaws.com/review%20card.png";
+// Add more cards here to extend the scroller
+const BUSINESS_CARDS = [
+  {
+    image: "https://chex-payload-public-pages.s3.us-east-1.amazonaws.com/reviews%20card-1.png",
+    quoteBefore: "Fast and easy!... Received my certificate ",
+    quoteHighlight: "within 5 minutes",
+    quoteAfter: " after submitting the inspection.",
+    name: "Cary Gillies",
+    role: "Founder: @XYZ",
+  },
+  {
+    image: "https://chex-payload-public-pages.s3.us-east-1.amazonaws.com/reviews%20card-2.png",
+    quoteBefore: "Great fast service! Beats going all over town when you can have your ",
+    quoteHighlight: "inspection immediately from home.",
+    quoteAfter: "",
+    name: "Kent Malveaux",
+    role: "Founder: @XYZ",
+  },
+];
+
+function ImageDragger({
+  cards,
+}: {
+  cards: typeof BUSINESS_CARDS;
+}) {
+  const containerRef = useRef<HTMLDivElement>(null);
+  const isDragging = useRef(false);
+  const startX = useRef(0);
+  const scrollLeft = useRef(0);
+
+  function onMouseDown(e: React.MouseEvent<HTMLDivElement>) {
+    isDragging.current = true;
+    const el = containerRef.current!;
+    startX.current = e.pageX - el.getBoundingClientRect().left;
+    scrollLeft.current = el.scrollLeft;
+    el.classList.replace("cursor-grab", "cursor-grabbing");
+  }
+
+  function onMouseMove(e: React.MouseEvent<HTMLDivElement>) {
+    if (!isDragging.current || !containerRef.current) return;
+    e.preventDefault();
+    const x = e.pageX - containerRef.current.getBoundingClientRect().left;
+    containerRef.current.scrollLeft = scrollLeft.current - (x - startX.current);
+  }
+
+  function stopDrag() {
+    isDragging.current = false;
+    containerRef.current?.classList.replace("cursor-grabbing", "cursor-grab");
+  }
+
+  return (
+    <div
+      ref={containerRef}
+      className="flex cursor-grab gap-4 overflow-x-auto select-none"
+      style={{ scrollbarWidth: "none" }}
+      onMouseDown={onMouseDown}
+      onMouseMove={onMouseMove}
+      onMouseUp={stopDrag}
+      onMouseLeave={stopDrag}
+    >
+      {cards.map((card, index) => (
+        <div key={index} className="relative w-[500px] flex-none overflow-hidden rounded-[20px]">
+          <SiteImage
+            src={card.image}
+            alt={card.name}
+            className="pointer-events-none h-auto w-full object-cover"
+          />
+          <div className="absolute inset-x-0 bottom-0 rounded-b-[20px] bg-gradient-to-t from-black/85 via-black/60 to-transparent px-8 pb-10 pt-16 text-white">
+            <p className="font-ui text-[20px] leading-[1.3]">
+              {card.quoteBefore}
+              <span className="text-[#1488ff]">{card.quoteHighlight}</span>
+              {card.quoteAfter}
+            </p>
+            <p className="font-ui mt-4 text-[28px] font-semibold leading-none">
+              {card.name}
+            </p>
+            <p className="font-ui mt-2 text-[18px] leading-none text-white/70">
+              {card.role}
+            </p>
+          </div>
+        </div>
+      ))}
+    </div>
+  );
+}
 
 type HomeBusinessHelpProps = {
   title: string;
@@ -20,15 +101,14 @@ export function HomeBusinessHelp({
   title,
   description,
   buttonLabel,
-  image,
 }: HomeBusinessHelpProps) {
   return (
     <section
       id="business-help"
-      className="px-4 pb-16 pt-20 sm:px-6 lg:px-10 lg:pb-24 lg:pt-28"
+      className="overflow-hidden pb-16 pt-20 lg:pb-24 lg:pt-28"
     >
-      <div className="mx-auto max-w-[1240px]">
-        <div className="grid items-center gap-10 lg:grid-cols-[0.82fr_1.18fr]">
+      <div className="mx-auto max-w-[1240px] px-4 sm:px-6 lg:pl-10 lg:pr-0">
+        <div className="grid items-center gap-10 lg:grid-cols-[1.1fr_0.9fr]">
           <div className="relative">
             <div className="pointer-events-none absolute -left-10 top-1/2 h-56 w-56 -translate-y-1/2 rounded-full bg-[radial-gradient(circle,_rgba(255,122,1,0.3)_0%,_rgba(255,122,1,0)_72%)] blur-2xl" />
             <h2 className="type-section-heading max-w-md text-white">
@@ -42,27 +122,11 @@ export function HomeBusinessHelp({
             </div>
           </div>
 
-          <div className="relative">
-            <div className="relative translate-y-6 overflow-hidden rounded-[16px]  border-white/10 p-4 shadow-[0_40px_120px_-60px_rgba(19,104,185,0.6)]">
-              <SiteImage
-                src={REVIEW_CARD_IMAGE || image}
-                alt="Chex analytics dashboard"
-                className="h-auto w-full rounded-[12px] object-cover"
-              />
-              <div className="pointer-events-none absolute inset-x-4 bottom-4 rounded-[12px] bg-gradient-to-t from-black/80 via-black/55 to-transparent px-11 pb-12 pt-7 text-white sm:px-12 sm:pb-14 sm:pt-8">
-                <p className="font-ui text-[22px] leading-[1.2] sm:text-[24px]">
-                  Fast and easy!... Received my certificate{" "}
-                  <span className="text-[#1488ff]">within 5 minutes</span> after
-                  submitting the inspection.
-                </p>
-                <p className="font-ui mt-4 text-[34px] font-semibold leading-none">
-                  Cary Gillies
-                </p>
-                <p className="font-ui mt-2 text-[24px] leading-none text-white/82">
-                  Founder: @XYZ
-                </p>
-              </div>
-            </div>
+          <div
+            className="shadow-[0_40px_120px_-60px_rgba(19,104,185,0.6)]"
+            style={{ marginRight: "calc(-1 * max(0px, (100vw - 1240px) / 2))", marginLeft: "7rem" }}
+          >
+            <ImageDragger cards={BUSINESS_CARDS} />
           </div>
         </div>
       </div>

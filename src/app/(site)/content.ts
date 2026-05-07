@@ -15,7 +15,6 @@ export const siteContent = {
     menuItems: [
       "Home",
       "Rideshare Inspections",
-      "Fleet & DSP Inspections",
       "Blog",
     ],
     contactTitle: "Contact us",

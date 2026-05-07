@@ -31,6 +31,21 @@ export const homeContent = {
       "https://chex-payload-public-pages.s3.us-east-1.amazonaws.com/manage-inspection.png",
     trustedTitle: "Trusted by drivers on every major rideshare platforms",
     trustedLogos: [
+       {
+        image:
+          "https://res.cloudinary.com/dgjordf6e/image/upload/v1742288544/image_23_1_acixly.png",
+        label: "Uber",
+      },
+       {
+        image:
+          "https://res.cloudinary.com/dgjordf6e/image/upload/v1742288544/image_69_hajt9n.png",
+        label: "Lyft",
+      },
+       {
+        image:
+          "https://res.cloudinary.com/dgjordf6e/image/upload/v1742288649/image_80_jlmrcm.png",
+        label: "Turo",
+      },
       {
         image:
           "https://chex-payload-public-pages.s3.us-east-1.amazonaws.com/logo-adroit.png",
@@ -50,11 +65,6 @@ export const homeContent = {
         image:
           "https://chex-payload-public-pages.s3.us-east-1.amazonaws.com/logo-zum.png",
         label: "Zum",
-      },
-      {
-        image:
-          "https://chex-payload-public-pages.s3.us-east-1.amazonaws.com/logo-adroit.png",
-        label: "Adroit repeat",
       },
     ],
   },

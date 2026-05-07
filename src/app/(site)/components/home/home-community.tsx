@@ -1,5 +1,6 @@
 "use client";
 
+import { useEffect, useRef } from "react";
 import {
   SiteImage,
   type SiteImageSource,
@@ -7,7 +8,7 @@ import {
 import { SurfaceCard } from "@/app/(site)/components/ui/surface-card";
 
 const COMMUNITY_RIGHT_IMAGE =
-  "https://chex-payload-public-pages.s3.us-east-1.amazonaws.com/Group%2048095685.png";
+  "https://chex-payload-public-pages.s3.us-east-1.amazonaws.com/Group%2048095687.png";
 
 type HomeCommunityProps = {
   title: string;
@@ -26,6 +27,84 @@ type HomeCommunityProps = {
     label: string;
   }>;
 };
+
+const ITEM_GAP = 16; // gap-4
+
+function LogoMarquee({
+  logos,
+}: {
+  logos: HomeCommunityProps["trustedLogos"];
+}) {
+  const loop = [...logos, ...logos];
+  const innerRef = useRef<HTMLDivElement>(null);
+  const rafRef = useRef<number>(0);
+  const halfWidthRef = useRef(0);
+
+  useEffect(() => {
+    const el = innerRef.current;
+    if (!el) return;
+
+    function measureHalfWidth() {
+      const children = Array.from(el!.children) as HTMLElement[];
+      const N = logos.length;
+      let w = 0;
+      for (let i = 0; i < N; i++) {
+        w += children[i]?.offsetWidth ?? 0;
+      }
+      halfWidthRef.current = w + N * ITEM_GAP;
+    }
+
+    measureHalfWidth();
+    const ro = new ResizeObserver(measureHalfWidth);
+    ro.observe(el);
+
+    let progress = 0;
+    let lastTime: number | null = null;
+    const totalMs = 22000;
+
+    function frame(now: number) {
+      if (lastTime === null) lastTime = now;
+      const dt = Math.min(now - lastTime, 100);
+      lastTime = now;
+
+      progress = (progress + dt / totalMs) % 1;
+
+      const w = halfWidthRef.current;
+      if (w > 0) {
+        el!.style.transform = `translateX(${-progress * w}px)`;
+      }
+
+      rafRef.current = requestAnimationFrame(frame);
+    }
+
+    rafRef.current = requestAnimationFrame(frame);
+    return () => {
+      cancelAnimationFrame(rafRef.current);
+      ro.disconnect();
+    };
+  }, [logos]);
+
+  return (
+    <div className="relative mt-10 overflow-hidden">
+      <div ref={innerRef} className="flex gap-4 will-change-transform">
+        {loop.map((logo, index) => (
+          <div
+            key={`${logo.label}-${index}`}
+            className="flex h-24 w-[180px] flex-none items-center justify-center rounded-[12px] bg-white px-6 py-5"
+          >
+            <SiteImage
+              src={logo.image}
+              alt={logo.label}
+              className="h-12 w-auto object-contain"
+            />
+          </div>
+        ))}
+      </div>
+      <div className="pointer-events-none absolute inset-y-0 left-0 w-12 bg-gradient-to-r from-[#080e1c] to-transparent" />
+      <div className="pointer-events-none absolute inset-y-0 right-0 w-12 bg-gradient-to-l from-[#080e1c] to-transparent" />
+    </div>
+  );
+}
 
 export function HomeCommunity({
   title,
@@ -56,7 +135,7 @@ export function HomeCommunity({
             {titleSuffix}
           </h2>
 
-              <div className="mt-12 grid grid-cols-2 gap-4 md:grid-cols-4">
+          <div className="mt-12 grid grid-cols-2 gap-4 md:grid-cols-4">
             {stats.map((stat) => (
               <SurfaceCard
                 key={stat.label}
@@ -129,20 +208,7 @@ export function HomeCommunity({
             </span>
           </h3>
 
-          <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-5">
-            {trustedLogos.map((logo, index) => (
-              <div
-                key={`${logo.label}-${index}`}
-                className="flex min-h-24 items-center justify-center rounded-[12px] bg-white px-6 py-5"
-              >
-                <SiteImage
-                  src={logo.image}
-                  alt={logo.label}
-                  className="h-12 w-auto object-contain"
-                />
-              </div>
-            ))}
-          </div>
+          <LogoMarquee logos={trustedLogos} />
         </div>
       </div>
     </section>
