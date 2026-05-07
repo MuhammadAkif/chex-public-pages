@@ -7,9 +7,13 @@ import {
   useEffect,
   useState,
 } from "react";
+import { signupThenLogin } from "@/app/(site)/components/shared/auth-client";
 
 const inputClass =
   "w-full rounded-[10px] border border-white/30 bg-white/8 px-4 py-3 font-ui text-[15px] text-white placeholder:text-white/50 outline-none transition-[border-color,box-shadow] focus:border-[#1468ba] focus:ring-2 focus:ring-[#1468ba]/35";
+const appSideLoginHref = `${
+  (process.env.NEXT_PUBLIC_APP_SIDE_URL || "https://b.chex.ai").replace(/\/+$/, "")
+}/login`;
 
 // ─── Context ────────────────────────────────────────────────────────────────
 
@@ -26,6 +30,8 @@ export function useRegisterModal() {
 
 function RegisterModalPanel({ onClose }: { onClose: () => void }) {
   const [acceptedTerms, setAcceptedTerms] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitError, setSubmitError] = useState<string | null>(null);
 
   // Close on ESC
   useEffect(() => {
@@ -43,12 +49,35 @@ function RegisterModalPanel({ onClose }: { onClose: () => void }) {
   }, []);
 
   const onSubmit = useCallback(
-    (e: React.FormEvent) => {
+    async (e: React.FormEvent<HTMLFormElement>) => {
       e.preventDefault();
-      if (!acceptedTerms) return;
-      window.location.assign("https://app.chex.ai/register");
+      if (!acceptedTerms || isSubmitting) return;
+
+      const formData = new FormData(e.currentTarget);
+      const firstName = String(formData.get("firstName") || "").trim();
+      const lastName = String(formData.get("lastName") || "").trim();
+      const email = String(formData.get("email") || "").trim();
+      const phone = String(formData.get("phone") || "").trim();
+      const password = String(formData.get("password") || "");
+
+      if (!firstName || !lastName || !email || !phone || !password) {
+        setSubmitError("Please fill all required fields.");
+        return;
+      }
+
+      setSubmitError(null);
+      setIsSubmitting(true);
+      try {
+        await signupThenLogin({ firstName, lastName, email, phone, password });
+      } catch (error) {
+        setSubmitError(
+          error instanceof Error ? error.message : "Registration failed. Please try again.",
+        );
+      } finally {
+        setIsSubmitting(false);
+      }
     },
-    [acceptedTerms],
+    [acceptedTerms, isSubmitting],
   );
 
   return (
@@ -69,7 +98,7 @@ function RegisterModalPanel({ onClose }: { onClose: () => void }) {
         {/* Close */}
         <button
           onClick={onClose}
-          className="absolute right-5 top-5 flex h-8 w-8 items-center justify-center rounded-full bg-white/10 text-white/70 transition-colors hover:bg-white/20 hover:text-white"
+          className="absolute right-5 top-5 flex h-8 w-8 cursor-pointer items-center justify-center rounded-full bg-white/10 text-white/70 transition-colors hover:bg-white/20 hover:text-white"
           aria-label="Close"
         >
           ✕
@@ -163,17 +192,20 @@ function RegisterModalPanel({ onClose }: { onClose: () => void }) {
 
           <button
             type="submit"
-            disabled={!acceptedTerms}
+            disabled={!acceptedTerms || isSubmitting}
             className="mt-1 w-full rounded-[12px] bg-[#ff7a01] py-3.5 font-ui text-[16px] font-bold text-white shadow-[0_14px_36px_-16px_rgba(255,122,1,0.85)] transition-[filter,transform] active:scale-[0.99] enabled:hover:brightness-105 disabled:cursor-not-allowed disabled:opacity-60"
           >
-            Create Account
+            {isSubmitting ? "Creating account..." : "Create Account"}
           </button>
+          {submitError ? (
+            <p className="font-ui text-[13px] text-[#ff9d9d]">{submitError}</p>
+          ) : null}
         </form>
 
         <p className="mt-5 text-center font-ui text-[14px] text-white/70">
           Already have an account?{" "}
           <a
-            href="https://app.chex.ai/login"
+            href={appSideLoginHref}
             className="font-semibold text-[#1468ba] underline underline-offset-2 hover:text-[#3d8fd9]"
           >
             Log in

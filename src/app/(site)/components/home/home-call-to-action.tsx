@@ -1,7 +1,7 @@
 "use client";
 
 import { Button } from "@/app/(site)/components/ui/button";
-import { useRegisterModal } from "./register-modal";
+import { useRegisterModal } from "@/app/(site)/components/home/register-modal";
 
 type HomeCallToActionProps = {
   title: string;

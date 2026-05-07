@@ -3,6 +3,7 @@
 /* eslint-disable @next/next/no-img-element */
 
 import { useCallback, useState } from "react";
+import { signupThenLogin } from "@/app/(site)/components/shared/auth-client";
 
 const inputClass =
   "w-full rounded-[10px] border border-white/35 bg-black/35 px-4 py-3 font-ui text-[15px] text-white placeholder:text-white/55 outline-none transition-[border-color,box-shadow] focus:border-[#1468ba] focus:ring-2 focus:ring-[#1468ba]/35";
@@ -51,16 +52,41 @@ export function LocationRegister({
   loginLinkHref,
 }: LocationRegisterProps) {
   const [acceptedTerms, setAcceptedTerms] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitError, setSubmitError] = useState<string | null>(null);
 
   const onSubmit = useCallback(
-    (e: React.FormEvent) => {
+    async (e: React.FormEvent<HTMLFormElement>) => {
       e.preventDefault();
-      if (!acceptedTerms || !registerButtonHref) {
+      if (!acceptedTerms || isSubmitting) {
         return;
       }
-      window.location.assign(registerButtonHref);
+
+      const formData = new FormData(e.currentTarget);
+      const firstName = String(formData.get("firstName") || "").trim();
+      const lastName = String(formData.get("lastName") || "").trim();
+      const email = String(formData.get("email") || "").trim();
+      const phone = String(formData.get("phone") || "").trim();
+      const password = String(formData.get("password") || "");
+
+      if (!firstName || !lastName || !email || !phone || !password) {
+        setSubmitError("Please fill all required fields.");
+        return;
+      }
+
+      setSubmitError(null);
+      setIsSubmitting(true);
+      try {
+        await signupThenLogin({ firstName, lastName, email, phone, password });
+      } catch (error) {
+        const message =
+          error instanceof Error ? error.message : "Registration failed. Please try again.";
+        setSubmitError(message);
+      } finally {
+        setIsSubmitting(false);
+      }
     },
-    [acceptedTerms, registerButtonHref],
+    [acceptedTerms, isSubmitting, registerButtonHref],
   );
 
   if (!backgroundImage || !headlineLines.length) {
@@ -171,11 +197,14 @@ export function LocationRegister({
 
             <button
               type="submit"
-              disabled={!acceptedTerms || !registerButtonHref}
+              disabled={!acceptedTerms || isSubmitting}
               className="mt-2 w-full rounded-[12px] bg-[#ff7a01] py-3.5 font-ui text-[16px] font-bold text-white shadow-[0_14px_36px_-16px_rgba(255,122,1,0.95)] transition-[filter,transform] active:scale-[0.99] enabled:hover:brightness-105 disabled:cursor-not-allowed  sm:text-[17px]"
             >
-              {registerButtonLabel}
+              {isSubmitting ? "Creating account..." : registerButtonLabel}
             </button>
+            {submitError ? (
+              <p className="font-ui text-[13px] text-[#ff9d9d]">{submitError}</p>
+            ) : null}
           </form>
 
           <p className="mt-5 text-center font-ui text-[14px] text-white/90 sm:text-[15px]">
