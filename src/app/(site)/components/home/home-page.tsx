@@ -23,7 +23,6 @@ export function HomePage() {
             rating={homeContent.hero.rating}
             title={homeContent.hero.title}
             description={homeContent.hero.description}
-            primaryLabel={homeContent.hero.primaryLabel}
             secondaryLabel={homeContent.hero.secondaryLabel}
             helperText={homeContent.hero.helperText}
             media={homeContent.hero.media}
@@ -119,7 +118,6 @@ export function HomePage() {
           <HomeCallToAction
             title={homeContent.cta.title}
             description={homeContent.cta.description}
-
             secondaryLabel={homeContent.cta.secondaryLabel}
             helperText={homeContent.cta.helperText}
           />
