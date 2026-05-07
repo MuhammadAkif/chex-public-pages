@@ -2,10 +2,25 @@ export const siteContent = {
   announcement: "4.8 stars · 50k+ drivers approved · Uber & Lyft accepted",
   navigationLinks: [
     { label: "Home", href: "/home", active: true },
-    { label: "Services", href: "/home#how-it-works" },
+    {
+      label: "Areas we serve",
+      href: "#",
+      children: [
+        { label: "Alabama", href: "/locations/alabama" },
+        { label: "Arizona", href: "/locations/arizona" },
+        { label: "Arkansas", href: "/locations/arkansas" },
+        { label: "California", href: "/locations/california" },
+        { label: "Colorado", href: "/locations/colorado" },
+        { label: "Iowa", href: "/locations/iowa" },
+        { label: "Nebraska", href: "/locations/nebraska" },
+        { label: "Nevada", href: "/locations/nevada" },
+        { label: "New Mexico", href: "/locations/new-mexico" },
+        { label: "Ohio", href: "/locations/ohio" },
+        { label: "South Carolina", href: "/locations/south-carolina" },
+      ],
+    },
     { label: "Blog", href: "/blogs" },
-    { label: "Contact us", href: "/home#footer" },
-    { label: "Dashboard", href: "/home#business-help" },
+    { label: "Contact us", href: "/contact-us" },
   ],
   logo: "https://chex-payload-public-pages.s3.us-east-1.amazonaws.com/logo-chex.png",
   footer: {

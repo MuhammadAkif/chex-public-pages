@@ -219,6 +219,8 @@ function RegisterModalPanel({ onClose }: { onClose: () => void }) {
 
 // ─── Provider ────────────────────────────────────────────────────────────────
 
+const OPEN_EVENT = "chex:open-register";
+
 export function RegisterModalProvider({
   children,
 }: {
@@ -226,8 +228,19 @@ export function RegisterModalProvider({
 }) {
   const [isOpen, setIsOpen] = useState(false);
 
+  // Listen via window event so navigation/stale-closure issues can't prevent opening
+  useEffect(() => {
+    const handler = () => setIsOpen(true);
+    window.addEventListener(OPEN_EVENT, handler);
+    return () => window.removeEventListener(OPEN_EVENT, handler);
+  }, []);
+
+  const openModal = useCallback(() => {
+    window.dispatchEvent(new Event(OPEN_EVENT));
+  }, []);
+
   return (
-    <RegisterModalContext.Provider value={{ openModal: () => setIsOpen(true) }}>
+    <RegisterModalContext.Provider value={{ openModal }}>
       {children}
       {isOpen && <RegisterModalPanel onClose={() => setIsOpen(false)} />}
     </RegisterModalContext.Provider>

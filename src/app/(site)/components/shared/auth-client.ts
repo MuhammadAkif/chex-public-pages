@@ -100,6 +100,21 @@ export async function loginAndPersist(email: string, password: string) {
   return payload;
 }
 
+export async function submitContactUs(payload: {
+  firstName: string;
+  lastName: string;
+  email: string;
+  message: string;
+}) {
+  await postJSON("/auth/contactUs", {
+    firstName: payload.firstName,
+    lastName: payload.lastName,
+    email: payload.email,
+    message: payload.message,
+    status: true,
+  });
+}
+
 export async function signupThenLogin(payload: SignupPayload) {
   await postJSON("/auth/signup", {
     name: payload.firstName,
