@@ -51,16 +51,7 @@ export const homeContent = {
           "https://chex-payload-public-pages.s3.us-east-1.amazonaws.com/logo-adroit.png",
         label: "Adroit",
       },
-      {
-        image:
-          "https://chex-payload-public-pages.s3.us-east-1.amazonaws.com/logo-oxo.png",
-        label: "OXO",
-      },
-      {
-        image:
-          "https://chex-payload-public-pages.s3.us-east-1.amazonaws.com/logo-carepool.png",
-        label: "Carepool",
-      },
+  
       {
         image:
           "https://chex-payload-public-pages.s3.us-east-1.amazonaws.com/logo-zum.png",
@@ -73,7 +64,7 @@ export const homeContent = {
       },
        {
         image:
-          "https://chex-payload-public-pages.s3.us-east-1.amazonaws.com/unnamed%20(1).png",
+          "https://chex-payload-public-pages.s3.us-east-1.amazonaws.com/Asset%201.png",
         label: "Triburs",
       },
     ],
