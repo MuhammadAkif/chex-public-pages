@@ -15,7 +15,7 @@ type NavLink = {
   label: string;
   href: string;
   active?: boolean;
-  children?: NavChild[];
+  children?: ReadonlyArray<NavChild>;
 };
 
 type NavbarProps = {
