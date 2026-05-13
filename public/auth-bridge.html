@@ -8,7 +8,11 @@
   <body>
     <script>
       (function () {
-        var ALLOWED_ORIGIN = 'https://app.chex.ai';
+        var ALLOWED_ORIGINS = [
+          'https://app.chex.ai',
+          'http://localhost:3001',
+          'http://127.0.0.1:3001'
+        ];
         var SHARED_KEYS = [
           'jwt',
           'token',
@@ -20,6 +24,13 @@
           'doAndDont',
           'vehicleData'
         ];
+
+        function isAllowedOrigin(origin) {
+          for (var i = 0; i < ALLOWED_ORIGINS.length; i++) {
+            if (ALLOWED_ORIGINS[i] === origin) return true;
+          }
+          return false;
+        }
 
         function readSharedStorage() {
           var out = {};
@@ -35,7 +46,7 @@
         }
 
         function onMessage(event) {
-          if (event.origin !== ALLOWED_ORIGIN) return;
+          if (!isAllowedOrigin(event.origin)) return;
 
           var data = event.data;
           if (!data || typeof data !== 'object') return;
@@ -52,7 +63,7 @@
               token: storage.jwt || storage.token,
               storage: storage
             },
-            ALLOWED_ORIGIN
+            event.origin
           );
         }
 
