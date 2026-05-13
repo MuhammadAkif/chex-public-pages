@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="robots" content="noindex,nofollow" />
+    <title>Auth Bridge</title>
+  </head>
+  <body>
+    <script>
+      (function () {
+        var ALLOWED_ORIGIN = 'https://app.chex.ai';
+        var SHARED_KEYS = [
+          'jwt',
+          'token',
+          'currentUser_email',
+          'currentUser_id',
+          'currentUser_name',
+          'currentUser',
+          'recommendScreen',
+          'doAndDont',
+          'vehicleData'
+        ];
+
+        function readSharedStorage() {
+          var out = {};
+          for (var i = 0; i < SHARED_KEYS.length; i++) {
+            var key = SHARED_KEYS[i];
+            try {
+              out[key] = window.localStorage.getItem(key);
+            } catch (e) {
+              out[key] = null;
+            }
+          }
+          return out;
+        }
+
+        function onMessage(event) {
+          if (event.origin !== ALLOWED_ORIGIN) return;
+
+          var data = event.data;
+          if (!data || typeof data !== 'object') return;
+          if (data.type !== 'GET_TOKEN') return;
+
+          var storage = readSharedStorage();
+
+          var source = event.source;
+          if (!source) return;
+
+          source.postMessage(
+            {
+              type: 'TOKEN_RESPONSE',
+              token: storage.jwt || storage.token,
+              storage: storage
+            },
+            ALLOWED_ORIGIN
+          );
+        }
+
+        window.addEventListener('message', onMessage, false);
+      })();
+    </script>
+  </body>
+</html>

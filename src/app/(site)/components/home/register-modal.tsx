@@ -11,9 +11,7 @@ import { signupThenLogin } from "@/app/(site)/components/shared/auth-client";
 
 const inputClass =
   "w-full rounded-[10px] border border-white/30 bg-white/8 px-4 py-3 font-ui text-[15px] text-white placeholder:text-white/50 outline-none transition-[border-color,box-shadow] focus:border-[#1468ba] focus:ring-2 focus:ring-[#1468ba]/35";
-const appSideLoginHref = `${
-  (process.env.NEXT_PUBLIC_APP_SIDE_URL || "https://b.chex.ai").replace(/\/+$/, "")
-}/login`;
+const appSideLoginHref = process.env.NEXT_PUBLIC_APP_SIDE_URL + `/login`;
 
 // ─── Context ────────────────────────────────────────────────────────────────
 
@@ -45,7 +43,9 @@ function RegisterModalPanel({ onClose }: { onClose: () => void }) {
   // Lock body scroll
   useEffect(() => {
     document.body.style.overflow = "hidden";
-    return () => { document.body.style.overflow = ""; };
+    return () => {
+      document.body.style.overflow = "";
+    };
   }, []);
 
   const onSubmit = useCallback(
@@ -71,7 +71,9 @@ function RegisterModalPanel({ onClose }: { onClose: () => void }) {
         await signupThenLogin({ firstName, lastName, email, phone, password });
       } catch (error) {
         setSubmitError(
-          error instanceof Error ? error.message : "Registration failed. Please try again.",
+          error instanceof Error
+            ? error.message
+            : "Registration failed. Please try again.",
         );
       } finally {
         setIsSubmitting(false);
@@ -86,10 +88,9 @@ function RegisterModalPanel({ onClose }: { onClose: () => void }) {
       role="dialog"
       aria-modal="true"
     >
-      {/* Backdrop */}
+      {/* Backdrop — intentionally no onClick; modal closes only via X or ESC */}
       <div
         className="absolute inset-0 bg-black/70 backdrop-blur-sm"
-        onClick={onClose}
         aria-hidden
       />
 

@@ -27,14 +27,25 @@ function requiredApiBase() {
   return API_BASE.replace(/\/+$/, "");
 }
 
+function pickStringFromField(value: unknown) {
+  if (typeof value === "string" && value.trim()) return value.trim();
+  if (Array.isArray(value)) {
+    const first = value.find(
+      (item) => typeof item === "string" && item.trim().length > 0,
+    );
+    if (typeof first === "string") return first.trim();
+  }
+  return null;
+}
+
 function getErrorMessage(errorBody: unknown) {
-  if (
-    errorBody &&
-    typeof errorBody === "object" &&
-    "message" in errorBody &&
-    typeof (errorBody as { message?: unknown }).message === "string"
-  ) {
-    return (errorBody as { message: string }).message;
+  if (errorBody && typeof errorBody === "object") {
+    const body = errorBody as { message?: unknown; errors?: unknown };
+    return (
+      pickStringFromField(body.message) ??
+      pickStringFromField(body.errors) ??
+      "Something went wrong. Please try again."
+    );
   }
   return "Something went wrong. Please try again.";
 }
