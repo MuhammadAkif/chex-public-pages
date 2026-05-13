@@ -180,21 +180,14 @@ function RegisterModalPanel({ onClose }: { onClose: () => void }) {
               className="mt-1 h-4 w-4 shrink-0 rounded border-white/40 bg-black/40 text-[#ff7a01] focus:ring-[#1468ba]"
             />
             <span>
-              I agree to the{" "}
-              <a
-                href="/terms"
-                className="font-semibold text-[#1468ba] underline underline-offset-2 hover:text-[#3d8fd9]"
-              >
-                Terms of Service
-              </a>
-              .
+              I agree to the <b>Terms of Service</b>.
             </span>
           </label>
 
           <button
             type="submit"
             disabled={!acceptedTerms || isSubmitting}
-            className="mt-1 w-full rounded-[12px] bg-[#ff7a01] py-3.5 font-ui text-[16px] font-bold text-white shadow-[0_14px_36px_-16px_rgba(255,122,1,0.85)] transition-[filter,transform] active:scale-[0.99] enabled:hover:brightness-105 disabled:cursor-not-allowed disabled:opacity-60"
+            className="mt-1 w-full rounded-[12px] bg-[#ff7a01] py-3.5 font-ui text-[16px] font-bold text-white shadow-[0_14px_36px_-16px_rgba(255,122,1,0.85)] transition-[filter,transform] active:scale-[0.99] enabled:hover:brightness-105 disabled:cursor-not-allowed disabled:opacity-60 cursor-pointer"
           >
             {isSubmitting ? "Creating account..." : "Create Account"}
           </button>
