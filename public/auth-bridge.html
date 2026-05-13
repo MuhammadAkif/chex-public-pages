@@ -8,11 +8,15 @@
   <body>
     <script>
       (function () {
-        var ALLOWED_ORIGINS = [
-          'https://app.chex.ai',
-          'http://localhost:3001',
-          'http://127.0.0.1:3001'
-        ];
+        // Dev origins are appended only when this file is served from a non-prod host,
+        // so the prod chex.ai bridge will only ever respond to https://app.chex.ai.
+        var ALLOWED_ORIGINS = ['https://app.chex.ai'];
+        if (
+          location.hostname === 'localhost' ||
+          location.hostname === '127.0.0.1'
+        ) {
+          ALLOWED_ORIGINS.push('http://localhost:3001', 'http://127.0.0.1:3001');
+        }
         var SHARED_KEYS = [
           'jwt',
           'token',
