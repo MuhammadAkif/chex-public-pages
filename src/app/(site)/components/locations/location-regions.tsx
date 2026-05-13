@@ -75,12 +75,6 @@ export function LocationRegions({
                 <p className="type-location-body mt-4 text-[#41546e]">
                   {item.description}
                 </p>
-                <a
-                  href={demoHref}
-                  className="type-location-body mt-5 font-medium underline"
-                >
-                  Learn more
-                </a>
               </div>
             </article>
           ))}

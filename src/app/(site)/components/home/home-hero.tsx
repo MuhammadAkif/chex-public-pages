@@ -66,9 +66,6 @@ export function HomeHero({
               <video
                 src={videoSource}
                 className="h-auto w-full rounded-[22px] object-cover"
-                autoPlay
-                loop
-                muted
                 playsInline
                 controls
                 preload="metadata"

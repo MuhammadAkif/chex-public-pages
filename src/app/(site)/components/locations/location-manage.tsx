@@ -135,9 +135,6 @@ export function LocationManage({
               </li>
             ))}
           </ul>
-          <a href={demoHref} className="type-location-body mt-8 inline-block font-medium text-[#41546e] underline">
-            Learn more
-          </a>
           <div className="mt-8">
             <Button href="#signup">{buttonLabel}</Button>
           </div>

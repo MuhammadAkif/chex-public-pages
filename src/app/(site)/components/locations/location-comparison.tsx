@@ -66,11 +66,11 @@ export function LocationComparison({
   description,
   columnHeaders,
   rows,
-  ctaLabel,
-  ctaHref,
 }: LocationComparisonProps) {
   const colCount = columnHeaders.length;
   const gridCols = `repeat(${colCount}, 1fr)`;
+  const ctaLabel = "Start My Inspection";
+  const ctaHref = "#signup";
 
   return (
     <section className="relative overflow-hidden bg-white px-4 py-20 sm:px-6 lg:px-10 lg:py-28">
@@ -160,14 +160,11 @@ export function LocationComparison({
           })}
         </div>
 
-        {/* ── Optional CTA ── */}
-        {ctaLabel && ctaHref && (
-          <div className="mt-10 flex justify-center">
-            <Button href={ctaHref} className="min-w-[240px]">
-              {ctaLabel}
-            </Button>
-          </div>
-        )}
+        <div className="mt-10 flex justify-center">
+          <Button href={ctaHref} className="min-w-[240px]">
+            {ctaLabel}
+          </Button>
+        </div>
       </div>
     </section>
   );

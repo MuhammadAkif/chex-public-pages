@@ -224,12 +224,6 @@ export default async function BlogDetailPage({
           >
             ← All posts
           </a>
-          <a
-            href="/home"
-            className="inline-flex items-center justify-center rounded-[4px] bg-[#ff7a01] px-6 py-2.5 font-ui text-[14px] font-bold text-white hover:bg-[#eb7200]"
-          >
-            Start My Inspection
-          </a>
         </div>
       </div>
     </div>
