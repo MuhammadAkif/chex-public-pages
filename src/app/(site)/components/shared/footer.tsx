@@ -2,14 +2,18 @@
 
 import { SiteImage, type SiteImageSource } from '@/app/(site)/components/shared/site-image'
 
+type FooterLink = {
+  label: string
+  href: string
+}
+
 type FooterProps = {
   logo: SiteImageSource
   description: string
   menuTitle: string
-  menuItems: ReadonlyArray<string>
+  menuItems: ReadonlyArray<FooterLink>
   contactTitle: string
-  contactItems: ReadonlyArray<string>
-  socialItems: ReadonlyArray<string>
+  contactItems: ReadonlyArray<FooterLink>
   copyright: string
 }
 
@@ -20,7 +24,6 @@ export function Footer({
   menuItems,
   contactTitle,
   contactItems,
-  socialItems,
   copyright,
 }: FooterProps) {
   return (
@@ -38,9 +41,12 @@ export function Footer({
             <p className="type-ui-label text-[#e1ebf9]/80">{menuTitle}</p>
             <ul className="mt-6 space-y-4">
               {menuItems.map((item) => (
-                <li key={item}>
-                  <a href="/home" className="type-footer-copy text-white transition-colors hover:text-[#ff7a01]">
-                    {item}
+                <li key={item.label}>
+                  <a
+                    href={item.href}
+                    className="type-footer-copy text-white transition-colors hover:text-[#ff7a01]"
+                  >
+                    {item.label}
                   </a>
                 </li>
               ))}
@@ -51,9 +57,12 @@ export function Footer({
             <p className="type-ui-label text-[#e1ebf9]/80">{contactTitle}</p>
             <ul className="mt-6 space-y-4">
               {contactItems.map((item) => (
-                <li key={item}>
-                  <a href="/home#footer" className="type-footer-copy text-white transition-colors hover:text-[#ff7a01]">
-                    {item}
+                <li key={item.label}>
+                  <a
+                    href={item.href}
+                    className="type-footer-copy text-white transition-colors hover:text-[#ff7a01]"
+                  >
+                    {item.label}
                   </a>
                 </li>
               ))}
@@ -61,15 +70,8 @@ export function Footer({
           </div>
         </div>
 
-        <div className="flex flex-col gap-4 pt-8 text-[#e1ebf9]/80 sm:flex-row sm:items-center sm:justify-between">
+        <div className="pt-8 text-center text-[#e1ebf9]/80">
           <p className="type-body-sm">{copyright}</p>
-          <div className="flex items-center gap-6">
-            {socialItems.map((item) => (
-              <a key={item} href="/home" className="type-body-sm transition-colors hover:text-[#ff7a01]">
-                {item}
-              </a>
-            ))}
-          </div>
         </div>
       </div>
     </footer>

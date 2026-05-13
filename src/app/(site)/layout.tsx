@@ -28,7 +28,6 @@ export default function SiteLayout({ children }: SiteLayoutProps) {
           menuItems={siteContent.footer.menuItems}
           contactTitle={siteContent.footer.contactTitle}
           contactItems={siteContent.footer.contactItems}
-          socialItems={siteContent.footer.socialItems}
           copyright={siteContent.footer.copyright}
         />
       </div>

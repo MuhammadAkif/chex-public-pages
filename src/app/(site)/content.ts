@@ -28,18 +28,14 @@ export const siteContent = {
       "Chex.AI is a licensed vehicle inspection solution and damage detection platform using AI. Our automated workflows simplify and expedite driver acquisition.",
     menuTitle: "Menu",
     menuItems: [
-      "Home",
-      "Rideshare Inspections",
-      "Blog",
+      { label: "Home", href: "/home" },
+      { label: "Blog", href: "/blogs" },
     ],
     contactTitle: "Contact us",
     contactItems: [
-      "support@chex.ai",
-      "Terms of use",
-      "Privacy Policy",
-      "Contact us",
+      { label: "support@chex.ai", href: "mailto:support@chex.ai" },
+      { label: "Contact us", href: "/contact-us" },
     ],
-    socialItems: ["Twitter", "LinkedIn", "GitHub"],
     copyright: "© 2026 CHEX.AI All Rights Reserved",
   },
 } as const;

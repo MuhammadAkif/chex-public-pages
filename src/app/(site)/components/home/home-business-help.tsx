@@ -212,7 +212,7 @@ export function HomeBusinessHelp({
               {description}
             </p>
             <div className="mt-10">
-              <Button href="#footer">{buttonLabel}</Button>
+              <Button href="/contact-us">{buttonLabel}</Button>
             </div>
           </div>
 
