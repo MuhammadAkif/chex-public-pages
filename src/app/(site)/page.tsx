@@ -1,13 +1,16 @@
 import type { Metadata } from 'next'
 
 import { HomePage } from '@/app/(site)/components/home/home-page'
+import { getHomePage } from '@/app/(site)/home/payload'
 
-export const metadata: Metadata = {
-  title: 'Home | Chex.AI',
-  description:
-    'Modern vehicle inspections powered by AI with customer-friendly capture flows and partner analytics.',
+export const dynamic = 'force-dynamic'
+
+export async function generateMetadata(): Promise<Metadata> {
+  const { metadata } = await getHomePage()
+  return metadata
 }
 
-export default function SitePage() {
-  return <HomePage />
+export default async function SitePage() {
+  const { content } = await getHomePage()
+  return <HomePage content={content} />
 }

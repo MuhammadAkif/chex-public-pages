@@ -25,6 +25,8 @@
     "locations:seed-rideshare": "node --import tsx scripts/seed-rideshare-sections.ts",
     "locations:patch-comparison": "node --import tsx scripts/patch-comparison.ts",
     "locations:clear-helper-text": "node --import tsx scripts/clear-helper-text.ts",
+    "home:seed": "node --import tsx scripts/seed-home.ts",
+    "seed:all": "yarn locations:seed && yarn locations:seed-rideshare && yarn home:seed",
     "db:migrate:local-to-env": "node --import tsx scripts/migrate-local-db-to-env.ts",
     "db:up": "docker compose up -d postgres",
     "db:down": "docker compose down"
