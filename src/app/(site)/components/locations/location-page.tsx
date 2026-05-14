@@ -1,7 +1,6 @@
 import { Reveal } from "@/app/(site)/components/shared/reveal";
 
 import {
-  LocationCaseStudies,
   type LocationCaseStudiesProps,
 } from "./location-case-studies";
 import { LocationCta, type LocationCtaProps } from "./location-cta";
