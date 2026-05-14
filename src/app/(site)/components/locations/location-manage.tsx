@@ -92,7 +92,6 @@ export function LocationManage({
   title,
   bullets,
   buttonLabel,
-  demoHref,
   frameImage,
   screenImage,
   screenClassName,
@@ -136,7 +135,7 @@ export function LocationManage({
             ))}
           </ul>
           <div className="mt-8">
-            <Button href="#signup">{buttonLabel}</Button>
+            <Button href="/contact-us">{buttonLabel}</Button>
           </div>
         </div>
       </div>

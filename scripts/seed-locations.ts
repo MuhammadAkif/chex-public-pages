@@ -503,7 +503,7 @@ async function buildLocationData(
       title: content.regions.title,
     },
     services: {
-      ctaLabel: content.services.ctaLabel,
+      ctaLabel: content.services.ctaLabel ?? '',
       demoHref: content.services.demoHref,
       description: content.services.description,
       eyebrow: content.services.eyebrow,

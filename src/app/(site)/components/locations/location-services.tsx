@@ -6,7 +6,7 @@ export type LocationServicesProps = {
   eyebrow: string;
   title: string;
   description: string;
-  ctaLabel: string;
+  ctaLabel?: string;
   demoHref: string;
   items: ReadonlyArray<{
     title: string;
@@ -15,6 +15,13 @@ export type LocationServicesProps = {
     reverse?: boolean;
   }>;
 };
+
+function resolveItemHref(title: string, fallback: string): string {
+  const t = title.toLowerCase();
+  if (t.includes("uber")) return "/uber-inspection";
+  if (t.includes("lyft")) return "/lyft-inspection";
+  return fallback;
+}
 
 const BR_TAG_PATTERN = /<br\s*\/?>/gi;
 const BULLET_PREFIX_PATTERN = /^(?:[-*]\s+|✅\s*|•\s*)/;
@@ -154,7 +161,6 @@ export function LocationServices({
   eyebrow,
   title,
   description,
-  ctaLabel,
   demoHref,
   items,
 }: LocationServicesProps) {
@@ -351,18 +357,13 @@ export function LocationServices({
                 })()}
 
                 <div className="mt-10 flex justify-center">
-                  <Button href={demoHref}>Read more</Button>
+                  <Button href={resolveItemHref(item.title, demoHref)}>
+                    Read more
+                  </Button>
                 </div>
               </div>
             </article>
           ))}
-        </div>
-
-        {/* ── Bottom CTA ── */}
-        <div className="mt-12 flex justify-center">
-          <Button href={demoHref} className="min-w-[260px]">
-            {ctaLabel}
-          </Button>
         </div>
       </div>
     </section>
