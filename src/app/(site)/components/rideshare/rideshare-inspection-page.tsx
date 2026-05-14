@@ -29,9 +29,9 @@ import {
   type InspectionProcessProps,
 } from "@/app/(site)/components/rideshare/inspection-process";
 import {
-  RegistrationForm,
-  type RegistrationFormProps,
-} from "@/app/(site)/components/rideshare/registration-form";
+  LocationRegister,
+  type LocationRegisterProps,
+} from "@/app/(site)/components/locations/location-register";
 import {
   RideshareFaq,
   type RideshareFaqProps,
@@ -49,7 +49,7 @@ export type RideshareInspectionPageContent = {
   hero: RideshareHeroProps;
   inspectionProcess: InspectionProcessProps;
   pricing: RidesharePricingProps;
-  registration: RegistrationFormProps;
+  registerSection: LocationRegisterProps;
   backedCompanies: BackedCompaniesProps;
   featureBadges: FeatureBadgesProps;
   reviews: CustomerReviewsProps;
@@ -74,7 +74,7 @@ export function RideshareInspectionPage({
         <RidesharePricing {...content.pricing} />
       </Reveal>
       <Reveal>
-        <RegistrationForm {...content.registration} />
+        <LocationRegister {...content.registerSection} />
       </Reveal>
       <Reveal>
         <BackedCompanies {...content.backedCompanies} />

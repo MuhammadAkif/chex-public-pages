@@ -10,7 +10,7 @@ import {
   sharedFeatureBadges,
   sharedInspectionProcess,
   sharedPricingHighlights,
-  sharedRegistrationForm,
+  sharedRegisterSection,
   sharedReviews,
 } from "@/app/(site)/components/rideshare/shared-content";
 
@@ -97,7 +97,7 @@ export const pageContent: RideshareInspectionPageContent = {
     ],
     highlights: sharedPricingHighlights(sharedAssets.pricingCheck),
   },
-  registration: sharedRegistrationForm,
+  registerSection: sharedRegisterSection,
   backedCompanies: {
     techstarsImage: sharedAssets.techstarsText,
     techstarsImageAlt: "techstars",

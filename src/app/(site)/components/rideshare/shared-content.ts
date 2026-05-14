@@ -11,7 +11,7 @@ import type { CommunityBannerProps } from "@/app/(site)/components/rideshare/com
 import type { CustomerReviewsProps } from "@/app/(site)/components/rideshare/customer-reviews";
 import type { FeatureBadgesProps } from "@/app/(site)/components/rideshare/feature-badges";
 import type { InspectionProcessProps } from "@/app/(site)/components/rideshare/inspection-process";
-import type { RegistrationFormProps } from "@/app/(site)/components/rideshare/registration-form";
+import type { LocationRegisterProps } from "@/app/(site)/components/locations/location-register";
 import type { RideshareFaqProps } from "@/app/(site)/components/rideshare/rideshare-faq";
 
 export const sharedAssets = {
@@ -75,18 +75,23 @@ export const sharedInspectionProcess: InspectionProcessProps = {
   ],
 };
 
-export const sharedRegistrationForm: RegistrationFormProps = {
-  heading: "You Can Manage & Inspect Your Car Online",
-  formHeadingLead: "Sign up",
-  formHeadingHighlight: "and start",
-  formHeadingTail: "vehicle inspection",
-  submitLabel: "Register",
-  termsLabel: "By checking the box, you accept our",
+export const sharedRegisterSection: LocationRegisterProps = {
+  sectionId: "signup",
+  headlineLines: ["You Can Manage & Inspect Your Car Online"],
+  formHeadingAccent: "Sign up",
+  formHeadingRest: "and start vehicle inspection",
+  firstNamePlaceholder: "First Name",
+  lastNamePlaceholder: "Last Name",
+  emailPlaceholder: "Email Address",
+  phonePlaceholder: "Phone Number",
+  passwordPlaceholder: "Password",
+  termsPrefix: "By checking the box, you accept our",
   termsLinkLabel: "Terms of Use.",
-  termsHref: "/termsAndPolicy?uber=true",
-  loginPrompt: "Already have an account?",
+  termsLinkHref: "/termsAndPolicy?uber=true",
+  registerButtonLabel: "Register",
+  loginPrefix: "Already have an account?",
   loginLinkLabel: "Login.",
-  loginHref: "/login",
+  loginLinkHref: "/login",
   backgroundImage: "https://chex-payload-public-pages.s3.us-east-1.amazonaws.com/registration-form-bg.png",
   backgroundImageAlt: "Car inspection background",
 };
