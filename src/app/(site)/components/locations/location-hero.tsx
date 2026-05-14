@@ -221,9 +221,11 @@ export function LocationHero({
           .filter(Boolean)
           .join(" ")}
       >
-        <OrbitMap locations={locations} />
+        <div className="order-2 lg:order-1">
+          <OrbitMap locations={locations} />
+        </div>
 
-        <div>
+        <div className="order-1 text-center lg:order-2 lg:text-left">
           <GoogleReviewWidget
             googleReview={googleReview}
             ratingContainerClassName={ratingContainerClassName}
@@ -249,7 +251,7 @@ export function LocationHero({
 
           <div className="mt-8 grid max-w-2xl gap-5 sm:grid-cols-3">
             {stats.map((stat) => (
-              <div key={stat.label} className="text-center sm:text-left">
+              <div key={stat.label} className="text-center lg:text-left">
                 <div className="font-display text-[32px] font-bold leading-none text-[#111]">
                   {stat.value}
                 </div>
@@ -260,7 +262,7 @@ export function LocationHero({
             ))}
           </div>
 
-          <div className="mt-10 flex flex-col gap-4 sm:flex-row">
+          <div className="mt-10 flex flex-col items-center gap-4 sm:flex-row sm:justify-center lg:items-start lg:justify-start">
             <Button href={demoHref || "#signup"}>{primaryLabel}</Button>
           </div>
           {helperText ? (

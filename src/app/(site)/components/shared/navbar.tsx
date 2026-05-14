@@ -4,6 +4,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import type { Route } from "next";
 import { useEffect, useRef, useState } from "react";
+import { createPortal } from "react-dom";
 
 import {
   SiteImage,
@@ -121,11 +122,18 @@ export function Navbar({ logo, links }: NavbarProps) {
   const [menuOpen, setMenuOpen] = useState(false);
   const [mobileDropdown, setMobileDropdown] = useState<string | null>(null);
   const [isScrolled, setIsScrolled] = useState(false);
+  const [mounted, setMounted] = useState(false);
+  const [navBottom, setNavBottom] = useState(0);
+  const headerRef = useRef<HTMLDivElement>(null);
   const { openModal } = useRegisterModal();
   const isLocationsPage = pathname?.startsWith("/locations/");
   const inspectionHref = isLocationsPage ? "#signup" : undefined;
   const onInspectionClick = isLocationsPage ? undefined : openModal;
   const loginHref = `${process.env.NEXT_PUBLIC_RIDESHAIR_APP_BASE_LINK ?? ""}/login`;
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
 
   useEffect(() => {
     const updateScrollState = () => setIsScrolled(window.scrollY > 0);
@@ -134,9 +142,62 @@ export function Navbar({ logo, links }: NavbarProps) {
     return () => window.removeEventListener("scroll", updateScrollState);
   }, []);
 
+  // Close the mobile menu on route change so it never lingers after navigation.
+  useEffect(() => {
+    setMenuOpen(false);
+    setMobileDropdown(null);
+  }, [pathname]);
+
+  // Track where the navbar ends in the viewport so the portaled mobile panel
+  // can be pinned right below it (the sticky parent is at the top of the page).
+  useEffect(() => {
+    if (!menuOpen) return;
+    const update = () => {
+      const rect = headerRef.current?.getBoundingClientRect();
+      if (rect) setNavBottom(rect.bottom);
+    };
+    update();
+    window.addEventListener("resize", update);
+    return () => {
+      window.removeEventListener("resize", update);
+    };
+  }, [menuOpen]);
+
+  // Lock scroll using the position:fixed pattern so the page doesn't visually
+  // jump when the menu opens (overflow:hidden alone causes shifts on iOS).
+  useEffect(() => {
+    if (!menuOpen) return;
+    const scrollY = window.scrollY;
+    const body = document.body;
+    const prev = {
+      position: body.style.position,
+      top: body.style.top,
+      left: body.style.left,
+      right: body.style.right,
+      width: body.style.width,
+      overflow: body.style.overflow,
+    };
+    body.style.position = "fixed";
+    body.style.top = `-${scrollY}px`;
+    body.style.left = "0";
+    body.style.right = "0";
+    body.style.width = "100%";
+    body.style.overflow = "hidden";
+    return () => {
+      body.style.position = prev.position;
+      body.style.top = prev.top;
+      body.style.left = prev.left;
+      body.style.right = prev.right;
+      body.style.width = prev.width;
+      body.style.overflow = prev.overflow;
+      window.scrollTo(0, scrollY);
+    };
+  }, [menuOpen]);
+
   return (
     <div
-      className={`border-b border-white/60 bg-white/82 backdrop-blur-xl transition-shadow duration-200 ${
+      ref={headerRef}
+      className={`relative border-b border-white/60 bg-white/82 backdrop-blur-xl transition-shadow duration-200 ${
         isScrolled ? "shadow-[0_16px_40px_-28px_rgba(27,47,75,0.55)]" : "shadow-none"
       }`}
     >
@@ -191,10 +252,22 @@ export function Navbar({ logo, links }: NavbarProps) {
         </button>
       </div>
 
-      {/* Mobile menu */}
-      {menuOpen && (
-        <div className="border-t border-[#d7e3f4] bg-white px-4 py-4 lg:hidden">
-          <nav className="flex flex-col gap-1">
+      {/* Mobile menu — portaled to body so it escapes the sticky/relative
+          stacking contexts and reliably overlays page content. */}
+      {mounted && menuOpen &&
+        createPortal(
+          <div className="lg:hidden">
+            <div
+              style={{ top: navBottom }}
+              className="fixed inset-x-0 bottom-0 z-80 bg-black/50"
+              onClick={() => setMenuOpen(false)}
+              aria-hidden="true"
+            />
+            <div
+              style={{ top: navBottom, maxHeight: `calc(100dvh - ${navBottom}px)` }}
+              className="fixed inset-x-0 z-81 overflow-y-auto overscroll-contain border-t border-[#d7e3f4] bg-white px-4 py-4 shadow-[0_20px_50px_-16px_rgba(27,47,75,0.25)]"
+            >
+              <nav className="flex flex-col gap-1">
             {links.map((link) =>
               link.children?.length ? (
                 <div key={link.label}>
@@ -252,9 +325,11 @@ export function Navbar({ logo, links }: NavbarProps) {
             <Button href={inspectionHref} onClick={onInspectionClick} fullWidth className="cursor-pointer mt-2">
               Start My Inspection
             </Button>
-          </nav>
-        </div>
-      )}
+              </nav>
+            </div>
+          </div>,
+          document.body
+        )}
     </div>
   );
 }
