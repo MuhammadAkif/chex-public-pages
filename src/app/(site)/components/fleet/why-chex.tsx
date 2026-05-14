@@ -50,7 +50,7 @@ export function WhyChex({ titleLead, titleHighlight, rows }: WhyChexProps) {
                   <SiteImage
                     src={row.image}
                     alt={row.imageAlt}
-                    className="h-auto w-full max-w-[460px] object-contain"
+                    className="h-auto w-full max-w-[320px] object-contain"
                   />
                 </div>
               </div>

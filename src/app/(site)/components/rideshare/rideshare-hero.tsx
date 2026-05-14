@@ -77,7 +77,7 @@ export function RideshareHero({
 
   return (
     <section
-      className="relative bg-cover bg-center bg-no-repeat"
+      className="px-4 pb-16 pt-14 sm:px-6 lg:px-10 lg:pb-24 lg:pt-20 relative bg-cover bg-center bg-no-repeat"
       style={{ backgroundImage: `url(${bgSrc})` }}
     >
       <div className="absolute inset-0 bg-white/40" aria-hidden="true" />
@@ -116,10 +116,10 @@ export function RideshareHero({
               <SiteImage
                 src={counterIcon}
                 alt={counterIconAlt}
-                className="h-6 w-6 object-contain"
+                className="h-6 w-6 shrink-0 object-contain"
               />
               <span
-                className={`font-display text-[24px] font-bold leading-none text-[#1b2f4b] ${
+                className={`inline-block min-w-[6ch] text-right font-display text-[24px] font-bold leading-[1.2] tabular-nums whitespace-nowrap text-[#1b2f4b] ${
                   isAnimating ? "transition-opacity" : ""
                 }`}
               >

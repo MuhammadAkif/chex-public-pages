@@ -29,7 +29,7 @@ export function KeyBenefits({
           <SiteImage
             src={image}
             alt={imageAlt}
-            className="h-auto w-full max-w-[520px] object-contain"
+            className="h-auto w-full max-w-[420px] object-contain"
           />
         </div>
         <div>
