@@ -48,6 +48,8 @@ export const siteContent = {
     contactItems: [
       { label: "support@chex.ai", href: "mailto:support@chex.ai" },
       { label: "Contact us", href: "/contact-us" },
+      { label: "Terms of Use", href: "/terms-of-use" },
+      { label: "Privacy Policy", href: "/privacy-policy" },
     ],
     copyright: "© 2026 CHEX.AI All Rights Reserved",
   },
