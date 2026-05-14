@@ -6,7 +6,6 @@ node_modules
 .git
 .gitignore
 coverage
-graphify-out
 *.log
 *.tsbuildinfo
 README.md
