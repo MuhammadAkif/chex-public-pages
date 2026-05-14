@@ -11,7 +11,7 @@ import { signupThenLogin } from "@/app/(site)/components/shared/auth-client";
 
 const inputClass =
   "w-full rounded-[10px] border border-white/30 bg-white/8 px-4 py-3 font-ui text-[15px] text-white placeholder:text-white/50 outline-none transition-[border-color,box-shadow] focus:border-[#1468ba] focus:ring-2 focus:ring-[#1468ba]/35";
-const appSideLoginHref = process.env.NEXT_PUBLIC_APP_SIDE_URL + `/login`;
+const appSideLoginHref = `${process.env.NEXT_PUBLIC_RIDESHAIR_APP_BASE_LINK ?? ""}/login`;
 
 // ─── Context ────────────────────────────────────────────────────────────────
 
