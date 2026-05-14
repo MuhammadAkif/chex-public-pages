@@ -92,6 +92,7 @@ export function Navbar({ logo, links }: NavbarProps) {
   const isLocationsPage = pathname?.startsWith("/locations/");
   const inspectionHref = isLocationsPage ? "#signup" : undefined;
   const onInspectionClick = isLocationsPage ? undefined : openModal;
+  const loginHref = `${process.env.NEXT_PUBLIC_RIDESHAIR_APP_BASE_LINK ?? ""}/login`;
 
   useEffect(() => {
     const updateScrollState = () => setIsScrolled(window.scrollY > 0);
@@ -132,7 +133,10 @@ export function Navbar({ logo, links }: NavbarProps) {
           )}
         </nav>
 
-        <div className="hidden lg:block">
+        <div className="hidden items-center gap-3 lg:flex">
+          <Button href={loginHref} variant="outline" size="sm" className="cursor-pointer">
+            Login
+          </Button>
           <Button href={inspectionHref} onClick={onInspectionClick} size="sm" className="cursor-pointer">
             Start My Inspection
           </Button>
@@ -209,6 +213,9 @@ export function Navbar({ logo, links }: NavbarProps) {
                 </Link>
               )
             )}
+            <Button href={loginHref} variant="outline" fullWidth className="cursor-pointer mt-2">
+              Login
+            </Button>
             <Button href={inspectionHref} onClick={onInspectionClick} fullWidth className="cursor-pointer mt-2">
               Start My Inspection
             </Button>

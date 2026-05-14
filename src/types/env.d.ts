@@ -12,5 +12,6 @@ declare namespace NodeJS {
     S3_PUBLIC_URL?: string
     S3_REGION?: string
     S3_SECRET_ACCESS_KEY?: string
+    NEXT_PUBLIC_RIDESHAIR_APP_BASE_LINK?: string
   }
 }
