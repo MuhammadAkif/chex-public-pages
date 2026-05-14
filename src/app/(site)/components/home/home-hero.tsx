@@ -118,20 +118,6 @@ export function HomeHero({
               </>
             ) : null}
           </div>
-
-          <div className="mt-6 flex justify-center">
-            <Button
-              href="#how-it-works"
-              variant="outline"
-              size="sm"
-              className="border-[#252525]"
-            >
-              Watch video
-              <span className="inline-flex h-5 w-5 items-center justify-center rounded-full bg-[#2d2d2d] text-[10px] text-white">
-                ▶
-              </span>
-            </Button>
-          </div>
         </div>
       </div>
     </section>
