@@ -167,15 +167,15 @@ function ImageDragger({ cards }: { cards: typeof BUSINESS_CARDS }) {
             <div className="absolute inset-x-0 bottom-0 rounded-b-[20px] bg-gradient-to-t from-black/85 via-black/60 to-transparent px-8 pb-10 pt-16 text-white">
               <p className="font-ui text-[20px] leading-[1.3]">
                 {card.quoteBefore}
-                <span className="text-[#1488ff]">{card.quoteHighlight}</span>
+                {/* <span className="text-[#1488ff]">{card.quoteHighlight}</span> */}
                 {card.quoteAfter}
               </p>
               <p className="font-ui mt-4 text-[28px] font-semibold leading-none">
                 {card.name}
               </p>
-              <p className="font-ui mt-2 text-[18px] leading-none text-white/70">
+              {/* <p className="font-ui mt-2 text-[18px] leading-none text-white/70">
                 {card.role}
-              </p>
+              </p> */}
             </div>
           </div>
         ))}
