@@ -1,6 +1,8 @@
 'use client'
 /* eslint-disable @next/next/no-img-element */
 
+import Link from 'next/link'
+import type { Route } from 'next'
 import type { ReactNode } from 'react'
 
 import { Reveal, RevealArticle } from '@/app/(site)/components/shared/reveal'
@@ -106,9 +108,15 @@ export function CaseStudies({
                   <p className={descriptionClassName}>{item.description}</p>
 
                   {item.linkHref && item.linkLabel ? (
-                    <a href={item.linkHref} className={linkClassName}>
-                      {item.linkLabel}
-                    </a>
+                    item.linkHref.startsWith('/') ? (
+                      <Link href={item.linkHref as Route} className={linkClassName}>
+                        {item.linkLabel}
+                      </Link>
+                    ) : (
+                      <a href={item.linkHref} className={linkClassName}>
+                        {item.linkLabel}
+                      </a>
+                    )
                   ) : null}
                 </div>
               </RevealArticle>

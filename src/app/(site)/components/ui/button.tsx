@@ -1,5 +1,7 @@
 'use client'
 
+import Link from 'next/link'
+import type { Route } from 'next'
 import type { ReactNode } from 'react'
 
 type ButtonProps = {
@@ -50,6 +52,13 @@ export function Button({
     .join(' ')
 
   if (href) {
+    if (href.startsWith('/')) {
+      return (
+        <Link href={href as Route} className={classes} onClick={onClick}>
+          {children}
+        </Link>
+      )
+    }
     return (
       <a href={href} className={classes} onClick={onClick}>
         {children}

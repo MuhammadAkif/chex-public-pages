@@ -1,3 +1,6 @@
+import Link from 'next/link'
+import type { Route } from 'next'
+
 export type LocationPricingProps = {
   title: string
   description: string
@@ -58,15 +61,27 @@ export function LocationPricing({
                 {plan.caption ? (
                   <p className="mt-1 font-ui text-[16px] leading-[1.5] text-[#6b7f96]">{plan.caption}</p>
                 ) : null}
-                <a
-                  href={plan.buttonHref}
-                  className={[
-                    'mt-8 inline-flex min-h-12 min-w-[230px] items-center justify-center rounded-[10px] px-6 font-ui text-[17px] font-semibold transition-colors',
-                    buttonClassName,
-                  ].join(' ')}
-                >
-                  {plan.buttonLabel}
-                </a>
+                {plan.buttonHref.startsWith('/') ? (
+                  <Link
+                    href={plan.buttonHref as Route}
+                    className={[
+                      'mt-8 inline-flex min-h-12 min-w-[230px] items-center justify-center rounded-[10px] px-6 font-ui text-[17px] font-semibold transition-colors',
+                      buttonClassName,
+                    ].join(' ')}
+                  >
+                    {plan.buttonLabel}
+                  </Link>
+                ) : (
+                  <a
+                    href={plan.buttonHref}
+                    className={[
+                      'mt-8 inline-flex min-h-12 min-w-[230px] items-center justify-center rounded-[10px] px-6 font-ui text-[17px] font-semibold transition-colors',
+                      buttonClassName,
+                    ].join(' ')}
+                  >
+                    {plan.buttonLabel}
+                  </a>
+                )}
               </article>
             )
           })}

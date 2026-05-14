@@ -1,4 +1,5 @@
-import type { Metadata } from "next";
+import type { Metadata, Route } from "next";
+import Link from "next/link";
 import { cache } from "react";
 import config from "@payload-config";
 import { getPayload } from "payload";
@@ -60,9 +61,9 @@ export default async function BlogsPage() {
           ) : (
             <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
               {posts.map((post) => (
-                <a
+                <Link
                   key={post.id}
-                  href={`/blogs/${encodeURIComponent(post.slug)}`}
+                  href={`/blogs/${encodeURIComponent(post.slug)}` as Route}
                   className="group flex flex-col overflow-hidden rounded-[16px] border border-[#e4ebf5] bg-white shadow-[0_8px_30px_-12px_rgba(27,47,75,0.15)] transition-shadow hover:shadow-[0_16px_40px_-12px_rgba(27,47,75,0.25)]"
                 >
                   {/* Image */}
@@ -103,7 +104,7 @@ export default async function BlogsPage() {
                       <span className="transition-transform group-hover:translate-x-1">→</span>
                     </div>
                   </div>
-                </a>
+                </Link>
               ))}
             </div>
           )}

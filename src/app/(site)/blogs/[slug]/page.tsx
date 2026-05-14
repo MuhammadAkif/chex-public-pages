@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { notFound } from "next/navigation";
 import { cache } from "react";
 import config from "@payload-config";
@@ -170,12 +171,12 @@ export default async function BlogDetailPage({
       {/* Hero */}
       <div className="bg-[#f4f8ff] px-4 pt-14 pb-0 sm:px-6 lg:px-10">
         <div className="mx-auto max-w-[800px]">
-          <a
+          <Link
             href="/blogs"
             className="inline-flex items-center gap-1 font-ui text-[14px] font-medium text-[#1368b9] hover:text-[#3d8fd9]"
           >
             ← Back to Blog
-          </a>
+          </Link>
           {post.publishedAt && (
             <p className="mt-6 font-ui text-[13px] font-semibold uppercase tracking-[0.12em] text-[#ff7a01]">
               {formatDate(post.publishedAt)}
@@ -218,12 +219,12 @@ export default async function BlogDetailPage({
       {/* Footer CTA */}
       <div className="border-t border-[#e4ebf5] px-4 py-12 sm:px-6 lg:px-10">
         <div className="mx-auto flex max-w-[800px] items-center justify-between gap-4">
-          <a
+          <Link
             href="/blogs"
             className="font-ui text-[15px] font-semibold text-[#1368b9] hover:text-[#3d8fd9]"
           >
             ← All posts
-          </a>
+          </Link>
         </div>
       </div>
     </div>

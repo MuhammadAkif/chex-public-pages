@@ -2,6 +2,8 @@
 
 /* eslint-disable @next/next/no-img-element */
 
+import Link from "next/link";
+import type { Route } from "next";
 import { useCallback, useState } from "react";
 import { signupThenLogin } from "@/app/(site)/components/shared/auth-client";
 
@@ -185,12 +187,21 @@ export function LocationRegister({
               />
               <span>
                 {termsPrefix}
-                <a
-                  href={termsLinkHref}
-                  className="font-semibold text-[#1468ba] underline decoration-[#1468ba]/80 underline-offset-2 hover:text-[#3d8fd9]"
-                >
-                  {termsLinkLabel}
-                </a>
+                {termsLinkHref.startsWith("/") ? (
+                  <Link
+                    href={termsLinkHref as Route}
+                    className="font-semibold text-[#1468ba] underline decoration-[#1468ba]/80 underline-offset-2 hover:text-[#3d8fd9]"
+                  >
+                    {termsLinkLabel}
+                  </Link>
+                ) : (
+                  <a
+                    href={termsLinkHref}
+                    className="font-semibold text-[#1468ba] underline decoration-[#1468ba]/80 underline-offset-2 hover:text-[#3d8fd9]"
+                  >
+                    {termsLinkLabel}
+                  </a>
+                )}
                 .
               </span>
             </label>
@@ -209,12 +220,21 @@ export function LocationRegister({
 
           <p className="mt-5 text-center font-ui text-[14px] text-white/90 sm:text-[15px]">
             {loginPrefix}
-            <a
-              href={loginLinkHref}
-              className="font-semibold text-[#1468ba] underline decoration-[#1468ba]/80 underline-offset-2 hover:text-[#3d8fd9]"
-            >
-              {loginLinkLabel}
-            </a>
+            {loginLinkHref.startsWith("/") ? (
+              <Link
+                href={loginLinkHref as Route}
+                className="font-semibold text-[#1468ba] underline decoration-[#1468ba]/80 underline-offset-2 hover:text-[#3d8fd9]"
+              >
+                {loginLinkLabel}
+              </Link>
+            ) : (
+              <a
+                href={loginLinkHref}
+                className="font-semibold text-[#1468ba] underline decoration-[#1468ba]/80 underline-offset-2 hover:text-[#3d8fd9]"
+              >
+                {loginLinkLabel}
+              </a>
+            )}
             .
           </p>
         </div>

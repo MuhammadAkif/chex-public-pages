@@ -1,6 +1,24 @@
 'use client'
 
+import Link from 'next/link'
+import type { Route } from 'next'
+
 import { SiteImage, type SiteImageSource } from '@/app/(site)/components/shared/site-image'
+
+function FooterItemLink({ href, className, children }: { href: string; className: string; children: React.ReactNode }) {
+  if (href.startsWith('/')) {
+    return (
+      <Link href={href as Route} className={className}>
+        {children}
+      </Link>
+    )
+  }
+  return (
+    <a href={href} className={className}>
+      {children}
+    </a>
+  )
+}
 
 type FooterLink = {
   label: string
@@ -42,12 +60,12 @@ export function Footer({
             <ul className="mt-6 space-y-4">
               {menuItems.map((item) => (
                 <li key={item.label}>
-                  <a
+                  <FooterItemLink
                     href={item.href}
                     className="type-footer-copy text-white transition-colors hover:text-[#ff7a01]"
                   >
                     {item.label}
-                  </a>
+                  </FooterItemLink>
                 </li>
               ))}
             </ul>
@@ -58,12 +76,12 @@ export function Footer({
             <ul className="mt-6 space-y-4">
               {contactItems.map((item) => (
                 <li key={item.label}>
-                  <a
+                  <FooterItemLink
                     href={item.href}
                     className="type-footer-copy text-white transition-colors hover:text-[#ff7a01]"
                   >
                     {item.label}
-                  </a>
+                  </FooterItemLink>
                 </li>
               ))}
             </ul>

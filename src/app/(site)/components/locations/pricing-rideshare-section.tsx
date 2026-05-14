@@ -1,5 +1,8 @@
 /* eslint-disable @next/next/no-img-element */
 
+import Link from 'next/link'
+import type { Route } from 'next'
+
 type Tone = 'accent' | 'primary'
 const UBER_LOGO = 'https://chex-payload-public-pages.s3.us-east-1.amazonaws.com/uber-logo.png'
 const LYFT_LOGO = 'https://chex-payload-public-pages.s3.us-east-1.amazonaws.com/lyft-logo.png'
@@ -136,12 +139,21 @@ export function PricingRideShareSection({
                   <span className="mt-2 min-h-5" aria-hidden="true" />
                 )}
 
-                <a
-                  href={ctaHref}
-                  className={`mt-auto inline-flex min-h-12 w-full max-w-[300px] items-center justify-center rounded-[8px] px-6 font-ui text-[16px] font-semibold text-white visited:text-white hover:text-white transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#1368b9] focus-visible:ring-offset-2 ${toneClasses[tone].button}`}
-                >
-                  {plan.buttonLabel}
-                </a>
+                {ctaHref.startsWith('/') ? (
+                  <Link
+                    href={ctaHref as Route}
+                    className={`mt-auto inline-flex min-h-12 w-full max-w-[300px] items-center justify-center rounded-[8px] px-6 font-ui text-[16px] font-semibold text-white visited:text-white hover:text-white transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#1368b9] focus-visible:ring-offset-2 ${toneClasses[tone].button}`}
+                  >
+                    {plan.buttonLabel}
+                  </Link>
+                ) : (
+                  <a
+                    href={ctaHref}
+                    className={`mt-auto inline-flex min-h-12 w-full max-w-[300px] items-center justify-center rounded-[8px] px-6 font-ui text-[16px] font-semibold text-white visited:text-white hover:text-white transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#1368b9] focus-visible:ring-offset-2 ${toneClasses[tone].button}`}
+                  >
+                    {plan.buttonLabel}
+                  </a>
+                )}
               </article>
             )
           })}
