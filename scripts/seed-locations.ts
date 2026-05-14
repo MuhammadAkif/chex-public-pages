@@ -377,7 +377,6 @@ async function buildLocationData(
     cta: {
       ...(await mediaField(payload, 'image', content.cta.image)),
       description: content.cta.description,
-      helperText: content.cta.helperText,
       imageOpacityClassName: content.cta.imageOpacityClassName,
       primaryLabel: content.cta.primaryLabel,
       secondaryLabel: content.cta.secondaryLabel,
@@ -409,7 +408,6 @@ async function buildLocationData(
         score: '4.8',
         stars: 5,
       },
-      helperText: content.hero.helperText,
       locations: await Promise.all(
         content.hero.locations.map(async (item) => ({
           ...(await mediaField(payload, 'image', item.image)),

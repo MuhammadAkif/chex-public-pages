@@ -195,7 +195,6 @@ export const Locations: CollectionConfig = {
         {
           name: 'helperText',
           type: 'text',
-          required: true,
         },
         {
           name: 'demoHref',
@@ -1279,7 +1278,6 @@ export const Locations: CollectionConfig = {
         {
           name: 'helperText',
           type: 'text',
-          required: true,
         },
         ...mediaFields('image', 'CTA background image'),
         classNameField('imageOpacityClassName', 'Image opacity class name', 'opacity-100'),

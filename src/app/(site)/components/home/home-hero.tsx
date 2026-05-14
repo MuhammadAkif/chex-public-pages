@@ -12,7 +12,7 @@ type HomeHeroProps = {
   title: string;
   description: string;
   secondaryLabel: string;
-  helperText: string;
+  helperText?: string;
   media: SiteImageSource;
 };
 
@@ -56,7 +56,9 @@ export function HomeHero({
           <Button onClick={openModal} className="cursor-pointer">{secondaryLabel}</Button>
         </div>
 
-        <p className="type-body-sm mt-4 text-[#41546e]">{helperText}</p>
+        {helperText ? (
+          <p className="type-body-sm mt-4 text-[#41546e]">{helperText}</p>
+        ) : null}
 
         <div className="relative mt-16 w-full max-w-[1200px]">
           <div className="pointer-events-none absolute inset-x-20 top-0 h-14 rounded-full bg-[radial-gradient(circle,_rgba(255,122,1,0.18)_0%,_rgba(19,104,185,0)_72%)] blur-3xl" />

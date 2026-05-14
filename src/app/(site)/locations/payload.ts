@@ -115,7 +115,7 @@ function toLocationPageContent(location: Location): LocationPageContent {
       description: location.hero.description,
       descriptionClassName: location.hero.style?.descriptionClassName ?? "",
       demoHref: location.hero.demoHref,
-      helperText: location.hero.helperText,
+      helperText: location.hero.helperText ?? "",
       layoutClassName: location.hero.style?.layoutClassName ?? "",
       locations: (location.hero.locations ?? []).map((item) => ({
         featured: Boolean(item.featured),
@@ -389,7 +389,7 @@ function toLocationPageContent(location: Location): LocationPageContent {
     },
     cta: {
       description: location.cta.description,
-      helperText: location.cta.helperText,
+      helperText: location.cta.helperText ?? "",
       image: mediaURL(location.cta.image, location.cta.imageFallbackUrl),
       imageOpacityClassName: location.cta.imageOpacityClassName ?? "",
       primaryLabel: location.cta.primaryLabel,

@@ -270,7 +270,7 @@ export interface Location {
     description: string;
     primaryLabel: string;
     secondaryLabel: string;
-    helperText: string;
+    helperText?: string | null;
     demoHref: string;
     stats: {
       value: string;
@@ -774,7 +774,7 @@ export interface Location {
     description: string;
     primaryLabel: string;
     secondaryLabel: string;
-    helperText: string;
+    helperText?: string | null;
     /**
      * CTA background image selected from the Payload media library.
      */

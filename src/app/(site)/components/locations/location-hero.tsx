@@ -18,7 +18,7 @@ export type LocationHeroProps = {
   description: string;
   primaryLabel: string;
   secondaryLabel: string;
-  helperText: string;
+  helperText?: string;
   demoHref: string;
   stats: ReadonlyArray<{
     value: string;
@@ -263,9 +263,11 @@ export function LocationHero({
           <div className="mt-10 flex flex-col gap-4 sm:flex-row">
             <Button href={demoHref || "#signup"}>{primaryLabel}</Button>
           </div>
-          <p className="type-body-sm mt-4 capitalize text-[#010e2b]/80">
-            {helperText}
-          </p>
+          {helperText ? (
+            <p className="type-body-sm mt-4 capitalize text-[#010e2b]/80">
+              {helperText}
+            </p>
+          ) : null}
         </div>
       </div>
     </section>

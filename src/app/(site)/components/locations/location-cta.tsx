@@ -8,7 +8,7 @@ export type LocationCtaProps = {
   description: string;
   primaryLabel: string;
   secondaryLabel: string;
-  helperText: string;
+  helperText?: string;
   image: string;
   imageOpacityClassName: string;
 };
@@ -56,9 +56,11 @@ export function LocationCta({
             <Button href="#signup">{secondaryLabel}</Button>
           </div>
 
-          <p className="type-body-sm mt-6 capitalize text-white/86">
-            {helperText}
-          </p>
+          {helperText ? (
+            <p className="type-body-sm mt-6 capitalize text-white/86">
+              {helperText}
+            </p>
+          ) : null}
         </div>
       </div>
     </section>

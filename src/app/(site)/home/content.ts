@@ -6,7 +6,6 @@ export const homeContent = {
       "Chex.ai is the only certified AI inspection service accepted by Uber, Lyft, Turo, HopSkipDrive, Zum, Adroit, and Tribur. Complete your vehicle inspection from your phone in 30 minutes.",
     primaryLabel: "Register your inspection today",
     secondaryLabel: "Start My Inspection",
-    helperText: "No Credit Card Required",
     media:
       "https://chex-payload-public-pages.s3.us-east-1.amazonaws.com/chex-video.mp4",
   },
@@ -234,6 +233,5 @@ export const homeContent = {
     description:
       "Join the hundreds of automotive brands leading the AI revolution. Start your risk-free 14-day trial today.",
     secondaryLabel: "Start My Inspection",
-    helperText: "No Credit Card Required, Cancel Anytime.",
   },
 } as const;

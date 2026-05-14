@@ -24,7 +24,6 @@ export function HomePage() {
             title={homeContent.hero.title}
             description={homeContent.hero.description}
             secondaryLabel={homeContent.hero.secondaryLabel}
-            helperText={homeContent.hero.helperText}
             media={homeContent.hero.media}
           />
         </Reveal>
@@ -119,7 +118,6 @@ export function HomePage() {
             title={homeContent.cta.title}
             description={homeContent.cta.description}
             secondaryLabel={homeContent.cta.secondaryLabel}
-            helperText={homeContent.cta.helperText}
           />
         </Reveal>
       </main>

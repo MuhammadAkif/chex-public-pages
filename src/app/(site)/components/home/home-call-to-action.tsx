@@ -7,7 +7,7 @@ type HomeCallToActionProps = {
   title: string;
   description: string;
   secondaryLabel: string;
-  helperText: string;
+  helperText?: string;
 };
 
 export function HomeCallToAction({
@@ -34,7 +34,9 @@ export function HomeCallToAction({
             <Button onClick={openModal} className="cursor-pointer">{secondaryLabel}</Button>
           </div>
 
-          <p className="type-body-lg mt-6 text-white/90">{helperText}</p>
+          {helperText ? (
+            <p className="type-body-lg mt-6 text-white/90">{helperText}</p>
+          ) : null}
         </div>
       </div>
     </section>
