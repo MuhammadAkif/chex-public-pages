@@ -3,26 +3,6 @@ import { createElement, Fragment } from "react";
 
 import type { SiteImageSource } from "@/app/(site)/components/shared/site-image";
 
-import aboutPoster from "@/app/(site)/assets/rideshare/about-poster.png";
-import backed1 from "@/app/(site)/assets/rideshare/backed-1.png";
-import backed2 from "@/app/(site)/assets/rideshare/backed-2.png";
-import backedCarepool from "@/app/(site)/assets/rideshare/backed-carepool.png";
-import backed4 from "@/app/(site)/assets/rideshare/backed-4.png";
-import badgeAdvanced from "@/app/(site)/assets/rideshare/badge-advanced.png";
-import badgeCost from "@/app/(site)/assets/rideshare/badge-cost.png";
-import badgeEasy from "@/app/(site)/assets/rideshare/badge-easy.png";
-import businessHelpImage from "@/app/(site)/assets/rideshare/business-help.png";
-import counterIcon from "@/app/(site)/assets/rideshare/counter-icon.png";
-import pricingCheck from "@/app/(site)/assets/rideshare/pricing-check.png";
-import registrationFormBg from "@/app/(site)/assets/rideshare/registration-form-bg.png";
-import step1Image from "@/app/(site)/assets/rideshare/step1-image.png";
-import step1Icon from "@/app/(site)/assets/rideshare/step1-register-icon.png";
-import step2Image from "@/app/(site)/assets/rideshare/step2-image.png";
-import step2Icon from "@/app/(site)/assets/rideshare/step2-inspect-icon.png";
-import step3Image from "@/app/(site)/assets/rideshare/step3-image.png";
-import step3Icon from "@/app/(site)/assets/rideshare/step3-certificate-icon.png";
-import step4Image from "@/app/(site)/assets/rideshare/step4-image.png";
-import techstarsText from "@/app/(site)/assets/rideshare/techstars-text.png";
 
 import type { AboutChexProps } from "@/app/(site)/components/rideshare/about-chex";
 import type { BackedCompaniesProps } from "@/app/(site)/components/rideshare/backed-companies";
@@ -35,12 +15,12 @@ import type { RegistrationFormProps } from "@/app/(site)/components/rideshare/re
 import type { RideshareFaqProps } from "@/app/(site)/components/rideshare/rideshare-faq";
 
 export const sharedAssets = {
-  counterIcon,
-  registrationFormBg,
-  aboutPoster,
-  techstarsText,
-  businessHelpImage,
-  pricingCheck,
+  counterIcon: "https://chex-payload-public-pages.s3.us-east-1.amazonaws.com/counter-icon.png",
+  registrationFormBg: "https://chex-payload-public-pages.s3.us-east-1.amazonaws.com/registration-form-bg.png",
+  aboutPoster: "https://chex-payload-public-pages.s3.us-east-1.amazonaws.com/about-poster.png",
+  techstarsText: "https://chex-payload-public-pages.s3.us-east-1.amazonaws.com/techstars-text.png",
+  businessHelpImage: "https://chex-payload-public-pages.s3.us-east-1.amazonaws.com/business-help.png",
+  pricingCheck: "https://chex-payload-public-pages.s3.us-east-1.amazonaws.com/group-1000004770-d3sqac.png",
 };
 
 export const ABOUT_VIDEO_SRC =
@@ -57,9 +37,9 @@ export const sharedInspectionProcess: InspectionProcessProps = {
       title: "Register",
       description:
         "Please Register your account by filling out the form above to get started",
-      icon: step1Icon,
+      icon: "https://chex-payload-public-pages.s3.us-east-1.amazonaws.com/registered-1-ympyrw.png",
       iconAlt: "Register icon",
-      image: step1Image,
+      image: "https://chex-payload-public-pages.s3.us-east-1.amazonaws.com/group-424-hurqzv.png",
       imageAlt: "Register your account",
     },
     {
@@ -67,9 +47,9 @@ export const sharedInspectionProcess: InspectionProcessProps = {
       title: "Complete Inspection",
       description:
         "Follow the instructions for each inspection point within our app and upload photo and video clips",
-      icon: step2Icon,
+      icon: "https://chex-payload-public-pages.s3.us-east-1.amazonaws.com/consultation-1-d9xhv0.png",
       iconAlt: "Inspection icon",
-      image: step2Image,
+      image: "https://chex-payload-public-pages.s3.us-east-1.amazonaws.com/group-425-wruwdl.png",
       imageAlt: "Complete your inspection",
     },
     {
@@ -77,9 +57,9 @@ export const sharedInspectionProcess: InspectionProcessProps = {
       title: "Complete Payment",
       description:
         "Enter payment details. If you don't pass, your first re-inspection is free",
-      icon: step3Icon,
+      icon: "https://chex-payload-public-pages.s3.us-east-1.amazonaws.com/certificate-1-1-jblg3b.png",
       iconAlt: "Payment icon",
-      image: step3Image,
+      image: "https://chex-payload-public-pages.s3.us-east-1.amazonaws.com/group-429-1-f2i3xb.png",
       imageAlt: "Complete your payment",
     },
     {
@@ -87,9 +67,9 @@ export const sharedInspectionProcess: InspectionProcessProps = {
       title: "Same-day Certification ",
       description:
         "All certifications completed within 4 hours or less. Downloadable verification in-app",
-      icon: step3Icon,
+      icon: "https://chex-payload-public-pages.s3.us-east-1.amazonaws.com/certificate-1-1-jblg3b.png",
       iconAlt: "Certification icon",
-      image: step4Image,
+      image: "https://chex-payload-public-pages.s3.us-east-1.amazonaws.com/group-431-1-wfpb9p.png",
       imageAlt: "Same-day certification",
     },
   ],
@@ -107,7 +87,7 @@ export const sharedRegistrationForm: RegistrationFormProps = {
   loginPrompt: "Already have an account?",
   loginLinkLabel: "Login.",
   loginHref: "/login",
-  backgroundImage: registrationFormBg,
+  backgroundImage: "https://chex-payload-public-pages.s3.us-east-1.amazonaws.com/registration-form-bg.png",
   backgroundImageAlt: "Car inspection background",
 };
 
@@ -115,21 +95,21 @@ export const sharedFeatureBadges: FeatureBadgesProps = {
   title: "Benefits we Propose",
   badges: [
     {
-      image: badgeEasy,
+      image: "https://chex-payload-public-pages.s3.us-east-1.amazonaws.com/badge-easy-2b57d2a4.png",
       imageAlt: "Easy and convenient",
       heading: "Easy & Convenient",
       description:
         "Chex.AI's mobile web app is designed for you to conduct inspections at your convenience",
     },
     {
-      image: badgeAdvanced,
+      image: "https://chex-payload-public-pages.s3.us-east-1.amazonaws.com/badge-advanced-7fc01220.png",
       imageAlt: "Advanced and efficient",
       heading: "Advanced & Efficient",
       description:
         "Our system uses machine learning technology which gives you results instantly",
     },
     {
-      image: badgeCost,
+      image: "https://chex-payload-public-pages.s3.us-east-1.amazonaws.com/badge-cost-822fde0a.png",
       imageAlt: "Cost effective",
       heading: "Cost Effective",
       description:
@@ -254,7 +234,7 @@ export const sharedBusinessHelp: BusinessHelpProps = {
     "We can help your business optimize asset inspection process. Our interactive dashboard allows you to review data in real time and provide feedback to your customers instantaneously!",
   buttonLabel: "Contact Us",
   buttonHref: "/contact-us",
-  image: businessHelpImage,
+  image: "https://chex-payload-public-pages.s3.us-east-1.amazonaws.com/business-help.png",
   imageAlt: "Business help",
 };
 
@@ -262,20 +242,20 @@ export const sharedAbout: AboutChexProps = {
   title: "About Chex.AI",
   description:
     "Chex.AI revolutionizes vehicle safety inspection with its cutting-edge platform, employing advanced damage detection technology. Businesses benefit from real-time insights, spotting any new vehicle damage instantly. With a user-friendly app and comprehensive dashboard, Chex.AI streamlines inspection reviews and provides detailed insights, enhancing operational efficiency and safety standards.",
-  videoPoster: aboutPoster,
+  videoPoster: "https://chex-payload-public-pages.s3.us-east-1.amazonaws.com/about-poster.png",
   videoPosterAlt: "Chex.AI demo video",
   videoSrc: ABOUT_VIDEO_SRC,
 };
 
 export const baseBackedCompanyLogos: BackedCompaniesProps["logos"] = [
-  { src: backed1, alt: "Backing partner 1" },
-  { src: backed2, alt: "Backing partner 2" },
-  { src: backedCarepool, alt: "Carepool" },
-  { src: backed4, alt: "Backing partner 4" },
+  { src: "https://chex-payload-public-pages.s3.us-east-1.amazonaws.com/logo-adroit.png", alt: "Backing partner 1" },
+  { src: "https://chex-payload-public-pages.s3.us-east-1.amazonaws.com/logo-oxo.png", alt: "Backing partner 2" },
+  { src: "https://chex-payload-public-pages.s3.us-east-1.amazonaws.com/logo-carepool.png", alt: "Carepool" },
+  { src: "https://chex-payload-public-pages.s3.us-east-1.amazonaws.com/logo-zum.png", alt: "Backing partner 4" },
 ];
 
 export const baseBackedCompanies: BackedCompaniesProps = {
-  techstarsImage: techstarsText,
+  techstarsImage: "https://chex-payload-public-pages.s3.us-east-1.amazonaws.com/techstars-text.png",
   techstarsImageAlt: "techstars",
   logos: baseBackedCompanyLogos,
 };

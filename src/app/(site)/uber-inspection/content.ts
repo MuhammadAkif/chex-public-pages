@@ -1,13 +1,3 @@
-import heroBg from "@/app/(site)/assets/rideshare/hero-bg.png";
-import heroPreview from "@/app/(site)/assets/rideshare/hero-preview.png";
-import logoLyft from "@/app/(site)/assets/rideshare/logo-lyft.png";
-import logoTuro from "@/app/(site)/assets/rideshare/logo-turo.png";
-import logoUber from "@/app/(site)/assets/rideshare/logo-uber.png";
-import pricingLogoChex from "@/app/(site)/assets/rideshare/pricing-logo-chex.png";
-import pricingLogoSecondary from "@/app/(site)/assets/rideshare/pricing-logo-secondary.png";
-import backedUberExtra1 from "@/app/(site)/assets/rideshare/backed-uber-extra-1.png";
-import backedUberExtra2 from "@/app/(site)/assets/rideshare/backed-uber-extra-2.png";
-import backedUberExtra3 from "@/app/(site)/assets/rideshare/backed-uber-extra-3.png";
 
 import type { RideshareInspectionPageContent } from "@/app/(site)/components/rideshare/rideshare-inspection-page";
 import {
@@ -27,8 +17,8 @@ import {
 export const pageContent: RideshareInspectionPageContent = {
   hero: {
     variant: "uber-lyft",
-    backgroundImage: heroBg,
-    previewImage: heroPreview,
+    backgroundImage: "https://chex-payload-public-pages.s3.us-east-1.amazonaws.com/hero-bg-9eff7a5f.png",
+    previewImage: "https://chex-payload-public-pages.s3.us-east-1.amazonaws.com/hero-preview.png",
     previewImageAlt: "Rideshare vehicle inspection preview",
     titleLead: "INSPECTION PLATFORM",
     titleHighlight: "Vehicle",
@@ -42,9 +32,9 @@ export const pageContent: RideshareInspectionPageContent = {
     counterDescription:
       "drivers who have successfully completed their vehicle inspection with us!",
     partnerLogos: [
-      { src: logoUber, alt: "Uber" },
-      { src: logoLyft, alt: "Lyft" },
-      { src: logoTuro, alt: "Turo" },
+      { src: "https://chex-payload-public-pages.s3.us-east-1.amazonaws.com/logo-uber.png", alt: "Uber" },
+      { src: "https://chex-payload-public-pages.s3.us-east-1.amazonaws.com/logo-lyft.png", alt: "Lyft" },
+      { src: "https://chex-payload-public-pages.s3.us-east-1.amazonaws.com/logo-turo.png", alt: "Turo" },
     ],
   },
   inspectionProcess: sharedInspectionProcess,
@@ -62,7 +52,7 @@ export const pageContent: RideshareInspectionPageContent = {
         tone: "primary",
         logos: [
           {
-            src: pricingLogoSecondary,
+            src: "https://chex-payload-public-pages.s3.us-east-1.amazonaws.com/pricing-logo-secondary.png",
             alt: "Inspection",
             className: "h-10 w-auto object-contain sm:h-11",
           },
@@ -77,7 +67,7 @@ export const pageContent: RideshareInspectionPageContent = {
         tone: "primary",
         logos: [
           {
-            src: pricingLogoChex,
+            src: "https://chex-payload-public-pages.s3.us-east-1.amazonaws.com/pricing-logo-chex.png",
             alt: "Chex inspection",
             className: "h-10 w-auto object-contain sm:h-11",
           },
@@ -92,12 +82,12 @@ export const pageContent: RideshareInspectionPageContent = {
         tone: "accent",
         logos: [
           {
-            src: pricingLogoSecondary,
+            src: "https://chex-payload-public-pages.s3.us-east-1.amazonaws.com/pricing-logo-secondary.png",
             alt: "Inspection",
             className: "h-10 w-auto object-contain sm:h-11",
           },
           {
-            src: pricingLogoChex,
+            src: "https://chex-payload-public-pages.s3.us-east-1.amazonaws.com/pricing-logo-chex.png",
             alt: "Chex inspection",
             className: "h-10 w-auto object-contain sm:h-11",
           },
@@ -113,9 +103,9 @@ export const pageContent: RideshareInspectionPageContent = {
     techstarsImageAlt: "techstars",
     logos: [
       ...baseBackedCompanyLogos,
-      { src: backedUberExtra1, alt: "Partner" },
-      { src: backedUberExtra2, alt: "Partner" },
-      { src: backedUberExtra3, alt: "Partner" },
+      { src: "https://chex-payload-public-pages.s3.us-east-1.amazonaws.com/backed-uber-extra-1.png", alt: "Partner" },
+      { src: "https://chex-payload-public-pages.s3.us-east-1.amazonaws.com/backed-uber-extra-2.png", alt: "Partner" },
+      { src: "https://chex-payload-public-pages.s3.us-east-1.amazonaws.com/backed-uber-extra-3.png", alt: "Partner" },
     ],
   },
   featureBadges: sharedFeatureBadges,

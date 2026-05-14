@@ -23,10 +23,10 @@ export const siteContent = {
       label: "Inspections",
       href: "#",
       children: [
-        { label: "Uber inspection", href: "/uber-inspection" },
-        { label: "Lyft inspection", href: "/lyft-inspection" },
         { label: "Ride-share", href: "/ride-share" },
         { label: "Fleet inspection", href: "/fleet-inspection" },
+        { label: "Uber inspection", href: "/uber-inspection" },
+        { label: "Lyft inspection", href: "/lyft-inspection" },
       ],
     },
     { label: "Blog", href: "/blogs" },

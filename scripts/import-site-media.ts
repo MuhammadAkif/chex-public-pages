@@ -129,7 +129,7 @@ function dedupeAssets(entries: AssetEntry[]) {
 async function getContentFiles() {
   const allFiles = await walkFiles(siteDir)
 
-  return allFiles.filter((file) => path.basename(file) === 'content.ts').sort()
+  return allFiles.filter((file) => path.basename(file).endsWith('content.ts')).sort()
 }
 
 function collectAssetImports(filePath: string, sourceText: string) {

@@ -1,5 +1,3 @@
-import heroBg from "@/app/(site)/assets/rideshare/hero-bg.png";
-import heroPreview from "@/app/(site)/assets/rideshare/hero-preview.png";
 
 import type { RideshareInspectionPageContent } from "@/app/(site)/components/rideshare/rideshare-inspection-page";
 import {
@@ -19,8 +17,8 @@ import {
 export const pageContent: RideshareInspectionPageContent = {
   hero: {
     variant: "rideshare",
-    backgroundImage: heroBg,
-    previewImage: heroPreview,
+    backgroundImage: "https://chex-payload-public-pages.s3.us-east-1.amazonaws.com/hero-bg-9eff7a5f.png",
+    previewImage: "https://chex-payload-public-pages.s3.us-east-1.amazonaws.com/hero-preview.png",
     previewImageAlt: "Rideshare vehicle inspection preview",
     titleLead: "INSPECTION PLATFORM",
     titleHighlight: "Vehicle",
