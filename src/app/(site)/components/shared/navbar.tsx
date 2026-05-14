@@ -25,28 +25,59 @@ type NavbarProps = {
   links: ReadonlyArray<NavLink>;
 };
 
+function isHrefActive(href: string, pathname: string | null): boolean {
+  if (!pathname) return false;
+  if (!href || href === "#") return false;
+  if (href === "/") return pathname === "/";
+  return pathname === href || pathname.startsWith(`${href}/`);
+}
+
+function isLinkActive(link: NavLink, pathname: string | null): boolean {
+  if (isHrefActive(link.href, pathname)) return true;
+  return Boolean(link.children?.some((child) => isHrefActive(child.href, pathname)));
+}
+
 function DropdownItem({ link, pathname }: { link: NavLink; pathname: string | null }) {
   const [open, setOpen] = useState(false);
-  const ref = useRef<HTMLDivElement>(null);
+  const closeTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
-  // Close when clicking outside
-  useEffect(() => {
-    function handler(e: MouseEvent) {
-      if (ref.current && !ref.current.contains(e.target as Node)) {
-        setOpen(false);
-      }
+  const cancelClose = () => {
+    if (closeTimerRef.current !== null) {
+      clearTimeout(closeTimerRef.current);
+      closeTimerRef.current = null;
     }
-    document.addEventListener("mousedown", handler);
-    return () => document.removeEventListener("mousedown", handler);
-  }, []);
+  };
 
-  const isActive = Boolean(link.active) && pathname === "/";
+  const openNow = () => {
+    cancelClose();
+    setOpen(true);
+  };
+
+  const scheduleClose = () => {
+    cancelClose();
+    closeTimerRef.current = setTimeout(() => {
+      closeTimerRef.current = null;
+      setOpen(false);
+    }, 120);
+  };
+
+  useEffect(() => cancelClose, []);
+
+  const isActive = isLinkActive(link, pathname);
 
   return (
-    <div ref={ref} className="relative">
+    <div
+      className="relative"
+      onMouseEnter={openNow}
+      onMouseLeave={scheduleClose}
+    >
       <button
         type="button"
         onClick={() => setOpen((v) => !v)}
+        onFocus={openNow}
+        onBlur={scheduleClose}
+        aria-expanded={open}
+        aria-haspopup="menu"
         className={`type-nav flex items-center gap-1 transition-colors ${
           isActive
             ? "rounded-[4px] bg-[#fff1e5] px-4 py-2 text-[#ff7a01]"
@@ -66,17 +97,19 @@ function DropdownItem({ link, pathname }: { link: NavLink; pathname: string | nu
       </button>
 
       {open && (
-        <div className="absolute left-0 top-full z-50 mt-2 w-48 overflow-hidden rounded-[12px] border border-[#e4ebf5] bg-white py-1.5 shadow-[0_20px_50px_-16px_rgba(27,47,75,0.25)]">
-          {link.children?.map((child) => (
-            <Link
-              key={child.href}
-              href={child.href as Route}
-              className="block px-4 py-2.5 font-ui text-[14px] text-[#41546e] transition-colors hover:bg-[#f4f8ff] hover:text-[#1b2f4b]"
-              onClick={() => setOpen(false)}
-            >
-              {child.label}
-            </Link>
-          ))}
+        <div className="absolute left-0 top-full z-50 pt-2">
+          <div className="w-48 overflow-hidden rounded-[12px] border border-[#e4ebf5] bg-white py-1.5 shadow-[0_20px_50px_-16px_rgba(27,47,75,0.25)]">
+            {link.children?.map((child) => (
+              <Link
+                key={child.href}
+                href={child.href as Route}
+                className="block px-4 py-2.5 font-ui text-[14px] text-[#41546e] transition-colors hover:bg-[#f4f8ff] hover:text-[#1b2f4b]"
+                onClick={() => setOpen(false)}
+              >
+                {child.label}
+              </Link>
+            ))}
+          </div>
         </div>
       )}
     </div>
@@ -122,7 +155,7 @@ export function Navbar({ logo, links }: NavbarProps) {
                 key={link.label}
                 href={link.href as Route}
                 className={`type-nav transition-colors ${
-                  Boolean(link.active) && pathname === "/"
+                  isLinkActive(link, pathname)
                     ? "rounded-[4px] bg-[#fff1e5] px-4 py-2 text-[#ff7a01]"
                     : "text-[#41546e] hover:text-[#1b2f4b]"
                 }`}
@@ -203,7 +236,7 @@ export function Navbar({ logo, links }: NavbarProps) {
                   key={link.label}
                   href={link.href as Route}
                   className={`type-nav rounded-[10px] px-4 py-3 ${
-                    Boolean(link.active) && pathname === "/"
+                    isLinkActive(link, pathname)
                       ? "bg-[#fff1e5] text-[#ff7a01]"
                       : "bg-[#f4f8ff] text-[#41546e]"
                   }`}

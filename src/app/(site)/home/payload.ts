@@ -3,20 +3,23 @@ import { cache } from 'react'
 import config from '@payload-config'
 import { getPayload } from 'payload'
 
-import type { HomePage, Media } from '@/payload-types'
+import type { HomePage as HomePageDoc, Media } from '@/payload-types'
 
 type MediaRelationship = Media | string | null | undefined
 
-const mediaURL = (media: MediaRelationship, fallback?: string | null) => {
-  if (media && typeof media === 'object' && media.url) {
+function mediaURL(media: MediaRelationship, fallback?: string | null): string {
+  if (media && typeof media === 'object' && typeof media.url === 'string' && media.url) {
     return media.url
   }
 
   return fallback ?? ''
 }
 
-const textItems = (items?: Array<{ text?: string | null }> | null) =>
-  (items ?? []).map((item) => item.text ?? '').filter(Boolean)
+function textItems(items?: Array<{ text?: string | null }> | null): string[] {
+  return (items ?? [])
+    .map((item) => item.text ?? '')
+    .filter((text): text is string => text.length > 0)
+}
 
 export type HomePageContent = {
   hero: {
@@ -95,17 +98,20 @@ type HomePagePayload = {
   metadata: Metadata
 }
 
-export const getHomePageDocument = cache(async () => {
+async function fetchHomePageDocument(): Promise<HomePageDoc> {
   const payload = await getPayload({ config })
   return payload.findGlobal({
     slug: 'home-page',
     depth: 1,
     overrideAccess: false,
   })
-})
+}
+
+export const getHomePageDocument: () => Promise<HomePageDoc> =
+  cache<() => Promise<HomePageDoc>>(fetchHomePageDocument)
 
 export async function getHomePage(): Promise<HomePagePayload> {
-  const doc = await getHomePageDocument()
+  const doc: HomePageDoc = await getHomePageDocument()
 
   return {
     content: toHomePageContent(doc),
@@ -116,7 +122,7 @@ export async function getHomePage(): Promise<HomePagePayload> {
   }
 }
 
-function toHomePageContent(doc: HomePage): HomePageContent {
+function toHomePageContent(doc: HomePageDoc): HomePageContent {
   return {
     hero: {
       rating: doc.hero.rating,
@@ -198,7 +204,7 @@ function toHomePageContent(doc: HomePage): HomePageContent {
       items: (doc.testimonials.items ?? []).map((item) => ({
         name: item.name,
         quote: item.quote,
-        stars: item.stars ?? 5,
+        stars: item.stars,
         avatar: item.avatar ?? undefined,
       })),
     },
