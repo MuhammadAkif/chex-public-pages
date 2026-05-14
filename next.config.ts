@@ -24,6 +24,15 @@ const nextConfig: NextConfig = {
     root: dirname,
   },
   typedRoutes: true,
+  async redirects() {
+    return [
+      {
+        source: '/home',
+        destination: '/',
+        permanent: true,
+      },
+    ]
+  },
 }
 
 export default withPayload(nextConfig)

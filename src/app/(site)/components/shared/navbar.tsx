@@ -1,6 +1,8 @@
 "use client";
 
+import Link from "next/link";
 import { usePathname } from "next/navigation";
+import type { Route } from "next";
 import { useEffect, useRef, useState } from "react";
 
 import {
@@ -38,7 +40,7 @@ function DropdownItem({ link, pathname }: { link: NavLink; pathname: string | nu
     return () => document.removeEventListener("mousedown", handler);
   }, []);
 
-  const isActive = Boolean(link.active) && pathname === "/home";
+  const isActive = Boolean(link.active) && pathname === "/";
 
   return (
     <div ref={ref} className="relative">
@@ -66,14 +68,14 @@ function DropdownItem({ link, pathname }: { link: NavLink; pathname: string | nu
       {open && (
         <div className="absolute left-0 top-full z-50 mt-2 w-48 overflow-hidden rounded-[12px] border border-[#e4ebf5] bg-white py-1.5 shadow-[0_20px_50px_-16px_rgba(27,47,75,0.25)]">
           {link.children?.map((child) => (
-            <a
+            <Link
               key={child.href}
-              href={child.href}
+              href={child.href as Route}
               className="block px-4 py-2.5 font-ui text-[14px] text-[#41546e] transition-colors hover:bg-[#f4f8ff] hover:text-[#1b2f4b]"
               onClick={() => setOpen(false)}
             >
               {child.label}
-            </a>
+            </Link>
           ))}
         </div>
       )}
@@ -105,9 +107,9 @@ export function Navbar({ logo, links }: NavbarProps) {
       }`}
     >
       <div className="mx-auto flex max-w-[1240px] items-center justify-between gap-6 px-4 py-4 sm:px-6 lg:px-10">
-        <a href="/home" className="shrink-0">
+        <Link href="/" className="shrink-0">
           <SiteImage src={logo} alt="Chex.AI" className="h-11 w-auto" priority />
-        </a>
+        </Link>
 
         {/* Desktop nav */}
         <nav className="hidden items-center gap-8 lg:flex">
@@ -115,17 +117,17 @@ export function Navbar({ logo, links }: NavbarProps) {
             link.children?.length ? (
               <DropdownItem key={link.label} link={link} pathname={pathname} />
             ) : (
-              <a
+              <Link
                 key={link.label}
-                href={link.href}
+                href={link.href as Route}
                 className={`type-nav transition-colors ${
-                  Boolean(link.active) && pathname === "/home"
+                  Boolean(link.active) && pathname === "/"
                     ? "rounded-[4px] bg-[#fff1e5] px-4 py-2 text-[#ff7a01]"
                     : "text-[#41546e] hover:text-[#1b2f4b]"
                 }`}
               >
                 {link.label}
-              </a>
+              </Link>
             )
           )}
         </nav>
@@ -180,31 +182,31 @@ export function Navbar({ logo, links }: NavbarProps) {
                   {mobileDropdown === link.label && (
                     <div className="ml-4 mt-1 flex flex-col gap-0.5">
                       {link.children.map((child) => (
-                        <a
+                        <Link
                           key={child.href}
-                          href={child.href}
+                          href={child.href as Route}
                           className="rounded-[8px] px-4 py-2.5 font-ui text-[14px] text-[#41546e] hover:bg-[#f4f8ff] hover:text-[#1b2f4b]"
                           onClick={() => setMenuOpen(false)}
                         >
                           {child.label}
-                        </a>
+                        </Link>
                       ))}
                     </div>
                   )}
                 </div>
               ) : (
-                <a
+                <Link
                   key={link.label}
-                  href={link.href}
+                  href={link.href as Route}
                   className={`type-nav rounded-[10px] px-4 py-3 ${
-                    Boolean(link.active) && pathname === "/home"
+                    Boolean(link.active) && pathname === "/"
                       ? "bg-[#fff1e5] text-[#ff7a01]"
                       : "bg-[#f4f8ff] text-[#41546e]"
                   }`}
                   onClick={() => setMenuOpen(false)}
                 >
                   {link.label}
-                </a>
+                </Link>
               )
             )}
             <Button href={inspectionHref} onClick={onInspectionClick} fullWidth className="cursor-pointer mt-2">

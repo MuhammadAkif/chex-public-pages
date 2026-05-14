@@ -1,7 +1,7 @@
 export const siteContent = {
   announcement: "4.8 stars · 50k+ drivers approved · Uber & Lyft accepted",
   navigationLinks: [
-    { label: "Home", href: "/home", active: true },
+    { label: "Home", href: "/", active: true },
     {
       label: "Areas we serve",
       href: "#",
@@ -28,7 +28,7 @@ export const siteContent = {
       "Chex.AI is a licensed vehicle inspection solution and damage detection platform using AI. Our automated workflows simplify and expedite driver acquisition.",
     menuTitle: "Menu",
     menuItems: [
-      { label: "Home", href: "/home" },
+      { label: "Home", href: "/" },
       { label: "Blog", href: "/blogs" },
     ],
     contactTitle: "Contact us",
