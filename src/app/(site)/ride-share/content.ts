@@ -20,8 +20,8 @@ export const pageContent: RideshareInspectionPageContent = {
     backgroundImage: "https://chex-payload-public-pages.s3.us-east-1.amazonaws.com/hero-bg-9eff7a5f.png",
     previewImage: "https://chex-payload-public-pages.s3.us-east-1.amazonaws.com/hero-preview.png",
     previewImageAlt: "Rideshare vehicle inspection preview",
-    titleLead: "INSPECTION PLATFORM",
-    titleHighlight: "Vehicle",
+    titleLead: "INSPECTION FOR UBER & LYFT DRIVERS",
+    titleHighlight: "ONLINE RIDESHARE",
     description:
       "Our solution is designed for convenience. Complete inspection requirement online through your phone",
     ctaLabel: "Register your Inspection Today",

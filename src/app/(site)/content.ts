@@ -20,7 +20,7 @@ export const siteContent = {
       ],
     },
     {
-      label: "Inspections",
+      label: "Services",
       href: "#",
       children: [
         { label: "Ride-share", href: "/ride-share" },
