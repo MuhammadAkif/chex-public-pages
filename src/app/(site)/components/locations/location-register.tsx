@@ -51,11 +51,11 @@ export function LocationRegister({
   registerButtonHref,
   loginPrefix,
   loginLinkLabel,
-  loginLinkHref,
 }: LocationRegisterProps) {
   const [acceptedTerms, setAcceptedTerms] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitError, setSubmitError] = useState<string | null>(null);
+  const loginLinkHref = `${process.env.NEXT_PUBLIC_RIDESHAIR_APP_BASE_LINK ?? ""}/login`;
 
   const onSubmit = useCallback(
     async (e: React.FormEvent<HTMLFormElement>) => {
