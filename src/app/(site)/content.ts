@@ -39,6 +39,9 @@ export const siteContent = {
     menuTitle: "Menu",
     menuItems: [
       { label: "Home", href: "/" },
+      { label: "Rideshare Inspection", href: "/ride-share" },
+      { label: "Fleet & DSP Inspections", href: "/fleet-inspection" },
+      { label: "Contact us", href: "/contact-us" },
       { label: "Blog", href: "/blogs" },
     ],
     contactTitle: "Contact us",
