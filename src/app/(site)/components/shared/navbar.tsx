@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import type { Route } from "next";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState, useSyncExternalStore } from "react";
 import { createPortal } from "react-dom";
 
 import {
@@ -25,6 +25,13 @@ type NavbarProps = {
   logo: SiteImageSource;
   links: ReadonlyArray<NavLink>;
 };
+
+// `useSyncExternalStore` returns the server snapshot during SSR and the client
+// snapshot after hydration — the React 19-recommended way to detect "are we
+// mounted on the client?" without an effect-driven setState.
+const subscribeNoop = () => () => {};
+const getClientSnapshot = () => true;
+const getServerSnapshot = () => false;
 
 function isHrefActive(href: string, pathname: string | null): boolean {
   if (!pathname) return false;
@@ -122,7 +129,6 @@ export function Navbar({ logo, links }: NavbarProps) {
   const [menuOpen, setMenuOpen] = useState(false);
   const [mobileDropdown, setMobileDropdown] = useState<string | null>(null);
   const [isScrolled, setIsScrolled] = useState(false);
-  const [mounted, setMounted] = useState(false);
   const [navBottom, setNavBottom] = useState(0);
   const headerRef = useRef<HTMLDivElement>(null);
   const { openModal } = useRegisterModal();
@@ -131,9 +137,18 @@ export function Navbar({ logo, links }: NavbarProps) {
   const onInspectionClick = isLocationsPage ? undefined : openModal;
   const loginHref = `${process.env.NEXT_PUBLIC_RIDESHAIR_APP_BASE_LINK ?? ""}/login`;
 
-  useEffect(() => {
-    setMounted(true);
-  }, []);
+  const mounted = useSyncExternalStore(subscribeNoop, getClientSnapshot, getServerSnapshot);
+
+  // Reset the mobile menu when the route changes. React's recommended pattern
+  // for "reset state on prop change" is to compare against the previous value
+  // during render — this avoids the effect-driven setState that React 19's
+  // linter (correctly) flags as a source of cascading renders.
+  const [lastPathname, setLastPathname] = useState(pathname);
+  if (pathname !== lastPathname) {
+    setLastPathname(pathname);
+    setMenuOpen(false);
+    setMobileDropdown(null);
+  }
 
   useEffect(() => {
     const updateScrollState = () => setIsScrolled(window.scrollY > 0);
@@ -141,12 +156,6 @@ export function Navbar({ logo, links }: NavbarProps) {
     window.addEventListener("scroll", updateScrollState, { passive: true });
     return () => window.removeEventListener("scroll", updateScrollState);
   }, []);
-
-  // Close the mobile menu on route change so it never lingers after navigation.
-  useEffect(() => {
-    setMenuOpen(false);
-    setMobileDropdown(null);
-  }, [pathname]);
 
   // Track where the navbar ends in the viewport so the portaled mobile panel
   // can be pinned right below it (the sticky parent is at the top of the page).
