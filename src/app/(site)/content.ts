@@ -24,7 +24,7 @@ export const siteContent = {
       href: "#",
       children: [
         { label: "Ride-share", href: "/ride-share" },
-        { label: "Fleet inspection", href: "/fleet-inspection" },
+        { label: "Fleet & DSP", href: "/fleet-inspection" },
         { label: "Uber inspection", href: "/uber-inspection" },
         { label: "Lyft inspection", href: "/lyft-inspection" },
       ],
