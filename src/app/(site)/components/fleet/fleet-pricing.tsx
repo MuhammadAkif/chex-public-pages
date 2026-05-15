@@ -59,9 +59,9 @@ export function FleetPricing({
         <div className="mt-10 grid items-start gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:gap-16">
           <div className="flex justify-center lg:justify-end">
             <div className="rounded-[20px] bg-white px-10 py-10 text-left shadow-[0_28px_80px_-40px_rgba(20,104,186,0.5)] sm:px-14 sm:py-14">
-              <p className="font-display leading-none text-[#1b2f4b]">
-                <span className="align-top text-[28px] font-bold">$</span>
-                <span className="text-[64px] font-bold tracking-tight sm:text-[80px]">
+              <p className="font-display leading-none text-[#ff7a01]">
+                <span className="align-top text-[20px] font-bold sm:text-[28px]">$</span>
+                <span className="text-[48px] font-bold tracking-tight sm:text-[80px]">
                   {priceValue}
                 </span>
               </p>
