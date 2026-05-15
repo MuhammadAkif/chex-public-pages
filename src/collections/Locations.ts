@@ -69,17 +69,10 @@ export const Locations: CollectionConfig = {
     useAsTitle: 'title',
   },
   access: {
-    read: ({ req }) => {
-      if (req.user) {
-        return true
-      }
-
-      return {
-        _status: {
-          equals: 'published',
-        },
-      }
-    },
+    read: () => true,
+    create: () => true,
+    update: () => true,
+    delete: () => true,
   },
   fields: [
     {
