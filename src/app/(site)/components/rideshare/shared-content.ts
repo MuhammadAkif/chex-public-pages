@@ -24,7 +24,7 @@ export const sharedAssets = {
 };
 
 export const ABOUT_VIDEO_SRC =
-  "https://res.cloudinary.com/dgjordf6e/video/upload/v1695888050/CHex_ai_je0una.mp4";
+  "https://chex-payload-public-pages.s3.us-east-1.amazonaws.com/about-chex.mp4";
 
 export const sharedInspectionProcess: InspectionProcessProps = {
   eyebrow: "ride share",
