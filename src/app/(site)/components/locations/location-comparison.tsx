@@ -88,8 +88,8 @@ export function LocationComparison({
           </p>
         </div>
 
-        {/* ── Table ── */}
-        <div className="mt-12 overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-[0_8px_40px_rgba(15,23,42,0.08)]">
+        {/* ── Table (sm and up) ── */}
+        <div className="mt-12 hidden overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-[0_8px_40px_rgba(15,23,42,0.08)] sm:block">
           {/* Column headers */}
           <div
             className="grid border-b border-slate-200 bg-slate-50"
@@ -155,6 +155,45 @@ export function LocationComparison({
                     </div>
                   );
                 })}
+              </div>
+            );
+          })}
+        </div>
+
+        {/* ── Card stack (below sm) ── */}
+        <div className="mt-10 flex flex-col gap-4 sm:hidden">
+          {rows.map((row, ri) => {
+            const chexPos = row.chexValue.trim().length > 0;
+            return (
+              <div
+                key={`card-${ri}`}
+                className="overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-[0_4px_20px_rgba(15,23,42,0.06)]"
+              >
+                <div
+                  className={`${tableSans} border-b border-slate-200 bg-slate-50 px-4 py-3 font-bold text-[#0f172a]`}
+                >
+                  {row.featureLabel}
+                </div>
+                <div className="flex items-start gap-3 px-4 py-3">
+                  <CrossIcon />
+                  <div className={`${tableSans} flex-1`}>
+                    <div className="text-[13px] font-semibold uppercase tracking-wide text-[#64748b]">
+                      {columnHeaders[1]}
+                    </div>
+                    <div className="text-[#334155]">{row.traditionalValue}</div>
+                  </div>
+                </div>
+                <div className="flex items-start gap-3 border-t border-[#ff7a01]/15 bg-[#fff7ed]/60 px-4 py-3">
+                  {chexPos ? <CheckIcon /> : <span className="h-6 w-6 shrink-0" />}
+                  <div className={`${tableSans} flex-1`}>
+                    <div className="text-[13px] font-semibold uppercase tracking-wide text-[#c2540a]">
+                      {columnHeaders[2]}
+                    </div>
+                    <div className="font-semibold text-[#1e293b]">
+                      {row.chexValue}
+                    </div>
+                  </div>
+                </div>
               </div>
             );
           })}

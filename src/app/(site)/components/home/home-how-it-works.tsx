@@ -44,7 +44,7 @@ export function HomeHowItWorks({
                 <SiteImage
                   src={step.image}
                   alt={step.title}
-                  className="h-56 w-full object-cover"
+                  className="h-56 w-full object-contain"
                 />
               </div>
 
