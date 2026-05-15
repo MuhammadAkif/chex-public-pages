@@ -1,12 +1,12 @@
-import path from 'node:path'
-import { fileURLToPath } from 'node:url'
-import type { NextConfig } from 'next'
-import { withPayload } from '@payloadcms/next/withPayload'
+import path from "node:path";
+import { fileURLToPath } from "node:url";
+import type { NextConfig } from "next";
+import { withPayload } from "@payloadcms/next/withPayload";
 
-const filename = fileURLToPath(import.meta.url)
-const dirname = path.dirname(filename)
-const s3Bucket = process.env.S3_BUCKET
-const s3Region = process.env.S3_REGION
+const filename = fileURLToPath(import.meta.url);
+const dirname = path.dirname(filename);
+const s3Bucket = process.env.S3_BUCKET;
+const s3Region = process.env.S3_REGION;
 
 const nextConfig: NextConfig = {
   images:
@@ -15,7 +15,7 @@ const nextConfig: NextConfig = {
           remotePatterns: [
             {
               hostname: `${s3Bucket}.s3.${s3Region}.amazonaws.com`,
-              protocol: 'https',
+              protocol: "https",
             },
           ],
         }
@@ -27,12 +27,17 @@ const nextConfig: NextConfig = {
   async redirects() {
     return [
       {
-        source: '/home',
-        destination: '/',
+        source: "/home",
+        destination: "/",
         permanent: true,
       },
-    ]
+      {
+        source: "/Mystro",
+        destination: "https://app.chex.ai/Mystro",
+        permanent: true,
+      },
+    ];
   },
-}
+};
 
-export default withPayload(nextConfig)
+export default withPayload(nextConfig);

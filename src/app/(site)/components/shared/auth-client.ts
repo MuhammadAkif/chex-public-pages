@@ -18,7 +18,7 @@ type SignupPayload = {
 };
 
 const API_BASE = process.env.NEXT_PUBLIC_BACKEND_BASE_URL;
-const REGISTRATION_REDIRECT_URL = `${process.env.NEXT_PUBLIC_APP_SIDE_URL}/selectoption`;
+const REGISTRATION_REDIRECT_URL = `${process.env.NEXT_PUBLIC_RIDESHAIR_APP_BASE_LINK}/selectoption`;
 
 function requiredApiBase() {
   if (!API_BASE) {

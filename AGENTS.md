@@ -36,20 +36,20 @@ Run any TS script ad-hoc: `node --import tsx scripts/<name>.ts`. There is no tes
 
 [src/app](src/app) has two Next.js route groups:
 
-- **`(site)`** — public pages. The root `/` redirects to `/home`. Shared chrome lives in [layout.tsx](src/app/(site)/layout.tsx), wrapped by a client [SiteShell](src/app/(site)/components/shared/site-shell.tsx) that hosts the `RegisterModalProvider` context.
+- **`(site)`** — public pages. The root `/` redirects to `/home`. Shared chrome lives in [layout.tsx](<src/app/(site)/layout.tsx>), wrapped by a client [SiteShell](<src/app/(site)/components/shared/site-shell.tsx>) that hosts the `RegisterModalProvider` context.
 - **`(payload)`** — Payload admin at `/admin` and REST/GraphQL at `/api/*`, mounted by `@payloadcms/next`. Generated files (`src/payload-types.ts`, `src/app/(payload)/admin/importMap.{ts,js}`) must not be hand-edited.
 
 ### Three content patterns
 
-1. **Static TS content** — site chrome ([src/app/(site)/content.ts](src/app/(site)/content.ts)) and the home page ([src/app/(site)/home/content.ts](src/app/(site)/home/content.ts)). The home composition in [home-page.tsx](src/app/(site)/components/home/home-page.tsx) has several sections commented out (`HomeKeyDifferentiators`, `HomeTestimonials`, `CaseStudies`) — preserve those before "cleaning up" dead imports.
-2. **Payload-driven location pages** — the `Locations` collection ([src/collections/Locations.ts](src/collections/Locations.ts), ~1300 lines, drafts enabled) is the source of truth. Each US-state route ([src/app/(site)/locations/<state>/page.tsx](src/app/(site)/locations)) is a thin wrapper calling `getLocationPageBySlug(slug)` from [locations/payload.ts](src/app/(site)/locations/payload.ts). All 11 state routes use `export const dynamic = 'force-dynamic'`.
-3. **Payload-driven blog** — [src/app/(site)/blogs/page.tsx](src/app/(site)/blogs/page.tsx) reads from the `posts` collection (drafts enabled, sorted by `-publishedAt`).
+1. **Static TS content** — site chrome ([src/app/(site)/content.ts](<src/app/(site)/content.ts>)) and the home page ([src/app/(site)/home/content.ts](<src/app/(site)/home/content.ts>)). The home composition in [home-page.tsx](<src/app/(site)/components/home/home-page.tsx>) has several sections commented out (`HomeKeyDifferentiators`, `HomeTestimonials`, `CaseStudies`) — preserve those before "cleaning up" dead imports.
+2. **Payload-driven location pages** — the `Locations` collection ([src/collections/Locations.ts](src/collections/Locations.ts), ~1300 lines, drafts enabled) is the source of truth. Each US-state route ([src/app/(site)/locations/<state>/page.tsx](<src/app/(site)/locations>)) is a thin wrapper calling `getLocationPageBySlug(slug)` from [locations/payload.ts](<src/app/(site)/locations/payload.ts>). All 11 state routes use `export const dynamic = 'force-dynamic'`.
+3. **Payload-driven blog** — [src/app/(site)/blogs/page.tsx](<src/app/(site)/blogs/page.tsx>) reads from the `posts` collection (drafts enabled, sorted by `-publishedAt`).
 
 ### Location page composition
 
-[location-page.tsx](src/app/(site)/components/locations/location-page.tsx) orchestrates per-section components: `LocationHero`, `LocationShowcase`, `LocationOverview`, `LocationServices`, `LocationComparison`, `RegisterRideShareSection`, `PricingRideShareSection`, `LocationRegions`, `LocationManage`, `LocationTestimonials`, `LocationRegister`, `LocationFaq`, `LocationCta`. `LocationCaseStudies` is intentionally commented out and `LocationPricing` exists in the type but is **not rendered** (the rideshare variant takes its slot). The `Locations` collection mirrors these one-to-one and exposes className override fields — see the `classNameField` / `mediaFields` helpers at the top of `Locations.ts`. Media fields always pair a Payload `upload` relationship with a `*FallbackUrl` text field for migration; the frontend prefers the relationship.
+[location-page.tsx](<src/app/(site)/components/locations/location-page.tsx>) orchestrates per-section components: `LocationHero`, `LocationShowcase`, `LocationOverview`, `LocationServices`, `LocationComparison`, `RegisterRideShareSection`, `PricingRideShareSection`, `LocationRegions`, `LocationManage`, `LocationTestimonials`, `LocationRegister`, `LocationFaq`, `LocationCta`. `LocationCaseStudies` is intentionally commented out and `LocationPricing` exists in the type but is **not rendered** (the rideshare variant takes its slot). The `Locations` collection mirrors these one-to-one and exposes className override fields — see the `classNameField` / `mediaFields` helpers at the top of `Locations.ts`. Media fields always pair a Payload `upload` relationship with a `*FallbackUrl` text field for migration; the frontend prefers the relationship.
 
-Adding a new state page requires changes in five places: the collection, a migration, [LocationPageContent](src/app/(site)/components/locations/location-page.tsx), the per-section component(s), and the mapping in [locations/payload.ts](src/app/(site)/locations/payload.ts). All five must agree.
+Adding a new state page requires changes in five places: the collection, a migration, [LocationPageContent](<src/app/(site)/components/locations/location-page.tsx>), the per-section component(s), and the mapping in [locations/payload.ts](<src/app/(site)/locations/payload.ts>). All five must agree.
 
 ### Payload config
 
@@ -62,7 +62,7 @@ The `Media` collection uses a unique `sourceHash` (SHA-256) for de-duped imports
 ### Auth: two separate systems
 
 - **Payload users** ([src/collections/Users.ts](src/collections/Users.ts)) are admin/CMS accounts only.
-- **Site visitor auth** lives in [auth-client.ts](src/app/(site)/components/shared/auth-client.ts) and posts to an external API: `${NEXT_PUBLIC_BACKEND_BASE_URL}/auth/{login,signup,contactUs}`. Token is stored in `localStorage` **and** a 7-day `token=` cookie. Signup hard-redirects to `${NEXT_PUBLIC_APP_SIDE_URL}/selectoption`. Both env vars are missing from [.env.example](.env.example) and [src/types/env.d.ts](src/types/env.d.ts) — add them when next touching either file.
+- **Site visitor auth** lives in [auth-client.ts](<src/app/(site)/components/shared/auth-client.ts>) and posts to an external API: `${NEXT_PUBLIC_BACKEND_BASE_URL}/auth/{login,signup,contactUs}`. Token is stored in `localStorage` **and** a 7-day `token=` cookie. Signup hard-redirects to `${NEXT_PUBLIC_RIDESHAIR_APP_BASE_LINK}/selectoption`. Both env vars are missing from [.env.example](.env.example) and [src/types/env.d.ts](src/types/env.d.ts) — add them when next touching either file.
 
 ### Path aliases and TS quirks
 
@@ -72,11 +72,11 @@ The `Media` collection uses a unique `sourceHash` (SHA-256) for de-duped imports
 
 ### Styling
 
-[globals.css](src/app/globals.css) defines Tailwind theme tokens (`--color-ink`, `--color-mist`, `--color-ember`, `--color-tide`), three font families via `next/font` (local Satoshi + Google Poppins/Manrope), and `type-*` typography utility classes (`type-hero`, `type-section-heading`, `type-location-*`, …) that responsive-scale at `≥1024px`. Prefer the utility classes over re-deriving sizes. Sections are typically wrapped in [Reveal](src/app/(site)/components/shared/reveal.tsx) — an IntersectionObserver wrapper that respects `prefers-reduced-motion`.
+[globals.css](src/app/globals.css) defines Tailwind theme tokens (`--color-ink`, `--color-mist`, `--color-ember`, `--color-tide`), three font families via `next/font` (local Satoshi + Google Poppins/Manrope), and `type-*` typography utility classes (`type-hero`, `type-section-heading`, `type-location-*`, …) that responsive-scale at `≥1024px`. Prefer the utility classes over re-deriving sizes. Sections are typically wrapped in [Reveal](<src/app/(site)/components/shared/reveal.tsx>) — an IntersectionObserver wrapper that respects `prefers-reduced-motion`.
 
 ### Environment
 
-Local DB defaults to `postgresql://payload:payload@localhost:5433/payload_app` (matches [docker-compose.yml](docker-compose.yml)). `DATABASE_URL` overrides this. Required: `PAYLOAD_SECRET`. Optional S3 group; optional `NEXT_PUBLIC_BACKEND_BASE_URL` + `NEXT_PUBLIC_APP_SIDE_URL` for visitor auth.
+Local DB defaults to `postgresql://payload:payload@localhost:5433/payload_app` (matches [docker-compose.yml](docker-compose.yml)). `DATABASE_URL` overrides this. Required: `PAYLOAD_SECRET`. Optional S3 group; optional `NEXT_PUBLIC_BACKEND_BASE_URL` + `NEXT_PUBLIC_RIDESHAIR_APP_BASE_LINK` for visitor auth.
 
 ### Docker
 
