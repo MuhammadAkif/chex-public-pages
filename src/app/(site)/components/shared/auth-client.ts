@@ -129,11 +129,11 @@ export async function submitContactUs(payload: {
 export async function signupThenLogin(payload: SignupPayload) {
   await postJSON("/auth/signup", {
     name: payload.firstName,
-    firstName: payload.firstName,
-    lastName: payload.lastName,
+    last_name: payload.lastName,
     email: payload.email,
     phone: payload.phone,
     password: payload.password,
+    isMysterious: false,
   });
 
   await loginAndPersist(payload.email, payload.password);
