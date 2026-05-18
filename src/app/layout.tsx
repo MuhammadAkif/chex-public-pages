@@ -3,6 +3,7 @@ import { Manrope, Poppins } from 'next/font/google'
 import localFont from 'next/font/local'
 import type { ReactNode } from 'react'
 
+import { ClarityScript } from './clarity-script'
 import './globals.css'
 
 const satoshi = localFont({
@@ -53,6 +54,9 @@ type RootLayoutProps = {
 export default function RootLayout({ children }: RootLayoutProps) {
   return (
     <html lang="en" suppressHydrationWarning>
+      <head>
+        <ClarityScript />
+      </head>
       <body
         className={`${satoshi.variable} ${poppins.variable} ${manrope.variable} bg-mist font-body text-ink antialiased`}
       >
