@@ -19,16 +19,6 @@ export const siteContent = {
         { label: "South Carolina", href: "/locations/south-carolina" },
       ],
     },
-    {
-      label: "Services",
-      href: "#",
-      children: [
-        { label: "Ride-share", href: "/ride-share" },
-        { label: "Fleet & DSP", href: "/fleet-inspection" },
-        { label: "Uber inspection", href: "/uber-inspection" },
-        { label: "Lyft inspection", href: "/lyft-inspection" },
-      ],
-    },
     { label: "Blog", href: "/blogs" },
     { label: "Contact us", href: "/contact-us" },
   ],
@@ -39,10 +29,15 @@ export const siteContent = {
     menuTitle: "Menu",
     menuItems: [
       { label: "Home", href: "/" },
-      { label: "Rideshare Inspection", href: "/ride-share" },
-      { label: "Fleet & DSP Inspections", href: "/fleet-inspection" },
       { label: "Contact us", href: "/contact-us" },
       { label: "Blog", href: "/blogs" },
+    ],
+    servicesTitle: "Services",
+    servicesItems: [
+      { label: "Rideshare Inspection", href: "/ride-share" },
+      { label: "Fleet & DSP Inspections", href: "/fleet-inspection" },
+      { label: "Uber Inspection", href: "/uber-inspection" },
+      { label: "Lyft Inspection", href: "/lyft-inspection" },
     ],
     contactTitle: "Contact us",
     contactItems: [

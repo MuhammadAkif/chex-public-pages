@@ -26,6 +26,8 @@ export default function SiteLayout({ children }: SiteLayoutProps) {
           description={siteContent.footer.description}
           menuTitle={siteContent.footer.menuTitle}
           menuItems={siteContent.footer.menuItems}
+          servicesTitle={siteContent.footer.servicesTitle}
+          servicesItems={siteContent.footer.servicesItems}
           contactTitle={siteContent.footer.contactTitle}
           contactItems={siteContent.footer.contactItems}
           copyright={siteContent.footer.copyright}
