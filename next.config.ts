@@ -24,11 +24,36 @@ const nextConfig: NextConfig = {
     root: dirname,
   },
   typedRoutes: true,
-  async redirects() {
+  redirects() {
     return [
       {
         source: "/home",
         destination: "/",
+        permanent: true,
+      },
+      {
+        source: "/blog-detail",
+        destination: "/blogs",
+        permanent: true,
+      },
+      {
+        source: "/blog-detail/:path*",
+        destination: "/blogs",
+        permanent: true,
+      },
+      {
+        source: "/blog-details",
+        destination: "/blogs",
+        permanent: true,
+      },
+      {
+        source: "/blog-details/:path*",
+        destination: "/blogs",
+        permanent: true,
+      },
+      {
+        source: "/blog/:path*",
+        destination: "/blogs",
         permanent: true,
       },
       {

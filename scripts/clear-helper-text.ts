@@ -57,7 +57,7 @@ async function main() {
         data: {
           hero: { helperText: '' },
           cta: { helperText: '' },
-        } as never,
+        },
         overrideAccess: true,
       })
       updated += 1

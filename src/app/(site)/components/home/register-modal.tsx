@@ -12,6 +12,8 @@ import { signupThenLogin } from "@/app/(site)/components/shared/auth-client";
 const inputClass =
   "w-full rounded-[10px] border border-white/30 bg-white/8 px-4 py-3 font-ui text-[15px] text-white placeholder:text-white/50 outline-none transition-[border-color,box-shadow] focus:border-[#1468ba] focus:ring-2 focus:ring-[#1468ba]/35";
 const appSideLoginHref = `${process.env.NEXT_PUBLIC_RIDESHAIR_APP_BASE_LINK ?? ""}/login`;
+const formValue = (value: FormDataEntryValue | null) =>
+  typeof value === "string" ? value.trim() : "";
 
 // ─── Context ────────────────────────────────────────────────────────────────
 
@@ -54,11 +56,11 @@ function RegisterModalPanel({ onClose }: { onClose: () => void }) {
       if (!acceptedTerms || isSubmitting) return;
 
       const formData = new FormData(e.currentTarget);
-      const firstName = String(formData.get("firstName") || "").trim();
-      const lastName = String(formData.get("lastName") || "").trim();
-      const email = String(formData.get("email") || "").trim();
-      const phone = String(formData.get("phone") || "").trim();
-      const password = String(formData.get("password") || "");
+      const firstName = formValue(formData.get("firstName"));
+      const lastName = formValue(formData.get("lastName"));
+      const email = formValue(formData.get("email"));
+      const phone = formValue(formData.get("phone"));
+      const password = formValue(formData.get("password"));
 
       if (!firstName || !lastName || !email || !phone || !password) {
         setSubmitError("Please fill all required fields.");
@@ -115,7 +117,13 @@ function RegisterModalPanel({ onClose }: { onClose: () => void }) {
         </p>
 
         {/* Form */}
-        <form className="mt-6 space-y-4" onSubmit={onSubmit} noValidate>
+        <form
+          className="mt-6 space-y-4"
+          onSubmit={(event) => {
+            void onSubmit(event);
+          }}
+          noValidate
+        >
           <div className="grid gap-4 sm:grid-cols-2">
             <label className="block">
               <span className="sr-only">First name</span>

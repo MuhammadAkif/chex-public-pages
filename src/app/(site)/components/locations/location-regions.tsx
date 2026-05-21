@@ -18,7 +18,7 @@ export type LocationRegionsProps = {
 export function LocationRegions({
   title,
   description,
-  demoHref,
+  demoHref: _demoHref,
   sectionClassName = "",
   headingClassName,
   titleClassName = "",

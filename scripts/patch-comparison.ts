@@ -66,18 +66,17 @@ async function patchViaSql(client: pg.Client, docId: string, stateTitle: string)
 
   // 2. Replace column headers (main table)
   await client.query(`DELETE FROM locations_comparison_column_headers WHERE _parent_id = $1`, [docId])
-  for (let i = 0; i < COLUMN_HEADERS.length; i++) {
+  for (const [i, header] of COLUMN_HEADERS.entries()) {
     await client.query(
       `INSERT INTO locations_comparison_column_headers (_order, _parent_id, id, label)
        VALUES ($1, $2, gen_random_uuid(), $3)`,
-      [i + 1, docId, COLUMN_HEADERS[i]!.label],
+      [i + 1, docId, header.label],
     )
   }
 
   // 3. Replace rows (main table)
   await client.query(`DELETE FROM locations_comparison_rows WHERE _parent_id = $1`, [docId])
-  for (let i = 0; i < rows.length; i++) {
-    const row = rows[i]!
+  for (const [i, row] of rows.entries()) {
     await client.query(
       `INSERT INTO locations_comparison_rows (_order, _parent_id, id, feature_label, traditional_value, chex_value)
        VALUES ($1, $2, gen_random_uuid(), $3, $4, $5)`,
@@ -86,23 +85,22 @@ async function patchViaSql(client: pg.Client, docId: string, stateTitle: string)
   }
 
   // 4. Also patch the latest published version snapshot so CMS admin stays consistent
-  const versionResult = await client.query(
+  const versionResult = await client.query<{ id: string }>(
     `SELECT id FROM _locations_v WHERE parent_id = $1 AND version__status = 'published' ORDER BY updated_at DESC LIMIT 1`,
     [docId],
   )
-  const versionId = versionResult.rows[0]?.id as string | undefined
+  const versionId = versionResult.rows[0]?.id
   if (versionId) {
     await client.query(`DELETE FROM _locations_v_version_comparison_column_headers WHERE _parent_id = $1`, [versionId])
-    for (let i = 0; i < COLUMN_HEADERS.length; i++) {
+    for (const [i, header] of COLUMN_HEADERS.entries()) {
       await client.query(
         `INSERT INTO _locations_v_version_comparison_column_headers (_order, _parent_id, id, label, _uuid)
          VALUES ($1, $2, gen_random_uuid(), $3, gen_random_uuid())`,
-        [i + 1, versionId, COLUMN_HEADERS[i]!.label],
+        [i + 1, versionId, header.label],
       )
     }
     await client.query(`DELETE FROM _locations_v_version_comparison_rows WHERE _parent_id = $1`, [versionId])
-    for (let i = 0; i < rows.length; i++) {
-      const row = rows[i]!
+    for (const [i, row] of rows.entries()) {
       await client.query(
         `INSERT INTO _locations_v_version_comparison_rows (_order, _parent_id, id, feature_label, traditional_value, chex_value, _uuid)
          VALUES ($1, $2, gen_random_uuid(), $3, $4, $5, gen_random_uuid())`,

@@ -163,7 +163,7 @@ export interface Post {
    */
   postImage?: string | null;
   /**
-   * Human-readable unique URL segment for this post.
+   * Human-readable unique URL segment for this post. Saved in lowercase hyphenated format.
    */
   slug: string;
   excerpt?: string | null;

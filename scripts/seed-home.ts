@@ -485,7 +485,7 @@ async function main() {
 
   await payload.updateGlobal({
     slug: 'home-page',
-    data: data as never,
+    data,
     overrideAccess: true,
   })
 

@@ -17,7 +17,7 @@ export function LocationCta({
   sectionId,
   title,
   description,
-  primaryLabel,
+  primaryLabel: _primaryLabel,
   secondaryLabel,
   helperText,
   image,

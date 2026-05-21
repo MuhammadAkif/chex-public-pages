@@ -9,6 +9,8 @@ import { signupThenLogin } from "@/app/(site)/components/shared/auth-client";
 
 const inputClass =
   "w-full rounded-[10px] border border-white/35 bg-black/35 px-4 py-3 font-ui text-[15px] text-white placeholder:text-white/55 outline-none transition-[border-color,box-shadow] focus:border-[#1468ba] focus:ring-2 focus:ring-[#1468ba]/35";
+const formValue = (value: FormDataEntryValue | null) =>
+  typeof value === "string" ? value.trim() : "";
 
 export type LocationRegisterProps = {
   sectionId?: string;
@@ -48,7 +50,6 @@ export function LocationRegister({
   termsLinkLabel,
   termsLinkHref,
   registerButtonLabel,
-  registerButtonHref,
   loginPrefix,
   loginLinkLabel,
 }: LocationRegisterProps) {
@@ -65,11 +66,11 @@ export function LocationRegister({
       }
 
       const formData = new FormData(e.currentTarget);
-      const firstName = String(formData.get("firstName") || "").trim();
-      const lastName = String(formData.get("lastName") || "").trim();
-      const email = String(formData.get("email") || "").trim();
-      const phone = String(formData.get("phone") || "").trim();
-      const password = String(formData.get("password") || "");
+      const firstName = formValue(formData.get("firstName"));
+      const lastName = formValue(formData.get("lastName"));
+      const email = formValue(formData.get("email"));
+      const phone = formValue(formData.get("phone"));
+      const password = formValue(formData.get("password"));
 
       if (!firstName || !lastName || !email || !phone || !password) {
         setSubmitError("Please fill all required fields.");
@@ -88,7 +89,7 @@ export function LocationRegister({
         setIsSubmitting(false);
       }
     },
-    [acceptedTerms, isSubmitting, registerButtonHref],
+    [acceptedTerms, isSubmitting],
   );
 
   if (!backgroundImage || !headlineLines.length) {
@@ -124,7 +125,13 @@ export function LocationRegister({
             <span className="text-white">{formHeadingRest}</span>
           </p>
 
-          <form className="mt-6 space-y-4" onSubmit={onSubmit} noValidate>
+          <form
+            className="mt-6 space-y-4"
+            onSubmit={(event) => {
+              void onSubmit(event);
+            }}
+            noValidate
+          >
             <div className="grid gap-4 sm:grid-cols-2">
               <label className="block">
                 <span className="sr-only">{firstNamePlaceholder}</span>

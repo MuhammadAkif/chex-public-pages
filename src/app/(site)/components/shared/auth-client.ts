@@ -30,10 +30,12 @@ function requiredApiBase() {
 function pickStringFromField(value: unknown) {
   if (typeof value === "string" && value.trim()) return value.trim();
   if (Array.isArray(value)) {
-    const first = value.find(
-      (item) => typeof item === "string" && item.trim().length > 0,
+    const values: unknown[] = value;
+    const first = values.find(
+      (item): item is string =>
+        typeof item === "string" && item.trim().length > 0,
     );
-    if (typeof first === "string") return first.trim();
+    return first?.trim() ?? null;
   }
   return null;
 }
@@ -87,8 +89,9 @@ export async function loginAndPersist(email: string, password: string) {
   const payload = resp?.data;
   const user = payload?.data ?? {};
 
-  const firstName = String(user.name ?? user.firstName ?? "").trim();
-  const lastName = String(user.lastName ?? "").trim();
+  const firstName =
+    pickStringFromField(user.name) ?? pickStringFromField(user.firstName) ?? "";
+  const lastName = pickStringFromField(user.lastName) ?? "";
   const fullName = `${firstName} ${lastName}`.trim();
 
   localStorage.setItem(

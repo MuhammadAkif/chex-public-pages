@@ -96,12 +96,10 @@ function Column({
   direction: "up" | "down";
   durationSeconds: number;
 }) {
-  if (!items.length) return null;
-  const loop = [...items, ...items];
-
   const innerRef = useRef<HTMLDivElement>(null);
   const rafRef = useRef<number>(0);
   const halfHeightRef = useRef(0);
+  const loop = [...items, ...items];
 
   useEffect(() => {
     const el = innerRef.current;
@@ -151,6 +149,8 @@ function Column({
       ro.disconnect();
     };
   }, [items, direction, durationSeconds]);
+
+  if (!items.length) return null;
 
   return (
     <div className="relative h-[620px] overflow-hidden">

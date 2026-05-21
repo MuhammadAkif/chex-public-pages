@@ -1,5 +1,12 @@
 import type { CollectionConfig } from 'payload'
 
+import { slugifyOrFallback } from '../lib/slugify'
+
+const isPostData = (
+  value: unknown,
+): value is { slug?: unknown; title?: unknown } =>
+  typeof value === 'object' && value !== null
+
 export const Posts: CollectionConfig = {
   slug: 'posts',
   admin: {
@@ -11,6 +18,20 @@ export const Posts: CollectionConfig = {
     create: () => true,
     update: () => true,
     delete: () => true,
+  },
+  hooks: {
+    beforeValidate: [
+      ({ data }) => {
+        if (!isPostData(data)) return data
+
+        const source = typeof data.slug === 'string' && data.slug ? data.slug : data.title
+        if (typeof source === 'string') {
+          data.slug = slugifyOrFallback(source, 'post')
+        }
+
+        return data
+      },
+    ],
   },
   fields: [
     {
@@ -30,7 +51,8 @@ export const Posts: CollectionConfig = {
       name: 'slug',
       type: 'text',
       admin: {
-        description: 'Human-readable unique URL segment for this post.',
+        description:
+          'Human-readable unique URL segment for this post. Saved in lowercase hyphenated format.',
       },
       index: true,
       required: true,
