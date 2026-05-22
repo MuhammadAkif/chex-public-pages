@@ -1,36 +1,70 @@
 "use client";
 
-import { useState } from "react";
+import { useRef, useState } from "react";
+import ReCAPTCHA from "react-google-recaptcha";
 import { submitContactUs } from "@/app/(site)/components/shared/auth-client";
 
 const inputClass =
   "w-full border-0 border-b border-[#d0d0d0] bg-transparent pb-2 pt-1 font-ui text-[15px] text-[#1b2f4b] outline-none transition-colors placeholder:text-transparent focus:border-[#1368b9]";
 
 const labelClass = "block font-ui text-[14px] font-medium text-[#1b2f4b]";
+const RECAPTCHA_SITE_KEY =
+  process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY ||
+  "6LfODPgdAAAAAPtuwKuNGKe0muxX4ODEN84Wovth";
+const emailRegex =
+  /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@(([^<>()[\]\\.,;:\s@"]+\.)+[^<>()[\]\\.,;:\s@"]{2,})$/i;
 
 const formValue = (value: FormDataEntryValue | null) =>
   typeof value === "string" ? value.trim() : "";
+const honeypotValue = (data: FormData) => formValue(data.get("companyWebsite"));
 
 export function ContactUsForm() {
+  const recaptchaRef = useRef<ReCAPTCHA>(null);
   const [submitted, setSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  const [captchaToken, setCaptchaToken] = useState<string | null>(null);
 
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
     setError(null);
-    setLoading(true);
     const form = e.currentTarget;
     const data = new FormData(form);
+    const firstName = formValue(data.get("firstName"));
+    const lastName = formValue(data.get("lastName"));
+    const email = formValue(data.get("email"));
+    const message = formValue(data.get("message"));
 
+    if (honeypotValue(data)) {
+      return;
+    }
+
+    if (!firstName || !lastName || !email || !message) {
+      setError("Fill all the details first");
+      return;
+    }
+
+    if (!emailRegex.test(email)) {
+      setError("Enter a valid email");
+      return;
+    }
+
+    if (!captchaToken) {
+      setError("Check the reCAPTCHA first");
+      return;
+    }
+
+    setLoading(true);
     try {
       await submitContactUs({
-        firstName: formValue(data.get("firstName")),
-        lastName: formValue(data.get("lastName")),
-        email: formValue(data.get("email")),
-        message: formValue(data.get("message")),
+        firstName,
+        lastName,
+        email,
+        message,
       });
       setSubmitted(true);
+      setCaptchaToken(null);
+      recaptchaRef.current?.reset();
     } catch (err) {
       setError(
         err instanceof Error
@@ -56,7 +90,10 @@ export function ContactUsForm() {
           possible.
         </p>
         <button
-          onClick={() => setSubmitted(false)}
+          onClick={() => {
+            setSubmitted(false);
+            setCaptchaToken(null);
+          }}
           className="mt-6 font-ui text-[14px] font-semibold text-[#1368b9] underline underline-offset-2 hover:text-[#3d8fd9]"
         >
           Send another message
@@ -77,6 +114,18 @@ export function ContactUsForm() {
         Please fill out the information below and we will contact you as soon as
         possible
       </p>
+
+      <div className="hidden" aria-hidden="true">
+        <label>
+          Company website
+          <input
+            type="text"
+            name="companyWebsite"
+            tabIndex={-1}
+            autoComplete="off"
+          />
+        </label>
+      </div>
 
       <div className="mt-8 grid gap-8 sm:grid-cols-2">
         <div>
@@ -133,6 +182,17 @@ export function ContactUsForm() {
       {error && (
         <p className="mt-4 font-ui text-[14px] text-[#e53935]">{error}</p>
       )}
+
+      <div className="mt-8 overflow-x-auto">
+        <ReCAPTCHA
+          ref={recaptchaRef}
+          sitekey={RECAPTCHA_SITE_KEY}
+          onChange={setCaptchaToken}
+          onExpired={() => setCaptchaToken(null)}
+          onErrored={() => setCaptchaToken(null)}
+          size="normal"
+        />
+      </div>
 
       <div className="mt-8">
         <button

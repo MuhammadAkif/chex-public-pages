@@ -1,6 +1,7 @@
 declare namespace NodeJS {
   interface ProcessEnv {
     DATABASE_URL?: string
+    NEXT_PUBLIC_RECAPTCHA_SITE_KEY?: string
     NEXT_PUBLIC_SERVER_URL?: string
     PAYLOAD_SECRET?: string
     POSTGRES_DB?: string
