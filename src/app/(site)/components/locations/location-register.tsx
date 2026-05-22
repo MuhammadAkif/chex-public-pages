@@ -4,11 +4,15 @@
 
 import Link from "next/link";
 import type { Route } from "next";
-import { useCallback, useState } from "react";
+import { useCallback, useRef, useState } from "react";
+import ReCAPTCHA from "react-google-recaptcha";
 import { signupThenLogin } from "@/app/(site)/components/shared/auth-client";
 
 const inputClass =
   "w-full rounded-[10px] border border-white/35 bg-black/35 px-4 py-3 font-ui text-[15px] text-white placeholder:text-white/55 outline-none transition-[border-color,box-shadow] focus:border-[#1468ba] focus:ring-2 focus:ring-[#1468ba]/35";
+const RECAPTCHA_SITE_KEY =
+  process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY ||
+  "6LfODPgdAAAAAPtuwKuNGKe0muxX4ODEN84Wovth";
 const formValue = (value: FormDataEntryValue | null) =>
   typeof value === "string" ? value.trim() : "";
 
@@ -53,9 +57,11 @@ export function LocationRegister({
   loginPrefix,
   loginLinkLabel,
 }: LocationRegisterProps) {
+  const recaptchaRef = useRef<ReCAPTCHA>(null);
   const [acceptedTerms, setAcceptedTerms] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitError, setSubmitError] = useState<string | null>(null);
+  const [captchaToken, setCaptchaToken] = useState<string | null>(null);
   const loginLinkHref = `${process.env.NEXT_PUBLIC_RIDESHAIR_APP_BASE_LINK ?? ""}/login`;
 
   const onSubmit = useCallback(
@@ -77,10 +83,17 @@ export function LocationRegister({
         return;
       }
 
+      if (!captchaToken) {
+        setSubmitError("Check the reCAPTCHA first.");
+        return;
+      }
+
       setSubmitError(null);
       setIsSubmitting(true);
       try {
         await signupThenLogin({ firstName, lastName, email, phone, password });
+        setCaptchaToken(null);
+        recaptchaRef.current?.reset();
       } catch (error) {
         const message =
           error instanceof Error ? error.message : "Registration failed. Please try again.";
@@ -89,7 +102,7 @@ export function LocationRegister({
         setIsSubmitting(false);
       }
     },
-    [acceptedTerms, isSubmitting],
+    [acceptedTerms, captchaToken, isSubmitting],
   );
 
   if (!backgroundImage || !headlineLines.length) {
@@ -212,6 +225,17 @@ export function LocationRegister({
                 .
               </span>
             </label>
+
+            <div className="overflow-x-auto">
+              <ReCAPTCHA
+                ref={recaptchaRef}
+                sitekey={RECAPTCHA_SITE_KEY}
+                onChange={setCaptchaToken}
+                onExpired={() => setCaptchaToken(null)}
+                onErrored={() => setCaptchaToken(null)}
+                size="normal"
+              />
+            </div>
 
             <button
               type="submit"

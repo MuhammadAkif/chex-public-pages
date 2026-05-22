@@ -5,13 +5,18 @@ import {
   useCallback,
   useContext,
   useEffect,
+  useRef,
   useState,
 } from "react";
+import ReCAPTCHA from "react-google-recaptcha";
 import { signupThenLogin } from "@/app/(site)/components/shared/auth-client";
 
 const inputClass =
   "w-full rounded-[10px] border border-white/30 bg-white/8 px-4 py-3 font-ui text-[15px] text-white placeholder:text-white/50 outline-none transition-[border-color,box-shadow] focus:border-[#1468ba] focus:ring-2 focus:ring-[#1468ba]/35";
 const appSideLoginHref = `${process.env.NEXT_PUBLIC_RIDESHAIR_APP_BASE_LINK ?? ""}/login`;
+const RECAPTCHA_SITE_KEY =
+  process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY ||
+  "6LfODPgdAAAAAPtuwKuNGKe0muxX4ODEN84Wovth";
 const formValue = (value: FormDataEntryValue | null) =>
   typeof value === "string" ? value.trim() : "";
 
@@ -29,9 +34,11 @@ export function useRegisterModal() {
 // ─── Modal UI ───────────────────────────────────────────────────────────────
 
 function RegisterModalPanel({ onClose }: { onClose: () => void }) {
+  const recaptchaRef = useRef<ReCAPTCHA>(null);
   const [acceptedTerms, setAcceptedTerms] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitError, setSubmitError] = useState<string | null>(null);
+  const [captchaToken, setCaptchaToken] = useState<string | null>(null);
 
   // Close on ESC
   useEffect(() => {
@@ -67,10 +74,17 @@ function RegisterModalPanel({ onClose }: { onClose: () => void }) {
         return;
       }
 
+      if (!captchaToken) {
+        setSubmitError("Check the reCAPTCHA first.");
+        return;
+      }
+
       setSubmitError(null);
       setIsSubmitting(true);
       try {
         await signupThenLogin({ firstName, lastName, email, phone, password });
+        setCaptchaToken(null);
+        recaptchaRef.current?.reset();
       } catch (error) {
         setSubmitError(
           error instanceof Error
@@ -81,7 +95,7 @@ function RegisterModalPanel({ onClose }: { onClose: () => void }) {
         setIsSubmitting(false);
       }
     },
-    [acceptedTerms, isSubmitting],
+    [acceptedTerms, captchaToken, isSubmitting],
   );
 
   return (
@@ -191,6 +205,17 @@ function RegisterModalPanel({ onClose }: { onClose: () => void }) {
               I agree to the <b>Terms of Service</b>.
             </span>
           </label>
+
+          <div className="overflow-x-auto">
+            <ReCAPTCHA
+              ref={recaptchaRef}
+              sitekey={RECAPTCHA_SITE_KEY}
+              onChange={setCaptchaToken}
+              onExpired={() => setCaptchaToken(null)}
+              onErrored={() => setCaptchaToken(null)}
+              size="normal"
+            />
+          </div>
 
           <button
             type="submit"
