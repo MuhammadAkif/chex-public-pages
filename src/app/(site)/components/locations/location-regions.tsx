@@ -1,5 +1,10 @@
 /* eslint-disable @next/next/no-img-element */
 
+import { RichText } from "@/app/(site)/components/shared/rich-text";
+
+const LINK_CLASS =
+  "[&_a]:font-semibold [&_a]:text-[#1368b9] [&_a]:underline [&_a]:underline-offset-2 hover:[&_a]:text-[#3d8fd9]";
+
 export type LocationRegionsProps = {
   title: string;
   description: string;
@@ -40,16 +45,22 @@ export function LocationRegions({
             .filter(Boolean)
             .join(" ")}
         >
-          <h2
-            className={["type-location-heading text-[#1b2f4b]", titleClassName]
+          <RichText
+            as="h2"
+            className={[
+              "type-location-heading text-[#1b2f4b]",
+              LINK_CLASS,
+              titleClassName,
+            ]
               .filter(Boolean)
               .join(" ")}
-          >
-            {title}
-          </h2>
-          <p className="type-location-body mt-6 text-[#41546e]">
-            {description}
-          </p>
+            html={title}
+          />
+          <RichText
+            as="p"
+            className={`type-location-body mt-6 text-[#41546e] ${LINK_CLASS}`}
+            html={description}
+          />
         </div>
 
         <div className="mt-14 grid gap-8 lg:grid-cols-2">
@@ -72,9 +83,11 @@ export function LocationRegions({
                 <h3 className="font-display text-[36px] font-bold leading-tight text-[#1b1c20] sm:text-[40px]">
                   {item.city}
                 </h3>
-                <p className="type-location-body mt-4 text-[#41546e]">
-                  {item.description}
-                </p>
+                <RichText
+                  as="p"
+                  className={`type-location-body mt-4 text-[#41546e] ${LINK_CLASS}`}
+                  html={item.description}
+                />
               </div>
             </article>
           ))}

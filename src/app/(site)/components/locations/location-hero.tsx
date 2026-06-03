@@ -2,6 +2,7 @@ import {
   SiteImage,
   type SiteImageSource,
 } from "@/app/(site)/components/shared/site-image";
+import { RichText } from "@/app/(site)/components/shared/rich-text";
 import { Button } from "@/app/(site)/components/ui/button";
 
 const LOGO_CHEX_IMAGE =
@@ -238,16 +239,17 @@ export function LocationHero({
           >
             {title}
           </h1>
-          <p
+          <RichText
+            as="p"
             className={[
               "type-body-lg mt-6 text-[#41546e]",
+              "[&_a]:font-semibold [&_a]:text-[#1368b9] [&_a]:underline [&_a]:underline-offset-2 hover:[&_a]:text-[#3d8fd9]",
               descriptionClassName,
             ]
               .filter(Boolean)
               .join(" ")}
-          >
-            {description}
-          </p>
+            html={description}
+          />
 
           <div className="mt-8 grid max-w-2xl gap-5 sm:grid-cols-3">
             {stats.map((stat) => (

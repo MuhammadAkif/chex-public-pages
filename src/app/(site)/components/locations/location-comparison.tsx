@@ -1,4 +1,5 @@
 import { Button } from "@/app/(site)/components/ui/button";
+import { RichText } from "@/app/(site)/components/shared/rich-text";
 
 export type LocationComparisonRow = {
   featureLabel: string;
@@ -83,9 +84,11 @@ export function LocationComparison({
           <h2 className="font-display text-[32px] font-bold leading-[1.15] tracking-[-1.6px] text-[#0f172a] sm:text-[40px] lg:text-[48px]">
             {title}
           </h2>
-          <p className={`mt-4 text-[#475569] ${tableSans}`}>
-            {description}
-          </p>
+          <RichText
+            as="p"
+            className={`mt-4 text-[#475569] ${tableSans} [&_a]:font-semibold [&_a]:text-[#1368b9] [&_a]:underline [&_a]:underline-offset-2 hover:[&_a]:text-[#3d8fd9]`}
+            html={description}
+          />
         </div>
 
         {/* ── Table (sm and up) ── */}

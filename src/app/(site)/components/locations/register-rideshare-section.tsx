@@ -5,6 +5,7 @@
 import { useMemo, useState } from "react";
 
 import { Button } from "@/app/(site)/components/ui/button";
+import { RichText } from "@/app/(site)/components/shared/rich-text";
 
 export type RegisterRideShareSectionProps = {
   eyebrow: string;
@@ -104,9 +105,11 @@ export function RegisterRideShareSection({
           <p className="inline-flex rounded-full bg-[#f68b1f] px-3 py-1 font-ui text-[12px] font-semibold uppercase tracking-[0.14em] text-white">
             {eyebrow}
           </p>
-          <h2 className="mt-5 max-w-3xl font-display text-[30px] font-bold leading-[1.16] text-[#1b2f4b] sm:text-[38px] lg:text-[44px]">
-            {title}
-          </h2>
+          <RichText
+            as="h2"
+            className="mt-5 max-w-3xl font-display text-[30px] font-bold leading-[1.16] text-[#1b2f4b] sm:text-[38px] lg:text-[44px] [&_a]:text-[#1368b9] [&_a]:underline [&_a]:underline-offset-2 hover:[&_a]:text-[#3d8fd9]"
+            html={title}
+          />
 
           <div className="relative mt-8">
             <div aria-hidden="true" className={timelineBounds} />

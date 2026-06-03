@@ -1,6 +1,10 @@
 /* eslint-disable @next/next/no-img-element */
 
 import { Button } from '@/app/(site)/components/ui/button'
+import { RichText } from '@/app/(site)/components/shared/rich-text'
+
+const LINK_CLASS =
+  '[&_a]:font-semibold [&_a]:text-[#1368b9] [&_a]:underline [&_a]:underline-offset-2 hover:[&_a]:text-[#3d8fd9]'
 
 type LocationManageIllustration =
   | {
@@ -123,14 +127,18 @@ export function LocationManage({
         </div>
 
         <div>
-          <h2 className="type-section-title text-[#1b2f4b]">{title}</h2>
+          <RichText
+            as="h2"
+            className={`type-section-title text-[#1b2f4b] ${LINK_CLASS}`}
+            html={title}
+          />
           <ul className="mt-8 space-y-5">
             {bullets.map((bullet) => (
               <li key={bullet} className="type-location-list flex items-start gap-3 text-[#41546e]">
                 <span className="mt-1 inline-flex h-6 w-6 flex-none items-center justify-center">
                   <CheckIcon fill={checkIconColor} />
                 </span>
-                <span>{bullet}</span>
+                <RichText className={LINK_CLASS} html={bullet} />
               </li>
             ))}
           </ul>

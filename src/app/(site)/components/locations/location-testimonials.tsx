@@ -2,6 +2,7 @@
 
 import { useEffect, useRef } from "react";
 import { SectionHeading } from "@/app/(site)/components/ui/section-heading";
+import { RichText } from "@/app/(site)/components/shared/rich-text";
 
 export type LocationTestimonialsProps = {
   title: string;
@@ -56,9 +57,11 @@ function TestimonialCard({ item }: { item: Item }) {
   const letter = item.name.trim().charAt(0).toUpperCase() || "R";
   return (
     <article className="rounded-[16px] border border-[#e4ebf5] bg-white p-5 shadow-[0_16px_34px_-28px_rgba(27,47,75,0.45)]">
-      <p className="font-ui text-[15px] leading-7 text-[#41546e]">
-        {item.quote}
-      </p>
+      <RichText
+        as="p"
+        className="font-ui text-[15px] leading-7 text-[#41546e] [&_a]:font-semibold [&_a]:text-[#1368b9] [&_a]:underline [&_a]:underline-offset-2 hover:[&_a]:text-[#3d8fd9]"
+        html={item.quote}
+      />
       <div className="mt-5 flex items-center gap-3">
         {item.avatar ? (
           // eslint-disable-next-line @next/next/no-img-element

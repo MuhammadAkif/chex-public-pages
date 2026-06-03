@@ -1,6 +1,7 @@
 /* eslint-disable @next/next/no-img-element */
 
 import { Button } from "@/app/(site)/components/ui/button";
+import { RichText } from "@/app/(site)/components/shared/rich-text";
 
 export type LocationCtaProps = {
   sectionId: string;
@@ -44,9 +45,11 @@ export function LocationCta({
           <h2 className="font-display text-[40px] font-black leading-[1.18] text-white sm:text-[48px] lg:leading-[64px]">
             {title}
           </h2>
-          <p className="type-body-lg mx-auto mt-6 max-w-4xl text-white/90">
-            {description}
-          </p>
+          <RichText
+            as="p"
+            className="type-body-lg mx-auto mt-6 max-w-4xl text-white/90 [&_a]:font-semibold [&_a]:text-white [&_a]:underline [&_a]:underline-offset-2 hover:[&_a]:text-white/80"
+            html={description}
+          />
 
           <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
             {/* <Button href="#services" variant="light">

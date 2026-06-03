@@ -3,6 +3,11 @@
 import Link from 'next/link'
 import type { Route } from 'next'
 
+import { RichText } from '@/app/(site)/components/shared/rich-text'
+
+const LINK_CLASS =
+  '[&_a]:font-semibold [&_a]:text-[#1368b9] [&_a]:underline [&_a]:underline-offset-2 hover:[&_a]:text-[#3d8fd9]'
+
 type Tone = 'accent' | 'primary'
 const UBER_LOGO = 'https://chex-payload-public-pages.s3.us-east-1.amazonaws.com/uber-logo.png'
 const LYFT_LOGO = 'https://chex-payload-public-pages.s3.us-east-1.amazonaws.com/lyft-logo.png'
@@ -71,12 +76,16 @@ export function PricingRideShareSection({
   return (
     <section className="bg-white px-4 pb-16 pt-4 sm:px-6 lg:px-10 lg:pb-24">
       <div className="mx-auto max-w-[1180px] text-center">
-        <h2 className="font-display text-[36px] font-bold leading-[1.15] text-[#1b2f4b] sm:text-[44px]">
-          {title}
-        </h2>
-        <p className="mx-auto mt-5 max-w-4xl font-ui text-[16px] leading-8 text-[#41546e] sm:text-[18px]">
-          {description}
-        </p>
+        <RichText
+          as="h2"
+          className={`font-display text-[36px] font-bold leading-[1.15] text-[#1b2f4b] sm:text-[44px] ${LINK_CLASS}`}
+          html={title}
+        />
+        <RichText
+          as="p"
+          className={`mx-auto mt-5 max-w-4xl font-ui text-[16px] leading-8 text-[#41546e] sm:text-[18px] ${LINK_CLASS}`}
+          html={description}
+        />
 
         <div className="mt-11 grid gap-5 md:grid-cols-2 lg:grid-cols-3 lg:gap-6">
           {plans.map((plan) => {
@@ -128,13 +137,17 @@ export function PricingRideShareSection({
                   </span>
                 </div>
 
-                <p className="mt-4 font-display text-[22px] font-bold leading-tight text-[#20242c]">
-                  {plan.description}
-                </p>
+                <RichText
+                  as="p"
+                  className={`mt-4 font-display text-[22px] font-bold leading-tight text-[#20242c] ${LINK_CLASS}`}
+                  html={plan.description}
+                />
                 {plan.subDescription ? (
-                  <p className="mt-2 min-h-5 font-ui text-[13px] leading-5 text-[#66758a]">
-                    {plan.subDescription}
-                  </p>
+                  <RichText
+                    as="p"
+                    className={`mt-2 min-h-5 font-ui text-[13px] leading-5 text-[#66758a] ${LINK_CLASS}`}
+                    html={plan.subDescription}
+                  />
                 ) : (
                   <span className="mt-2 min-h-5" aria-hidden="true" />
                 )}
@@ -179,7 +192,7 @@ export function PricingRideShareSection({
                         {highlight.emphasis}{' '}
                       </span>
                     ) : null}
-                    {highlight.text}
+                    <RichText className={LINK_CLASS} html={highlight.text} />
                   </p>
                 </div>
               )

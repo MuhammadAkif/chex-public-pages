@@ -1,5 +1,7 @@
 /* eslint-disable @next/next/no-img-element */
 
+import { RichText } from "@/app/(site)/components/shared/rich-text";
+
 export type LocationOverviewProps = {
   title: string;
   paragraphs: ReadonlyArray<string>;
@@ -78,7 +80,7 @@ export function LocationOverview({
         </h2>
 
         <div className="mt-10 grid gap-10 lg:grid-cols-[0.95fr_0.75fr] lg:items-start">
-          <div className="type-location-body-relaxed space-y-4 text-justify text-[#1b1c20]">
+          <div className="type-location-body-relaxed space-y-4 text-justify text-[#1b1c20] [&_a]:font-semibold [&_a]:text-[#1368b9] [&_a]:underline [&_a]:underline-offset-2 hover:[&_a]:text-[#3d8fd9]">
             {blocks.map((block, index) => {
               if (block.type === "list") {
                 return (
@@ -91,7 +93,7 @@ export function LocationOverview({
                         <span aria-hidden="true" className="text-[#16a34a]">
                           ✅
                         </span>
-                        <span className="leading-[1.5]">{item}</span>
+                        <RichText className="leading-[1.5]" html={item} />
                       </li>
                     ))}
                   </ul>
@@ -99,9 +101,12 @@ export function LocationOverview({
               }
 
               return (
-                <p key={`paragraph-${index}`} className="leading-[1.55]">
-                  {block.text}
-                </p>
+                <RichText
+                  key={`paragraph-${index}`}
+                  as="p"
+                  className="leading-[1.55]"
+                  html={block.text}
+                />
               );
             })}
           </div>

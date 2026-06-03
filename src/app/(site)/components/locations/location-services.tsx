@@ -1,6 +1,10 @@
 /* eslint-disable @next/next/no-img-element */
 
 import { Button } from "@/app/(site)/components/ui/button";
+import { RichText } from "@/app/(site)/components/shared/rich-text";
+
+const LINK_CLASS =
+  "[&_a]:font-semibold [&_a]:text-[#1368b9] [&_a]:underline [&_a]:underline-offset-2 hover:[&_a]:text-[#3d8fd9]";
 
 export type LocationServicesProps = {
   eyebrow: string;
@@ -181,7 +185,11 @@ export function LocationServices({
           <h2 className="mt-4 font-display text-[34px] font-bold leading-[1.1] tracking-[-1.6px] text-[#0f172a] sm:text-[44px] lg:text-[52px]">
             {title}
           </h2>
-          <p className={`mx-auto mt-6 max-w-3xl ${bodySans}`}>{description}</p>
+          <RichText
+            as="p"
+            className={`mx-auto mt-6 max-w-3xl ${bodySans} ${LINK_CLASS}`}
+            html={description}
+          />
         </div>
 
         {/* ── Service cards ── */}
@@ -205,10 +213,10 @@ export function LocationServices({
                   return (
                     <>
                       <div
-                        className={`mx-auto mt-6 max-w-3xl space-y-4 text-center ${bodySans}`}
+                        className={`mx-auto mt-6 max-w-3xl space-y-4 text-center ${bodySans} ${LINK_CLASS}`}
                       >
                         {paragraphs.map((paragraph) => (
-                          <p key={paragraph}>{paragraph}</p>
+                          <RichText as="p" key={paragraph} html={paragraph} />
                         ))}
                       </div>
 
@@ -226,7 +234,7 @@ export function LocationServices({
 
                       {bullets.length ? (
                         <ul
-                          className={`mx-auto mt-10 grid max-w-4xl grid-cols-1 gap-3 sm:grid-cols-2 sm:gap-x-8 sm:gap-y-3 ${bodySans} text-left`}
+                          className={`mx-auto mt-10 grid max-w-4xl grid-cols-1 gap-3 sm:grid-cols-2 sm:gap-x-8 sm:gap-y-3 ${bodySans} text-left ${LINK_CLASS}`}
                         >
                           {bullets.map((bullet) => (
                             <li
@@ -246,7 +254,10 @@ export function LocationServices({
                                   <polyline points="2.5 6 5 8.5 9.5 3.5" />
                                 </svg>
                               </span>
-                              <span className="min-w-0 flex-1">{bullet}</span>
+                              <RichText
+                                className="min-w-0 flex-1"
+                                html={bullet}
+                              />
                             </li>
                           ))}
                         </ul>

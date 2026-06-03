@@ -2,6 +2,11 @@
 
 import { useState } from 'react'
 
+import { RichText } from '@/app/(site)/components/shared/rich-text'
+
+const LINK_CLASS =
+  '[&_a]:font-semibold [&_a]:text-[#1368b9] [&_a]:underline [&_a]:underline-offset-2 hover:[&_a]:text-[#3d8fd9]'
+
 export type LocationFaqProps = {
   idBase: string
   title: string
@@ -39,7 +44,11 @@ export function LocationFaq({ idBase, title, description, items }: LocationFaqPr
       <div className="mx-auto max-w-[1240px]">
         <div className="mx-auto max-w-4xl text-center">
           <h2 className="type-location-heading text-[#1b2f4b]">{title}</h2>
-          <p className="type-location-body mt-6 text-[#41546e]">{description}</p>
+          <RichText
+            as="p"
+            className={`type-location-body mt-6 text-[#41546e] ${LINK_CLASS}`}
+            html={description}
+          />
         </div>
 
         <div className="mt-16 space-y-10">
@@ -85,9 +94,11 @@ export function LocationFaq({ idBase, title, description, items }: LocationFaqPr
                   }`}
                 >
                   <div className="overflow-hidden">
-                    <p className="mt-6 max-w-5xl pl-11 font-display text-[16px] leading-[1.66] text-[#1b1c20]">
-                      {item.answer}
-                    </p>
+                    <RichText
+                      as="p"
+                      className={`mt-6 max-w-5xl pl-11 font-display text-[16px] leading-[1.66] text-[#1b1c20] ${LINK_CLASS}`}
+                      html={item.answer}
+                    />
                   </div>
                 </div>
                 <span className="sr-only">FAQ item {index + 1}</span>
