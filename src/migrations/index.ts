@@ -9,6 +9,7 @@ import * as migration_20260505_124044_rideshare_review_links from './20260505_12
 import * as migration_20260505_131500_testimonials_distribution_cleanup from './20260505_131500_testimonials_distribution_cleanup';
 import * as migration_20260506_113000_testimonials_avatar from './20260506_113000_testimonials_avatar';
 import * as migration_20260514_141500_home_page_global from './20260514_141500_home_page_global';
+import * as migration_20260609_000000_landing_page_global from './20260609_000000_landing_page_global';
 
 export const migrations = [
   {
@@ -65,5 +66,10 @@ export const migrations = [
     up: migration_20260514_141500_home_page_global.up,
     down: migration_20260514_141500_home_page_global.down,
     name: '20260514_141500_home_page_global'
+  },
+  {
+    up: migration_20260609_000000_landing_page_global.up,
+    down: migration_20260609_000000_landing_page_global.down,
+    name: '20260609_000000_landing_page_global'
   },
 ];

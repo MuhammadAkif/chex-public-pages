@@ -10,6 +10,7 @@ import { Posts } from './src/collections/Posts.ts'
 import { Media } from './src/collections/Media.ts'
 import { Users } from './src/collections/Users.ts'
 import { HomePage } from './src/globals/HomePage.ts'
+import { LandingPage } from './src/globals/LandingPage.ts'
 
 const filename = fileURLToPath(import.meta.url)
 const dirname = path.dirname(filename)
@@ -40,7 +41,7 @@ export default buildConfig({
     user: Users.slug,
   },
   collections: [Users, Posts, Media, Locations],
-  globals: [HomePage],
+  globals: [HomePage, LandingPage],
   cors: [serverURL],
   csrf: [serverURL],
   db: postgresAdapter({

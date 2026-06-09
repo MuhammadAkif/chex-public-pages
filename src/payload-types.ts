@@ -93,9 +93,11 @@ export interface Config {
   fallbackLocale: null;
   globals: {
     'home-page': HomePage;
+    'landing-page': LandingPage;
   };
   globalsSelect: {
     'home-page': HomePageSelect<false> | HomePageSelect<true>;
+    'landing-page': LandingPageSelect<false> | LandingPageSelect<true>;
   };
   locale: null;
   widgets: {
@@ -1554,6 +1556,195 @@ export interface HomePage {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "landing-page".
+ */
+export interface LandingPage {
+  id: string;
+  /**
+   * SEO metadata used by the App Router route metadata.
+   */
+  meta: {
+    title: string;
+    description: string;
+  };
+  hero: {
+    ratingText: string;
+    titleAccent: string;
+    title: string;
+    /**
+     * Supports inline <strong> for accent words.
+     */
+    description: string;
+    buttonLabel: string;
+    /**
+     * Hero image selected from the Payload media library.
+     */
+    image?: (string | null) | Media;
+    /**
+     * Migration fallback URL. The frontend prefers the media relationship when it is present.
+     */
+    imageFallbackUrl?: string | null;
+  };
+  trusted: {
+    title: string;
+    logos?:
+      | {
+          /**
+           * Logo image selected from the Payload media library.
+           */
+          image?: (string | null) | Media;
+          /**
+           * Migration fallback URL. The frontend prefers the media relationship when it is present.
+           */
+          imageFallbackUrl?: string | null;
+          label: string;
+          id?: string | null;
+        }[]
+      | null;
+  };
+  transform: {
+    title: string;
+    description: string;
+    /**
+     * Transform image selected from the Payload media library.
+     */
+    image?: (string | null) | Media;
+    /**
+     * Migration fallback URL. The frontend prefers the media relationship when it is present.
+     */
+    imageFallbackUrl?: string | null;
+    features?:
+      | {
+          title: string;
+          description: string;
+          id?: string | null;
+        }[]
+      | null;
+  };
+  solutions: {
+    title: string;
+    description: string;
+    blocks?:
+      | {
+          label: string;
+          title: string;
+          /**
+           * Supports inline <strong> for accent words.
+           */
+          description: string;
+          bullets?:
+            | {
+                text: string;
+                id?: string | null;
+              }[]
+            | null;
+          buttonLabel: string;
+          /**
+           * Block illustration selected from the Payload media library.
+           */
+          image?: (string | null) | Media;
+          /**
+           * Migration fallback URL. The frontend prefers the media relationship when it is present.
+           */
+          imageFallbackUrl?: string | null;
+          variant: 'full' | 'card-light' | 'card-peach';
+          id?: string | null;
+        }[]
+      | null;
+  };
+  testimonials: {
+    title: string;
+    description: string;
+    label: string;
+    items?:
+      | {
+          name: string;
+          quote: string;
+          stars: number;
+          avatar?: string | null;
+          id?: string | null;
+        }[]
+      | null;
+  };
+  faq: {
+    title: string;
+    items?:
+      | {
+          question: string;
+          answer: string;
+          id?: string | null;
+        }[]
+      | null;
+  };
+  achievements: {
+    title: string;
+    description: string;
+    /**
+     * Background image selected from the Payload media library.
+     */
+    backgroundImage?: (string | null) | Media;
+    /**
+     * Migration fallback URL. The frontend prefers the media relationship when it is present.
+     */
+    backgroundImageFallbackUrl?: string | null;
+    stats?:
+      | {
+          value: string;
+          label: string;
+          id?: string | null;
+        }[]
+      | null;
+    note: string;
+    buttonLabel: string;
+  };
+  inspect: {
+    eyebrow: string;
+    titleAccentA: string;
+    titleMid: string;
+    titleAccentB: string;
+    titleTail: string;
+    subtitle: string;
+    description: string;
+    buttonLabel: string;
+    testimonial: {
+      name: string;
+      quote: string;
+      role: string;
+      /**
+       * Testimonial photo selected from the Payload media library.
+       */
+      image?: (string | null) | Media;
+      /**
+       * Migration fallback URL. The frontend prefers the media relationship when it is present.
+       */
+      imageFallbackUrl?: string | null;
+    };
+  };
+  articles: {
+    eyebrow: string;
+    title: string;
+    items?:
+      | {
+          tag: string;
+          title: string;
+          /**
+           * Article image selected from the Payload media library.
+           */
+          image?: (string | null) | Media;
+          /**
+           * Migration fallback URL. The frontend prefers the media relationship when it is present.
+           */
+          imageFallbackUrl?: string | null;
+          href?: string | null;
+          id?: string | null;
+        }[]
+      | null;
+  };
+  updatedAt?: string | null;
+  createdAt?: string | null;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "home-page_select".
  */
 export interface HomePageSelect<T extends boolean = true> {
@@ -1696,6 +1887,166 @@ export interface HomePageSelect<T extends boolean = true> {
         title?: T;
         description?: T;
         secondaryLabel?: T;
+      };
+  updatedAt?: T;
+  createdAt?: T;
+  globalType?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "landing-page_select".
+ */
+export interface LandingPageSelect<T extends boolean = true> {
+  meta?:
+    | T
+    | {
+        title?: T;
+        description?: T;
+      };
+  hero?:
+    | T
+    | {
+        ratingText?: T;
+        titleAccent?: T;
+        title?: T;
+        description?: T;
+        buttonLabel?: T;
+        image?: T;
+        imageFallbackUrl?: T;
+      };
+  trusted?:
+    | T
+    | {
+        title?: T;
+        logos?:
+          | T
+          | {
+              image?: T;
+              imageFallbackUrl?: T;
+              label?: T;
+              id?: T;
+            };
+      };
+  transform?:
+    | T
+    | {
+        title?: T;
+        description?: T;
+        image?: T;
+        imageFallbackUrl?: T;
+        features?:
+          | T
+          | {
+              title?: T;
+              description?: T;
+              id?: T;
+            };
+      };
+  solutions?:
+    | T
+    | {
+        title?: T;
+        description?: T;
+        blocks?:
+          | T
+          | {
+              label?: T;
+              title?: T;
+              description?: T;
+              bullets?:
+                | T
+                | {
+                    text?: T;
+                    id?: T;
+                  };
+              buttonLabel?: T;
+              image?: T;
+              imageFallbackUrl?: T;
+              variant?: T;
+              id?: T;
+            };
+      };
+  testimonials?:
+    | T
+    | {
+        title?: T;
+        description?: T;
+        label?: T;
+        items?:
+          | T
+          | {
+              name?: T;
+              quote?: T;
+              stars?: T;
+              avatar?: T;
+              id?: T;
+            };
+      };
+  faq?:
+    | T
+    | {
+        title?: T;
+        items?:
+          | T
+          | {
+              question?: T;
+              answer?: T;
+              id?: T;
+            };
+      };
+  achievements?:
+    | T
+    | {
+        title?: T;
+        description?: T;
+        backgroundImage?: T;
+        backgroundImageFallbackUrl?: T;
+        stats?:
+          | T
+          | {
+              value?: T;
+              label?: T;
+              id?: T;
+            };
+        note?: T;
+        buttonLabel?: T;
+      };
+  inspect?:
+    | T
+    | {
+        eyebrow?: T;
+        titleAccentA?: T;
+        titleMid?: T;
+        titleAccentB?: T;
+        titleTail?: T;
+        subtitle?: T;
+        description?: T;
+        buttonLabel?: T;
+        testimonial?:
+          | T
+          | {
+              name?: T;
+              quote?: T;
+              role?: T;
+              image?: T;
+              imageFallbackUrl?: T;
+            };
+      };
+  articles?:
+    | T
+    | {
+        eyebrow?: T;
+        title?: T;
+        items?:
+          | T
+          | {
+              tag?: T;
+              title?: T;
+              image?: T;
+              imageFallbackUrl?: T;
+              href?: T;
+              id?: T;
+            };
       };
   updatedAt?: T;
   createdAt?: T;
