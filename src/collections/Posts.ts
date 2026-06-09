@@ -63,6 +63,24 @@ export const Posts: CollectionConfig = {
       type: 'textarea',
     },
     {
+      name: 'meta',
+      type: 'group',
+      admin: {
+        description: 'SEO metadata used by the App Router route metadata.',
+      },
+      fields: [
+        {
+          name: 'title',
+          type: 'text',
+        },
+        {
+          name: 'description',
+          type: 'textarea',
+        },
+      ],
+      label: 'SEO metadata',
+    },
+    {
       name: 'content',
       type: 'richText',
     },

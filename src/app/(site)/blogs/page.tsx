@@ -9,6 +9,10 @@ export const metadata: Metadata = {
   description: "Latest news, tips and insights from the Chex.AI team.",
 };
 
+// Always reflect current CMS data (matches the location/landing routes); without
+// this the listing is statically cached and newly-added post images don't appear.
+export const dynamic = "force-dynamic";
+
 const getPosts = cache(async () => {
   const payload = await getPayload({ config });
   const result = await payload.find({
@@ -18,6 +22,9 @@ const getPosts = cache(async () => {
     limit: 100,
     overrideAccess: true,
     sort: "-publishedAt",
+    // `draft: false` does not exclude never-published docs on its own; filter on
+    // _status so draft posts never appear in the public listing.
+    where: { _status: { equals: "published" } },
   });
   return result.docs;
 });

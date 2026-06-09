@@ -53,6 +53,7 @@ export const getLandingArticles: () => Promise<LandingArticleItem[]> = cache(
         limit: 6,
         overrideAccess: true,
         sort: '-publishedAt',
+        where: { _status: { equals: 'published' } },
       })
 
       return result.docs.map((post) => ({

@@ -8,6 +8,8 @@ import type { Post } from "@/payload-types";
 import { slugify } from "@/lib/slugify";
 import type { ReactNode } from "react";
 
+export const dynamic = "force-dynamic";
+
 const getPostBySlug = cache(async (slug: string): Promise<Post | null> => {
   const payload = await getPayload({ config });
   const result = await payload.find({
@@ -16,7 +18,12 @@ const getPostBySlug = cache(async (slug: string): Promise<Post | null> => {
     draft: false,
     limit: 1,
     overrideAccess: true,
-    where: { slug: { equals: slug } },
+    where: {
+      and: [
+        { slug: { equals: slug } },
+        { _status: { equals: "published" } },
+      ],
+    },
   });
   return result.docs[0] ?? null;
 });
@@ -30,6 +37,7 @@ const getPostByNormalizedSlug = cache(
       draft: false,
       limit: 1000,
       overrideAccess: true,
+      where: { _status: { equals: "published" } },
     });
 
     return (
@@ -73,8 +81,9 @@ export async function generateMetadata({
   const canonicalSlug = slugify(post.slug);
 
   return {
-    title: `${post.title} | Blog`,
-    description: post.excerpt ?? undefined,
+    // Prefer the CMS SEO metadata; fall back to the post title/excerpt.
+    title: post.meta?.title || `${post.title} | Blog`,
+    description: post.meta?.description ?? post.excerpt ?? undefined,
     alternates: {
       canonical: `/blogs/${encodeURIComponent(canonicalSlug)}`,
     },

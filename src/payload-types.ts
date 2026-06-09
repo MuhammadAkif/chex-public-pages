@@ -169,6 +169,13 @@ export interface Post {
    */
   slug: string;
   excerpt?: string | null;
+  /**
+   * SEO metadata used by the App Router route metadata.
+   */
+  meta?: {
+    title?: string | null;
+    description?: string | null;
+  };
   content?: {
     root: {
       type: string;
@@ -912,6 +919,12 @@ export interface PostsSelect<T extends boolean = true> {
   postImage?: T;
   slug?: T;
   excerpt?: T;
+  meta?:
+    | T
+    | {
+        title?: T;
+        description?: T;
+      };
   content?: T;
   publishedAt?: T;
   updatedAt?: T;
