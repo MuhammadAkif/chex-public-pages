@@ -27,6 +27,7 @@ export function LandingPage({ content }: LandingPageProps) {
             description={content.hero.description}
             buttonLabel={content.hero.buttonLabel}
             image={content.hero.image}
+            backgroundVideo={content.hero.backgroundVideo}
           />
         </Reveal>
 

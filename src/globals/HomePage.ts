@@ -64,6 +64,7 @@ export const HomePage: GlobalConfig = {
         },
         { name: 'buttonLabel', type: 'text', required: true },
         ...mediaFields('image', 'Hero image'),
+        ...mediaFields('backgroundVideo', 'Hero background video (mp4)'),
       ],
     },
     {

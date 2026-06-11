@@ -132,6 +132,10 @@ export const getLandingPage: () => Promise<LandingPagePayload> = cache(
         description: doc.hero.description,
         buttonLabel: doc.hero.buttonLabel,
         image: mediaURL(doc.hero.image, doc.hero.imageFallbackUrl),
+        backgroundVideo: mediaURL(
+          doc.hero.backgroundVideo,
+          doc.hero.backgroundVideoFallbackUrl,
+        ),
       },
       trusted: {
         title: doc.trusted.title,

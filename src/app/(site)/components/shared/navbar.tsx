@@ -13,7 +13,15 @@ import {
 import { Button } from "@/app/(site)/components/ui/button";
 import { useRegisterModal } from "@/app/(site)/components/home/register-modal";
 
-type NavChild = { label: string; href: string };
+type NavChild = { label: string; href: string; comingSoon?: boolean };
+
+function ComingSoonBadge() {
+  return (
+    <span className="ml-2 shrink-0 rounded-full bg-[#fff1e5] px-2 py-0.5 text-[10px] font-semibold uppercase tracking-wide text-[#ff7a01]">
+      Coming soon
+    </span>
+  );
+}
 type NavLink = {
   label: string;
   href: string;
@@ -106,17 +114,27 @@ function DropdownItem({ link, pathname }: { link: NavLink; pathname: string | nu
 
       {open && (
         <div className="absolute left-0 top-full z-50 pt-2">
-          <div className="w-48 overflow-hidden rounded-[12px] border border-[#e4ebf5] bg-white py-1.5 shadow-[0_20px_50px_-16px_rgba(27,47,75,0.25)]">
-            {link.children?.map((child) => (
-              <Link
-                key={child.href}
-                href={child.href as Route}
-                className="block px-4 py-2.5 font-ui text-[14px] text-[#41546e] transition-colors hover:bg-[#f4f8ff] hover:text-[#1b2f4b]"
-                onClick={() => setOpen(false)}
-              >
-                {child.label}
-              </Link>
-            ))}
+          <div className="w-max min-w-[12rem] overflow-hidden rounded-[12px] border border-[#e4ebf5] bg-white py-1.5 shadow-[0_20px_50px_-16px_rgba(27,47,75,0.25)]">
+            {link.children?.map((child) =>
+              child.comingSoon ? (
+                <div
+                  key={child.label}
+                  className="flex cursor-default items-center justify-between gap-3 whitespace-nowrap px-4 py-2.5 font-ui text-[14px] text-[#9aa7b8]"
+                >
+                  {child.label}
+                  <ComingSoonBadge />
+                </div>
+              ) : (
+                <Link
+                  key={child.label}
+                  href={child.href as Route}
+                  className="block whitespace-nowrap px-4 py-2.5 font-ui text-[14px] text-[#41546e] transition-colors hover:bg-[#f4f8ff] hover:text-[#1b2f4b]"
+                  onClick={() => setOpen(false)}
+                >
+                  {child.label}
+                </Link>
+              )
+            )}
           </div>
         </div>
       )}
@@ -300,16 +318,26 @@ export function Navbar({ logo, links }: NavbarProps) {
                   </button>
                   {mobileDropdown === link.label && (
                     <div className="ml-4 mt-1 flex flex-col gap-0.5">
-                      {link.children.map((child) => (
-                        <Link
-                          key={child.href}
-                          href={child.href as Route}
-                          className="rounded-[8px] px-4 py-2.5 font-ui text-[14px] text-[#41546e] hover:bg-[#f4f8ff] hover:text-[#1b2f4b]"
-                          onClick={() => setMenuOpen(false)}
-                        >
-                          {child.label}
-                        </Link>
-                      ))}
+                      {link.children.map((child) =>
+                        child.comingSoon ? (
+                          <div
+                            key={child.label}
+                            className="flex cursor-default items-center justify-between rounded-[8px] px-4 py-2.5 font-ui text-[14px] text-[#9aa7b8]"
+                          >
+                            {child.label}
+                            <ComingSoonBadge />
+                          </div>
+                        ) : (
+                          <Link
+                            key={child.label}
+                            href={child.href as Route}
+                            className="rounded-[8px] px-4 py-2.5 font-ui text-[14px] text-[#41546e] hover:bg-[#f4f8ff] hover:text-[#1b2f4b]"
+                            onClick={() => setMenuOpen(false)}
+                          >
+                            {child.label}
+                          </Link>
+                        )
+                      )}
                     </div>
                   )}
                 </div>

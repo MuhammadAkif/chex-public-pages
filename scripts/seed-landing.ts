@@ -29,6 +29,7 @@ async function main() {
         description: c.hero.description,
         buttonLabel: c.hero.buttonLabel,
         imageFallbackUrl: c.hero.image,
+        backgroundVideoFallbackUrl: c.hero.backgroundVideo,
       },
       trusted: {
         title: c.trusted.title,

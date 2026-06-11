@@ -30,7 +30,7 @@ const textItemField = (name = 'text', label = 'Text'): Field => ({
 
 export const ServicePage: GlobalConfig = {
   slug: 'service-page',
-  label: 'Service Page',
+  label: 'Rideshare Inspection Service',
   admin: {
     group: 'Site',
   },

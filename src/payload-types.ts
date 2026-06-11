@@ -1417,6 +1417,14 @@ export interface HomePage {
      * Migration fallback URL. The frontend prefers the media relationship when it is present.
      */
     imageFallbackUrl?: string | null;
+    /**
+     * Hero background video (mp4) selected from the Payload media library.
+     */
+    backgroundVideo?: (string | null) | Media;
+    /**
+     * Migration fallback URL. The frontend prefers the media relationship when it is present.
+     */
+    backgroundVideoFallbackUrl?: string | null;
   };
   trusted: {
     title: string;
@@ -1777,6 +1785,8 @@ export interface HomePageSelect<T extends boolean = true> {
         buttonLabel?: T;
         image?: T;
         imageFallbackUrl?: T;
+        backgroundVideo?: T;
+        backgroundVideoFallbackUrl?: T;
       };
   trusted?:
     | T

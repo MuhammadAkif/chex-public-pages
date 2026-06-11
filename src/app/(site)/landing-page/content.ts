@@ -25,6 +25,7 @@ export type LandingPageContent = {
     description: string
     buttonLabel: string
     image: string
+    backgroundVideo: string
   }
   trusted: {
     title: string
@@ -105,6 +106,8 @@ export const landingContent: LandingPageContent = {
       'Eliminate the need for physical inspections with <strong>Chex</strong>’ “<strong>AI-powered</strong>” vehicle inspection solutions. Get a detailed inspection report within a few minutes. Most people require digital vehicle inspection solutions to claim their insurance.',
     buttonLabel: 'Request a demo',
     image: `${S3}/feat-rideshare-b.png`,
+    backgroundVideo:
+      'https://chex-payload-public-pages.s3.us-east-1.amazonaws.com/Chex.ai%20hero%20section%20video.mp4',
   },
   trusted: {
     title: 'Trusted By Leading Insurance & Automotive Brands',
