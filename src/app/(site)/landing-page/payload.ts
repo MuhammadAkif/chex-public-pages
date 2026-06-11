@@ -3,7 +3,7 @@ import { cache } from 'react'
 import config from '@payload-config'
 import { getPayload } from 'payload'
 
-import type { LandingPage as LandingPageDoc, Media } from '@/payload-types'
+import type { HomePage as LandingPageDoc, Media } from '@/payload-types'
 
 import {
   landingContent,
@@ -88,7 +88,7 @@ async function fetchLandingPageDocument(): Promise<LandingPageDoc | null> {
   try {
     const payload = await getPayload({ config })
     return await payload.findGlobal({
-      slug: 'landing-page',
+      slug: 'home-page',
       depth: 1,
       overrideAccess: false,
     })

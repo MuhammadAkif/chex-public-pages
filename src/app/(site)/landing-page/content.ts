@@ -1,10 +1,11 @@
 /**
- * Canonical content for the AI-Vehicle-Inspection landing page (/landing-page).
+ * Canonical content for the AI-Vehicle-Inspection landing design, which now
+ * powers the site home route (/).
  *
  * This object is the single source of truth for the page copy and the S3 image
  * URLs that were imported from the Figma "Chex.ai Revamp" design. It is consumed
  * directly by the route while seeding, and it mirrors the shape of the
- * `landing-page` Payload global (see src/globals/LandingPage.ts) so it can also
+ * `home-page` Payload global (see src/globals/HomePage.ts) so it can also
  * be used to seed the CMS.
  */
 
@@ -133,14 +134,9 @@ export const landingContent: LandingPageContent = {
           'Timestamped, geotagged capture and AI image analysis flag manipulated or reused media before it ever reaches a claim.',
       },
       {
-        title: "Analyse Your Vehicle's Image Quality",
+        title: "Analyze Your Vehicle's Image Quality",
         description:
           'Live guidance checks lighting, framing and blur as the driver records, so every submission is audit-ready the first time.',
-      },
-      {
-        title: 'Automate Inspections With Fixed Cameras',
-        description:
-          'Connect lot and gate cameras to run unattended check-in and check-out inspections at scale.',
       },
       {
         title: 'Claim Estimates, Calculated In Seconds',
@@ -300,7 +296,7 @@ export const landingContent: LandingPageContent = {
       { value: '10+', label: 'Countries' },
       { value: '$5M+', label: 'saved in Inspection costs' },
     ],
-    note: 'Any customer can capture a 360° video of a vehicle using our guidance system on a smartphone, and we will deliver a comprehensive inspection report including damage details, $ claim value etc. within seconds.',
+    note: 'Any customer can capture 360° images of a vehicle using our guidance system on a smartphone, and we will deliver a comprehensive inspection report including damage details, $ claim value etc. within seconds.',
     buttonLabel: 'Request a demo',
   },
   inspect: {

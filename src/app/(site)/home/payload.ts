@@ -3,7 +3,7 @@ import { cache } from 'react'
 import config from '@payload-config'
 import { getPayload } from 'payload'
 
-import type { HomePage as HomePageDoc, Media } from '@/payload-types'
+import type { ServicePage as HomePageDoc, Media } from '@/payload-types'
 
 type MediaRelationship = Media | string | null | undefined
 
@@ -101,7 +101,7 @@ type HomePagePayload = {
 async function fetchHomePageDocument(): Promise<HomePageDoc> {
   const payload = await getPayload({ config })
   return payload.findGlobal({
-    slug: 'home-page',
+    slug: 'service-page',
     depth: 1,
     overrideAccess: false,
   })

@@ -1,8 +1,8 @@
 /**
  * seed-home.ts
  *
- * Seeds the HomePage global from the legacy local content file
- * `src/app/(site)/home/content.ts`. Mirrors the conventions of
+ * Seeds the ServicePage global (slug `service-page`, which powers /service) from
+ * the legacy Home content embedded below. Mirrors the conventions of
  * scripts/seed-locations.ts (mediaField helper, fallback URLs,
  * dynamic config import inside main()).
  *
@@ -484,12 +484,12 @@ async function main() {
   }
 
   await payload.updateGlobal({
-    slug: 'home-page',
+    slug: 'service-page',
     data,
     overrideAccess: true,
   })
 
-  console.log('\n✓ HomePage global seeded.')
+  console.log('\n✓ ServicePage global seeded.')
   console.log(
     `  Media — resolved: ${mediaStats.resolved}, downloaded: ${mediaStats.downloaded}, fallback-only: ${mediaStats.fallbackOnly}`,
   )

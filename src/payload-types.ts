@@ -93,11 +93,11 @@ export interface Config {
   fallbackLocale: null;
   globals: {
     'home-page': HomePage;
-    'landing-page': LandingPage;
+    'service-page': ServicePage;
   };
   globalsSelect: {
     'home-page': HomePageSelect<false> | HomePageSelect<true>;
-    'landing-page': LandingPageSelect<false> | LandingPageSelect<true>;
+    'service-page': ServicePageSelect<false> | ServicePageSelect<true>;
   };
   locale: null;
   widgets: {
@@ -1401,186 +1401,6 @@ export interface HomePage {
     description: string;
   };
   hero: {
-    rating: string;
-    title: string;
-    description: string;
-    secondaryLabel: string;
-    /**
-     * Hero media (image or video) selected from the Payload media library.
-     */
-    media?: (string | null) | Media;
-    /**
-     * Migration fallback URL. The frontend prefers the media relationship when it is present.
-     */
-    mediaFallbackUrl?: string | null;
-  };
-  community: {
-    title: string;
-    subtitle: string;
-    stats?:
-      | {
-          value: string;
-          label: string;
-          tone: string;
-          id?: string | null;
-        }[]
-      | null;
-    manageTitle: string;
-    manageBullets?:
-      | {
-          text: string;
-          id?: string | null;
-        }[]
-      | null;
-    /**
-     * Manage section image selected from the Payload media library.
-     */
-    manageImage?: (string | null) | Media;
-    /**
-     * Migration fallback URL. The frontend prefers the media relationship when it is present.
-     */
-    manageImageFallbackUrl?: string | null;
-    trustedTitle: string;
-    trustedLogos?:
-      | {
-          /**
-           * Logo image selected from the Payload media library.
-           */
-          image?: (string | null) | Media;
-          /**
-           * Migration fallback URL. The frontend prefers the media relationship when it is present.
-           */
-          imageFallbackUrl?: string | null;
-          label: string;
-          id?: string | null;
-        }[]
-      | null;
-  };
-  howItWorks: {
-    title: string;
-    description: string;
-    steps?:
-      | {
-          title: string;
-          description: string;
-          /**
-           * Step image selected from the Payload media library.
-           */
-          image?: (string | null) | Media;
-          /**
-           * Migration fallback URL. The frontend prefers the media relationship when it is present.
-           */
-          imageFallbackUrl?: string | null;
-          id?: string | null;
-        }[]
-      | null;
-  };
-  benefits: {
-    title: string;
-    items?:
-      | {
-          title: string;
-          description: string;
-          tone: string;
-          icon: string;
-          id?: string | null;
-        }[]
-      | null;
-  };
-  keyDifferentiators: {
-    title: string;
-    items?:
-      | {
-          text: string;
-          id?: string | null;
-        }[]
-      | null;
-    /**
-     * Key differentiators image selected from the Payload media library.
-     */
-    image?: (string | null) | Media;
-    /**
-     * Migration fallback URL. The frontend prefers the media relationship when it is present.
-     */
-    imageFallbackUrl?: string | null;
-  };
-  businessHelp: {
-    title: string;
-    description: string;
-    buttonLabel: string;
-    /**
-     * Business help image selected from the Payload media library.
-     */
-    image?: (string | null) | Media;
-    /**
-     * Migration fallback URL. The frontend prefers the media relationship when it is present.
-     */
-    imageFallbackUrl?: string | null;
-  };
-  caseStudies: {
-    title: string;
-    items?:
-      | {
-          metric: string;
-          title: string;
-          description: string;
-          /**
-           * Case study image selected from the Payload media library.
-           */
-          image?: (string | null) | Media;
-          /**
-           * Migration fallback URL. The frontend prefers the media relationship when it is present.
-           */
-          imageFallbackUrl?: string | null;
-          caption?: string | null;
-          id?: string | null;
-        }[]
-      | null;
-    /**
-     * Case studies arrow image selected from the Payload media library.
-     */
-    arrowImage?: (string | null) | Media;
-    /**
-     * Migration fallback URL. The frontend prefers the media relationship when it is present.
-     */
-    arrowImageFallbackUrl?: string | null;
-  };
-  testimonials: {
-    title: string;
-    description: string;
-    label: string;
-    items?:
-      | {
-          name: string;
-          quote: string;
-          stars: number;
-          avatar?: string | null;
-          id?: string | null;
-        }[]
-      | null;
-  };
-  cta: {
-    title: string;
-    description: string;
-    secondaryLabel: string;
-  };
-  updatedAt?: string | null;
-  createdAt?: string | null;
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "landing-page".
- */
-export interface LandingPage {
-  id: string;
-  /**
-   * SEO metadata used by the App Router route metadata.
-   */
-  meta: {
-    title: string;
-    description: string;
-  };
-  hero: {
     ratingText: string;
     titleAccent: string;
     title: string;
@@ -1758,158 +1578,189 @@ export interface LandingPage {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "home-page_select".
+ * via the `definition` "service-page".
  */
-export interface HomePageSelect<T extends boolean = true> {
-  meta?:
-    | T
-    | {
-        title?: T;
-        description?: T;
-      };
-  hero?:
-    | T
-    | {
-        rating?: T;
-        title?: T;
-        description?: T;
-        secondaryLabel?: T;
-        media?: T;
-        mediaFallbackUrl?: T;
-      };
-  community?:
-    | T
-    | {
-        title?: T;
-        subtitle?: T;
-        stats?:
-          | T
-          | {
-              value?: T;
-              label?: T;
-              tone?: T;
-              id?: T;
-            };
-        manageTitle?: T;
-        manageBullets?:
-          | T
-          | {
-              text?: T;
-              id?: T;
-            };
-        manageImage?: T;
-        manageImageFallbackUrl?: T;
-        trustedTitle?: T;
-        trustedLogos?:
-          | T
-          | {
-              image?: T;
-              imageFallbackUrl?: T;
-              label?: T;
-              id?: T;
-            };
-      };
-  howItWorks?:
-    | T
-    | {
-        title?: T;
-        description?: T;
-        steps?:
-          | T
-          | {
-              title?: T;
-              description?: T;
-              image?: T;
-              imageFallbackUrl?: T;
-              id?: T;
-            };
-      };
-  benefits?:
-    | T
-    | {
-        title?: T;
-        items?:
-          | T
-          | {
-              title?: T;
-              description?: T;
-              tone?: T;
-              icon?: T;
-              id?: T;
-            };
-      };
-  keyDifferentiators?:
-    | T
-    | {
-        title?: T;
-        items?:
-          | T
-          | {
-              text?: T;
-              id?: T;
-            };
-        image?: T;
-        imageFallbackUrl?: T;
-      };
-  businessHelp?:
-    | T
-    | {
-        title?: T;
-        description?: T;
-        buttonLabel?: T;
-        image?: T;
-        imageFallbackUrl?: T;
-      };
-  caseStudies?:
-    | T
-    | {
-        title?: T;
-        items?:
-          | T
-          | {
-              metric?: T;
-              title?: T;
-              description?: T;
-              image?: T;
-              imageFallbackUrl?: T;
-              caption?: T;
-              id?: T;
-            };
-        arrowImage?: T;
-        arrowImageFallbackUrl?: T;
-      };
-  testimonials?:
-    | T
-    | {
-        title?: T;
-        description?: T;
-        label?: T;
-        items?:
-          | T
-          | {
-              name?: T;
-              quote?: T;
-              stars?: T;
-              avatar?: T;
-              id?: T;
-            };
-      };
-  cta?:
-    | T
-    | {
-        title?: T;
-        description?: T;
-        secondaryLabel?: T;
-      };
-  updatedAt?: T;
-  createdAt?: T;
-  globalType?: T;
+export interface ServicePage {
+  id: string;
+  /**
+   * SEO metadata used by the App Router route metadata.
+   */
+  meta: {
+    title: string;
+    description: string;
+  };
+  hero: {
+    rating: string;
+    title: string;
+    description: string;
+    secondaryLabel: string;
+    /**
+     * Hero media (image or video) selected from the Payload media library.
+     */
+    media?: (string | null) | Media;
+    /**
+     * Migration fallback URL. The frontend prefers the media relationship when it is present.
+     */
+    mediaFallbackUrl?: string | null;
+  };
+  community: {
+    title: string;
+    subtitle: string;
+    stats?:
+      | {
+          value: string;
+          label: string;
+          tone: string;
+          id?: string | null;
+        }[]
+      | null;
+    manageTitle: string;
+    manageBullets?:
+      | {
+          text: string;
+          id?: string | null;
+        }[]
+      | null;
+    /**
+     * Manage section image selected from the Payload media library.
+     */
+    manageImage?: (string | null) | Media;
+    /**
+     * Migration fallback URL. The frontend prefers the media relationship when it is present.
+     */
+    manageImageFallbackUrl?: string | null;
+    trustedTitle: string;
+    trustedLogos?:
+      | {
+          /**
+           * Logo image selected from the Payload media library.
+           */
+          image?: (string | null) | Media;
+          /**
+           * Migration fallback URL. The frontend prefers the media relationship when it is present.
+           */
+          imageFallbackUrl?: string | null;
+          label: string;
+          id?: string | null;
+        }[]
+      | null;
+  };
+  howItWorks: {
+    title: string;
+    description: string;
+    steps?:
+      | {
+          title: string;
+          description: string;
+          /**
+           * Step image selected from the Payload media library.
+           */
+          image?: (string | null) | Media;
+          /**
+           * Migration fallback URL. The frontend prefers the media relationship when it is present.
+           */
+          imageFallbackUrl?: string | null;
+          id?: string | null;
+        }[]
+      | null;
+  };
+  benefits: {
+    title: string;
+    items?:
+      | {
+          title: string;
+          description: string;
+          tone: string;
+          icon: string;
+          id?: string | null;
+        }[]
+      | null;
+  };
+  keyDifferentiators: {
+    title: string;
+    items?:
+      | {
+          text: string;
+          id?: string | null;
+        }[]
+      | null;
+    /**
+     * Key differentiators image selected from the Payload media library.
+     */
+    image?: (string | null) | Media;
+    /**
+     * Migration fallback URL. The frontend prefers the media relationship when it is present.
+     */
+    imageFallbackUrl?: string | null;
+  };
+  businessHelp: {
+    title: string;
+    description: string;
+    buttonLabel: string;
+    /**
+     * Business help image selected from the Payload media library.
+     */
+    image?: (string | null) | Media;
+    /**
+     * Migration fallback URL. The frontend prefers the media relationship when it is present.
+     */
+    imageFallbackUrl?: string | null;
+  };
+  caseStudies: {
+    title: string;
+    items?:
+      | {
+          metric: string;
+          title: string;
+          description: string;
+          /**
+           * Case study image selected from the Payload media library.
+           */
+          image?: (string | null) | Media;
+          /**
+           * Migration fallback URL. The frontend prefers the media relationship when it is present.
+           */
+          imageFallbackUrl?: string | null;
+          caption?: string | null;
+          id?: string | null;
+        }[]
+      | null;
+    /**
+     * Case studies arrow image selected from the Payload media library.
+     */
+    arrowImage?: (string | null) | Media;
+    /**
+     * Migration fallback URL. The frontend prefers the media relationship when it is present.
+     */
+    arrowImageFallbackUrl?: string | null;
+  };
+  testimonials: {
+    title: string;
+    description: string;
+    label: string;
+    items?:
+      | {
+          name: string;
+          quote: string;
+          stars: number;
+          avatar?: string | null;
+          id?: string | null;
+        }[]
+      | null;
+  };
+  cta: {
+    title: string;
+    description: string;
+    secondaryLabel: string;
+  };
+  updatedAt?: string | null;
+  createdAt?: string | null;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "landing-page_select".
+ * via the `definition` "home-page_select".
  */
-export interface LandingPageSelect<T extends boolean = true> {
+export interface HomePageSelect<T extends boolean = true> {
   meta?:
     | T
     | {
@@ -2060,6 +1911,155 @@ export interface LandingPageSelect<T extends boolean = true> {
               href?: T;
               id?: T;
             };
+      };
+  updatedAt?: T;
+  createdAt?: T;
+  globalType?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "service-page_select".
+ */
+export interface ServicePageSelect<T extends boolean = true> {
+  meta?:
+    | T
+    | {
+        title?: T;
+        description?: T;
+      };
+  hero?:
+    | T
+    | {
+        rating?: T;
+        title?: T;
+        description?: T;
+        secondaryLabel?: T;
+        media?: T;
+        mediaFallbackUrl?: T;
+      };
+  community?:
+    | T
+    | {
+        title?: T;
+        subtitle?: T;
+        stats?:
+          | T
+          | {
+              value?: T;
+              label?: T;
+              tone?: T;
+              id?: T;
+            };
+        manageTitle?: T;
+        manageBullets?:
+          | T
+          | {
+              text?: T;
+              id?: T;
+            };
+        manageImage?: T;
+        manageImageFallbackUrl?: T;
+        trustedTitle?: T;
+        trustedLogos?:
+          | T
+          | {
+              image?: T;
+              imageFallbackUrl?: T;
+              label?: T;
+              id?: T;
+            };
+      };
+  howItWorks?:
+    | T
+    | {
+        title?: T;
+        description?: T;
+        steps?:
+          | T
+          | {
+              title?: T;
+              description?: T;
+              image?: T;
+              imageFallbackUrl?: T;
+              id?: T;
+            };
+      };
+  benefits?:
+    | T
+    | {
+        title?: T;
+        items?:
+          | T
+          | {
+              title?: T;
+              description?: T;
+              tone?: T;
+              icon?: T;
+              id?: T;
+            };
+      };
+  keyDifferentiators?:
+    | T
+    | {
+        title?: T;
+        items?:
+          | T
+          | {
+              text?: T;
+              id?: T;
+            };
+        image?: T;
+        imageFallbackUrl?: T;
+      };
+  businessHelp?:
+    | T
+    | {
+        title?: T;
+        description?: T;
+        buttonLabel?: T;
+        image?: T;
+        imageFallbackUrl?: T;
+      };
+  caseStudies?:
+    | T
+    | {
+        title?: T;
+        items?:
+          | T
+          | {
+              metric?: T;
+              title?: T;
+              description?: T;
+              image?: T;
+              imageFallbackUrl?: T;
+              caption?: T;
+              id?: T;
+            };
+        arrowImage?: T;
+        arrowImageFallbackUrl?: T;
+      };
+  testimonials?:
+    | T
+    | {
+        title?: T;
+        description?: T;
+        label?: T;
+        items?:
+          | T
+          | {
+              name?: T;
+              quote?: T;
+              stars?: T;
+              avatar?: T;
+              id?: T;
+            };
+      };
+  cta?:
+    | T
+    | {
+        title?: T;
+        description?: T;
+        secondaryLabel?: T;
       };
   updatedAt?: T;
   createdAt?: T;

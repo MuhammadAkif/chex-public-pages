@@ -11,6 +11,7 @@ import * as migration_20260506_113000_testimonials_avatar from './20260506_11300
 import * as migration_20260514_141500_home_page_global from './20260514_141500_home_page_global';
 import * as migration_20260609_000000_landing_page_global from './20260609_000000_landing_page_global';
 import * as migration_20260609_120000_posts_seo_meta from './20260609_120000_posts_seo_meta';
+import * as migration_20260611_000000_swap_home_service_globals from './20260611_000000_swap_home_service_globals';
 
 export const migrations = [
   {
@@ -77,5 +78,10 @@ export const migrations = [
     up: migration_20260609_120000_posts_seo_meta.up,
     down: migration_20260609_120000_posts_seo_meta.down,
     name: '20260609_120000_posts_seo_meta'
+  },
+  {
+    up: migration_20260611_000000_swap_home_service_globals.up,
+    down: migration_20260611_000000_swap_home_service_globals.down,
+    name: '20260611_000000_swap_home_service_globals'
   },
 ];

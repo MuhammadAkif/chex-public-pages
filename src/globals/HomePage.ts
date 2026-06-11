@@ -30,6 +30,7 @@ const textItemField = (name = 'text', label = 'Text'): Field => ({
 
 export const HomePage: GlobalConfig = {
   slug: 'home-page',
+  label: 'Home Page',
   admin: {
     group: 'Site',
   },
@@ -44,322 +45,184 @@ export const HomePage: GlobalConfig = {
         description: 'SEO metadata used by the App Router route metadata.',
       },
       fields: [
-        {
-          name: 'title',
-          type: 'text',
-          required: true,
-        },
-        {
-          name: 'description',
-          type: 'textarea',
-          required: true,
-        },
+        { name: 'title', type: 'text', required: true },
+        { name: 'description', type: 'textarea', required: true },
       ],
     },
     {
       name: 'hero',
       type: 'group',
       fields: [
-        {
-          name: 'rating',
-          type: 'text',
-          required: true,
-        },
-        {
-          name: 'title',
-          type: 'text',
-          required: true,
-        },
+        { name: 'ratingText', type: 'text', required: true },
+        { name: 'titleAccent', type: 'text', required: true },
+        { name: 'title', type: 'text', required: true },
         {
           name: 'description',
           type: 'textarea',
+          admin: { description: 'Supports inline <strong> for accent words.' },
           required: true,
         },
-        {
-          name: 'secondaryLabel',
-          type: 'text',
-          required: true,
-        },
-        ...mediaFields('media', 'Hero media (image or video)'),
+        { name: 'buttonLabel', type: 'text', required: true },
+        ...mediaFields('image', 'Hero image'),
       ],
     },
     {
-      name: 'community',
+      name: 'trusted',
       type: 'group',
       fields: [
+        { name: 'title', type: 'text', required: true },
         {
-          name: 'title',
-          type: 'text',
-          required: true,
+          name: 'logos',
+          type: 'array',
+          fields: [...mediaFields('image', 'Logo image'), { name: 'label', type: 'text', required: true }],
         },
+      ],
+    },
+    {
+      name: 'transform',
+      type: 'group',
+      fields: [
+        { name: 'title', type: 'text', required: true },
+        { name: 'description', type: 'textarea', required: true },
+        ...mediaFields('image', 'Transform image'),
         {
-          name: 'subtitle',
-          type: 'textarea',
-          required: true,
-        },
-        {
-          name: 'stats',
+          name: 'features',
           type: 'array',
           fields: [
-            {
-              name: 'value',
-              type: 'text',
-              required: true,
-            },
-            {
-              name: 'label',
-              type: 'text',
-              required: true,
-            },
-            {
-              name: 'tone',
-              type: 'text',
-              required: true,
-            },
-          ],
-        },
-        {
-          name: 'manageTitle',
-          type: 'text',
-          required: true,
-        },
-        {
-          name: 'manageBullets',
-          type: 'array',
-          fields: [textItemField()],
-        },
-        ...mediaFields('manageImage', 'Manage section image'),
-        {
-          name: 'trustedTitle',
-          type: 'text',
-          required: true,
-        },
-        {
-          name: 'trustedLogos',
-          type: 'array',
-          fields: [
-            ...mediaFields('image', 'Logo image'),
-            {
-              name: 'label',
-              type: 'text',
-              required: true,
-            },
+            { name: 'title', type: 'text', required: true },
+            { name: 'description', type: 'textarea', required: true },
           ],
         },
       ],
     },
     {
-      name: 'howItWorks',
+      name: 'solutions',
       type: 'group',
       fields: [
+        { name: 'title', type: 'text', required: true },
+        { name: 'description', type: 'textarea', required: true },
         {
-          name: 'title',
-          type: 'text',
-          required: true,
-        },
-        {
-          name: 'description',
-          type: 'textarea',
-          required: true,
-        },
-        {
-          name: 'steps',
+          name: 'blocks',
           type: 'array',
           fields: [
-            {
-              name: 'title',
-              type: 'text',
-              required: true,
-            },
+            { name: 'label', type: 'text', required: true },
+            { name: 'title', type: 'text', required: true },
             {
               name: 'description',
               type: 'textarea',
+              admin: { description: 'Supports inline <strong> for accent words.' },
               required: true,
             },
-            ...mediaFields('image', 'Step image'),
-          ],
-        },
-      ],
-    },
-    {
-      name: 'benefits',
-      type: 'group',
-      fields: [
-        {
-          name: 'title',
-          type: 'text',
-          required: true,
-        },
-        {
-          name: 'items',
-          type: 'array',
-          fields: [
+            { name: 'bullets', type: 'array', fields: [textItemField()] },
+            { name: 'buttonLabel', type: 'text', required: true },
+            ...mediaFields('image', 'Block illustration'),
             {
-              name: 'title',
-              type: 'text',
-              required: true,
-            },
-            {
-              name: 'description',
-              type: 'textarea',
-              required: true,
-            },
-            {
-              name: 'tone',
-              type: 'text',
-              required: true,
-            },
-            {
-              name: 'icon',
-              type: 'text',
+              name: 'variant',
+              type: 'select',
+              defaultValue: 'card-light',
+              options: [
+                { label: 'Full-bleed image', value: 'full' },
+                { label: 'Light card', value: 'card-light' },
+                { label: 'Peach card', value: 'card-peach' },
+              ],
               required: true,
             },
           ],
         },
-      ],
-    },
-    {
-      name: 'keyDifferentiators',
-      type: 'group',
-      fields: [
-        {
-          name: 'title',
-          type: 'text',
-          required: true,
-        },
-        {
-          name: 'items',
-          type: 'array',
-          fields: [textItemField()],
-        },
-        ...mediaFields('image', 'Key differentiators image'),
-      ],
-    },
-    {
-      name: 'businessHelp',
-      type: 'group',
-      fields: [
-        {
-          name: 'title',
-          type: 'text',
-          required: true,
-        },
-        {
-          name: 'description',
-          type: 'textarea',
-          required: true,
-        },
-        {
-          name: 'buttonLabel',
-          type: 'text',
-          required: true,
-        },
-        ...mediaFields('image', 'Business help image'),
-      ],
-    },
-    {
-      name: 'caseStudies',
-      type: 'group',
-      fields: [
-        {
-          name: 'title',
-          type: 'text',
-          required: true,
-        },
-        {
-          name: 'items',
-          type: 'array',
-          fields: [
-            {
-              name: 'metric',
-              type: 'text',
-              required: true,
-            },
-            {
-              name: 'title',
-              type: 'text',
-              required: true,
-            },
-            {
-              name: 'description',
-              type: 'textarea',
-              required: true,
-            },
-            ...mediaFields('image', 'Case study image'),
-            {
-              name: 'caption',
-              type: 'text',
-            },
-          ],
-        },
-        ...mediaFields('arrowImage', 'Case studies arrow image'),
       ],
     },
     {
       name: 'testimonials',
       type: 'group',
       fields: [
-        {
-          name: 'title',
-          type: 'text',
-          required: true,
-        },
-        {
-          name: 'description',
-          type: 'textarea',
-          required: true,
-        },
-        {
-          name: 'label',
-          type: 'text',
-          required: true,
-        },
+        { name: 'title', type: 'text', required: true },
+        { name: 'description', type: 'textarea', required: true },
+        { name: 'label', type: 'text', required: true },
         {
           name: 'items',
           type: 'array',
           fields: [
-            {
-              name: 'name',
-              type: 'text',
-              required: true,
-            },
-            {
-              name: 'quote',
-              type: 'textarea',
-              required: true,
-            },
-            {
-              name: 'stars',
-              type: 'number',
-              defaultValue: 5,
-              required: true,
-            },
-            {
-              name: 'avatar',
-              type: 'text',
-            },
+            { name: 'name', type: 'text', required: true },
+            { name: 'quote', type: 'textarea', required: true },
+            { name: 'stars', type: 'number', defaultValue: 5, required: true },
+            { name: 'avatar', type: 'text' },
           ],
         },
       ],
     },
     {
-      name: 'cta',
+      name: 'faq',
       type: 'group',
       fields: [
+        { name: 'title', type: 'text', required: true },
         {
-          name: 'title',
-          type: 'text',
-          required: true,
+          name: 'items',
+          type: 'array',
+          fields: [
+            { name: 'question', type: 'text', required: true },
+            { name: 'answer', type: 'textarea', required: true },
+          ],
         },
+      ],
+    },
+    {
+      name: 'achievements',
+      type: 'group',
+      fields: [
+        { name: 'title', type: 'text', required: true },
+        { name: 'description', type: 'textarea', required: true },
+        ...mediaFields('backgroundImage', 'Background image'),
         {
-          name: 'description',
-          type: 'textarea',
-          required: true,
+          name: 'stats',
+          type: 'array',
+          fields: [
+            { name: 'value', type: 'text', required: true },
+            { name: 'label', type: 'text', required: true },
+          ],
         },
+        { name: 'note', type: 'textarea', required: true },
+        { name: 'buttonLabel', type: 'text', required: true },
+      ],
+    },
+    {
+      name: 'inspect',
+      type: 'group',
+      fields: [
+        { name: 'eyebrow', type: 'text', required: true },
+        { name: 'titleAccentA', type: 'text', required: true },
+        { name: 'titleMid', type: 'text', required: true },
+        { name: 'titleAccentB', type: 'text', required: true },
+        { name: 'titleTail', type: 'text', required: true },
+        { name: 'subtitle', type: 'text', required: true },
+        { name: 'description', type: 'textarea', required: true },
+        { name: 'buttonLabel', type: 'text', required: true },
         {
-          name: 'secondaryLabel',
-          type: 'text',
-          required: true,
+          name: 'testimonial',
+          type: 'group',
+          fields: [
+            { name: 'name', type: 'text', required: true },
+            { name: 'quote', type: 'textarea', required: true },
+            { name: 'role', type: 'text', required: true },
+            ...mediaFields('image', 'Testimonial photo'),
+          ],
+        },
+      ],
+    },
+    {
+      name: 'articles',
+      type: 'group',
+      fields: [
+        { name: 'eyebrow', type: 'text', required: true },
+        { name: 'title', type: 'text', required: true },
+        {
+          name: 'items',
+          type: 'array',
+          fields: [
+            { name: 'tag', type: 'text', required: true },
+            { name: 'title', type: 'text', required: true },
+            ...mediaFields('image', 'Article image'),
+            { name: 'href', type: 'text' },
+          ],
         },
       ],
     },

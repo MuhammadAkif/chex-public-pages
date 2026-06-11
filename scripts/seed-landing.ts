@@ -1,5 +1,6 @@
 /**
- * Seeds the `landing-page` Payload global from the canonical content file
+ * Seeds the `home-page` Payload global (the landing design that now powers /)
+ * from the canonical content file
  * src/app/(site)/landing-page/content.ts. Images are stored as `*FallbackUrl`
  * S3 links (the migration-shim pattern used across this project), so no Media
  * records are created.
@@ -17,7 +18,7 @@ async function main() {
   const c = landingContent
 
   await payload.updateGlobal({
-    slug: 'landing-page',
+    slug: 'home-page',
     overrideAccess: true,
     data: {
       meta: { title: c.meta.title, description: c.meta.description },
@@ -110,8 +111,8 @@ async function main() {
     },
   })
 
-  const check = await payload.findGlobal({ slug: 'landing-page' })
-  console.log('✓ landing-page global seeded.')
+  const check = await payload.findGlobal({ slug: 'home-page' })
+  console.log('✓ home-page global seeded.')
   console.log('  hero.title          :', check.hero?.title)
   console.log('  trusted.logos       :', check.trusted?.logos?.length)
   console.log('  solutions.blocks    :', check.solutions?.blocks?.length)

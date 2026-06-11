@@ -1,5 +1,5 @@
 export const siteContent = {
-  announcement: "4.8 stars · 50k+ drivers approved · Uber & Lyft accepted",
+  announcement: "4.8 stars · 50k+ drivers approved · $5M+ saved in Inspection costs",
   navigationLinks: [
     { label: "Home", href: "/", active: true },
     {
@@ -19,7 +19,7 @@ export const siteContent = {
         { label: "South Carolina", href: "/locations/south-carolina" },
       ],
     },
-    { label: "Landing Page", href: "/landing-page" },
+    { label: "Service", href: "/service" },
     { label: "Blog", href: "/blogs" },
     { label: "Contact us", href: "/contact-us" },
   ],

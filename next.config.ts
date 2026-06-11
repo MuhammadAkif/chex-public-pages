@@ -9,6 +9,16 @@ const s3Bucket = process.env.S3_BUCKET;
 const s3Region = process.env.S3_REGION;
 
 const nextConfig: NextConfig = {
+  // Allow the Next dev server to trust requests proxied through an ngrok tunnel
+  // (used for sharing a local preview). Without this, Next 16 blocks the
+  // tunnel's cross-origin dev requests and client interactivity (e.g. navbar
+  // dropdowns) fails to wire up when viewed through the public URL.
+  allowedDevOrigins: [
+    '*.ngrok-free.dev',
+    '*.ngrok-free.app',
+    '*.ngrok.io',
+    '*.trycloudflare.com',
+  ],
   images:
     s3Bucket && s3Region
       ? {
