@@ -28,6 +28,16 @@ function Chevron({ open }: { open: boolean }) {
   )
 }
 
+// Per-feature icons exported from the Figma Transform section (in feature order),
+// replacing the previous numbered circles.
+const featureIcons = [
+  '/transform-icons/icon-1-report.svg',
+  '/transform-icons/icon-2-fraud.svg',
+  '/transform-icons/icon-3-analyse.svg',
+  '/transform-icons/icon-4-claim.svg',
+  '/transform-icons/icon-5-scan.svg',
+]
+
 export function LandingTransform({ title, description, image, features }: LandingTransformProps) {
   const [openIndex, setOpenIndex] = useState(0)
 
@@ -63,15 +73,21 @@ export function LandingTransform({ title, description, image, features }: Landin
                     className="flex w-full cursor-pointer items-center justify-between gap-4 px-1 py-4 text-left sm:px-5"
                   >
                     <span className="flex items-center gap-4">
+                      {featureIcons[index] ? (
+                        // eslint-disable-next-line @next/next/no-img-element
+                        <img
+                          src={featureIcons[index]}
+                          alt=""
+                          aria-hidden
+                          className="h-9 w-9 shrink-0 object-contain"
+                        />
+                      ) : (
+                        <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-[#fff1e6] text-[15px] font-semibold text-[#ff7a01]">
+                          {index + 1}
+                        </span>
+                      )}
                       <span
-                        className={`flex h-9 w-9 shrink-0 items-center justify-center rounded-full text-[15px] font-semibold ${
-                          open ? 'bg-[#ff7a01] text-white' : 'bg-[#fff1e6] text-[#ff7a01]'
-                        }`}
-                      >
-                        {index + 1}
-                      </span>
-                      <span
-                        className={`font-display text-[17px] font-bold leading-snug sm:text-[19px] ${
+                        className={`font-display text-[18px] font-bold capitalize leading-snug sm:text-[22px] ${
                           open ? 'text-[#ff7a01]' : 'text-[#1b2f4b]'
                         }`}
                       >

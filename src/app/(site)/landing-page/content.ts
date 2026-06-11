@@ -124,7 +124,8 @@ export const landingContent: LandingPageContent = {
     title: 'Transform Vehicle Inspections With AI Technology',
     description:
       'Chex.AI delivers AI-powered vehicle inspection solutions that reduce inspection time from hours to seconds. Our technology detects damage across 163 vehicle parts with 95-99% accuracy.',
-    image: `${S3}/transform.png`,
+    image:
+      'https://chex-payload-public-pages.s3.us-east-1.amazonaws.com/Rectangle%206765.png',
     features: [
       {
         title: 'Generate Inspection Reports Within Seconds',
@@ -171,7 +172,8 @@ export const landingContent: LandingPageContent = {
           'Elimination of paper-based inspections',
         ],
         buttonLabel: 'Request a demo',
-        image: `${S3}/feat-fleet.png`,
+        image:
+          'https://chex-payload-public-pages.s3.us-east-1.amazonaws.com/solution-fleet.png',
         variant: 'full',
       },
       {
@@ -187,7 +189,8 @@ export const landingContent: LandingPageContent = {
           'Reduced fraud risk',
         ],
         buttonLabel: 'Request a demo',
-        image: `${S3}/feat-insurance.png`,
+        image:
+          'https://chex-payload-public-pages.s3.us-east-1.amazonaws.com/solution-insurance.png',
         variant: 'card-light',
       },
       {
@@ -203,7 +206,8 @@ export const landingContent: LandingPageContent = {
           'Lower inspection overhead',
         ],
         buttonLabel: 'Request a demo',
-        image: `${S3}/feat-rental.png`,
+        image:
+          'https://chex-payload-public-pages.s3.us-east-1.amazonaws.com/solution-rental.png',
         variant: 'card-peach',
       },
       {
@@ -219,7 +223,8 @@ export const landingContent: LandingPageContent = {
           'Simplified dispute resolution',
         ],
         buttonLabel: 'Request a demo',
-        image: `${S3}/feat-towing.png`,
+        image:
+          'https://chex-payload-public-pages.s3.us-east-1.amazonaws.com/solution-towing.png',
         variant: 'card-light',
       },
       {
@@ -235,7 +240,8 @@ export const landingContent: LandingPageContent = {
           'Lower inspection cost at fleet scale',
         ],
         buttonLabel: 'Request a demo',
-        image: `${S3}/feat-rideshare-b.png`,
+        image:
+          'https://chex-payload-public-pages.s3.us-east-1.amazonaws.com/solution-rideshare.png',
         variant: 'card-peach',
       },
     ],
