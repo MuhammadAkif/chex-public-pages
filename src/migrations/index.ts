@@ -13,6 +13,7 @@ import * as migration_20260609_000000_landing_page_global from './20260609_00000
 import * as migration_20260609_120000_posts_seo_meta from './20260609_120000_posts_seo_meta';
 import * as migration_20260611_000000_swap_home_service_globals from './20260611_000000_swap_home_service_globals';
 import * as migration_20260611_010000_home_hero_background_video from './20260611_010000_home_hero_background_video';
+import * as migration_20260612_000000_solution_block_overlay_image from './20260612_000000_solution_block_overlay_image';
 
 export const migrations = [
   {
@@ -89,5 +90,10 @@ export const migrations = [
     up: migration_20260611_010000_home_hero_background_video.up,
     down: migration_20260611_010000_home_hero_background_video.down,
     name: '20260611_010000_home_hero_background_video'
+  },
+  {
+    up: migration_20260612_000000_solution_block_overlay_image.up,
+    down: migration_20260612_000000_solution_block_overlay_image.down,
+    name: '20260612_000000_solution_block_overlay_image'
   },
 ];

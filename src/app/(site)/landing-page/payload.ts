@@ -163,6 +163,8 @@ export const getLandingPage: () => Promise<LandingPagePayload> = cache(
           bullets: textItems(block.bullets),
           buttonLabel: block.buttonLabel,
           image: mediaURL(block.image, block.imageFallbackUrl),
+          overlayImage:
+            optional(mediaURL(block.overlayImage, block.overlayImageFallbackUrl)),
           variant: variant(block.variant),
         })),
       },

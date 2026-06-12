@@ -1488,6 +1488,14 @@ export interface HomePage {
            * Migration fallback URL. The frontend prefers the media relationship when it is present.
            */
           imageFallbackUrl?: string | null;
+          /**
+           * Overlay image (optional) selected from the Payload media library.
+           */
+          overlayImage?: (string | null) | Media;
+          /**
+           * Migration fallback URL. The frontend prefers the media relationship when it is present.
+           */
+          overlayImageFallbackUrl?: string | null;
           variant: 'full' | 'card-light' | 'card-peach';
           id?: string | null;
         }[]
@@ -1836,6 +1844,8 @@ export interface HomePageSelect<T extends boolean = true> {
               buttonLabel?: T;
               image?: T;
               imageFallbackUrl?: T;
+              overlayImage?: T;
+              overlayImageFallbackUrl?: T;
               variant?: T;
               id?: T;
             };

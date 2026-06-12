@@ -11,6 +11,7 @@ type Block = {
   bullets: ReadonlyArray<string>
   buttonLabel: string
   image: string
+  overlayImage?: string
   variant: LandingSolutionVariant
 }
 
@@ -41,21 +42,58 @@ const cardClasses: Record<LandingSolutionVariant, string> = {
   'card-light':
     'rounded-[24px] bg-[linear-gradient(145deg,#f4f6f9_0%,#eef1f6_100%)] p-6 sm:p-10',
   'card-peach':
-    'rounded-[24px] bg-[radial-gradient(120%_120%_at_70%_20%,#ffe9d6_0%,#fff6ef_55%,#fbeede_100%)] p-6 sm:p-10',
+    'rounded-[24px] bg-[linear-gradient(180deg,#F1F1F1_0%,rgba(255,122,1,0.30)_100%)] p-6 sm:p-10',
 }
 
-function FeatureImage({ image, title, variant }: { image: string; title: string; variant: LandingSolutionVariant }) {
+// Every solution panel renders inside a fixed 550×511 box (aspect-ratio
+// 127/118) so the image div is the same size across sections regardless of the
+// illustration's own aspect.
+const PANEL_FRAME = 'relative mx-auto aspect-[127/118] w-full max-w-[550px]'
+
+function FeatureImage({
+  image,
+  overlayImage,
+  title,
+  variant,
+}: {
+  image: string
+  overlayImage?: string
+  title: string
+  variant: LandingSolutionVariant
+}) {
+  const picture = (
+    <SiteImage
+      src={image}
+      alt={title}
+      className={
+        variant === 'full'
+          ? 'h-full w-full object-cover'
+          : 'h-full w-full object-contain'
+      }
+    />
+  )
+
+  // The image stays clipped to rounded corners inside the panel, while the
+  // overlay card is a sibling of the panel so it can overhang the left edge.
+  // Each overlay section uses a distinct variant, so positioning is keyed off
+  // the variant:
+  //  - full (Fleet): wide status strip, bottom-left, ~half out on desktop
+  //  - card-light (Insurance): tall document card, ~55% out, lower-left
+  //  - card-peach (Rental): wide health strip, ~20% out, lower area
+  const overlayClassName: Record<LandingSolutionVariant, string> = {
+    full: 'absolute bottom-[6%] left-[5%] w-[64%] max-w-[320px] drop-shadow-[0_22px_45px_rgba(13,27,52,0.32)] lg:left-0 lg:w-[60%] lg:-translate-x-1/2',
+    'card-light':
+      'absolute bottom-[2%] left-[2%] w-[42%] max-w-[230px] drop-shadow-[0_22px_45px_rgba(13,27,52,0.32)] lg:left-0 lg:-translate-x-[55%]',
+    'card-peach':
+      'absolute bottom-[10%] left-[3%] w-[88%] max-w-[440px] drop-shadow-[0_22px_45px_rgba(13,27,52,0.32)] lg:left-0 lg:-translate-x-[20%]',
+  }
+
   return (
-    <div className={cardClasses[variant]}>
-      <SiteImage
-        src={image}
-        alt={title}
-        className={
-          variant === 'full'
-            ? 'h-full w-full object-cover'
-            : 'mx-auto w-full max-w-[460px] object-contain'
-        }
-      />
+    <div className={PANEL_FRAME}>
+      <div className={`h-full w-full ${cardClasses[variant]}`}>{picture}</div>
+      {overlayImage ? (
+        <SiteImage src={overlayImage} alt="" className={overlayClassName[variant]} />
+      ) : null}
     </div>
   )
 }
@@ -88,7 +126,12 @@ function FeatureBlock({ block }: { block: Block }) {
         </div>
       </div>
 
-      <FeatureImage image={block.image} title={block.title} variant={block.variant} />
+      <FeatureImage
+        image={block.image}
+        overlayImage={block.overlayImage}
+        title={block.title}
+        variant={block.variant}
+      />
     </div>
   )
 }

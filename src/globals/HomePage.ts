@@ -117,6 +117,7 @@ export const HomePage: GlobalConfig = {
             { name: 'bullets', type: 'array', fields: [textItemField()] },
             { name: 'buttonLabel', type: 'text', required: true },
             ...mediaFields('image', 'Block illustration'),
+            ...mediaFields('overlayImage', 'Overlay image (optional)'),
             {
               name: 'variant',
               type: 'select',

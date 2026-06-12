@@ -47,6 +47,8 @@ export type LandingPageContent = {
       bullets: ReadonlyArray<string>
       buttonLabel: string
       image: string
+      /** Optional card/badge rendered as an overlay on top of `image` (used by the `full` variant). */
+      overlayImage?: string
       variant: LandingSolutionVariant
     }>
   }
@@ -172,8 +174,8 @@ export const landingContent: LandingPageContent = {
           'Elimination of paper-based inspections',
         ],
         buttonLabel: 'Request a demo',
-        image:
-          'https://chex-payload-public-pages.s3.us-east-1.amazonaws.com/solution-fleet.png',
+        image: `${S3}/solution-fleet-device.png`,
+        overlayImage: `${S3}/solution-fleet-status.png`,
         variant: 'full',
       },
       {
@@ -189,8 +191,8 @@ export const landingContent: LandingPageContent = {
           'Reduced fraud risk',
         ],
         buttonLabel: 'Request a demo',
-        image:
-          'https://chex-payload-public-pages.s3.us-east-1.amazonaws.com/solution-insurance.png',
+        image: `${S3}/solution-insurance-illustration.png`,
+        overlayImage: `${S3}/solution-insurance-claim.png`,
         variant: 'card-light',
       },
       {
@@ -206,8 +208,8 @@ export const landingContent: LandingPageContent = {
           'Lower inspection overhead',
         ],
         buttonLabel: 'Request a demo',
-        image:
-          'https://chex-payload-public-pages.s3.us-east-1.amazonaws.com/solution-rental.png',
+        image: `${S3}/solution-rental-illustration.png`,
+        overlayImage: `${S3}/solution-rental-health.png`,
         variant: 'card-peach',
       },
       {
