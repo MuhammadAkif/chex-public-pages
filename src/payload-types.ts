@@ -2097,6 +2097,24 @@ export interface CollectionsWidget {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "TableBlock".
+ */
+export interface TableBlock {
+  /**
+   * One row per line. Separate columns with a Tab (paste straight from Excel / Google Sheets) or a | pipe. A Markdown separator line like | --- | --- | is ignored.
+   */
+  data: string;
+  hasHeaderRow?: boolean | null;
+  /**
+   * Optional caption shown beneath the table.
+   */
+  caption?: string | null;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'table';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "auth".
  */
 export interface Auth {

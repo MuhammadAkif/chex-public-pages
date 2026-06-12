@@ -110,6 +110,89 @@ type RichTextNode = {
   url?: unknown;
 };
 
+// Parse a pasted/typed table into rows of cells. Columns split on Tab (so a
+// selection pasted from Excel/Sheets works) or `|` pipe (Markdown style). A
+// Markdown separator line such as `| --- | --- |` is dropped.
+function parseTableData(raw: string): string[][] {
+  const isSeparator = (line: string) =>
+    line.includes("-") && /^[\s|:-]+$/.test(line);
+
+  const splitRow = (line: string): string[] => {
+    const delim = line.includes("\t") ? "\t" : "|";
+    let parts = line.split(delim);
+    if (delim === "|") {
+      // Drop the empty edge cells from "| a | b |".
+      if (parts.length && parts[0].trim() === "") parts = parts.slice(1);
+      if (parts.length && parts[parts.length - 1]?.trim() === "")
+        parts = parts.slice(0, -1);
+    }
+    return parts.map((p) => p.trim());
+  };
+
+  return raw
+    .replace(/\r\n/g, "\n")
+    .split("\n")
+    .map((line) => line.trim())
+    .filter((line) => line.length > 0 && !isSeparator(line))
+    .map(splitRow);
+}
+
+function TableBlockView({
+  raw,
+  hasHeaderRow,
+  caption,
+}: {
+  raw: string;
+  hasHeaderRow: boolean;
+  caption?: string;
+}) {
+  const rows = parseTableData(raw);
+  if (rows.length === 0) return null;
+
+  const headerCells = hasHeaderRow ? rows[0] : null;
+  const bodyRows = hasHeaderRow ? rows.slice(1) : rows;
+  const columnCount = Math.max(...rows.map((r) => r.length));
+
+  return (
+    <figure className="my-8">
+      <div className="overflow-x-auto rounded-[12px] border border-[#e4ebf5]">
+        <table className="w-full border-collapse text-left text-[15px]">
+          {headerCells && (
+            <thead>
+              <tr className="bg-[#f4f8ff]">
+                {Array.from({ length: columnCount }).map((_, c) => (
+                  <th
+                    key={c}
+                    className="border-b border-[#e4ebf5] px-4 py-3 font-semibold text-[#1b2f4b]"
+                  >
+                    {headerCells[c] ?? ""}
+                  </th>
+                ))}
+              </tr>
+            </thead>
+          )}
+          <tbody>
+            {bodyRows.map((row, r) => (
+              <tr key={r} className="border-b border-[#e4ebf5] last:border-b-0">
+                {Array.from({ length: columnCount }).map((_, c) => (
+                  <td key={c} className="px-4 py-3 align-top text-[#2d3e50]">
+                    {row[c] ?? ""}
+                  </td>
+                ))}
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+      {caption && (
+        <figcaption className="mt-3 text-center font-ui text-[14px] italic text-[#41546e]">
+          {caption}
+        </figcaption>
+      )}
+    </figure>
+  );
+}
+
 const isRecord = (value: unknown): value is Record<string, unknown> =>
   typeof value === "object" && value !== null;
 
@@ -244,6 +327,25 @@ function renderNode(node: unknown, key: number | string): ReactNode {
           {renderChildren(node)}
         </blockquote>
       );
+
+    case "block": {
+      // Lexical Blocks feature: the block data lives on node.fields, keyed by
+      // blockType. Our only block is the Table block (see src/blocks/TableBlock.ts).
+      const fields = nodeFields(node);
+      if (fields.blockType === "table" && typeof fields.data === "string") {
+        return (
+          <TableBlockView
+            key={key}
+            raw={fields.data}
+            hasHeaderRow={fields.hasHeaderRow !== false}
+            caption={
+              typeof fields.caption === "string" ? fields.caption : undefined
+            }
+          />
+        );
+      }
+      return null;
+    }
 
     default:
       return renderChildren(node);
