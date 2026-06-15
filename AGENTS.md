@@ -1,6 +1,6 @@
 # Agent Instructions
 
-Guidance for any coding agent (Codex, Cursor, Aider, etc.) working in this repository. Claude Code reads [CLAUDE.md](CLAUDE.md) as well — keep the two in sync when conventions change.
+Guidance for any coding agent (Codex, Cursor, Aider, etc.) working in this repository. Claude Code reads [CLAUDE.md](CLAUDE.md) as well — keep the two in sync when conventions changes.
 
 ## Stack at a glance
 
