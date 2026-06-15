@@ -1,7 +1,5 @@
 import type { CollectionConfig } from 'payload'
-import { BlocksFeature, lexicalEditor } from '@payloadcms/richtext-lexical'
 
-import { TableBlock } from '../blocks/TableBlock'
 import { slugifyOrFallback } from '../lib/slugify'
 
 const isPostData = (
@@ -85,15 +83,10 @@ export const Posts: CollectionConfig = {
     {
       name: 'content',
       type: 'richText',
-      // Scope a field-level editor to Posts so blog content can embed tables via
-      // a stable Blocks feature. The root editor (payload.config.ts) is left
-      // untouched, so Locations and other richText fields keep the default set.
-      editor: lexicalEditor({
-        features: ({ defaultFeatures }) => [
-          ...defaultFeatures,
-          BlocksFeature({ blocks: [TableBlock] }),
-        ],
-      }),
+      admin: {
+        description:
+          'To add a table, type <table> on its own line, then one row per line (columns separated by a | pipe or a Tab), then </table> on its own line. The first row becomes the header.',
+      },
     },
     {
       name: 'publishedAt',
