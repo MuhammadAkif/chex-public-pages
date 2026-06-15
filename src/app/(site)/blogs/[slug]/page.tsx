@@ -202,8 +202,24 @@ const isRichTextNode = (value: unknown): value is RichTextNode =>
 const getChildren = (node: RichTextNode) =>
   Array.isArray(node.children) ? node.children.filter(isRichTextNode) : [];
 
-const renderChildren = (node: RichTextNode) =>
-  getChildren(node).map((child, i) => renderNode(child, i));
+// Plain text of a paragraph, with soft line breaks turned into newlines, so a
+// table typed as <table>…</table> reads the same whether the author pressed
+// Enter (separate paragraphs) or Shift+Enter (one paragraph) between rows.
+const lineText = (node: RichTextNode) =>
+  getChildren(node)
+    .map((child) =>
+      child.type === "linebreak"
+        ? "\n"
+        : typeof child.text === "string"
+          ? child.text
+          : "",
+    )
+    .join("");
+
+// Markers an author types to open/close an inline table. Matched on a trimmed,
+// case-insensitive line so <Table> or trailing spaces still work.
+const isTableOpen = (line: string) => /^<table>/i.test(line.trim());
+const isTableClose = (line: string) => /<\/table>\s*$/i.test(line.trim());
 
 const hasRenderableContent = (node: RichTextNode) =>
   getChildren(node).some((child) => {
@@ -218,6 +234,50 @@ const headingTag = (tag: unknown) =>
 
 const nodeFields = (node: RichTextNode) =>
   isRecord(node.fields) ? node.fields : {};
+
+// Collect an inline table that starts at children[startIdx] (a paragraph whose
+// text opens with <table>). Rows may span sibling paragraphs (Enter between
+// rows) or sit in one paragraph (Shift+Enter). Returns the inner text plus the
+// index just past the closing </table>, or null if it is never closed (then the
+// opening line just renders as ordinary text).
+function collectInlineTable(
+  children: RichTextNode[],
+  startIdx: number,
+): { raw: string; nextIndex: number } | null {
+  const parts: string[] = [];
+  for (let i = startIdx; i < children.length; i++) {
+    const node = children[i];
+    if (node.type !== "paragraph") break; // a non-paragraph ends the scan
+    const text = lineText(node);
+    parts.push(text);
+    if (isTableClose(text)) {
+      const inner = parts
+        .join("\n")
+        .replace(/^[\s\S]*?<table>/i, "")
+        .replace(/<\/table>[\s\S]*$/i, "");
+      return { raw: inner, nextIndex: i + 1 };
+    }
+  }
+  return null;
+}
+
+function renderChildren(node: RichTextNode): ReactNode[] {
+  const children = getChildren(node);
+  const out: ReactNode[] = [];
+  for (let i = 0; i < children.length; i++) {
+    const child = children[i];
+    if (child.type === "paragraph" && isTableOpen(lineText(child))) {
+      const table = collectInlineTable(children, i);
+      if (table) {
+        out.push(<TableBlockView key={i} raw={table.raw} hasHeaderRow />);
+        i = table.nextIndex - 1; // for-loop's ++ steps past the closing node
+        continue;
+      }
+    }
+    out.push(renderNode(child, i));
+  }
+  return out;
+}
 
 function renderNode(node: unknown, key: number | string): ReactNode {
   if (!isRichTextNode(node)) return null;
