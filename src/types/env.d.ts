@@ -14,5 +14,8 @@ declare namespace NodeJS {
     S3_REGION?: string
     S3_SECRET_ACCESS_KEY?: string
     NEXT_PUBLIC_RIDESHAIR_APP_BASE_LINK?: string
+    NEXT_PUBLIC_BACKEND_BASE_URL?: string
+    NEXT_PUBLIC_DSP_BACKEND_URL?: string
+    NEXT_PUBLIC_DASHBOARD_URL?: string
   }
 }

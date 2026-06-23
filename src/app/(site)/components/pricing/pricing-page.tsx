@@ -1,0 +1,40 @@
+import { Reveal } from "@/app/(site)/components/shared/reveal";
+import { HomeCallToAction } from "@/app/(site)/components/home/home-call-to-action";
+import { LocationFaq } from "@/app/(site)/components/locations/location-faq";
+import { LocationTestimonials } from "@/app/(site)/components/locations/location-testimonials";
+import { PricingComparison } from "@/app/(site)/components/pricing/pricing-comparison";
+import { PricingOverage } from "@/app/(site)/components/pricing/pricing-overage";
+import { PricingPlans } from "@/app/(site)/components/pricing/pricing-plans";
+import type { PricingContent } from "@/app/(site)/pricing/content";
+
+type PricingPageProps = {
+  content: PricingContent;
+};
+
+export function PricingPage({ content }: PricingPageProps) {
+  return (
+    <main className="overflow-hidden">
+      <PricingPlans hero={content.hero} plans={content.plans} />
+
+      <Reveal>
+        <PricingComparison {...content.comparison} />
+      </Reveal>
+
+      <Reveal>
+        <PricingOverage {...content.overage} />
+      </Reveal>
+
+      <Reveal>
+        <LocationTestimonials {...content.testimonials} />
+      </Reveal>
+
+      <Reveal>
+        <LocationFaq {...content.faq} />
+      </Reveal>
+
+      <Reveal>
+        <HomeCallToAction {...content.cta} />
+      </Reveal>
+    </main>
+  );
+}

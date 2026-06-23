@@ -612,6 +612,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@babel/runtime-corejs3@npm:^7.24.4":
+  version: 7.29.7
+  resolution: "@babel/runtime-corejs3@npm:7.29.7"
+  dependencies:
+    core-js-pure: "npm:^3.48.0"
+  checksum: 10c0/3ea24ca1b0d92a3421afab2078e1ff21ea8a8d872f9bcd56b21145eec44f123b4e629e89e47bae2301fa12e22411150dc42a71fd29ec687b97001069867cfd6d
+  languageName: node
+  linkType: hard
+
 "@babel/runtime@npm:^7.12.0, @babel/runtime@npm:^7.12.5, @babel/runtime@npm:^7.18.3, @babel/runtime@npm:^7.5.5, @babel/runtime@npm:^7.8.7":
   version: 7.29.2
   resolution: "@babel/runtime@npm:7.29.2"
@@ -4011,6 +4020,7 @@ __metadata:
     react: "npm:19.2.5"
     react-dom: "npm:19.2.5"
     react-google-recaptcha: "npm:^2.1.0"
+    react-imask: "npm:^7.6.1"
     sass: "npm:1.93.2"
     tailwindcss: "npm:4.1.16"
     typescript: "npm:5.9.3"
@@ -4131,6 +4141,13 @@ __metadata:
   version: 2.0.0
   resolution: "convert-source-map@npm:2.0.0"
   checksum: 10c0/8f2f7a27a1a011cc6cc88cc4da2d7d0cfa5ee0369508baae3d98c260bb3ac520691464e5bbe4ae7cdf09860c1d69ecc6f70c63c6e7c7f7e3f18ec08484dc7d9b
+  languageName: node
+  linkType: hard
+
+"core-js-pure@npm:^3.48.0":
+  version: 3.49.0
+  resolution: "core-js-pure@npm:3.49.0"
+  checksum: 10c0/b4580a57b917d0bf1029356b1a60abf0f9b99562b67bf39c01485d58891f23603459ed71bde1d7f75c0a9a346829d8c281b255c525fb119726341364c513e82e
   languageName: node
   linkType: hard
 
@@ -5914,6 +5931,15 @@ __metadata:
   bin:
     image-size: bin/image-size.js
   checksum: 10c0/f09dd0f7cf8511cd20e4f756bdb5a7cb6d2240de3323f41bde266bed8373392a293892bf12e907e2995f52833fd88dd27cf6b1a52ab93968afc716cb78cd7b79
+  languageName: node
+  linkType: hard
+
+"imask@npm:^7.6.1":
+  version: 7.6.1
+  resolution: "imask@npm:7.6.1"
+  dependencies:
+    "@babel/runtime-corejs3": "npm:^7.24.4"
+  checksum: 10c0/cda75bb5036bf65b1028a39ee5fe7bb1a654838213e8f85288c5899a9e5eb84ce7d2b37ae2d9d600f553b7b0e9fd2f4ba2cbdb03a2c46cf0fa60075bc0c21f0c
   languageName: node
   linkType: hard
 
@@ -8036,6 +8062,18 @@ __metadata:
   peerDependencies:
     react: ">=16.13.1"
   checksum: 10c0/7d5da917b95951490041f8e7567d7e7d4cd4ce24a24626edc4893fd3d5d6c4c72572ddbb994fcee78dec6e6f608f6a65d4c9675e484e5f868671ce33856e182e
+  languageName: node
+  linkType: hard
+
+"react-imask@npm:^7.6.1":
+  version: 7.6.1
+  resolution: "react-imask@npm:7.6.1"
+  dependencies:
+    imask: "npm:^7.6.1"
+    prop-types: "npm:^15.8.1"
+  peerDependencies:
+    react: ">=0.14.0"
+  checksum: 10c0/48b8c234fb77e4d8b8446712695c63f2b0351a896b17623510a648408dd1b7ab506496124453a821528781b05fe2f5b04514f902e260f8b7f4486c972061da88
   languageName: node
   linkType: hard
 
