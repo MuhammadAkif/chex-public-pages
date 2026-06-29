@@ -7,6 +7,10 @@ import { getPayload } from "payload";
 import type { Post } from "@/payload-types";
 import { slugify } from "@/lib/slugify";
 import type { ReactNode } from "react";
+import { BlogCtaSidebar } from "@/app/(site)/components/blogs/blog-cta-sidebar";
+import { HomeCallToAction } from "@/app/(site)/components/home/home-call-to-action";
+import { getHomePage } from "@/app/(site)/home/payload";
+import { Reveal } from "@/app/(site)/components/shared/reveal";
 
 export const dynamic = "force-dynamic";
 
@@ -425,6 +429,19 @@ export default async function BlogDetailPage({
     permanentRedirect(`/blogs/${encodeURIComponent(canonicalSlug)}`);
   }
 
+  const { content } = await getHomePage();
+
+  // Split the rendered top-level blocks so we can drop an inline CTA roughly in
+  // the middle of the article — used on small screens where the floating
+  // right-margin card has no room and is hidden.
+  const renderedBody = post.content?.root ? renderNode(post.content.root, 0) : null;
+  const bodyBlocks = Array.isArray(renderedBody)
+    ? renderedBody
+    : renderedBody
+      ? [renderedBody]
+      : [];
+  const midpoint = Math.ceil(bodyBlocks.length / 2);
+
   return (
     <div className="min-h-screen bg-white">
       <div className="bg-[#f4f8ff] px-4 pt-14 pb-0 sm:px-6 lg:px-10">
@@ -466,24 +483,49 @@ export default async function BlogDetailPage({
 
       <article className="px-4 py-14 sm:px-6 lg:px-10">
         <div className="mx-auto max-w-[800px] font-ui text-[17px] leading-[1.8]">
-          {post.content?.root ? (
-            renderNode(post.content.root, 0)
+          {bodyBlocks.length > 0 ? (
+            <>
+              {bodyBlocks.slice(0, midpoint)}
+              {/* Inline CTA — mobile only. Breaks the content with a centered
+                  card on phones, where the floating right card is hidden. */}
+              <div className="my-12 md:hidden">
+                <div className="mx-auto max-w-[420px]">
+                  <BlogCtaSidebar
+                    title={content.cta.title}
+                    description={content.cta.description}
+                    secondaryLabel={content.cta.secondaryLabel}
+                  />
+                </div>
+              </div>
+              {bodyBlocks.slice(midpoint)}
+            </>
           ) : (
             <p className="text-[#41546e]">No content available.</p>
           )}
         </div>
       </article>
 
-      <div className="border-t border-[#e4ebf5] px-4 py-12 sm:px-6 lg:px-10">
-        <div className="mx-auto flex max-w-[800px] items-center justify-between gap-4">
-          <Link
-            href="/blogs"
-            className="font-ui text-[15px] font-semibold text-[#1368b9] hover:text-[#3d8fd9]"
-          >
-            All posts
-          </Link>
+      {/* Floating CTA — pinned to the right margin and vertically centered on
+          wide screens, so it stays visible while scrolling without ever
+          reducing the article column width. Hidden on narrow screens where the
+          800px article leaves no room beside it. */}
+      <div className="pointer-events-none fixed inset-y-0 right-8 z-30 hidden items-center min-[1366px]:flex 2xl:right-12">
+        <div className="pointer-events-auto w-[240px] 2xl:w-[290px]">
+          <BlogCtaSidebar
+            title={content.cta.title}
+            description={content.cta.description}
+            secondaryLabel={content.cta.secondaryLabel}
+          />
         </div>
       </div>
+
+      <Reveal>
+        <HomeCallToAction
+          title={content.cta.title}
+          description={content.cta.description}
+          secondaryLabel={content.cta.secondaryLabel}
+        />
+      </Reveal>
     </div>
   );
 }
