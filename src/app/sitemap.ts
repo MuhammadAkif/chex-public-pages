@@ -28,6 +28,7 @@ const STATIC_ROUTES = [
   '/blogs',
   '/contact-us',
   '/fleet-inspection',
+  '/inspection-form',
   '/lyft-inspection',
   '/privacy-policy',
   '/ride-share',

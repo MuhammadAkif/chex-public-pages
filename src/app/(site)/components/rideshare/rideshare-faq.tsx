@@ -34,7 +34,7 @@ export function RideshareFaq({ title, items }: RideshareFaqProps) {
                   type="button"
                   onClick={() => setOpenIndex(isOpen ? null : index)}
                   aria-expanded={isOpen}
-                  className="flex w-full items-center justify-between gap-4 px-5 py-4 text-left transition-colors hover:bg-[#f4f8ff] sm:px-6 sm:py-5"
+                  className="flex w-full cursor-pointer items-center justify-between gap-4 px-5 py-4 text-left transition-colors hover:bg-[#f4f8ff] sm:px-6 sm:py-5"
                 >
                   <span className="font-display text-[16px] font-semibold text-[#1b2f4b] sm:text-[18px]">
                     {faq.question}
