@@ -35,7 +35,7 @@ type HeroContent = {
 
 type TrustContent = {
   title: string;
-  logos: ReadonlyArray<{ src: string; alt: string }>;
+  logos: ReadonlyArray<{ src: string; alt: string; className?: string }>;
   textChips?: ReadonlyArray<string>;
 };
 
@@ -201,7 +201,9 @@ function TrustStrip({ trust }: { trust: TrustContent }) {
               key={logo.alt}
               src={logo.src}
               alt={logo.alt}
-              className="h-7 w-auto object-contain opacity-90 sm:h-8"
+              className={`w-auto object-contain opacity-90 ${
+                logo.className ?? "h-10 sm:h-12"
+              }`}
             />
           ))}
           {(trust.textChips ?? []).map((chip) => (
@@ -517,10 +519,10 @@ export function InspectionFormPage({
       <Reveal>
         <Compare compare={content.compare} />
       </Reveal>
-      <Reveal>
+      <Reveal className="-mt-14 lg:-mt-20">
         <LocationTestimonials {...content.reviews} />
       </Reveal>
-      <Reveal>
+      <Reveal className="-mt-16 lg:-mt-24">
         <RideshareFaq title={content.faq.title} items={content.faq.items} />
       </Reveal>
       <Reveal>

@@ -25,9 +25,9 @@ export const pageContent: InspectionFormContent = {
     logos: [
       { src: `${S3}/logo-uber.png`, alt: "Uber" },
       { src: `${S3}/logo-lyft.png`, alt: "Lyft" },
-      { src: `${S3}/logo-turo.png`, alt: "Turo" },
+      { src: `${S3}/logo-turo.png`, alt: "Turo", className: "h-14 sm:h-16" },
+      { src: "/logo-hopskipdrive.svg", alt: "HopSkipDrive" },
     ],
-    textChips: ["HopSkipDrive"],
   },
   online: {
     eyebrow: "The faster way",

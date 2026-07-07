@@ -94,10 +94,12 @@ export interface Config {
   globals: {
     'home-page': HomePage;
     'service-page': ServicePage;
+    'inspection-form-page': InspectionFormPage;
   };
   globalsSelect: {
     'home-page': HomePageSelect<false> | HomePageSelect<true>;
     'service-page': ServicePageSelect<false> | ServicePageSelect<true>;
+    'inspection-form-page': InspectionFormPageSelect<false> | InspectionFormPageSelect<true>;
   };
   locale: null;
   widgets: {
@@ -1777,6 +1779,207 @@ export interface ServicePage {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "inspection-form-page".
+ */
+export interface InspectionFormPage {
+  id: string;
+  /**
+   * SEO metadata used by the App Router route metadata.
+   */
+  meta: {
+    title: string;
+    description: string;
+  };
+  hero: {
+    eyebrow: string;
+    titleLead: string;
+    titleHighlight: string;
+    description: string;
+    primaryCtaLabel: string;
+    primaryCtaHref: string;
+    secondaryCtaLabel: string;
+    secondaryCtaHref: string;
+    note: string;
+    /**
+     * Hero image selected from the Payload media library.
+     */
+    image?: (string | null) | Media;
+    /**
+     * Migration fallback URL. The frontend prefers the media relationship when it is present.
+     */
+    imageFallbackUrl?: string | null;
+    imageAlt: string;
+  };
+  trust: {
+    title: string;
+    logos?:
+      | {
+          /**
+           * Logo image selected from the Payload media library.
+           */
+          image?: (string | null) | Media;
+          /**
+           * Migration fallback URL. The frontend prefers the media relationship when it is present.
+           */
+          imageFallbackUrl?: string | null;
+          alt: string;
+          /**
+           * Optional Tailwind size override for this single logo (e.g. "h-14 sm:h-16"). Leave blank for the default size.
+           */
+          className?: string | null;
+          id?: string | null;
+        }[]
+      | null;
+  };
+  online: {
+    eyebrow: string;
+    title: string;
+    description: string;
+    ctaLabel: string;
+    ctaHref: string;
+    /**
+     * Online section image selected from the Payload media library.
+     */
+    image?: (string | null) | Media;
+    /**
+     * Migration fallback URL. The frontend prefers the media relationship when it is present.
+     */
+    imageFallbackUrl?: string | null;
+    imageAlt: string;
+    steps?:
+      | {
+          title: string;
+          description: string;
+          id?: string | null;
+        }[]
+      | null;
+  };
+  localPrep: {
+    eyebrow: string;
+    title: string;
+    paragraphs?:
+      | {
+          text: string;
+          id?: string | null;
+        }[]
+      | null;
+    ctaLabel: string;
+    ctaHref: string;
+    panelTitle: string;
+    panelItems?:
+      | {
+          text: string;
+          id?: string | null;
+        }[]
+      | null;
+  };
+  requirements: {
+    eyebrow: string;
+    title: string;
+    description: string;
+    groups?:
+      | {
+          title: string;
+          intro?: string | null;
+          twoColumn?: boolean | null;
+          bullets?:
+            | {
+                text: string;
+                id?: string | null;
+              }[]
+            | null;
+          id?: string | null;
+        }[]
+      | null;
+  };
+  states: {
+    eyebrow: string;
+    title: string;
+    description: string;
+    ctaHref: string;
+    footnote: string;
+    rows?:
+      | {
+          name: string;
+          uber: 'form' | 'none' | 'note';
+          lyft: 'form' | 'none' | 'note';
+          note?: string | null;
+          id?: string | null;
+        }[]
+      | null;
+  };
+  compare: {
+    eyebrow: string;
+    title: string;
+    description: string;
+    ctaLabel: string;
+    ctaHref: string;
+    local: {
+      tag: string;
+      title: string;
+      steps?:
+        | {
+            text: string;
+            id?: string | null;
+          }[]
+        | null;
+      foot: string;
+    };
+    chex: {
+      badge: string;
+      tag: string;
+      title: string;
+      steps?:
+        | {
+            text: string;
+            id?: string | null;
+          }[]
+        | null;
+      foot: string;
+    };
+  };
+  reviews: {
+    title: string;
+    description: string;
+    label: string;
+    items?:
+      | {
+          name: string;
+          quote: string;
+          stars: number;
+          avatar?: string | null;
+          id?: string | null;
+        }[]
+      | null;
+  };
+  faq: {
+    title: string;
+    items?:
+      | {
+          question: string;
+          answer: string;
+          id?: string | null;
+        }[]
+      | null;
+  };
+  cta: {
+    title: string;
+    description: string;
+    ctaLabel: string;
+    ctaHref: string;
+    stats?:
+      | {
+          value: string;
+          label: string;
+          id?: string | null;
+        }[]
+      | null;
+  };
+  updatedAt?: string | null;
+  createdAt?: string | null;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "home-page_select".
  */
 export interface HomePageSelect<T extends boolean = true> {
@@ -2083,6 +2286,209 @@ export interface ServicePageSelect<T extends boolean = true> {
         title?: T;
         description?: T;
         secondaryLabel?: T;
+      };
+  updatedAt?: T;
+  createdAt?: T;
+  globalType?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "inspection-form-page_select".
+ */
+export interface InspectionFormPageSelect<T extends boolean = true> {
+  meta?:
+    | T
+    | {
+        title?: T;
+        description?: T;
+      };
+  hero?:
+    | T
+    | {
+        eyebrow?: T;
+        titleLead?: T;
+        titleHighlight?: T;
+        description?: T;
+        primaryCtaLabel?: T;
+        primaryCtaHref?: T;
+        secondaryCtaLabel?: T;
+        secondaryCtaHref?: T;
+        note?: T;
+        image?: T;
+        imageFallbackUrl?: T;
+        imageAlt?: T;
+      };
+  trust?:
+    | T
+    | {
+        title?: T;
+        logos?:
+          | T
+          | {
+              image?: T;
+              imageFallbackUrl?: T;
+              alt?: T;
+              className?: T;
+              id?: T;
+            };
+      };
+  online?:
+    | T
+    | {
+        eyebrow?: T;
+        title?: T;
+        description?: T;
+        ctaLabel?: T;
+        ctaHref?: T;
+        image?: T;
+        imageFallbackUrl?: T;
+        imageAlt?: T;
+        steps?:
+          | T
+          | {
+              title?: T;
+              description?: T;
+              id?: T;
+            };
+      };
+  localPrep?:
+    | T
+    | {
+        eyebrow?: T;
+        title?: T;
+        paragraphs?:
+          | T
+          | {
+              text?: T;
+              id?: T;
+            };
+        ctaLabel?: T;
+        ctaHref?: T;
+        panelTitle?: T;
+        panelItems?:
+          | T
+          | {
+              text?: T;
+              id?: T;
+            };
+      };
+  requirements?:
+    | T
+    | {
+        eyebrow?: T;
+        title?: T;
+        description?: T;
+        groups?:
+          | T
+          | {
+              title?: T;
+              intro?: T;
+              twoColumn?: T;
+              bullets?:
+                | T
+                | {
+                    text?: T;
+                    id?: T;
+                  };
+              id?: T;
+            };
+      };
+  states?:
+    | T
+    | {
+        eyebrow?: T;
+        title?: T;
+        description?: T;
+        ctaHref?: T;
+        footnote?: T;
+        rows?:
+          | T
+          | {
+              name?: T;
+              uber?: T;
+              lyft?: T;
+              note?: T;
+              id?: T;
+            };
+      };
+  compare?:
+    | T
+    | {
+        eyebrow?: T;
+        title?: T;
+        description?: T;
+        ctaLabel?: T;
+        ctaHref?: T;
+        local?:
+          | T
+          | {
+              tag?: T;
+              title?: T;
+              steps?:
+                | T
+                | {
+                    text?: T;
+                    id?: T;
+                  };
+              foot?: T;
+            };
+        chex?:
+          | T
+          | {
+              badge?: T;
+              tag?: T;
+              title?: T;
+              steps?:
+                | T
+                | {
+                    text?: T;
+                    id?: T;
+                  };
+              foot?: T;
+            };
+      };
+  reviews?:
+    | T
+    | {
+        title?: T;
+        description?: T;
+        label?: T;
+        items?:
+          | T
+          | {
+              name?: T;
+              quote?: T;
+              stars?: T;
+              avatar?: T;
+              id?: T;
+            };
+      };
+  faq?:
+    | T
+    | {
+        title?: T;
+        items?:
+          | T
+          | {
+              question?: T;
+              answer?: T;
+              id?: T;
+            };
+      };
+  cta?:
+    | T
+    | {
+        title?: T;
+        description?: T;
+        ctaLabel?: T;
+        ctaHref?: T;
+        stats?:
+          | T
+          | {
+              value?: T;
+              label?: T;
+              id?: T;
+            };
       };
   updatedAt?: T;
   createdAt?: T;

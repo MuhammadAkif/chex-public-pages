@@ -1,14 +1,16 @@
 import type { Metadata } from "next";
 
 import { InspectionFormPage } from "@/app/(site)/components/inspection-form/inspection-form-page";
-import { pageContent } from "@/app/(site)/inspection-form/content";
+import { getInspectionFormPage } from "@/app/(site)/inspection-form/payload";
 
-export const metadata: Metadata = {
-  title: "Uber & Lyft Vehicle Inspection Forms by State | Chex.AI",
-  description:
-    "Check your state's Uber or Lyft vehicle inspection requirement — or skip the printout and complete your inspection online with Chex.AI in about 30 minutes with same-day certification.",
-};
+export const dynamic = "force-dynamic";
 
-export default function InspectionForm() {
-  return <InspectionFormPage content={pageContent} />;
+export async function generateMetadata(): Promise<Metadata> {
+  const { metadata } = await getInspectionFormPage();
+  return metadata;
+}
+
+export default async function InspectionForm() {
+  const { content } = await getInspectionFormPage();
+  return <InspectionFormPage content={content} />;
 }
