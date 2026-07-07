@@ -53,6 +53,7 @@ export const InspectionFormPage: GlobalConfig = {
   },
   access: {
     read: () => true,
+    update: () => true,
   },
   fields: [
     {

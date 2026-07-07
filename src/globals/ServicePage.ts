@@ -36,6 +36,7 @@ export const ServicePage: GlobalConfig = {
   },
   access: {
     read: () => true,
+    update: () => true,
   },
   fields: [
     {
