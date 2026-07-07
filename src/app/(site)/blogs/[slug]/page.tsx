@@ -431,6 +431,14 @@ export default async function BlogDetailPage({
 
   const { content } = await getHomePage();
 
+  // Prefer the post's own CTA copy; fall back to the site default for any field
+  // the author left blank so unseeded posts still render a complete card.
+  const cta = {
+    title: post.cta?.title || content.cta.title,
+    description: post.cta?.description || content.cta.description,
+    secondaryLabel: post.cta?.secondaryLabel || content.cta.secondaryLabel,
+  };
+
   // Split the rendered top-level blocks so we can drop an inline CTA roughly in
   // the middle of the article — used on small screens where the floating
   // right-margin card has no room and is hidden.
@@ -491,9 +499,9 @@ export default async function BlogDetailPage({
               <div className="my-12 md:hidden">
                 <div className="mx-auto max-w-[420px]">
                   <BlogCtaSidebar
-                    title={content.cta.title}
-                    description={content.cta.description}
-                    secondaryLabel={content.cta.secondaryLabel}
+                    title={cta.title}
+                    description={cta.description}
+                    secondaryLabel={cta.secondaryLabel}
                   />
                 </div>
               </div>
@@ -512,18 +520,18 @@ export default async function BlogDetailPage({
       <div className="pointer-events-none fixed inset-y-0 right-8 z-30 hidden items-center min-[1366px]:flex 2xl:right-12">
         <div className="pointer-events-auto w-[240px] 2xl:w-[290px]">
           <BlogCtaSidebar
-            title={content.cta.title}
-            description={content.cta.description}
-            secondaryLabel={content.cta.secondaryLabel}
+            title={cta.title}
+            description={cta.description}
+            secondaryLabel={cta.secondaryLabel}
           />
         </div>
       </div>
 
       <Reveal>
         <HomeCallToAction
-          title={content.cta.title}
-          description={content.cta.description}
-          secondaryLabel={content.cta.secondaryLabel}
+          title={cta.title}
+          description={cta.description}
+          secondaryLabel={cta.secondaryLabel}
         />
       </Reveal>
     </div>

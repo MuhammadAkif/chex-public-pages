@@ -179,6 +179,14 @@ export interface Post {
     description?: string | null;
   };
   /**
+   * The call-to-action card shown in the blog sidebar and at the bottom of the post. Leave blank to use the site default.
+   */
+  cta?: {
+    title?: string | null;
+    description?: string | null;
+    secondaryLabel?: string | null;
+  };
+  /**
    * To add a table, type <table> on its own line, then one row per line (columns separated by a | pipe or a Tab), then </table> on its own line. The first row becomes the header.
    */
   content?: {
@@ -929,6 +937,13 @@ export interface PostsSelect<T extends boolean = true> {
     | {
         title?: T;
         description?: T;
+      };
+  cta?:
+    | T
+    | {
+        title?: T;
+        description?: T;
+        secondaryLabel?: T;
       };
   content?: T;
   publishedAt?: T;
