@@ -30,7 +30,6 @@ export const siteContent = {
         { label: "South Carolina", href: "/locations/south-carolina" },
       ],
     },
-    { label: "Inspection Form", href: "/inspection-form" },
     { label: "Blog", href: "/blogs" },
     { label: "Contact us", href: "/contact-us" },
   ],
