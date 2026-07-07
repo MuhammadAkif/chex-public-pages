@@ -489,14 +489,20 @@ export default async function BlogDetailPage({
         </div>
       )}
 
-      <article className="px-4 py-14 sm:px-6 lg:px-10">
-        <div className="mx-auto max-w-[800px] font-ui text-[17px] leading-[1.8]">
+      {/* Article + sticky CTA sidebar sit in a centered flex row on wide
+          screens. The sidebar sticks under the navbar while scrolling and,
+          because the row is only as tall as the article, it stops at the end of
+          the article — above the bottom CTA section — instead of overlapping it
+          and the footer. */}
+      <div className="mx-auto flex w-full max-w-[1180px] items-start justify-center gap-10 px-4 sm:px-6 lg:px-10">
+        <article className="w-full max-w-[800px] py-14 font-ui text-[17px] leading-[1.8]">
           {bodyBlocks.length > 0 ? (
             <>
               {bodyBlocks.slice(0, midpoint)}
-              {/* Inline CTA — mobile only. Breaks the content with a centered
-                  card on phones, where the floating right card is hidden. */}
-              <div className="my-12 md:hidden">
+              {/* Inline CTA — shown below the sidebar breakpoint (tablet/phone)
+                  where the sticky sidebar is hidden, so every screen keeps one
+                  in-content CTA. */}
+              <div className="my-12 min-[1180px]:hidden">
                 <div className="mx-auto max-w-[420px]">
                   <BlogCtaSidebar
                     title={cta.title}
@@ -510,21 +516,17 @@ export default async function BlogDetailPage({
           ) : (
             <p className="text-[#41546e]">No content available.</p>
           )}
-        </div>
-      </article>
+        </article>
 
-      {/* Floating CTA — pinned to the right margin and vertically centered on
-          wide screens, so it stays visible while scrolling without ever
-          reducing the article column width. Hidden on narrow screens where the
-          800px article leaves no room beside it. */}
-      <div className="pointer-events-none fixed inset-y-0 right-8 z-30 hidden items-center min-[1366px]:flex 2xl:right-12">
-        <div className="pointer-events-auto w-[240px] 2xl:w-[290px]">
+        {/* Sticky CTA sidebar — hidden below 1180px where the 800px article
+            leaves no room beside it (the inline CTA above covers those widths). */}
+        <aside className="sticky top-36 mt-14 hidden w-[280px] shrink-0 self-start min-[1180px]:block">
           <BlogCtaSidebar
             title={cta.title}
             description={cta.description}
             secondaryLabel={cta.secondaryLabel}
           />
-        </div>
+        </aside>
       </div>
 
       <Reveal>
