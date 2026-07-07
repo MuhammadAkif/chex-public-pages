@@ -191,8 +191,33 @@ export const InspectionFormPage: GlobalConfig = {
           fields: [
             { name: 'name', type: 'text', required: true },
             stateStatusField('uber'),
+            {
+              name: 'uberFormUrl',
+              type: 'text',
+              admin: {
+                description:
+                  'PDF/image URL shown as an Uber "Download form" link (used when Uber = Downloadable form).',
+              },
+            },
+            {
+              name: 'uberNote',
+              type: 'text',
+              admin: { description: 'Text shown in the Uber column when Uber = See note.' },
+            },
             stateStatusField('lyft'),
-            { name: 'note', type: 'text' },
+            {
+              name: 'lyftFormUrl',
+              type: 'text',
+              admin: {
+                description:
+                  'PDF/image URL shown as a Lyft "Download form" link (used when Lyft = Downloadable form).',
+              },
+            },
+            {
+              name: 'lyftNote',
+              type: 'text',
+              admin: { description: 'Text shown in the Lyft column when Lyft = See note.' },
+            },
           ],
         },
       ],

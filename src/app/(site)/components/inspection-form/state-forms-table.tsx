@@ -7,16 +7,24 @@ export type StateStatus = "form" | "none" | "note";
 export type StateRow = {
   name: string;
   uber: StateStatus;
+  /** Direct URL to the official Uber inspection form (PDF/image). Used when uber === "form". */
+  uberFormUrl?: string;
+  /** Shown in the Uber column when uber === "note". */
+  uberNote?: string;
   lyft: StateStatus;
-  note?: string;
+  /** Direct URL to the official Lyft inspection form (PDF/image). Used when lyft === "form". */
+  lyftFormUrl?: string;
+  /** Shown in the Lyft column when lyft === "note". */
+  lyftNote?: string;
 };
 
 export type StateFormsTableProps = {
   eyebrow: string;
   title: string;
   description: string;
-  /** Where the uniform "Start online" action points (the form is the same for every state). */
+  /** "Prefer to skip the printout?" online-inspection CTA rendered under the table. */
   ctaHref: string;
+  ctaLabel?: string;
   footnote: string;
   rows: ReadonlyArray<StateRow>;
   /** When true, drop the full-bleed section chrome so it can sit inside the sticky-form band. */
@@ -31,41 +39,56 @@ const TABS: ReadonlyArray<{ id: Platform; label: string }> = [
   { id: "lyft", label: "Lyft" },
 ];
 
-function StatusCell({
+function DownloadLink({ href }: { href: string }) {
+  return (
+    <a
+      href={href}
+      target="_blank"
+      rel="noopener noreferrer"
+      className="inline-flex items-center gap-1.5 font-ui text-[14px] font-semibold text-[#1368b9] transition-colors hover:text-[#ff7a01]"
+    >
+      Download form
+      <svg
+        width="15"
+        height="15"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        aria-hidden="true"
+      >
+        <path d="M12 3v12" />
+        <path d="m7 12 5 5 5-5" />
+        <path d="M5 21h14" />
+      </svg>
+    </a>
+  );
+}
+
+function PlatformCell({
   status,
-  ctaHref,
+  formUrl,
+  note,
 }: {
   status: StateStatus;
-  ctaHref: string;
+  formUrl?: string;
+  note?: string;
 }) {
-  if (status === "form") {
+  if (status === "form" && formUrl) {
+    return <DownloadLink href={formUrl} />;
+  }
+  if (status === "note" && note) {
     return (
-      <a
-        href={ctaHref}
-        className="inline-flex items-center gap-1.5 font-ui text-[14px] font-semibold text-[#1368b9] transition-colors hover:text-[#ff7a01]"
-      >
-        Start online
-        <svg
-          width="15"
-          height="15"
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          strokeWidth="2"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-          aria-hidden="true"
-        >
-          <path d="M5 12h14" />
-          <path d="m12 5 7 7-7 7" />
-        </svg>
-      </a>
+      <span className="block max-w-[22rem] font-ui text-[13px] leading-5 text-[#63757f]">
+        {note}
+      </span>
     );
   }
-  if (status === "note") {
-    return <span className="font-ui text-[14px] text-[#63757f]">See notes</span>;
-  }
-  return <span className="font-ui text-[14px] text-[#63757f]">Not required</span>;
+  return (
+    <span className="font-ui text-[14px] text-[#63757f]">Not required</span>
+  );
 }
 
 export function StateFormsTable({
@@ -73,6 +96,7 @@ export function StateFormsTable({
   title,
   description,
   ctaHref,
+  ctaLabel = "Prefer to skip the printout? Start your inspection online",
   footnote,
   rows,
   embedded = false,
@@ -165,11 +189,17 @@ export function StateFormsTable({
           <table className="w-full border-collapse text-left">
             <thead>
               <tr className="bg-[#010e2b] text-white">
-                <th className="px-4 py-4 font-display text-[13.5px] font-semibold sm:px-5">
+                <th
+                  scope="col"
+                  className="px-4 py-4 font-display text-[13.5px] font-semibold sm:px-5"
+                >
                   State
                 </th>
                 {showUber ? (
-                  <th className="px-4 py-4 font-display text-[13.5px] font-semibold sm:px-5">
+                  <th
+                    scope="col"
+                    className="px-4 py-4 font-display text-[13.5px] font-semibold sm:px-5"
+                  >
                     <span className="inline-flex items-center gap-2">
                       <span className="h-2.5 w-2.5 rounded-full bg-white" />
                       Uber
@@ -177,7 +207,10 @@ export function StateFormsTable({
                   </th>
                 ) : null}
                 {showLyft ? (
-                  <th className="px-4 py-4 font-display text-[13.5px] font-semibold sm:px-5">
+                  <th
+                    scope="col"
+                    className="px-4 py-4 font-display text-[13.5px] font-semibold sm:px-5"
+                  >
                     <span className="inline-flex items-center gap-2">
                       <span className="h-2.5 w-2.5 rounded-full bg-[#ea0b8c]" />
                       Lyft
@@ -196,20 +229,23 @@ export function StateFormsTable({
                     <span className="font-display text-[15px] font-semibold text-[#1b2f4b]">
                       {row.name}
                     </span>
-                    {row.note ? (
-                      <span className="mt-1 block max-w-[22rem] font-ui text-[12.5px] leading-5 text-[#63757f]">
-                        {row.note}
-                      </span>
-                    ) : null}
                   </td>
                   {showUber ? (
                     <td className="px-4 py-3.5 align-top sm:px-5">
-                      <StatusCell status={row.uber} ctaHref={ctaHref} />
+                      <PlatformCell
+                        status={row.uber}
+                        formUrl={row.uberFormUrl}
+                        note={row.uberNote}
+                      />
                     </td>
                   ) : null}
                   {showLyft ? (
                     <td className="px-4 py-3.5 align-top sm:px-5">
-                      <StatusCell status={row.lyft} ctaHref={ctaHref} />
+                      <PlatformCell
+                        status={row.lyft}
+                        formUrl={row.lyftFormUrl}
+                        note={row.lyftNote}
+                      />
                     </td>
                   ) : null}
                 </tr>
@@ -222,6 +258,31 @@ export function StateFormsTable({
             </p>
           ) : null}
         </div>
+
+        {ctaHref ? (
+          <div className="mt-6 text-center">
+            <a
+              href={ctaHref}
+              className="inline-flex items-center gap-2 font-ui text-[14.5px] font-semibold text-[#ff7a01] transition-colors hover:text-[#c85c00]"
+            >
+              {ctaLabel}
+              <svg
+                width="16"
+                height="16"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                aria-hidden="true"
+              >
+                <path d="M5 12h14" />
+                <path d="m12 5 7 7-7 7" />
+              </svg>
+            </a>
+          </div>
+        ) : null}
 
         <p className="mt-4 text-center font-ui text-[13px] leading-5 text-[#63757f]">
           {footnote}

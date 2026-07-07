@@ -101,8 +101,11 @@ async function main() {
       rows: c.states.rows.map((row) => ({
         name: row.name,
         uber: row.uber,
+        uberFormUrl: row.uberFormUrl ?? null,
+        uberNote: row.uberNote ?? null,
         lyft: row.lyft,
-        note: row.note ?? null,
+        lyftFormUrl: row.lyftFormUrl ?? null,
+        lyftNote: row.lyftNote ?? null,
       })),
     },
     compare: {

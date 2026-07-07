@@ -15,6 +15,7 @@ import * as migration_20260611_000000_swap_home_service_globals from './20260611
 import * as migration_20260611_010000_home_hero_background_video from './20260611_010000_home_hero_background_video';
 import * as migration_20260612_000000_solution_block_overlay_image from './20260612_000000_solution_block_overlay_image';
 import * as migration_20260707_000000_inspection_form_page_global from './20260707_000000_inspection_form_page_global';
+import * as migration_20260707_120000_inspection_form_state_forms from './20260707_120000_inspection_form_state_forms';
 
 export const migrations = [
   {
@@ -101,5 +102,10 @@ export const migrations = [
     up: migration_20260707_000000_inspection_form_page_global.up,
     down: migration_20260707_000000_inspection_form_page_global.down,
     name: '20260707_000000_inspection_form_page_global'
+  },
+  {
+    up: migration_20260707_120000_inspection_form_state_forms.up,
+    down: migration_20260707_120000_inspection_form_state_forms.down,
+    name: '20260707_120000_inspection_form_state_forms'
   },
 ];

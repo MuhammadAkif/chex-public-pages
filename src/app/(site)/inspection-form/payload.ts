@@ -135,8 +135,11 @@ export const getInspectionFormPage: () => Promise<InspectionFormPayload> = cache
         rows: (doc.states.rows ?? []).map((row) => ({
           name: row.name,
           uber: row.uber,
+          uberFormUrl: optional(row.uberFormUrl),
+          uberNote: optional(row.uberNote),
           lyft: row.lyft,
-          note: optional(row.note),
+          lyftFormUrl: optional(row.lyftFormUrl),
+          lyftNote: optional(row.lyftNote),
         })),
       },
       compare: {

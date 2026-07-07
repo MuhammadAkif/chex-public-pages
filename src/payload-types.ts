@@ -1902,8 +1902,23 @@ export interface InspectionFormPage {
       | {
           name: string;
           uber: 'form' | 'none' | 'note';
+          /**
+           * PDF/image URL shown as an Uber "Download form" link (used when Uber = Downloadable form).
+           */
+          uberFormUrl?: string | null;
+          /**
+           * Text shown in the Uber column when Uber = See note.
+           */
+          uberNote?: string | null;
           lyft: 'form' | 'none' | 'note';
-          note?: string | null;
+          /**
+           * PDF/image URL shown as a Lyft "Download form" link (used when Lyft = Downloadable form).
+           */
+          lyftFormUrl?: string | null;
+          /**
+           * Text shown in the Lyft column when Lyft = See note.
+           */
+          lyftNote?: string | null;
           id?: string | null;
         }[]
       | null;
@@ -2406,8 +2421,11 @@ export interface InspectionFormPageSelect<T extends boolean = true> {
           | {
               name?: T;
               uber?: T;
+              uberFormUrl?: T;
+              uberNote?: T;
               lyft?: T;
-              note?: T;
+              lyftFormUrl?: T;
+              lyftNote?: T;
               id?: T;
             };
       };
