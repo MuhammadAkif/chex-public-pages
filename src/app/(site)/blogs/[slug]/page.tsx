@@ -8,6 +8,7 @@ import type { Post } from "@/payload-types";
 import { slugify } from "@/lib/slugify";
 import type { ReactNode } from "react";
 import { BlogCtaSidebar } from "@/app/(site)/components/blogs/blog-cta-sidebar";
+import { BlogStickyCta } from "@/app/(site)/components/blogs/blog-sticky-cta";
 import { HomeCallToAction } from "@/app/(site)/components/home/home-call-to-action";
 import { getHomePage } from "@/app/(site)/home/payload";
 import { Reveal } from "@/app/(site)/components/shared/reveal";
@@ -499,10 +500,10 @@ export default async function BlogDetailPage({
           {bodyBlocks.length > 0 ? (
             <>
               {bodyBlocks.slice(0, midpoint)}
-              {/* Inline CTA — shown below the sidebar breakpoint (tablet/phone)
-                  where the sticky sidebar is hidden, so every screen keeps one
-                  in-content CTA. */}
-              <div className="my-12 min-[1180px]:hidden">
+              {/* Inline CTA — shown on tablets (between the small-phone and the
+                  1180px sidebar breakpoints). Small phones get the fixed bottom
+                  BlogStickyCta bar instead, so this is hidden there. */}
+              <div className="my-12 hidden sm:block min-[1180px]:hidden">
                 <div className="mx-auto max-w-[420px]">
                   <BlogCtaSidebar
                     title={cta.title}
@@ -536,6 +537,9 @@ export default async function BlogDetailPage({
           secondaryLabel={cta.secondaryLabel}
         />
       </Reveal>
+
+      {/* Small-phone-only sticky conversion bar (mirrors the inspection-form page). */}
+      <BlogStickyCta label={cta.secondaryLabel} />
     </div>
   );
 }
