@@ -11,10 +11,11 @@ export type BlogStickyCtaProps = {
 };
 
 /**
- * Persistent bottom conversion bar for blog detail pages. Shown only on small
- * phones (where the centered CTA cards are hidden) and pinned to the bottom once
- * the visitor scrolls past the hero. Mirrors the inspection-form StickyCta but
- * opens the register modal instead of linking out, matching the other blog CTAs.
+ * Persistent bottom conversion bar for blog detail pages. Shown on phones and
+ * tablets (below the 1180px breakpoint, where the sticky right-rail sidebar CTA
+ * takes over) and pinned to the bottom once the visitor scrolls past the hero.
+ * Mirrors the inspection-form StickyCta but opens the register modal instead of
+ * linking out, matching the other blog CTAs.
  */
 export function BlogStickyCta({ label, showAfter = 640 }: BlogStickyCtaProps) {
   const { openModal } = useRegisterModal();
@@ -29,7 +30,7 @@ export function BlogStickyCta({ label, showAfter = 640 }: BlogStickyCtaProps) {
 
   return (
     <div
-      className={`fixed inset-x-0 bottom-0 z-50 border-t border-white/10 bg-[#010e2b]/95 px-4 py-3 backdrop-blur transition-transform duration-300 sm:hidden ${
+      className={`fixed inset-x-0 bottom-0 z-50 border-t border-white/10 bg-[#010e2b]/95 px-4 py-3 backdrop-blur transition-transform duration-300 min-[1180px]:hidden ${
         visible ? "translate-y-0" : "translate-y-full"
       }`}
     >

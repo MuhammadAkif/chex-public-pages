@@ -440,16 +440,12 @@ export default async function BlogDetailPage({
     secondaryLabel: post.cta?.secondaryLabel || content.cta.secondaryLabel,
   };
 
-  // Split the rendered top-level blocks so we can drop an inline CTA roughly in
-  // the middle of the article — used on small screens where the floating
-  // right-margin card has no room and is hidden.
   const renderedBody = post.content?.root ? renderNode(post.content.root, 0) : null;
   const bodyBlocks = Array.isArray(renderedBody)
     ? renderedBody
     : renderedBody
       ? [renderedBody]
       : [];
-  const midpoint = Math.ceil(bodyBlocks.length / 2);
 
   return (
     <div className="min-h-screen bg-white">
@@ -498,22 +494,7 @@ export default async function BlogDetailPage({
       <div className="mx-auto flex w-full max-w-[1180px] items-start justify-center gap-10 px-4 sm:px-6 lg:px-10">
         <article className="w-full max-w-[800px] py-14 font-ui text-[17px] leading-[1.8]">
           {bodyBlocks.length > 0 ? (
-            <>
-              {bodyBlocks.slice(0, midpoint)}
-              {/* Inline CTA — shown on tablets (between the small-phone and the
-                  1180px sidebar breakpoints). Small phones get the fixed bottom
-                  BlogStickyCta bar instead, so this is hidden there. */}
-              <div className="my-12 hidden sm:block min-[1180px]:hidden">
-                <div className="mx-auto max-w-[420px]">
-                  <BlogCtaSidebar
-                    title={cta.title}
-                    description={cta.description}
-                    secondaryLabel={cta.secondaryLabel}
-                  />
-                </div>
-              </div>
-              {bodyBlocks.slice(midpoint)}
-            </>
+            bodyBlocks
           ) : (
             <p className="text-[#41546e]">No content available.</p>
           )}
