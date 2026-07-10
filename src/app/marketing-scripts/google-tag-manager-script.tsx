@@ -1,6 +1,6 @@
 import Script from 'next/script'
 
-const GOOGLE_TAG_MANAGER_ID = 'GTM-MPV9WTZ'
+export const GOOGLE_TAG_MANAGER_ID = 'GTM-TZF5DVWX'
 
 export function GoogleTagManagerScript() {
   return (
@@ -16,5 +16,18 @@ export function GoogleTagManagerScript() {
         f.parentNode.insertBefore(j, f);
       })(window, document, "script", "dataLayer", "${GOOGLE_TAG_MANAGER_ID}");
     `}</Script>
+  )
+}
+
+export function GoogleTagManagerNoScript() {
+  return (
+    <noscript>
+      <iframe
+        src={`https://www.googletagmanager.com/ns.html?id=${GOOGLE_TAG_MANAGER_ID}`}
+        height="0"
+        width="0"
+        style={{ display: 'none', visibility: 'hidden' }}
+      />
+    </noscript>
   )
 }
