@@ -8,6 +8,7 @@ import type { Post } from "@/payload-types";
 import { slugify } from "@/lib/slugify";
 import type { ReactNode } from "react";
 import { BlogCtaSidebar } from "@/app/(site)/components/blogs/blog-cta-sidebar";
+import { BlogStickyCta } from "@/app/(site)/components/blogs/blog-sticky-cta";
 import { HomeCallToAction } from "@/app/(site)/components/home/home-call-to-action";
 import { getHomePage } from "@/app/(site)/home/payload";
 import { Reveal } from "@/app/(site)/components/shared/reveal";
@@ -431,16 +432,20 @@ export default async function BlogDetailPage({
 
   const { content } = await getHomePage();
 
-  // Split the rendered top-level blocks so we can drop an inline CTA roughly in
-  // the middle of the article — used on small screens where the floating
-  // right-margin card has no room and is hidden.
+  // Prefer the post's own CTA copy; fall back to the site default for any field
+  // the author left blank so unseeded posts still render a complete card.
+  const cta = {
+    title: post.cta?.title || content.cta.title,
+    description: post.cta?.description || content.cta.description,
+    secondaryLabel: post.cta?.secondaryLabel || content.cta.secondaryLabel,
+  };
+
   const renderedBody = post.content?.root ? renderNode(post.content.root, 0) : null;
   const bodyBlocks = Array.isArray(renderedBody)
     ? renderedBody
     : renderedBody
       ? [renderedBody]
       : [];
-  const midpoint = Math.ceil(bodyBlocks.length / 2);
 
   return (
     <div className="min-h-screen bg-white">
@@ -481,51 +486,41 @@ export default async function BlogDetailPage({
         </div>
       )}
 
-      <article className="px-4 py-14 sm:px-6 lg:px-10">
-        <div className="mx-auto max-w-[800px] font-ui text-[17px] leading-[1.8]">
+      {/* Article + sticky CTA sidebar sit in a centered flex row on wide
+          screens. The sidebar sticks under the navbar while scrolling and,
+          because the row is only as tall as the article, it stops at the end of
+          the article — above the bottom CTA section — instead of overlapping it
+          and the footer. */}
+      <div className="mx-auto flex w-full max-w-[1180px] items-start justify-center gap-10 px-4 sm:px-6 lg:px-10">
+        <article className="w-full max-w-[800px] py-14 font-ui text-[17px] leading-[1.8]">
           {bodyBlocks.length > 0 ? (
-            <>
-              {bodyBlocks.slice(0, midpoint)}
-              {/* Inline CTA — mobile only. Breaks the content with a centered
-                  card on phones, where the floating right card is hidden. */}
-              <div className="my-12 md:hidden">
-                <div className="mx-auto max-w-[420px]">
-                  <BlogCtaSidebar
-                    title={content.cta.title}
-                    description={content.cta.description}
-                    secondaryLabel={content.cta.secondaryLabel}
-                  />
-                </div>
-              </div>
-              {bodyBlocks.slice(midpoint)}
-            </>
+            bodyBlocks
           ) : (
             <p className="text-[#41546e]">No content available.</p>
           )}
-        </div>
-      </article>
+        </article>
 
-      {/* Floating CTA — pinned to the right margin and vertically centered on
-          wide screens, so it stays visible while scrolling without ever
-          reducing the article column width. Hidden on narrow screens where the
-          800px article leaves no room beside it. */}
-      <div className="pointer-events-none fixed inset-y-0 right-8 z-30 hidden items-center min-[1366px]:flex 2xl:right-12">
-        <div className="pointer-events-auto w-[240px] 2xl:w-[290px]">
+        {/* Sticky CTA sidebar — hidden below 1180px where the 800px article
+            leaves no room beside it (the inline CTA above covers those widths). */}
+        <aside className="sticky top-36 mt-14 hidden w-[280px] shrink-0 self-start min-[1180px]:block">
           <BlogCtaSidebar
-            title={content.cta.title}
-            description={content.cta.description}
-            secondaryLabel={content.cta.secondaryLabel}
+            title={cta.title}
+            description={cta.description}
+            secondaryLabel={cta.secondaryLabel}
           />
-        </div>
+        </aside>
       </div>
 
       <Reveal>
         <HomeCallToAction
-          title={content.cta.title}
-          description={content.cta.description}
-          secondaryLabel={content.cta.secondaryLabel}
+          title={cta.title}
+          description={cta.description}
+          secondaryLabel={cta.secondaryLabel}
         />
       </Reveal>
+
+      {/* Small-phone-only sticky conversion bar (mirrors the inspection-form page). */}
+      <BlogStickyCta label={cta.secondaryLabel} />
     </div>
   );
 }

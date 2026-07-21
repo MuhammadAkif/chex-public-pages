@@ -36,6 +36,7 @@ export const HomePage: GlobalConfig = {
   },
   access: {
     read: () => true,
+    update: () => true,
   },
   fields: [
     {

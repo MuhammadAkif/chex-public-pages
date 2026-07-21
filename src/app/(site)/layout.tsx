@@ -9,7 +9,7 @@ import { Footer } from '@/app/(site)/components/shared/footer'
 import { Navbar } from '@/app/(site)/components/shared/navbar'
 import { SiteShell } from '@/app/(site)/components/shared/site-shell'
 
-import { MarketingScripts } from '../marketing-scripts'
+import { GoogleTagManagerNoScript, MarketingScripts } from '../marketing-scripts'
 import '../globals.css'
 
 const getSiteUrl = () => {
@@ -80,6 +80,7 @@ export default function SiteLayout({ children }: SiteLayoutProps) {
       <body
         className={`${satoshi.variable} ${poppins.variable} ${manrope.variable} bg-mist font-body text-ink antialiased`}
       >
+        <GoogleTagManagerNoScript />
         <SiteShell>
           <div className="flex min-h-screen flex-col">
             <div className="sticky top-0 z-50">

@@ -81,6 +81,30 @@ export const Posts: CollectionConfig = {
       label: 'SEO metadata',
     },
     {
+      name: 'cta',
+      type: 'group',
+      admin: {
+        description:
+          'The call-to-action card shown in the blog sidebar and at the bottom of the post. Leave blank to use the site default.',
+      },
+      fields: [
+        {
+          name: 'title',
+          type: 'text',
+        },
+        {
+          name: 'description',
+          type: 'textarea',
+        },
+        {
+          name: 'secondaryLabel',
+          type: 'text',
+          label: 'Button label',
+        },
+      ],
+      label: 'Call to action',
+    },
+    {
       name: 'content',
       type: 'richText',
       admin: {
