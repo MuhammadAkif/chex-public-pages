@@ -6,6 +6,7 @@ import type { ReactNode } from 'react'
 import { siteContent } from '@/app/(site)/content'
 import { AnnouncementHeader } from '@/app/(site)/components/shared/announcement-header'
 import { Footer } from '@/app/(site)/components/shared/footer'
+import { GlobalStickyCta } from '@/app/(site)/components/shared/global-sticky-cta'
 import { Navbar } from '@/app/(site)/components/shared/navbar'
 import { SiteShell } from '@/app/(site)/components/shared/site-shell'
 
@@ -102,6 +103,8 @@ export default function SiteLayout({ children }: SiteLayoutProps) {
               copyright={siteContent.footer.copyright}
             />
           </div>
+
+          <GlobalStickyCta />
         </SiteShell>
       </body>
     </html>
