@@ -8,6 +8,8 @@ export type FleetPricingProps = {
   features: ReadonlyArray<string>;
   ctaLabel: string;
   ctaHref: string;
+  detailsLabel?: string;
+  detailsHref?: string;
 };
 
 function PlusIcon() {
@@ -38,6 +40,8 @@ export function FleetPricing({
   features,
   ctaLabel,
   ctaHref,
+  detailsLabel,
+  detailsHref,
 }: FleetPricingProps) {
   const half = Math.ceil(features.length / 2);
   const left = features.slice(0, half);
@@ -71,36 +75,48 @@ export function FleetPricing({
             </div>
           </div>
 
-          <div className="grid gap-4 sm:grid-cols-2">
-            <ul className="space-y-3">
-              {left.map((feature) => (
-                <li
-                  key={feature}
-                  className="flex items-center gap-3 text-left font-ui text-[16px] text-[#1b2f4b] sm:text-[17px]"
-                >
-                  <PlusIcon />
-                  {feature}
-                </li>
-              ))}
-            </ul>
-            <ul className="space-y-3">
-              {right.map((feature) => (
-                <li
-                  key={feature}
-                  className="flex items-center gap-3 text-left font-ui text-[16px] text-[#1b2f4b] sm:text-[17px]"
-                >
-                  <PlusIcon />
-                  {feature}
-                </li>
-              ))}
-            </ul>
-          </div>
-        </div>
+          <div>
+            <div className="grid gap-4 sm:grid-cols-2">
+              <ul className="space-y-3">
+                {left.map((feature) => (
+                  <li
+                    key={feature}
+                    className="flex items-center gap-3 text-left font-ui text-[16px] text-[#1b2f4b] sm:text-[17px]"
+                  >
+                    <PlusIcon />
+                    {feature}
+                  </li>
+                ))}
+              </ul>
+              <ul className="space-y-3">
+                {right.map((feature) => (
+                  <li
+                    key={feature}
+                    className="flex items-center gap-3 text-left font-ui text-[16px] text-[#1b2f4b] sm:text-[17px]"
+                  >
+                    <PlusIcon />
+                    {feature}
+                  </li>
+                ))}
+              </ul>
+            </div>
 
-        <div className="mt-10 flex justify-center">
-          <Button href={ctaHref} size="lg" className="rounded-[8px] px-8">
-            {ctaLabel}
-          </Button>
+            <div className="mt-8 flex flex-wrap items-center justify-center gap-4 lg:justify-start">
+              <Button href={ctaHref} size="lg" className="rounded-[8px] px-8">
+                {ctaLabel}
+              </Button>
+              {detailsHref && detailsLabel ? (
+                <Button
+                  href={detailsHref}
+                  variant="outline"
+                  size="lg"
+                  className="rounded-[8px] px-8"
+                >
+                  {detailsLabel}
+                </Button>
+              ) : null}
+            </div>
+          </div>
         </div>
       </div>
     </section>

@@ -232,7 +232,7 @@ export const pricingContent: PricingContent = {
       {
         badge: "SMALL",
         range: "251 — 1,500 inspections",
-        price: "$0.45",
+        price: "$0.50",
         priceSuffix: "per inspection",
         note: "Above your plan's included limit",
         tone: "light",
@@ -240,9 +240,9 @@ export const pricingContent: PricingContent = {
       {
         badge: "⭐ MEDIUM",
         range: "1,500 — 10,000 inspections",
-        price: "$0.30",
+        price: "$0.50",
         priceSuffix: "per inspection",
-        note: "Save 33% at higher volume",
+        note: "Flat rate at higher volume",
         tone: "accent",
       },
       {
@@ -292,12 +292,12 @@ export const pricingContent: PricingContent = {
       {
         question: "How does overage pricing work?",
         answer:
-          "Once you exceed your plan's included inspections, each additional inspection is billed at a predictable per-inspection rate that drops as your volume grows — $0.45 for small volume, $0.30 at higher volume, and custom rates for enterprise.",
+          "Once you exceed your plan's included inspections, each additional inspection is billed at a predictable flat per-inspection rate — $0.50 per inspection, with custom rates for enterprise volume.",
       },
       {
-        question: "Can I switch between monthly and annual billing?",
+        question: "How does billing work?",
         answer:
-          "Yes. You can switch to annual billing at any time to lock in a 20% discount on the same features. Annual commitments are billed yearly with no hidden fees.",
+          "All plans are billed monthly with no long-term commitment. You can upgrade, downgrade, or cancel anytime, and there are no hidden fees.",
       },
       {
         question: "Do you offer a free trial?",

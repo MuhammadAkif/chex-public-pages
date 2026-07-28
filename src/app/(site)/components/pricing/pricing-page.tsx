@@ -1,5 +1,4 @@
 import { Reveal } from "@/app/(site)/components/shared/reveal";
-import { HomeCallToAction } from "@/app/(site)/components/home/home-call-to-action";
 import { LocationFaq } from "@/app/(site)/components/locations/location-faq";
 import { LocationTestimonials } from "@/app/(site)/components/locations/location-testimonials";
 import { PricingComparison } from "@/app/(site)/components/pricing/pricing-comparison";
@@ -30,10 +29,6 @@ export function PricingPage({ content }: PricingPageProps) {
 
       <Reveal>
         <LocationFaq {...content.faq} />
-      </Reveal>
-
-      <Reveal>
-        <HomeCallToAction {...content.cta} />
       </Reveal>
     </main>
   );

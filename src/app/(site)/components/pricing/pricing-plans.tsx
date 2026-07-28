@@ -156,57 +156,6 @@ function TrialCheck() {
   );
 }
 
-function Toggle({
-  isAnnual,
-  setIsAnnual,
-  monthlyLabel,
-  annualLabel,
-  annualBadge,
-}: {
-  isAnnual: boolean;
-  setIsAnnual: (value: boolean) => void;
-  monthlyLabel: string;
-  annualLabel: string;
-  annualBadge: string;
-}) {
-  const buttonBase =
-    "relative flex min-w-32 cursor-pointer items-center justify-center gap-2 rounded-full px-6 py-2.5 text-base transition";
-  const active =
-    "bg-white font-bold text-[#0a1f4d] shadow-[0_6px_16px_-6px_rgba(0,0,0,0.45)]";
-  const inactive = "font-medium text-white/80 hover:text-white";
-
-  return (
-    <div
-      className="inline-flex items-center gap-1 rounded-full border border-white/20 bg-white/10 p-1.5"
-      role="group"
-      aria-label="Billing period"
-    >
-      <button
-        type="button"
-        aria-pressed={!isAnnual}
-        onClick={() => setIsAnnual(false)}
-        className={`${buttonBase} ${!isAnnual ? active : inactive}`}
-      >
-        {monthlyLabel}
-      </button>
-      <button
-        type="button"
-        aria-pressed={isAnnual}
-        onClick={() => setIsAnnual(true)}
-        className={`${buttonBase} ${isAnnual ? active : inactive}`}
-      >
-        {annualLabel}
-        <span
-          className="rounded-full px-2.5 py-1 text-sm font-bold leading-none text-white"
-          style={{ backgroundColor: "#ff7a01" }}
-        >
-          {annualBadge}
-        </span>
-      </button>
-    </div>
-  );
-}
-
 function TierCard({
   tier,
   onChoose,
@@ -215,7 +164,6 @@ function TierCard({
   onChoose: (tier: PricingTier) => void;
 }) {
   const isCustom = tier.monthlyPrice === null;
-  // The billing toggle is cosmetic — prices always show the monthly rate.
   const displayPrice = tier.monthlyPrice;
   const highlighted = Boolean(tier.recommended);
 
@@ -343,7 +291,6 @@ function TierCard({
 }
 
 export function PricingPlans({ hero, plans }: PricingPlansProps) {
-  const [isAnnual, setIsAnnual] = useState(false);
   const [modalTier, setModalTier] = useState<PricingTier | null>(null);
   // The paid plan to celebrate — set only after returning from payment.
   const [paidPlan, setPaidPlan] = useState<ThankYouPlan | null>(null);
@@ -351,8 +298,7 @@ export function PricingPlans({ hero, plans }: PricingPlansProps) {
   const [receiptSessionId, setReceiptSessionId] = useState<string | null>(null);
   const [receiptToken, setReceiptToken] = useState<string | null>(null);
 
-  // A tier's display fields. The billing toggle is cosmetic, so the price is
-  // always the monthly rate.
+  // A tier's display fields — prices are the monthly rate.
   function planSummary(tier: PricingTier): ThankYouPlan {
     return {
       name: tier.name,
@@ -457,17 +403,7 @@ export function PricingPlans({ hero, plans }: PricingPlansProps) {
             {hero.subtitle}
           </p>
 
-          <div className="mt-8">
-            <Toggle
-              isAnnual={isAnnual}
-              setIsAnnual={setIsAnnual}
-              monthlyLabel={hero.monthlyLabel}
-              annualLabel={hero.annualLabel}
-              annualBadge={hero.annualBadge}
-            />
-          </div>
-
-          <div className="mt-6 flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-white/85">
+          <div className="mt-8 flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-white/85">
             {hero.trialPoints.map((point) => (
               <span
                 key={point}

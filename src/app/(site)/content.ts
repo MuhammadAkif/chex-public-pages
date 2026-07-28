@@ -30,7 +30,6 @@ export const siteContent = {
         { label: "South Carolina", href: "/locations/south-carolina" },
       ],
     },
-    { label: "Pricing", href: "/pricing" },
     { label: "Blog", href: "/blogs" },
     { label: "Contact us", href: "/contact-us" },
   ],
@@ -42,6 +41,7 @@ export const siteContent = {
     menuItems: [
       { label: "Home", href: "/" },
       { label: "Inspection Form", href: "/inspection-form" },
+      { label: "Pricing", href: "/pricing" },
       { label: "Contact us", href: "/contact-us" },
       { label: "Blog", href: "/blogs" },
     ],
