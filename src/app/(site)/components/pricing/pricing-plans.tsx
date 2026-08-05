@@ -15,7 +15,7 @@ import {
   type PricingPillIcon,
   type PricingTier,
   type PricingTiersContent,
-} from "@/app/(site)/pricing/content";
+} from "@/app/(site)/dsp-fleet-pricing/content";
 
 const tierCtaClasses: Record<PricingTier["ctaVariant"], string> = {
   outline: "border border-[#d7e3f4] hover:border-[#1368b9]",
@@ -76,7 +76,7 @@ const PENDING_PLAN_KEY = "chex:pending-plan";
 // fetch the Stripe receipt after the user returns from checkout.
 const PENDING_TOKEN_KEY = "chex:pending-token";
 // Query flag the payment provider's success_url returns to, e.g.
-// `${origin}/pricing?payment=success&session_id=…`. Triggers the Thank You modal.
+// `${origin}/dsp-fleet-pricing?payment=success&session_id=…`. Triggers the Thank You modal.
 const PAYMENT_SUCCESS_FLAG = "payment";
 
 function PillIcon({ icon }: { icon: PricingPillIcon }) {
@@ -346,7 +346,7 @@ export function PricingPlans({ hero, plans }: PricingPlansProps) {
   // After the company is created: if Stripe checkout is required, stash the plan
   // and signup token (so the Thank You modal can restore details + fetch the
   // receipt after the user returns via the provider's success_url →
-  // `${origin}/pricing?payment=success`) and redirect to Stripe. Otherwise no
+  // `${origin}/dsp-fleet-pricing?payment=success`) and redirect to Stripe. Otherwise no
   // payment is needed — show the Thank You modal right away.
   function handleCreated(
     tier: PricingTier,

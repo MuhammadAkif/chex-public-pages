@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 
 import { PricingPage } from "@/app/(site)/components/pricing/pricing-page";
 import { getLandingPage } from "@/app/(site)/landing-page/payload";
-import { pricingContent } from "@/app/(site)/pricing/content";
+import { pricingContent } from "@/app/(site)/dsp-fleet-pricing/content";
 
 export const dynamic = "force-dynamic";
 

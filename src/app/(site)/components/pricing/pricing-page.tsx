@@ -4,7 +4,7 @@ import { LocationTestimonials } from "@/app/(site)/components/locations/location
 import { PricingComparison } from "@/app/(site)/components/pricing/pricing-comparison";
 import { PricingOverage } from "@/app/(site)/components/pricing/pricing-overage";
 import { PricingPlans } from "@/app/(site)/components/pricing/pricing-plans";
-import type { PricingContent } from "@/app/(site)/pricing/content";
+import type { PricingContent } from "@/app/(site)/dsp-fleet-pricing/content";
 
 type PricingPageProps = {
   content: PricingContent;

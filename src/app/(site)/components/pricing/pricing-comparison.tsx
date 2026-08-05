@@ -1,7 +1,7 @@
 import type {
   ComparisonCell,
   PricingComparisonContent,
-} from "@/app/(site)/pricing/content";
+} from "@/app/(site)/dsp-fleet-pricing/content";
 
 function CheckIcon() {
   return (

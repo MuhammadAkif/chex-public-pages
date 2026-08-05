@@ -2,7 +2,6 @@
 
 import { useEffect, useRef, useState } from "react";
 import type { ReactNode } from "react";
-import { IMaskInput } from "react-imask";
 
 export type CreateCompanyPlan = {
   name: string;
@@ -122,13 +121,21 @@ export function CreateCompanyModal({
     setSubmitting(true);
     setSubmitError(null);
 
-    // The UI shows a fixed ".com" suffix and a "+1" dial code.
+    // The UI shows a fixed ".com" suffix.
     const fullDomain = domain
       ? domain.endsWith(".com")
         ? domain
         : `${domain}.com`
       : "";
-    const digits = phone.replace(/\D/g, "");
+    // Accept any country's number: keep a leading "+" (country code) if the
+    // user typed one, then reduce the rest to digits.
+    const trimmedPhone = phone.trim();
+    const phoneDigits = trimmedPhone.replace(/\D/g, "");
+    const phoneValue = phoneDigits
+      ? trimmedPhone.startsWith("+")
+        ? `+${phoneDigits}`
+        : phoneDigits
+      : "";
 
     const body = {
       companyName,
@@ -136,7 +143,7 @@ export function CreateCompanyModal({
       name: firstName,
       lastName,
       username: email,
-      phone: digits ? `+1${digits}` : "",
+      phone: phoneValue,
       address: country,
       domain: fullDomain,
       url: uploadedKey ?? "",
@@ -486,20 +493,15 @@ export function CreateCompanyModal({
             </Field>
 
             <Field label="Phone Number" optional>
-              <div className="flex h-[52px] w-full items-center rounded-[10px] border border-[#e2e8f0] bg-[#f8fafc] transition focus-within:border-[#ff7a01]">
-                <span className="flex h-full items-center gap-1 whitespace-nowrap rounded-l-[10px] border-r border-[#e2e8f0] bg-white px-3 font-ui text-[13px] font-bold text-[#1b2f4b]">
-                  🇺🇸 +1
-                </span>
-                <IMaskInput
-                  mask="(000) 000-0000"
-                  type="tel"
-                  inputMode="tel"
-                  className="h-full min-w-0 flex-1 rounded-r-[10px] bg-transparent px-3 font-ui text-[14px] text-[#1b2f4b] placeholder:text-[#94a3b8] outline-none"
-                  placeholder="(555) 000-0000"
-                  value={phone}
-                  onAccept={(value: string) => setPhone(value)}
-                />
-              </div>
+              <input
+                type="tel"
+                inputMode="tel"
+                autoComplete="tel"
+                className={inputClass}
+                placeholder="+1 555 000 0000"
+                value={phone}
+                onChange={(e) => setPhone(e.target.value)}
+              />
             </Field>
             <Field label="Domain">
               <div className="relative">

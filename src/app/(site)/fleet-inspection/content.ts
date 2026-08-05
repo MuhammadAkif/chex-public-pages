@@ -95,7 +95,7 @@ export const pageContent: FleetPageContent = {
     ctaLabel: "Request a Demo",
     ctaHref: "/contact-us",
     detailsLabel: "View detailed pricing",
-    detailsHref: "/pricing",
+    detailsHref: "/dsp-fleet-pricing",
   },
   about: sharedAbout,
   techstarsLine: {

@@ -4,7 +4,7 @@ import type { Route } from "next";
 import type {
   OverageCard,
   PricingOverageContent,
-} from "@/app/(site)/pricing/content";
+} from "@/app/(site)/dsp-fleet-pricing/content";
 
 const cardTone: Record<OverageCard["tone"], string> = {
   light:
