@@ -12,5 +12,13 @@ export async function generateMetadata(): Promise<Metadata> {
 
 export default async function ServicePage() {
   const { content } = await getHomePage()
-  return <HomePage content={content} />
+  return (
+    <HomePage
+      content={content}
+      benefitsCtaLink={{
+        label: 'View Rideshare Inspection Pricing',
+        href: '/rideshare-pricing',
+      }}
+    />
+  )
 }

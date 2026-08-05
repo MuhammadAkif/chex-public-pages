@@ -85,7 +85,7 @@ export function PricingOverage({
           </p>
         </div>
 
-        <div className="mx-auto mt-14 grid max-w-[760px] items-stretch gap-6 md:grid-cols-2">
+        <div className="mt-14 grid items-stretch gap-6 md:grid-cols-3">
           {cards.map((card) => (
             <Card key={card.badge} card={card} />
           ))}

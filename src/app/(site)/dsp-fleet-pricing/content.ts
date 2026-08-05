@@ -45,8 +45,15 @@ export type PricingTiersContent = {
 
 /** A comparison cell is either a check (true) / cross (false) or free text. */
 export type ComparisonCell = boolean | string;
-export type ComparisonColumn = { name: string; price: string; highlight?: boolean };
-export type ComparisonRow = { label: string; values: ReadonlyArray<ComparisonCell> };
+export type ComparisonColumn = {
+  name: string;
+  price: string;
+  highlight?: boolean;
+};
+export type ComparisonRow = {
+  label: string;
+  values: ReadonlyArray<ComparisonCell>;
+};
 
 export type PricingComparisonContent = {
   eyebrow: string;
@@ -104,7 +111,7 @@ export const pricingContent: PricingContent = {
     eyebrow: "Transparent Pricing",
     title: [
       { text: "Pricing that scales with your " },
-      { text: "DSP & Fleet", accent: true },
+      { text: "DSP & Commercial Fleet", accent: true },
     ],
     subtitle:
       "From individual vehicles to enterprise fleets — choose a plan that fits your inspection volume. No hidden fees, ever.",
@@ -127,12 +134,7 @@ export const pricingContent: PricingContent = {
         name: "Free",
         monthlyPrice: 0,
         includedLabel: "25 inspections/month",
-        features: [
-          "Mobile inspections",
-          "Basic reporting",
-          "Driver management",
-          "Limited AI detection",
-        ],
+        features: ["Mobile inspections", "Basic reporting"],
         ctaLabel: "Get Started Free",
         ctaHref: "#signup",
         ctaVariant: "outline",
@@ -144,9 +146,8 @@ export const pricingContent: PricingContent = {
         monthlyPrice: 99,
         includedLabel: "250 inspections included",
         features: [
-          "AI damage detection",
-          "Driver scoring",
-          "Custom checklists",
+          "Limited AI detection",
+          "Mobile inspections",
           "Alerts & analytics",
         ],
         ctaLabel: "Choose Starter",
@@ -161,13 +162,32 @@ export const pricingContent: PricingContent = {
         includedLabel: "1,500 inspections included",
         recommended: true,
         features: [
-          "API integrations",
-          "White labeling",
-          "SSO authentication",
-          "Dedicated support",
+          "AI detection",
+          "Mobile inspections",
+          "Alerts & analytics",
+          "Driver scoring",
         ],
         ctaLabel: "Choose Growth →",
         ctaHref: "#signup",
+        ctaVariant: "accent",
+      },
+      {
+        id: "enterprise",
+        badge: "ENTERPRISE",
+        name: "Enterprise",
+        monthlyPrice: null,
+        customLabel: "Custom",
+        customSubLabel: "Tailored to your needs",
+        includedLabel: "High-volume + integrations",
+        features: [
+          "Mobile inspections",
+          "Advanced reporting",
+          "AI detection",
+          "Alerts & analytics",
+          "Driver scoring",
+        ],
+        ctaLabel: "Contact Sales",
+        ctaHref: "/contact-us",
         ctaVariant: "accent",
       },
     ],
@@ -183,15 +203,15 @@ export const pricingContent: PricingContent = {
       { name: "Free", price: "$0/mo" },
       { name: "Starter", price: "$99/mo" },
       { name: "Growth", price: "$399/mo", highlight: true },
+      { name: "Enterprise", price: "Custom" },
     ],
     rows: [
-      { label: "Inspections/month", values: ["25", "250", "1,500"] },
-      { label: "Mobile inspections", values: [true, true, true] },
-      { label: "AI damage detection", values: ["Limited", false, true] },
-      { label: "Dashboard analytics", values: [false, true, true] },
-      { label: "Custom checklists", values: [false, true, true] },
-      { label: "Driver scoring", values: [false, false, true] },
-      { label: "API integrations", values: [false, false, false] },
+      { label: "Inspections/month", values: ["25", "250", "1,500", "Unlimited"] },
+      { label: "Mobile inspections", values: [true, true, true, true] },
+      { label: "Reporting", values: ["Basic", "Basic", "Advanced", "Advanced"] },
+      { label: "AI detection", values: [false, "Limited", true, true] },
+      { label: "Alerts & analytics", values: [false, true, true, true] },
+      { label: "Driver scoring", values: [false, false, true, true] },
     ],
   },
 
@@ -217,6 +237,15 @@ export const pricingContent: PricingContent = {
         note: "Flat rate at higher volume",
         tone: "accent",
       },
+      {
+        badge: "ENTERPRISE",
+        range: "10,000+ inspections",
+        price: "Custom",
+        note: "Maximum savings on bulk volume",
+        ctaLabel: "Talk to sales →",
+        ctaHref: "/contact-us",
+        tone: "dark",
+      },
     ],
   },
 
@@ -226,18 +255,90 @@ export const pricingContent: PricingContent = {
       "Drivers, fleets and rental operators trust Chex.AI to certify their vehicles faster — here is what they have to say.",
     label: "Customer testimonials",
     items: [
-      { name: "Mark Melancon", quote: "The support team helped me when Uber was not accepting my inspection. Resolved it quickly and professionally.", stars: 5, avatar: "https://i.pravatar.cc/100?img=11" },
-      { name: "Kelsey Proofreads", quote: "Process was simple, quick, and informative. They make sure you have an explanation and an example photo/video for what they're looking for. I got my results about 20 minutes after completing my inspection.", stars: 5, avatar: "https://i.pravatar.cc/100?img=5" },
-      { name: "Mary Lugo", quote: "Quick and easy to use. The interface made everything straightforward from start to finish.", stars: 5, avatar: "https://i.pravatar.cc/100?img=9" },
-      { name: "Mubarak Behi", quote: "Quick and efficient! Great price and easy to upload all photos and videos required. Will definitely recommend and use it next year!", stars: 5, avatar: "https://i.pravatar.cc/100?img=15" },
-      { name: "Angela Bishop", quote: "Chex.ai was really easy to use, better than going to the mechanic!", stars: 5, avatar: "https://i.pravatar.cc/100?img=23" },
-      { name: "Ali Alshammari", quote: "Rideshare for five years now and I have tried other services — this is by far the best! Easiest to complete and lowest price I've seen out there.", stars: 5, avatar: "https://i.pravatar.cc/100?img=33" },
-      { name: "Hovannss Kupelyan", quote: "Positive value. Got my inspection done in under 10 minutes. Highly recommend to any rideshare driver.", stars: 5, avatar: "https://i.pravatar.cc/100?img=52" },
-      { name: "Slamnjamin Dio", quote: "Excellent customer service! They walked me through every step and made sure I was fully certified before the end of the day.", stars: 5, avatar: "https://i.pravatar.cc/100?img=60" },
-      { name: "Mousa Naseer", quote: "The app was easy to follow, the pictures showing what was required made it simple. Upload was fast and they had the inspection back within a half hour. Well worth the money.", stars: 5, avatar: "https://i.pravatar.cc/100?img=67" },
-      { name: "Andressa Amorim", quote: "Chex.ai was really easy to use, better than going to the mechanic!", stars: 5, avatar: "https://i.pravatar.cc/100?img=44" },
-      { name: "James Tillman", quote: "It beats scheduling an appointment with a mechanic. A handful of snapshots and a few minutes of your time and you're done.", stars: 5, avatar: "https://i.pravatar.cc/100?img=70" },
-      { name: "Sofia Reyes", quote: "I've been using Chex.AI for two years straight. Every renewal is just as smooth as the first time.", stars: 5, avatar: "https://i.pravatar.cc/100?img=47" },
+      {
+        name: "Mark Melancon",
+        quote:
+          "The support team helped me when Uber was not accepting my inspection. Resolved it quickly and professionally.",
+        stars: 5,
+        avatar: "https://i.pravatar.cc/100?img=11",
+      },
+      {
+        name: "Kelsey Proofreads",
+        quote:
+          "Process was simple, quick, and informative. They make sure you have an explanation and an example photo/video for what they're looking for. I got my results about 20 minutes after completing my inspection.",
+        stars: 5,
+        avatar: "https://i.pravatar.cc/100?img=5",
+      },
+      {
+        name: "Mary Lugo",
+        quote:
+          "Quick and easy to use. The interface made everything straightforward from start to finish.",
+        stars: 5,
+        avatar: "https://i.pravatar.cc/100?img=9",
+      },
+      {
+        name: "Mubarak Behi",
+        quote:
+          "Quick and efficient! Great price and easy to upload all photos and videos required. Will definitely recommend and use it next year!",
+        stars: 5,
+        avatar: "https://i.pravatar.cc/100?img=15",
+      },
+      {
+        name: "Angela Bishop",
+        quote:
+          "Chex.ai was really easy to use, better than going to the mechanic!",
+        stars: 5,
+        avatar: "https://i.pravatar.cc/100?img=23",
+      },
+      {
+        name: "Ali Alshammari",
+        quote:
+          "Rideshare for five years now and I have tried other services — this is by far the best! Easiest to complete and lowest price I've seen out there.",
+        stars: 5,
+        avatar: "https://i.pravatar.cc/100?img=33",
+      },
+      {
+        name: "Hovannss Kupelyan",
+        quote:
+          "Positive value. Got my inspection done in under 10 minutes. Highly recommend to any rideshare driver.",
+        stars: 5,
+        avatar: "https://i.pravatar.cc/100?img=52",
+      },
+      {
+        name: "Slamnjamin Dio",
+        quote:
+          "Excellent customer service! They walked me through every step and made sure I was fully certified before the end of the day.",
+        stars: 5,
+        avatar: "https://i.pravatar.cc/100?img=60",
+      },
+      {
+        name: "Mousa Naseer",
+        quote:
+          "The app was easy to follow, the pictures showing what was required made it simple. Upload was fast and they had the inspection back within a half hour. Well worth the money.",
+        stars: 5,
+        avatar: "https://i.pravatar.cc/100?img=67",
+      },
+      {
+        name: "Andressa Amorim",
+        quote:
+          "Chex.ai was really easy to use, better than going to the mechanic!",
+        stars: 5,
+        avatar: "https://i.pravatar.cc/100?img=44",
+      },
+      {
+        name: "James Tillman",
+        quote:
+          "It beats scheduling an appointment with a mechanic. A handful of snapshots and a few minutes of your time and you're done.",
+        stars: 5,
+        avatar: "https://i.pravatar.cc/100?img=70",
+      },
+      {
+        name: "Sofia Reyes",
+        quote:
+          "I've been using Chex.AI for two years straight. Every renewal is just as smooth as the first time.",
+        stars: 5,
+        avatar: "https://i.pravatar.cc/100?img=47",
+      },
     ],
   },
 

@@ -13,9 +13,11 @@ import { Reveal } from "../shared/reveal";
 
 type HomePageProps = {
   content: HomePageContent;
+  /** Optional CTA link rendered under the "Benefits we propose" section. */
+  benefitsCtaLink?: { label: string; href: string };
 };
 
-export function HomePage({ content }: HomePageProps) {
+export function HomePage({ content, benefitsCtaLink }: HomePageProps) {
   return (
     <div
       id="top"
@@ -57,6 +59,7 @@ export function HomePage({ content }: HomePageProps) {
           <HomeBenefits
             title={content.benefits.title}
             items={content.benefits.items}
+            ctaLink={benefitsCtaLink}
           />
         </Reveal>
 

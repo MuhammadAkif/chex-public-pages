@@ -1,6 +1,5 @@
 import { Reveal } from "@/app/(site)/components/shared/reveal";
 import { LocationFaq } from "@/app/(site)/components/locations/location-faq";
-import { LocationTestimonials } from "@/app/(site)/components/locations/location-testimonials";
 import { PricingComparison } from "@/app/(site)/components/pricing/pricing-comparison";
 import { PricingOverage } from "@/app/(site)/components/pricing/pricing-overage";
 import { PricingPlans } from "@/app/(site)/components/pricing/pricing-plans";
@@ -21,10 +20,6 @@ export function PricingPage({ content }: PricingPageProps) {
 
       <Reveal>
         <PricingOverage {...content.overage} />
-      </Reveal>
-
-      <Reveal>
-        <LocationTestimonials {...content.testimonials} />
       </Reveal>
 
       <Reveal>

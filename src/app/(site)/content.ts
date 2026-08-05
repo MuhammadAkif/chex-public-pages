@@ -37,7 +37,7 @@ export const siteContent = {
       href: "/dsp-fleet-pricing",
       children: [
         { label: "Rideshare Pricing", href: "/rideshare-pricing" },
-        { label: "DSP Fleet Pricing", href: "/dsp-fleet-pricing" },
+        { label: "Commercial Fleet pricing", href: "/dsp-fleet-pricing" },
       ],
     },
     { label: "Blog", href: "/blogs" },
@@ -52,7 +52,7 @@ export const siteContent = {
       { label: "Home", href: "/" },
       { label: "Inspection Form", href: "/inspection-form" },
       { label: "Rideshare Pricing", href: "/rideshare-pricing" },
-      { label: "DSP Fleet Pricing", href: "/dsp-fleet-pricing" },
+      { label: "Commercial Fleet pricing", href: "/dsp-fleet-pricing" },
       { label: "Contact us", href: "/contact-us" },
       { label: "Blog", href: "/blogs" },
     ],

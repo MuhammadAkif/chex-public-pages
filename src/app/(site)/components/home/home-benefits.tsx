@@ -1,5 +1,8 @@
 'use client'
 
+import Link from 'next/link'
+import type { Route } from 'next'
+
 import { SurfaceCard } from '@/app/(site)/components/ui/surface-card'
 
 type HomeBenefitsProps = {
@@ -10,6 +13,8 @@ type HomeBenefitsProps = {
     tone: string
     icon: string
   }>
+  /** Optional CTA link rendered below the grid (e.g. link to the pricing page). */
+  ctaLink?: { label: string; href: string }
 }
 
 function BenefitIcon({ icon, inverted }: { icon: string; inverted: boolean }) {
@@ -63,7 +68,7 @@ function BenefitIcon({ icon, inverted }: { icon: string; inverted: boolean }) {
   )
 }
 
-export function HomeBenefits({ title, items }: HomeBenefitsProps) {
+export function HomeBenefits({ title, items, ctaLink }: HomeBenefitsProps) {
   return (
     <section className="px-4 py-20 sm:px-6 lg:px-10 lg:py-24">
       <div className="mx-auto max-w-[1240px]">
@@ -110,6 +115,30 @@ export function HomeBenefits({ title, items }: HomeBenefitsProps) {
             )
           })}
         </div>
+
+        {ctaLink ? (
+          <div className="mt-12 flex justify-center">
+            <Link
+              href={ctaLink.href as Route}
+              className="type-button inline-flex min-h-[52px] items-center justify-center gap-2 rounded-[14px] bg-[#1368b9] px-7 text-white shadow-[0_20px_50px_-24px_rgba(19,104,185,0.85)] transition hover:brightness-105"
+              style={{ color: '#ffffff' }}
+            >
+              {ctaLink.label}
+              <svg
+                className="h-4 w-4"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2.2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                aria-hidden="true"
+              >
+                <path d="M5 12h14M13 6l6 6-6 6" />
+              </svg>
+            </Link>
+          </div>
+        ) : null}
       </div>
     </section>
   )

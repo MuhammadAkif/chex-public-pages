@@ -32,10 +32,13 @@ export function GlobalStickyCta({ showAfter = 640 }: GlobalStickyCtaProps) {
     return () => window.removeEventListener("scroll", onScroll);
   }, [showAfter]);
 
-  // Pages that render their own sticky CTA — skip here to avoid a double bar.
-  const hasOwnStickyBar =
-    pathname === "/inspection-form" || pathname.startsWith("/blogs/");
-  if (hasOwnStickyBar) return null;
+  // Pages that opt out of the global sticky bar — either they ship their own
+  // (inspection-form, blog detail) or don't want it (dsp-fleet-pricing).
+  const hideStickyBar =
+    pathname === "/inspection-form" ||
+    pathname === "/dsp-fleet-pricing" ||
+    pathname.startsWith("/blogs/");
+  if (hideStickyBar) return null;
 
   return (
     <div
