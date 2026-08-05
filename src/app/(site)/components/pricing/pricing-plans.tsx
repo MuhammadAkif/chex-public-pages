@@ -12,7 +12,6 @@ import {
 } from "@/app/(site)/components/pricing/thank-you-modal";
 import {
   type PricingHeroContent,
-  type PricingPillIcon,
   type PricingTier,
   type PricingTiersContent,
 } from "@/app/(site)/dsp-fleet-pricing/content";
@@ -79,82 +78,6 @@ const PENDING_TOKEN_KEY = "chex:pending-token";
 // `${origin}/dsp-fleet-pricing?payment=success&session_id=…`. Triggers the Thank You modal.
 const PAYMENT_SUCCESS_FLAG = "payment";
 
-function PillIcon({ icon }: { icon: PricingPillIcon }) {
-  switch (icon) {
-    case "star":
-      return (
-        <svg
-          className="h-4 w-4 shrink-0"
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          strokeWidth="1.8"
-          strokeLinejoin="round"
-          aria-hidden="true"
-        >
-          <path d="M12 3.5 14.6 9l6 .6-4.5 4 1.3 5.9L12 16.6 6.6 19.5 7.9 13.6l-4.5-4 6-.6L12 3.5Z" />
-        </svg>
-      );
-    case "car":
-      return (
-        <svg
-          className="h-4 w-4 shrink-0"
-          viewBox="0 0 24 24"
-          fill="currentColor"
-          aria-hidden="true"
-        >
-          <path d="M5 11.2 6.4 7A2.2 2.2 0 0 1 8.5 5.5h7A2.2 2.2 0 0 1 17.6 7L19 11.2l.9.8a1.6 1.6 0 0 1 .6 1.2V17a1 1 0 0 1-1 1h-1a1 1 0 0 1-1-1v-.7H6.5V17a1 1 0 0 1-1 1h-1a1 1 0 0 1-1-1v-3.8c0-.46.2-.9.6-1.2l.9-.8Zm2.3-1.2h9.4l-1-3.1a.6.6 0 0 0-.6-.4H8.9a.6.6 0 0 0-.6.4l-1 3.1ZM7 13a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3Zm10 0a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3Z" />
-        </svg>
-      );
-    case "globe":
-      return (
-        <svg
-          className="h-4 w-4 shrink-0"
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          strokeWidth="1.7"
-          aria-hidden="true"
-        >
-          <circle cx="12" cy="12" r="9" />
-          <path d="M3 12h18M12 3c2.6 2.7 2.6 15.3 0 18M12 3c-2.6 2.7-2.6 15.3 0 18" />
-        </svg>
-      );
-    case "check":
-    default:
-      return (
-        <svg
-          className="h-4 w-4 shrink-0"
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          strokeWidth="2.4"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-          aria-hidden="true"
-        >
-          <path d="m4 12.5 5 5 11-11" />
-        </svg>
-      );
-  }
-}
-
-function TrialCheck() {
-  return (
-    <svg
-      className="h-4 w-4 shrink-0 text-[#ff7a01]"
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="2.4"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-      aria-hidden="true"
-    >
-      <path d="m5 12.5 5 5 9-11" />
-    </svg>
-  );
-}
 
 function TierCard({
   tier,
@@ -402,32 +325,6 @@ export function PricingPlans({ hero, plans }: PricingPlansProps) {
           <p className="type-body-lg mt-6 max-w-2xl text-white/85">
             {hero.subtitle}
           </p>
-
-          <div className="mt-8 flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-white/85">
-            {hero.trialPoints.map((point) => (
-              <span
-                key={point}
-                className="inline-flex items-center gap-2 font-ui text-[14px]"
-              >
-                <TrialCheck />
-                {point}
-              </span>
-            ))}
-          </div>
-
-          <div className="mt-10 flex flex-wrap items-center justify-center gap-3">
-            {hero.trustPills.map((pill) => (
-              <span
-                key={pill.label}
-                className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/10 px-4 py-2 font-ui text-[14px] text-white/90"
-              >
-                <span className="text-[#ffb066]">
-                  <PillIcon icon={pill.icon} />
-                </span>
-                {pill.label}
-              </span>
-            ))}
-          </div>
         </div>
       </section>
 

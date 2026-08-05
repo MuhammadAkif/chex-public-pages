@@ -111,17 +111,8 @@ export const pricingContent: PricingContent = {
     monthlyLabel: "Monthly",
     annualLabel: "Annual",
     annualBadge: "-20%",
-    trialPoints: [
-      "14-day free trial",
-      "No credit card required",
-      "Cancel anytime",
-    ],
-    trustPills: [
-      { icon: "star", label: "4.8 · 1667+ reviews" },
-      { icon: "car", label: "50K+ inspections" },
-      { icon: "globe", label: "All 50 states" },
-      { icon: "check", label: "Uber · Lyft · Turo certified" },
-    ],
+    trialPoints: [],
+    trustPills: [],
   },
 
   plans: {
