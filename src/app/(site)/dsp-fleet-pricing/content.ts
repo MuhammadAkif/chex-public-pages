@@ -65,7 +65,7 @@ export type OverageCard = {
   note: string;
   ctaLabel?: string;
   ctaHref?: string;
-  tone: "light" | "accent" | "dark";
+  tone: "light" | "accent" | "dark" | "blue";
 };
 
 export type PricingOverageContent = {
@@ -103,9 +103,8 @@ export const pricingContent: PricingContent = {
   hero: {
     eyebrow: "Transparent Pricing",
     title: [
-      { text: "Pricing", accent: true },
-      { text: " that scales with " },
-      { text: "your fleet", accent: true },
+      { text: "Pricing that scales with your " },
+      { text: "DSP & Fleet", accent: true },
     ],
     subtitle:
       "From individual vehicles to enterprise fleets — choose a plan that fits your inspection volume. No hidden fees, ever.",
@@ -126,9 +125,10 @@ export const pricingContent: PricingContent = {
   },
 
   plans: {
-    eyebrow: "Commercial fleet plans",
-    title: "Commercial Fleet Pricing Tiers",
-    description: "Pay for the inspections you need. Upgrade as you grow.",
+    eyebrow: "DSP & Fleet Subscription Plans",
+    title: "Simple, scalable pricing for every DSP & Fleet",
+    description:
+      "Pay only for the inspections you need. Upgrade anytime as your DSP or fleet expands and inspection volume increases.",
     tiers: [
       {
         id: "free",
@@ -179,55 +179,36 @@ export const pricingContent: PricingContent = {
         ctaHref: "#signup",
         ctaVariant: "accent",
       },
-      {
-        id: "enterprise",
-        badge: "ENTERPRISE",
-        name: "Enterprise",
-        monthlyPrice: null,
-        customLabel: "Custom",
-        customSubLabel: "Tailored to your needs",
-        includedLabel: "High-volume + integrations",
-        features: [
-          "API integrations",
-          "White labeling",
-          "SSO authentication",
-          "Dedicated support",
-        ],
-        ctaLabel: "Contact Sales",
-        ctaHref: "/contact-us",
-        ctaVariant: "accent",
-      },
     ],
   },
 
   comparison: {
     eyebrow: "Feature Breakdown",
-    title: "Compare Features Side-By-Side",
+    title: "See What Each DSP & Fleet Plan Offers",
     description:
-      "Everything you need to make the right choice for your fleet.",
+      "Compare inspection limits, AI detection capabilities, and dashboard access to find the plan that fits your DSP & fleet workflow.",
     featureColumnLabel: "Features",
     columns: [
       { name: "Free", price: "$0/mo" },
       { name: "Starter", price: "$99/mo" },
       { name: "Growth", price: "$399/mo", highlight: true },
-      { name: "Enterprise", price: "Custom" },
     ],
     rows: [
-      { label: "Inspections/month", values: ["25", "250", "1,500", "Unlimited"] },
-      { label: "Mobile inspections", values: [true, true, true, true] },
-      { label: "AI damage detection", values: ["Limited", false, true, true] },
-      { label: "Dashboard analytics", values: [false, true, true, true] },
-      { label: "Custom checklists", values: [false, true, true, true] },
-      { label: "Driver scoring", values: [false, false, true, true] },
-      { label: "API integrations", values: [false, false, false, true] },
+      { label: "Inspections/month", values: ["25", "250", "1,500"] },
+      { label: "Mobile inspections", values: [true, true, true] },
+      { label: "AI damage detection", values: ["Limited", false, true] },
+      { label: "Dashboard analytics", values: [false, true, true] },
+      { label: "Custom checklists", values: [false, true, true] },
+      { label: "Driver scoring", values: [false, false, true] },
+      { label: "API integrations", values: [false, false, false] },
     ],
   },
 
   overage: {
     eyebrow: "Overage Pricing",
-    title: "Need More Inspections?",
+    title: "Need More DSP & Fleet Inspections?",
     description:
-      "Predictable per-inspection pricing — the more you do, the less you pay.",
+      "Predictable per‑inspection pricing that rewards scale — the more your DSP or fleet inspects, the less you pay.",
     cards: [
       {
         badge: "SMALL",
@@ -235,7 +216,7 @@ export const pricingContent: PricingContent = {
         price: "$0.50",
         priceSuffix: "per inspection",
         note: "Above your plan's included limit",
-        tone: "light",
+        tone: "blue",
       },
       {
         badge: "⭐ MEDIUM",
@@ -244,15 +225,6 @@ export const pricingContent: PricingContent = {
         priceSuffix: "per inspection",
         note: "Flat rate at higher volume",
         tone: "accent",
-      },
-      {
-        badge: "ENTERPRISE",
-        range: "10,000+ inspections",
-        price: "Custom",
-        note: "Maximum savings on bulk volume",
-        ctaLabel: "Talk to sales →",
-        ctaHref: "/contact-us",
-        tone: "dark",
       },
     ],
   },

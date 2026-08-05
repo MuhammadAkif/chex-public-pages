@@ -205,6 +205,10 @@ export function CreateCompanyModal({
         companyId: String(companyId),
         billingMode: signup.billing?.billingMode ?? "subscription",
         planKey: signup.billing?.planKey ?? planKey,
+        // Origin of the current site so the backend can build Stripe's
+        // success_url dynamically (localhost in dev, real domain in prod)
+        // instead of hardcoding the base link.
+        origin: window.location.origin,
       }),
     });
     if (!res.ok) throw new Error(`checkout ${res.status}`);
