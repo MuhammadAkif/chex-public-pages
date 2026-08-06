@@ -4021,10 +4021,12 @@ __metadata:
     react-dom: "npm:19.2.5"
     react-google-recaptcha: "npm:^2.1.0"
     react-imask: "npm:^7.6.1"
+    react-phone-number-input: "npm:^3.4.17"
     sass: "npm:1.93.2"
     tailwindcss: "npm:4.1.16"
     typescript: "npm:5.9.3"
     typescript-eslint: "npm:^8.59.0"
+    zod: "npm:^4.4.3"
   languageName: unknown
   linkType: soft
 
@@ -4067,6 +4069,13 @@ __metadata:
   version: 4.4.0
   resolution: "ci-info@npm:4.4.0"
   checksum: 10c0/44156201545b8dde01aa8a09ee2fe9fc7a73b1bef9adbd4606c9f61c8caeeb73fb7a575c88b0443f7b4edb5ee45debaa59ed54ba5f99698339393ca01349eb3a
+  languageName: node
+  linkType: hard
+
+"classnames@npm:^2.5.1":
+  version: 2.5.1
+  resolution: "classnames@npm:2.5.1"
+  checksum: 10c0/afff4f77e62cea2d79c39962980bf316bacb0d7c49e13a21adaadb9221e1c6b9d3cdb829d8bb1b23c406f4e740507f37e1dcf506f7e3b7113d17c5bab787aa69
   languageName: node
   linkType: hard
 
@@ -4161,6 +4170,13 @@ __metadata:
     path-type: "npm:^4.0.0"
     yaml: "npm:^1.10.0"
   checksum: 10c0/b923ff6af581638128e5f074a5450ba12c0300b71302398ea38dbeabd33bbcaa0245ca9adbedfcf284a07da50f99ede5658c80bb3e39e2ce770a99d28a21ef03
+  languageName: node
+  linkType: hard
+
+"country-flag-icons@npm:^1.6.14":
+  version: 1.6.20
+  resolution: "country-flag-icons@npm:1.6.20"
+  checksum: 10c0/e270cbf3f31d8f57a7f6da56c15733897f4dcc9c7fd50f88c7d295d16cb9fd97dcae96c054b2d840916bec3f27472335201938dc569961d935da4c4d341f9d32
   languageName: node
   linkType: hard
 
@@ -5988,6 +6004,23 @@ __metadata:
   languageName: node
   linkType: hard
 
+"input-format@npm:^0.3.14":
+  version: 0.3.14
+  resolution: "input-format@npm:0.3.14"
+  dependencies:
+    prop-types: "npm:^15.8.1"
+  peerDependencies:
+    react: ">=18.1.0"
+    react-dom: ">=18.1.0"
+  peerDependenciesMeta:
+    react:
+      optional: true
+    react-dom:
+      optional: true
+  checksum: 10c0/37bb23e0dd15223b2ac8a25b09bc26e4d613cbd93c040dcdb490a1661dd0782c2742ad819b9dbd4b154a9e09ce1a69046a78e4ee943171b7ec86b07b50324ad6
+  languageName: node
+  linkType: hard
+
 "internal-slot@npm:^1.1.0":
   version: 1.1.0
   resolution: "internal-slot@npm:1.1.0"
@@ -6535,6 +6568,13 @@ __metadata:
   version: 0.41.0
   resolution: "lexical@npm:0.41.0"
   checksum: 10c0/38cd5b9f776a12769679d4dfdef9ccb1925b01a3607fbd65c2c8b036c443293c229297045bfb5ef25f357b3a7e3c2a55ceaaaadb4e686772fb2f7e2b29eca7ce
+  languageName: node
+  linkType: hard
+
+"libphonenumber-js@npm:^1.13.4":
+  version: 1.13.10
+  resolution: "libphonenumber-js@npm:1.13.10"
+  checksum: 10c0/52f41019234baca302f2b378d2930de208801ab62b2198fd9d7918085549e0ce8645c42ce3a2dc57775845a8548ca3d20f7ccc2cc923a51f2c073898cc6432e6
   languageName: node
   linkType: hard
 
@@ -8084,6 +8124,22 @@ __metadata:
   languageName: node
   linkType: hard
 
+"react-phone-number-input@npm:^3.4.17":
+  version: 3.4.17
+  resolution: "react-phone-number-input@npm:3.4.17"
+  dependencies:
+    classnames: "npm:^2.5.1"
+    country-flag-icons: "npm:^1.6.14"
+    input-format: "npm:^0.3.14"
+    libphonenumber-js: "npm:^1.13.4"
+    prop-types: "npm:^15.8.1"
+  peerDependencies:
+    react: ">=16.8"
+    react-dom: ">=16.8"
+  checksum: 10c0/cbe1bea41a96e744d62763c8c22e5b171deae14e00693db0a0d7d96637c43883037a428f69d7d653eb0671b34145362a608dd2acc01c0668588d10446f3c003d
+  languageName: node
+  linkType: hard
+
 "react-select@npm:5.9.0":
   version: 5.9.0
   resolution: "react-select@npm:5.9.0"
@@ -9609,7 +9665,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"zod@npm:^3.25.0 || ^4.0.0":
+"zod@npm:^3.25.0 || ^4.0.0, zod@npm:^4.4.3":
   version: 4.4.3
   resolution: "zod@npm:4.4.3"
   checksum: 10c0/7ea31b558e88f9faf44f31dd185e2e1cbf51fed3081787fb96cc2534749b50c0acfc6da7f0922a7353ed092dd358c7d50c28ea96c94d04af64191bd33152eca3

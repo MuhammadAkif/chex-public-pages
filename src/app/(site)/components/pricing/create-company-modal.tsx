@@ -2,6 +2,11 @@
 
 import { useEffect, useRef, useState } from "react";
 import type { ReactNode } from "react";
+import { z } from "zod";
+import PhoneInput, { isValidPhoneNumber } from "react-phone-number-input";
+import "react-phone-number-input/style.css";
+
+import { COUNTRIES } from "@/app/(site)/components/pricing/countries";
 
 export type CreateCompanyPlan = {
   name: string;
@@ -14,7 +19,6 @@ type CreateCompanyModalProps = {
   /** Plan identifier sent to the billing API, e.g. "starter". */
   planKey: string;
   onClose: () => void;
-  onChange?: () => void;
   /**
    * Called after the company is created successfully. When Stripe checkout is
    * required, receives the checkout URL plus the signup token (needed later to
@@ -33,6 +37,10 @@ const FILE_UPLOAD_PATH = "/api/v1/file/upload";
 
 // Fixed template sent with every signup (the template picker was removed).
 const TEMPLATE_ID = 1;
+
+// Company-logo upload limits (must match the copy under the upload button).
+const MAX_IMAGE_BYTES = 5 * 1024 * 1024; // 5MB
+const ACCEPTED_IMAGE_TYPES = ["image/png", "image/jpeg"];
 
 type SignupResponse = {
   data?: { token?: string; company?: { id?: number } };
@@ -70,13 +78,99 @@ async function readErrorMessage(res: Response): Promise<string> {
   return GENERIC_ERROR;
 }
 
+// ─── Validation ───────────────────────────────────────────────────────────
+// Zod is the single source of truth for field-level validation. Every string
+// is trimmed, then bounded by a min/max, so both empty and overlong values are
+// rejected with a specific message.
+
+const nameField = (label: string) =>
+  z
+    .string()
+    .trim()
+    .min(2, `${label} must be at least 2 characters.`)
+    .max(50, `${label} must be at most 50 characters.`)
+    .regex(/^\D+$/, `${label} cannot contain numbers.`);
+
+const formSchema = z.object({
+  firstName: nameField("First name"),
+  lastName: nameField("Last name"),
+  companyName: z
+    .string()
+    .trim()
+    .min(2, "Company name must be at least 2 characters.")
+    .max(50, "Company name must be at most 50 characters."),
+  email: z
+    .string()
+    .trim()
+    .min(1, "Email is required.")
+    .max(50, "Email must be at most 50 characters.")
+    .pipe(z.email("Enter a valid email address.")),
+  // Optional, but if provided must be valid for its country. The PhoneInput
+  // stores an E.164 value (e.g. "+15551234567"); libphonenumber checks the
+  // number against that country's rules (length, prefix, etc.).
+  phone: z
+    .string()
+    .trim()
+    .refine((v) => v === "" || isValidPhoneNumber(v), "Enter a valid phone number."),
+  domain: z
+    .string()
+    .trim()
+    .min(2, "Domain must be at least 2 characters.")
+    .max(50, "Domain must be at most 50 characters.")
+    // Alphanumeric labels joined by single dots/hyphens; no leading/trailing or
+    // doubled separators, no spaces. The ".com" suffix is added on submit.
+    .regex(
+      /^[a-zA-Z0-9]+([-.][a-zA-Z0-9]+)*$/,
+      "Enter a valid domain (letters, numbers, and hyphens only).",
+    ),
+  country: z
+    .string()
+    .trim()
+    .refine(
+      (v) => (COUNTRIES as readonly string[]).includes(v),
+      "Please select your country.",
+    ),
+});
+
+type FieldKey = keyof z.infer<typeof formSchema>;
+type FieldErrors = Partial<Record<FieldKey, string>>;
+
+// Validate a single field against its slice of the schema; returns the first
+// error message, or undefined when valid.
+function validateField(key: FieldKey, value: string): string | undefined {
+  const schema = formSchema.shape[key] as z.ZodType<unknown>;
+  const result = schema.safeParse(value);
+  return result.success ? undefined : result.error.issues[0]?.message;
+}
+
+// Plain globe used as the phone field's country icon, replacing the library's
+// default "international" icon (a telephone + globe, which reads as two icons).
+function GlobeIcon({ title }: { title?: string }) {
+  return (
+    <svg
+      viewBox="0 0 24 24"
+      className="h-5 w-5 text-[#64748b]"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="1.7"
+      role="img"
+      aria-label={title}
+    >
+      <circle cx="12" cy="12" r="9" />
+      <path d="M3 12h18M12 3c2.6 2.7 2.6 15.3 0 18M12 3c-2.6 2.7-2.6 15.3 0 18" />
+    </svg>
+  );
+}
+
 function Field({
   label,
   optional,
+  error,
   children,
 }: {
   label: string;
   optional?: boolean;
+  error?: string;
   children: ReactNode;
 }) {
   return (
@@ -86,15 +180,25 @@ function Field({
         {optional ? null : <span className="text-[#ff7a01]">*</span>}
       </label>
       <div className="mt-2">{children}</div>
+      {error ? (
+        <p className="mt-1.5 font-ui text-[12px] font-semibold text-[#e5564b]">
+          {error}
+        </p>
+      ) : null}
     </div>
   );
+}
+
+const errorRing = "border-[#e5564b] focus:border-[#e5564b]";
+// Input className with an error ring when the field has a message.
+function inputCls(error?: string) {
+  return error ? `${inputClass} ${errorRing}` : inputClass;
 }
 
 export function CreateCompanyModal({
   plan,
   planKey,
   onClose,
-  onChange,
   onCreated,
 }: CreateCompanyModalProps) {
   const fileRef = useRef<HTMLInputElement>(null);
@@ -102,6 +206,8 @@ export function CreateCompanyModal({
   // Storage key returned by the file-upload API; sent as `url` in the payload.
   const [uploadedKey, setUploadedKey] = useState<string | null>(null);
   const [uploading, setUploading] = useState(false);
+  // Validation error for the logo upload (wrong type / over 5MB).
+  const [imageError, setImageError] = useState<string | null>(null);
 
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
@@ -114,37 +220,71 @@ export function CreateCompanyModal({
   const [submitting, setSubmitting] = useState(false);
   // Inline submit error (e.g. "Email already registered.").
   const [submitError, setSubmitError] = useState<string | null>(null);
+  // Per-field validation errors, keyed by field name.
+  const [errors, setErrors] = useState<FieldErrors>({});
+
+  // Update a field's value and validate it live — the error appears/clears on
+  // every keystroke.
+  function handleFieldChange(
+    key: FieldKey,
+    value: string,
+    set: (value: string) => void,
+  ) {
+    set(value);
+    setErrors((prev) => ({ ...prev, [key]: validateField(key, value) }));
+  }
+
+  // Re-validate when the user leaves the field (covers autofill / paste).
+  function handleFieldBlur(key: FieldKey, value: string) {
+    setErrors((prev) => ({ ...prev, [key]: validateField(key, value) }));
+  }
 
   async function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
     if (submitting) return;
+
+    const parsed = formSchema.safeParse({
+      firstName,
+      lastName,
+      companyName,
+      email,
+      phone,
+      domain,
+      country,
+    });
+    if (!parsed.success) {
+      const flat = z.flattenError(parsed.error).fieldErrors;
+      const next: FieldErrors = {};
+      (Object.keys(flat) as FieldKey[]).forEach((key) => {
+        const message = flat[key]?.[0];
+        if (message) next[key] = message;
+      });
+      setErrors(next);
+      return;
+    }
+
+    setErrors({});
     setSubmitting(true);
     setSubmitError(null);
 
+    const data = parsed.data;
+
+    // PhoneInput already stores an E.164 string (e.g. "+15551234567"), or "".
+    const phoneValue = data.phone;
+
     // The UI shows a fixed ".com" suffix.
-    const fullDomain = domain
-      ? domain.endsWith(".com")
-        ? domain
-        : `${domain}.com`
-      : "";
-    // Accept any country's number: keep a leading "+" (country code) if the
-    // user typed one, then reduce the rest to digits.
-    const trimmedPhone = phone.trim();
-    const phoneDigits = trimmedPhone.replace(/\D/g, "");
-    const phoneValue = phoneDigits
-      ? trimmedPhone.startsWith("+")
-        ? `+${phoneDigits}`
-        : phoneDigits
-      : "";
+    const fullDomain = data.domain.endsWith(".com")
+      ? data.domain
+      : `${data.domain}.com`;
 
     const body = {
-      companyName,
-      email,
-      name: firstName,
-      lastName,
-      username: email,
+      companyName: data.companyName,
+      email: data.email,
+      name: data.firstName,
+      lastName: data.lastName,
+      username: data.email,
       phone: phoneValue,
-      address: country,
+      address: data.country,
       domain: fullDomain,
       url: uploadedKey ?? "",
       templateId: TEMPLATE_ID,
@@ -238,7 +378,20 @@ export function CreateCompanyModal({
 
   function handleFile(event: React.ChangeEvent<HTMLInputElement>) {
     const file = event.target.files?.[0];
+    // Reset the input so re-selecting the same file re-triggers onChange.
+    event.target.value = "";
     if (!file) return;
+
+    if (!ACCEPTED_IMAGE_TYPES.includes(file.type)) {
+      setImageError("Please upload a PNG or JPG image.");
+      return;
+    }
+    if (file.size > MAX_IMAGE_BYTES) {
+      setImageError("Image must be 5MB or smaller.");
+      return;
+    }
+
+    setImageError(null);
     if (preview) URL.revokeObjectURL(preview);
     setPreview(URL.createObjectURL(file));
     void uploadImage(file);
@@ -286,16 +439,12 @@ export function CreateCompanyModal({
   }
 
   return (
-    <div
-      className="fixed inset-0 z-[100] flex items-start justify-center overflow-y-auto bg-[#0a1f4d]/55 px-4 py-8 backdrop-blur-sm"
-      onClick={onClose}
-    >
+    <div className="fixed inset-0 z-[100] flex items-start justify-center overflow-y-auto bg-[#0a1f4d]/55 px-4 py-8 backdrop-blur-sm">
       <div
         role="dialog"
         aria-modal="true"
         aria-labelledby="create-company-title"
         className="relative my-auto w-full max-w-[800px] rounded-[20px] bg-white p-6 shadow-[0_40px_120px_-40px_rgba(15,23,42,0.5)] sm:p-10"
-        onClick={(event) => event.stopPropagation()}
       >
         {/* Header */}
         <div className="flex items-start justify-between gap-4">
@@ -436,113 +585,146 @@ export function CreateCompanyModal({
               className="hidden"
               onChange={handleFile}
             />
+            {imageError ? (
+              <p className="mt-2 font-ui text-[12px] font-semibold text-[#e5564b]">
+                {imageError}
+              </p>
+            ) : null}
           </div>
         </div>
 
         {/* Form */}
-        <form className="mt-6" onSubmit={handleSubmit}>
+        <form
+          className="mt-6"
+          onSubmit={(event) => void handleSubmit(event)}
+          noValidate
+        >
           <div className="grid grid-cols-1 gap-5 sm:grid-cols-2">
-            <Field label="First Name">
+            <Field label="First Name" error={errors.firstName}>
               <input
-                className={inputClass}
+                className={inputCls(errors.firstName)}
                 placeholder="Enter First Name"
+                autoComplete="given-name"
+                maxLength={50}
+                aria-invalid={errors.firstName ? true : undefined}
                 value={firstName}
-                onChange={(e) => setFirstName(e.target.value)}
-                required
+                onChange={(e) =>
+                  handleFieldChange(
+                    "firstName",
+                    e.target.value.replace(/\d/g, ""),
+                    setFirstName,
+                  )
+                }
+                onBlur={(e) => handleFieldBlur("firstName", e.target.value)}
               />
             </Field>
-            <Field label="Last Name">
+            <Field label="Last Name" error={errors.lastName}>
               <input
-                className={inputClass}
+                className={inputCls(errors.lastName)}
                 placeholder="Enter Last Name"
+                autoComplete="family-name"
+                maxLength={50}
+                aria-invalid={errors.lastName ? true : undefined}
                 value={lastName}
-                onChange={(e) => setLastName(e.target.value)}
-                required
+                onChange={(e) =>
+                  handleFieldChange(
+                    "lastName",
+                    e.target.value.replace(/\d/g, ""),
+                    setLastName,
+                  )
+                }
+                onBlur={(e) => handleFieldBlur("lastName", e.target.value)}
               />
             </Field>
 
-            <Field label="Company Name">
+            <Field label="Company Name" error={errors.companyName}>
               <input
-                className={inputClass}
+                className={inputCls(errors.companyName)}
                 placeholder="Enter Company Name"
+                autoComplete="organization"
+                maxLength={50}
+                aria-invalid={errors.companyName ? true : undefined}
                 value={companyName}
-                onChange={(e) => setCompanyName(e.target.value)}
-                required
+                onChange={(e) =>
+                  handleFieldChange(
+                    "companyName",
+                    e.target.value,
+                    setCompanyName,
+                  )
+                }
+                onBlur={(e) => handleFieldBlur("companyName", e.target.value)}
               />
             </Field>
-            <Field label="Company Email">
-              <div className="relative">
-                <input
-                  type="email"
-                  className={`${inputClass} pr-11`}
-                  placeholder="Enter Email Address"
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                  required
-                />
-                <svg
-                  className="pointer-events-none absolute right-4 top-1/2 h-5 w-5 -translate-y-1/2 text-[#94a3b8]"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="1.8"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  aria-hidden="true"
-                >
-                  <rect x="3" y="5" width="18" height="14" rx="2" />
-                  <path d="m3 7 9 6 9-6" />
-                </svg>
-              </div>
-            </Field>
-
-            <Field label="Phone Number" optional>
+            <Field label="Company Email" error={errors.email}>
               <input
-                type="tel"
-                inputMode="tel"
-                autoComplete="tel"
-                className={inputClass}
-                placeholder="+1 555 000 0000"
-                value={phone}
-                onChange={(e) => setPhone(e.target.value)}
+                type="email"
+                className={inputCls(errors.email)}
+                placeholder="Enter Email Address"
+                autoComplete="email"
+                maxLength={50}
+                aria-invalid={errors.email ? true : undefined}
+                value={email}
+                onChange={(e) =>
+                  handleFieldChange("email", e.target.value, setEmail)
+                }
+                onBlur={(e) => handleFieldBlur("email", e.target.value)}
               />
             </Field>
-            <Field label="Domain">
-              <div className="relative">
-                <input
-                  className={`${inputClass} pr-14`}
-                  placeholder="Enter your Domain"
-                  value={domain}
-                  onChange={(e) => setDomain(e.target.value)}
-                  required
-                />
-                <span className="pointer-events-none absolute right-4 top-1/2 -translate-y-1/2 font-ui text-[14px] text-[#94a3b8]">
-                  .com
-                </span>
-              </div>
+
+            <Field label="Phone Number" optional error={errors.phone}>
+              <PhoneInput
+                international
+                internationalIcon={GlobeIcon}
+                autoComplete="tel"
+                aria-invalid={errors.phone ? true : undefined}
+                className={`${inputCls(errors.phone)} flex items-center gap-2 [&_.PhoneInputCountry]:m-0 [&_.PhoneInputCountry]:self-center [&_.PhoneInputCountrySelectArrow]:m-0 [&_.PhoneInputCountrySelectArrow]:ml-1`}
+                numberInputProps={{
+                  className:
+                    "w-full border-0 bg-transparent p-0 font-ui text-[14px] leading-none text-[#1b2f4b] placeholder:text-[#94a3b8] outline-none",
+                }}
+                placeholder="Enter Phone Number"
+                value={phone || undefined}
+                onChange={(value) =>
+                  handleFieldChange("phone", value ?? "", setPhone)
+                }
+                onBlur={() => handleFieldBlur("phone", phone)}
+              />
+            </Field>
+            <Field label="Domain" error={errors.domain}>
+              <input
+                className={inputCls(errors.domain)}
+                placeholder="Enter your Domain"
+                maxLength={50}
+                aria-invalid={errors.domain ? true : undefined}
+                value={domain}
+                onChange={(e) =>
+                  handleFieldChange("domain", e.target.value, setDomain)
+                }
+                onBlur={(e) => handleFieldBlur("domain", e.target.value)}
+              />
             </Field>
 
-            <Field label="Country">
-              <div className="relative">
-                <input
-                  className={`${inputClass} pr-11`}
-                  placeholder="Enter Country"
-                  value={country}
-                  onChange={(e) => setCountry(e.target.value)}
-                  required
-                />
-                <svg
-                  className="pointer-events-none absolute right-4 top-1/2 h-5 w-5 -translate-y-1/2 text-[#94a3b8]"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="1.7"
-                  aria-hidden="true"
-                >
-                  <circle cx="12" cy="12" r="9" />
-                  <path d="M3 12h18M12 3c2.6 2.7 2.6 15.3 0 18M12 3c-2.6 2.7-2.6 15.3 0 18" />
-                </svg>
-              </div>
+            <Field label="Country" error={errors.country}>
+              <select
+                className={`${inputCls(errors.country)} cursor-pointer pr-10 ${
+                  country ? "text-[#1b2f4b]" : "text-[#94a3b8]"
+                }`}
+                aria-invalid={errors.country ? true : undefined}
+                value={country}
+                onChange={(e) =>
+                  handleFieldChange("country", e.target.value, setCountry)
+                }
+                onBlur={(e) => handleFieldBlur("country", e.target.value)}
+              >
+                <option value="" disabled>
+                  Select Country
+                </option>
+                {COUNTRIES.map((name) => (
+                  <option key={name} value={name} className="text-[#1b2f4b]">
+                    {name}
+                  </option>
+                ))}
+              </select>
             </Field>
           </div>
 
@@ -573,13 +755,6 @@ export function CreateCompanyModal({
                 {plan.priceLabel} · {plan.includedLabel} · Cancel anytime
               </p>
             </div>
-            <button
-              type="button"
-              onClick={onChange ?? onClose}
-              className="flex-none cursor-pointer font-ui text-[13px] font-bold text-[#ff7a01] transition-opacity hover:opacity-80"
-            >
-              Change →
-            </button>
           </div>
 
           {/* Submit */}
@@ -641,11 +816,7 @@ export function CreateCompanyModal({
               <rect x="4" y="11" width="16" height="9" rx="2" />
               <path d="M8 11V8a4 4 0 0 1 8 0v3" />
             </svg>
-            Your data is secure and encrypted · By creating an account you agree
-            to our{" "}
-            <span className="font-bold text-[#ff7a01]">
-              Terms of Service &amp; Privacy Policy
-            </span>
+            Your data is secure and encrypted
           </p>
         </form>
       </div>
