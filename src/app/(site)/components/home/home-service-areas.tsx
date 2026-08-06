@@ -38,12 +38,12 @@ export function HomeServiceAreas() {
           </p>
         </div>
 
-        <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="mt-12 flex flex-wrap justify-center gap-5">
           {SERVICE_AREAS.map(({ label, slug }) => (
             <Link
               key={slug}
               href={`/locations/${slug}` as Route}
-              className="group flex items-center justify-between rounded-[20px] border border-[#e7edf6] bg-white px-6 py-5 shadow-[0_18px_55px_-40px_rgba(20,104,186,0.55)] transition hover:border-[#1368b9] hover:shadow-[0_24px_60px_-34px_rgba(20,104,186,0.6)]"
+              className="group flex w-full items-center justify-between rounded-[20px] border border-[#e7edf6] bg-white px-6 py-5 shadow-[0_18px_55px_-40px_rgba(20,104,186,0.55)] transition hover:border-[#1368b9] hover:shadow-[0_24px_60px_-34px_rgba(20,104,186,0.6)] sm:w-[calc(50%-0.625rem)] lg:w-[calc(25%-0.9375rem)]"
             >
               <span className="font-display text-[18px] font-bold text-[#1b2f4b]">
                 {label}
