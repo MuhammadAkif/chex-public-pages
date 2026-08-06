@@ -8,6 +8,7 @@ import { HomeCommunity } from "./home-community";
 import { HomeHero } from "./home-hero";
 import { HomeHowItWorks } from "./home-how-it-works";
 import { HomeBenefits } from "./home-benefits";
+import { HomeServiceAreas } from "./home-service-areas";
 import { LocationTestimonials } from "../locations/location-testimonials";
 import { Reveal } from "../shared/reveal";
 
@@ -15,9 +16,15 @@ type HomePageProps = {
   content: HomePageContent;
   /** Optional CTA link rendered under the "Benefits we propose" section. */
   benefitsCtaLink?: { label: string; href: string };
+  /** When true, renders the hardcoded "Areas We Serve" location links section. */
+  showServiceAreas?: boolean;
 };
 
-export function HomePage({ content, benefitsCtaLink }: HomePageProps) {
+export function HomePage({
+  content,
+  benefitsCtaLink,
+  showServiceAreas,
+}: HomePageProps) {
   return (
     <div
       id="top"
@@ -62,6 +69,12 @@ export function HomePage({ content, benefitsCtaLink }: HomePageProps) {
             ctaLink={benefitsCtaLink}
           />
         </Reveal>
+
+        {showServiceAreas ? (
+          <Reveal>
+            <HomeServiceAreas />
+          </Reveal>
+        ) : null}
 
         <section className="bg-[linear-gradient(180deg,#07132d_0%,#03112a_100%)]">
           <Reveal>

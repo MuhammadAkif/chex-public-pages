@@ -15,6 +15,7 @@ export default async function ServicePage() {
   return (
     <HomePage
       content={content}
+      showServiceAreas
       benefitsCtaLink={{
         label: 'View Rideshare Inspection Pricing',
         href: '/rideshare-pricing',
