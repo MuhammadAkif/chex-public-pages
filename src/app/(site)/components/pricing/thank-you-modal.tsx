@@ -41,17 +41,50 @@ const CONFETTI: ReadonlyArray<{
   className: string;
   style: React.CSSProperties;
 }> = [
-  { className: "h-2 w-2 rounded-full bg-white/70", style: { top: "18%", left: "30%" } },
-  { className: "h-1.5 w-1.5 rounded-full bg-white/60", style: { top: "62%", left: "20%" } },
-  { className: "h-1.5 w-1.5 rounded-full bg-[#ffb066]", style: { top: "78%", left: "44%" } },
-  { className: "h-2 w-2 rounded-full bg-[#ff7a01]", style: { top: "26%", left: "66%" } },
-  { className: "h-3 w-1.5 rotate-[24deg] rounded-[1px] bg-[#ffb347]", style: { top: "30%", left: "12%" } },
-  { className: "h-3 w-1.5 -rotate-[18deg] rounded-[1px] bg-[#ff7a01]", style: { top: "58%", left: "62%" } },
-  { className: "h-3.5 w-1.5 rotate-[40deg] rounded-[1px] bg-[#ffc97a]", style: { top: "20%", left: "84%" } },
-  { className: "h-2.5 w-[3px] -rotate-[30deg] rounded-[1px] bg-white/70", style: { top: "70%", left: "82%" } },
-  { className: "h-2 w-2 rotate-45 bg-[#ffb347]", style: { top: "12%", left: "46%" } },
-  { className: "h-2 w-2 rotate-45 bg-[#ff7a01]", style: { top: "46%", left: "8%" } },
-  { className: "h-1.5 w-1.5 rounded-full bg-white/60", style: { top: "10%", left: "72%" } },
+  {
+    className: "h-2 w-2 rounded-full bg-white/70",
+    style: { top: "18%", left: "30%" },
+  },
+  {
+    className: "h-1.5 w-1.5 rounded-full bg-white/60",
+    style: { top: "62%", left: "20%" },
+  },
+  {
+    className: "h-1.5 w-1.5 rounded-full bg-[#ffb066]",
+    style: { top: "78%", left: "44%" },
+  },
+  {
+    className: "h-2 w-2 rounded-full bg-[#ff7a01]",
+    style: { top: "26%", left: "66%" },
+  },
+  {
+    className: "h-3 w-1.5 rotate-[24deg] rounded-[1px] bg-[#ffb347]",
+    style: { top: "30%", left: "12%" },
+  },
+  {
+    className: "h-3 w-1.5 -rotate-[18deg] rounded-[1px] bg-[#ff7a01]",
+    style: { top: "58%", left: "62%" },
+  },
+  {
+    className: "h-3.5 w-1.5 rotate-[40deg] rounded-[1px] bg-[#ffc97a]",
+    style: { top: "20%", left: "84%" },
+  },
+  {
+    className: "h-2.5 w-[3px] -rotate-[30deg] rounded-[1px] bg-white/70",
+    style: { top: "70%", left: "82%" },
+  },
+  {
+    className: "h-2 w-2 rotate-45 bg-[#ffb347]",
+    style: { top: "12%", left: "46%" },
+  },
+  {
+    className: "h-2 w-2 rotate-45 bg-[#ff7a01]",
+    style: { top: "46%", left: "8%" },
+  },
+  {
+    className: "h-1.5 w-1.5 rounded-full bg-white/60",
+    style: { top: "10%", left: "72%" },
+  },
 ];
 
 function NextStep({
@@ -113,19 +146,23 @@ export function ThankYouModal({
     if (!base || !sessionId || !receiptToken) return;
 
     const controller = new AbortController();
-    fetch(`${base}${RECEIPT_PATH}?session_id=${encodeURIComponent(sessionId)}`, {
-      headers: {
-        accept: "application/json",
-        authorization: `Bearer ${receiptToken}`,
+    fetch(
+      `${base}${RECEIPT_PATH}?session_id=${encodeURIComponent(sessionId)}`,
+      {
+        headers: {
+          accept: "application/json",
+          authorization: `Bearer ${receiptToken}`,
+        },
+        signal: controller.signal,
       },
-      signal: controller.signal,
-    })
+    )
       .then((res) => (res.ok ? (res.json() as Promise<ReceiptResponse>) : null))
       .then((data) => {
         if (data?.hostedInvoiceUrl) setReceiptUrl(data.hostedInvoiceUrl);
       })
       .catch((error: unknown) => {
-        if (error instanceof DOMException && error.name === "AbortError") return;
+        if (error instanceof DOMException && error.name === "AbortError")
+          return;
       });
 
     return () => controller.abort();
@@ -154,7 +191,7 @@ export function ThankYouModal({
       onGoToDashboard();
       return;
     }
-    const dashboardUrl = process.env.NEXT_PUBLIC_DASHBOARD_URL;
+    const dashboardUrl = `${process.env.NEXT_PUBLIC_DASHBOARD_URL}/#/login`;
     if (dashboardUrl) {
       window.open(dashboardUrl, "_blank", "noopener,noreferrer");
     } else {
@@ -252,8 +289,9 @@ export function ThankYouModal({
             </h2>
 
             <p className="mt-4 max-w-md font-ui text-[15px] leading-relaxed text-[#475569]">
-              Your {plan.name} Plan is now active. We&apos;ve sent a confirmation
-              email with your login details &amp; getting started guide.
+              Your {plan.name} Plan is now active. We&apos;ve sent a
+              confirmation email with your login details &amp; getting started
+              guide.
             </p>
           </div>
 
