@@ -233,7 +233,6 @@ export const ridesharePricingContent: RidesharePricingContent = {
         features: [
           "Results within 4 hours",
           "Verified certification in-app",
-          "First re-inspection free",
         ],
         ctaLabel: "Apply for Inspection",
         ctaHref: "#signup",
