@@ -17,6 +17,11 @@ import * as migration_20260612_000000_solution_block_overlay_image from './20260
 import * as migration_20260707_000000_inspection_form_page_global from './20260707_000000_inspection_form_page_global';
 import * as migration_20260707_120000_inspection_form_state_forms from './20260707_120000_inspection_form_state_forms';
 import * as migration_20260707_130000_posts_cta from './20260707_130000_posts_cta';
+import * as migration_20260902_000000_commercial_fleet_page_global from './20260902_000000_commercial_fleet_page_global';
+import * as migration_20260903_000000_commercial_fleet_redesign from './20260903_000000_commercial_fleet_redesign';
+import * as migration_20260904_000000_insurance_page_global from './20260904_000000_insurance_page_global';
+import * as migration_20260905_000000_rental_page_global from './20260905_000000_rental_page_global';
+import * as migration_20260906_000000_towing_valet_page_global from './20260906_000000_towing_valet_page_global';
 
 export const migrations = [
   {
@@ -113,5 +118,30 @@ export const migrations = [
     up: migration_20260707_130000_posts_cta.up,
     down: migration_20260707_130000_posts_cta.down,
     name: '20260707_130000_posts_cta'
+  },
+  {
+    up: migration_20260902_000000_commercial_fleet_page_global.up,
+    down: migration_20260902_000000_commercial_fleet_page_global.down,
+    name: '20260902_000000_commercial_fleet_page_global'
+  },
+  {
+    up: migration_20260903_000000_commercial_fleet_redesign.up,
+    down: migration_20260903_000000_commercial_fleet_redesign.down,
+    name: '20260903_000000_commercial_fleet_redesign'
+  },
+  {
+    up: migration_20260904_000000_insurance_page_global.up,
+    down: migration_20260904_000000_insurance_page_global.down,
+    name: '20260904_000000_insurance_page_global'
+  },
+  {
+    up: migration_20260905_000000_rental_page_global.up,
+    down: migration_20260905_000000_rental_page_global.down,
+    name: '20260905_000000_rental_page_global'
+  },
+  {
+    up: migration_20260906_000000_towing_valet_page_global.up,
+    down: migration_20260906_000000_towing_valet_page_global.down,
+    name: '20260906_000000_towing_valet_page_global'
   },
 ];

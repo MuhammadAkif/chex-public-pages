@@ -13,7 +13,66 @@ import {
 import { Button } from "@/app/(site)/components/ui/button";
 import { useRegisterModal } from "@/app/(site)/components/home/register-modal";
 
-type NavChild = { label: string; href: string; comingSoon?: boolean };
+type NavChild = { label: string; href: string; comingSoon?: boolean; icon?: string };
+
+/** Small inline icons for the Services dropdown items. */
+function ServiceIcon({ name }: { name?: string }) {
+  if (!name) return null;
+  const common = {
+    viewBox: "0 0 24 24",
+    fill: "none",
+    stroke: "currentColor",
+    strokeWidth: 1.7,
+    strokeLinecap: "round" as const,
+    strokeLinejoin: "round" as const,
+    className: "h-[18px] w-[18px] shrink-0",
+    "aria-hidden": true,
+  };
+  switch (name) {
+    case "car":
+      return (
+        <svg {...common}>
+          <path d="M5 17h-.5A1.5 1.5 0 0 1 3 15.5V13l2-5.2A2 2 0 0 1 6.9 6.5h10.2a2 2 0 0 1 1.9 1.3L21 13v2.5a1.5 1.5 0 0 1-1.5 1.5H19" />
+          <path d="M3 13h18" />
+          <circle cx="7.5" cy="17" r="1.6" />
+          <circle cx="16.5" cy="17" r="1.6" />
+        </svg>
+      );
+    case "truck":
+      return (
+        <svg {...common}>
+          <path d="M3 7.5A1.5 1.5 0 0 1 4.5 6H14v9H3.5A.5.5 0 0 1 3 14.5V7.5Z" />
+          <path d="M14 9h3.6a1 1 0 0 1 .8.4L21 13v2h-7V9Z" />
+          <circle cx="7" cy="17" r="1.6" />
+          <circle cx="17" cy="17" r="1.6" />
+        </svg>
+      );
+    case "shield":
+      return (
+        <svg {...common}>
+          <path d="M12 3.5l6.5 2.5v5c0 4.2-2.8 7-6.5 8.5C8.3 18 5.5 15.2 5.5 11V6L12 3.5Z" />
+          <path d="M9.3 11.8l1.9 1.9 3.5-3.7" />
+        </svg>
+      );
+    case "key":
+      return (
+        <svg {...common}>
+          <circle cx="7" cy="12" r="3.2" />
+          <path d="M10.2 12H20M17 12v2.5M20 12v2" />
+        </svg>
+      );
+    case "clipboard":
+      return (
+        <svg {...common}>
+          <rect x="6" y="5" width="12" height="15" rx="1.6" />
+          <path d="M9.5 5V4.2A1.2 1.2 0 0 1 10.7 3h2.6a1.2 1.2 0 0 1 1.2 1.2V5" />
+          <path d="M9.3 13l1.8 1.8 3.6-3.8" />
+        </svg>
+      );
+    default:
+      return null;
+  }
+}
 
 function ComingSoonBadge() {
   return (
@@ -121,16 +180,20 @@ function DropdownItem({ link, pathname }: { link: NavLink; pathname: string | nu
                   key={child.label}
                   className="flex cursor-default items-center justify-between gap-3 whitespace-nowrap px-4 py-2.5 font-ui text-[14px] text-[#9aa7b8]"
                 >
-                  {child.label}
+                  <span className="flex items-center gap-2.5">
+                    <ServiceIcon name={child.icon} />
+                    {child.label}
+                  </span>
                   <ComingSoonBadge />
                 </div>
               ) : (
                 <Link
                   key={child.label}
                   href={child.href as Route}
-                  className="block whitespace-nowrap px-4 py-2.5 font-ui text-[14px] text-[#41546e] transition-colors hover:bg-[#f4f8ff] hover:text-[#1b2f4b]"
+                  className="flex items-center gap-2.5 whitespace-nowrap px-4 py-2.5 font-ui text-[14px] text-[#41546e] transition-colors hover:bg-[#f4f8ff] hover:text-[#1b2f4b] [&_svg]:text-[#8aa0bd] hover:[&_svg]:text-[#1368b9]"
                   onClick={() => setOpen(false)}
                 >
+                  <ServiceIcon name={child.icon} />
                   {child.label}
                 </Link>
               )
@@ -324,16 +387,20 @@ export function Navbar({ logo, links }: NavbarProps) {
                             key={child.label}
                             className="flex cursor-default items-center justify-between rounded-[8px] px-4 py-2.5 font-ui text-[14px] text-[#9aa7b8]"
                           >
-                            {child.label}
+                            <span className="flex items-center gap-2.5">
+                              <ServiceIcon name={child.icon} />
+                              {child.label}
+                            </span>
                             <ComingSoonBadge />
                           </div>
                         ) : (
                           <Link
                             key={child.label}
                             href={child.href as Route}
-                            className="rounded-[8px] px-4 py-2.5 font-ui text-[14px] text-[#41546e] hover:bg-[#f4f8ff] hover:text-[#1b2f4b]"
+                            className="flex items-center gap-2.5 rounded-[8px] px-4 py-2.5 font-ui text-[14px] text-[#41546e] hover:bg-[#f4f8ff] hover:text-[#1b2f4b] [&_svg]:text-[#8aa0bd]"
                             onClick={() => setMenuOpen(false)}
                           >
+                            <ServiceIcon name={child.icon} />
                             {child.label}
                           </Link>
                         )

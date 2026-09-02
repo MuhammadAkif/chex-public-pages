@@ -95,11 +95,19 @@ export interface Config {
     'home-page': HomePage;
     'service-page': ServicePage;
     'inspection-form-page': InspectionFormPage;
+    'commercial-fleet-page': CommercialFleetPage;
+    'insurance-page': InsurancePage;
+    'rental-page': RentalPage;
+    'towing-valet-page': TowingValetPage;
   };
   globalsSelect: {
     'home-page': HomePageSelect<false> | HomePageSelect<true>;
     'service-page': ServicePageSelect<false> | ServicePageSelect<true>;
     'inspection-form-page': InspectionFormPageSelect<false> | InspectionFormPageSelect<true>;
+    'commercial-fleet-page': CommercialFleetPageSelect<false> | CommercialFleetPageSelect<true>;
+    'insurance-page': InsurancePageSelect<false> | InsurancePageSelect<true>;
+    'rental-page': RentalPageSelect<false> | RentalPageSelect<true>;
+    'towing-valet-page': TowingValetPageSelect<false> | TowingValetPageSelect<true>;
   };
   locale: null;
   widgets: {
@@ -2010,6 +2018,790 @@ export interface InspectionFormPage {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "commercial-fleet-page".
+ */
+export interface CommercialFleetPage {
+  id: string;
+  /**
+   * SEO metadata used by the App Router route metadata.
+   */
+  meta?: {
+    title?: string | null;
+    description?: string | null;
+  };
+  hero?: {
+    rating?: string | null;
+    title?: string | null;
+    description?: string | null;
+    primaryCta?: {
+      label?: string | null;
+      href?: string | null;
+    };
+    secondaryCta?: {
+      label?: string | null;
+      href?: string | null;
+    };
+    /**
+     * Hero video still / poster image URL.
+     */
+    media?: string | null;
+  };
+  flow?: {
+    title?: string | null;
+    description?: string | null;
+    /**
+     * Icons are fixed by design order.
+     */
+    steps?:
+      | {
+          number?: string | null;
+          title?: string | null;
+          description?: string | null;
+          metricLabel?: string | null;
+          metric?: string | null;
+          pills?:
+            | {
+                text?: string | null;
+                id?: string | null;
+              }[]
+            | null;
+          step?: string | null;
+          id?: string | null;
+        }[]
+      | null;
+  };
+  platform?: {
+    title?: string | null;
+    description?: string | null;
+    features?:
+      | {
+          title?: string | null;
+          description?: string | null;
+          icon?: ('check' | 'doc' | 'shield' | 'plate' | 'chart' | 'code') | null;
+          highlighted?: boolean | null;
+          id?: string | null;
+        }[]
+      | null;
+  };
+  community?: {
+    trendingTitle?: string | null;
+    stats?:
+      | {
+          value?: string | null;
+          label?: string | null;
+          id?: string | null;
+        }[]
+      | null;
+    inspectTitle?: string | null;
+    inspectHighlight?: string | null;
+    manageTitle?: string | null;
+    manageBullets?:
+      | {
+          label?: string | null;
+          text?: string | null;
+          id?: string | null;
+        }[]
+      | null;
+    manageImage?: string | null;
+    manageBadge?: string | null;
+    trustedTitle?: string | null;
+    trustedLogos?:
+      | {
+          label?: string | null;
+          id?: string | null;
+        }[]
+      | null;
+  };
+  howItWorks?: {
+    title?: string | null;
+    description?: string | null;
+    steps?:
+      | {
+          step?: string | null;
+          title?: string | null;
+          description?: string | null;
+          image?: string | null;
+          id?: string | null;
+        }[]
+      | null;
+  };
+  benefits?: {
+    title?: string | null;
+    items?:
+      | {
+          title?: string | null;
+          description?: string | null;
+          icon?: ('fast' | 'cost' | 'accuracy' | 'experience' | 'risk') | null;
+          highlighted?: boolean | null;
+          wide?: boolean | null;
+          id?: string | null;
+        }[]
+      | null;
+  };
+  fleetOperators?: {
+    eyebrow?: string | null;
+    title?: string | null;
+    description?: string | null;
+    primaryCta?: {
+      label?: string | null;
+      href?: string | null;
+    };
+    secondaryCta?: {
+      label?: string | null;
+      href?: string | null;
+    };
+    background?: string | null;
+    stats?:
+      | {
+          value?: string | null;
+          label?: string | null;
+          id?: string | null;
+        }[]
+      | null;
+    /**
+     * Icons are fixed by design order (onboard / api / condition).
+     */
+    features?:
+      | {
+          icon?: ('onboard' | 'api' | 'condition') | null;
+          title?: string | null;
+          description?: string | null;
+          id?: string | null;
+        }[]
+      | null;
+  };
+  testimonials?: {
+    title?: string | null;
+    description?: string | null;
+    label?: string | null;
+    items?:
+      | {
+          name?: string | null;
+          quote?: string | null;
+          stars?: number | null;
+          avatar?: string | null;
+          id?: string | null;
+        }[]
+      | null;
+  };
+  faq?: {
+    title?: string | null;
+    description?: string | null;
+    items?:
+      | {
+          question?: string | null;
+          answer?: string | null;
+          id?: string | null;
+        }[]
+      | null;
+  };
+  cta?: {
+    title?: string | null;
+    description?: string | null;
+    primaryCta?: {
+      label?: string | null;
+      href?: string | null;
+    };
+    secondaryCta?: {
+      label?: string | null;
+      href?: string | null;
+    };
+    note?: string | null;
+    background?: string | null;
+  };
+  updatedAt?: string | null;
+  createdAt?: string | null;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "insurance-page".
+ */
+export interface InsurancePage {
+  id: string;
+  /**
+   * SEO metadata used by the App Router route metadata.
+   */
+  meta?: {
+    title?: string | null;
+    description?: string | null;
+  };
+  hero?: {
+    rating?: string | null;
+    title?: string | null;
+    description?: string | null;
+    primaryCta?: {
+      label?: string | null;
+      href?: string | null;
+    };
+    secondaryCta?: {
+      label?: string | null;
+      href?: string | null;
+    };
+    /**
+     * Hero video still / poster image URL.
+     */
+    media?: string | null;
+  };
+  flow?: {
+    title?: string | null;
+    description?: string | null;
+    /**
+     * Icons are fixed by design order.
+     */
+    steps?:
+      | {
+          number?: string | null;
+          title?: string | null;
+          description?: string | null;
+          metricLabel?: string | null;
+          metric?: string | null;
+          pills?:
+            | {
+                text?: string | null;
+                id?: string | null;
+              }[]
+            | null;
+          step?: string | null;
+          id?: string | null;
+        }[]
+      | null;
+  };
+  platform?: {
+    title?: string | null;
+    description?: string | null;
+    features?:
+      | {
+          title?: string | null;
+          description?: string | null;
+          icon?: ('check' | 'doc' | 'shield' | 'plate' | 'chart' | 'code') | null;
+          highlighted?: boolean | null;
+          id?: string | null;
+        }[]
+      | null;
+  };
+  community?: {
+    trendingTitle?: string | null;
+    stats?:
+      | {
+          value?: string | null;
+          label?: string | null;
+          id?: string | null;
+        }[]
+      | null;
+    inspectTitle?: string | null;
+    inspectHighlight?: string | null;
+    manageTitle?: string | null;
+    manageBullets?:
+      | {
+          label?: string | null;
+          text?: string | null;
+          id?: string | null;
+        }[]
+      | null;
+    manageImage?: string | null;
+    manageBadge?: string | null;
+    trustedTitle?: string | null;
+    trustedLogos?:
+      | {
+          label?: string | null;
+          id?: string | null;
+        }[]
+      | null;
+  };
+  howItWorks?: {
+    title?: string | null;
+    description?: string | null;
+    steps?:
+      | {
+          step?: string | null;
+          title?: string | null;
+          description?: string | null;
+          image?: string | null;
+          id?: string | null;
+        }[]
+      | null;
+  };
+  benefits?: {
+    title?: string | null;
+    items?:
+      | {
+          title?: string | null;
+          description?: string | null;
+          icon?: ('fast' | 'cost' | 'accuracy' | 'experience' | 'risk') | null;
+          highlighted?: boolean | null;
+          wide?: boolean | null;
+          id?: string | null;
+        }[]
+      | null;
+  };
+  fleetOperators?: {
+    eyebrow?: string | null;
+    title?: string | null;
+    description?: string | null;
+    primaryCta?: {
+      label?: string | null;
+      href?: string | null;
+    };
+    secondaryCta?: {
+      label?: string | null;
+      href?: string | null;
+    };
+    background?: string | null;
+    stats?:
+      | {
+          value?: string | null;
+          label?: string | null;
+          id?: string | null;
+        }[]
+      | null;
+    /**
+     * Icons are fixed by design order (onboard / api / condition).
+     */
+    features?:
+      | {
+          icon?: ('onboard' | 'api' | 'condition') | null;
+          title?: string | null;
+          description?: string | null;
+          id?: string | null;
+        }[]
+      | null;
+  };
+  testimonials?: {
+    title?: string | null;
+    description?: string | null;
+    label?: string | null;
+    items?:
+      | {
+          name?: string | null;
+          quote?: string | null;
+          stars?: number | null;
+          avatar?: string | null;
+          id?: string | null;
+        }[]
+      | null;
+  };
+  faq?: {
+    title?: string | null;
+    description?: string | null;
+    items?:
+      | {
+          question?: string | null;
+          answer?: string | null;
+          id?: string | null;
+        }[]
+      | null;
+  };
+  cta?: {
+    title?: string | null;
+    description?: string | null;
+    primaryCta?: {
+      label?: string | null;
+      href?: string | null;
+    };
+    secondaryCta?: {
+      label?: string | null;
+      href?: string | null;
+    };
+    note?: string | null;
+    background?: string | null;
+  };
+  updatedAt?: string | null;
+  createdAt?: string | null;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "rental-page".
+ */
+export interface RentalPage {
+  id: string;
+  /**
+   * SEO metadata used by the App Router route metadata.
+   */
+  meta?: {
+    title?: string | null;
+    description?: string | null;
+  };
+  hero?: {
+    rating?: string | null;
+    title?: string | null;
+    description?: string | null;
+    primaryCta?: {
+      label?: string | null;
+      href?: string | null;
+    };
+    secondaryCta?: {
+      label?: string | null;
+      href?: string | null;
+    };
+    /**
+     * Hero video still / poster image URL.
+     */
+    media?: string | null;
+  };
+  flow?: {
+    title?: string | null;
+    description?: string | null;
+    /**
+     * Icons are fixed by design order.
+     */
+    steps?:
+      | {
+          number?: string | null;
+          title?: string | null;
+          description?: string | null;
+          metricLabel?: string | null;
+          metric?: string | null;
+          pills?:
+            | {
+                text?: string | null;
+                id?: string | null;
+              }[]
+            | null;
+          step?: string | null;
+          id?: string | null;
+        }[]
+      | null;
+  };
+  platform?: {
+    title?: string | null;
+    description?: string | null;
+    features?:
+      | {
+          title?: string | null;
+          description?: string | null;
+          icon?: ('check' | 'doc' | 'shield' | 'plate' | 'chart' | 'code') | null;
+          highlighted?: boolean | null;
+          id?: string | null;
+        }[]
+      | null;
+  };
+  community?: {
+    trendingTitle?: string | null;
+    stats?:
+      | {
+          value?: string | null;
+          label?: string | null;
+          id?: string | null;
+        }[]
+      | null;
+    inspectTitle?: string | null;
+    inspectHighlight?: string | null;
+    manageTitle?: string | null;
+    manageBullets?:
+      | {
+          label?: string | null;
+          text?: string | null;
+          id?: string | null;
+        }[]
+      | null;
+    manageImage?: string | null;
+    manageBadge?: string | null;
+    trustedTitle?: string | null;
+    trustedLogos?:
+      | {
+          label?: string | null;
+          id?: string | null;
+        }[]
+      | null;
+  };
+  howItWorks?: {
+    title?: string | null;
+    description?: string | null;
+    steps?:
+      | {
+          step?: string | null;
+          title?: string | null;
+          description?: string | null;
+          image?: string | null;
+          id?: string | null;
+        }[]
+      | null;
+  };
+  benefits?: {
+    title?: string | null;
+    items?:
+      | {
+          title?: string | null;
+          description?: string | null;
+          icon?: ('fast' | 'cost' | 'accuracy' | 'experience' | 'risk') | null;
+          highlighted?: boolean | null;
+          wide?: boolean | null;
+          id?: string | null;
+        }[]
+      | null;
+  };
+  fleetOperators?: {
+    eyebrow?: string | null;
+    title?: string | null;
+    description?: string | null;
+    primaryCta?: {
+      label?: string | null;
+      href?: string | null;
+    };
+    secondaryCta?: {
+      label?: string | null;
+      href?: string | null;
+    };
+    background?: string | null;
+    stats?:
+      | {
+          value?: string | null;
+          label?: string | null;
+          id?: string | null;
+        }[]
+      | null;
+    /**
+     * Icons are fixed by design order (onboard / api / condition).
+     */
+    features?:
+      | {
+          icon?: ('onboard' | 'api' | 'condition') | null;
+          title?: string | null;
+          description?: string | null;
+          id?: string | null;
+        }[]
+      | null;
+  };
+  testimonials?: {
+    title?: string | null;
+    description?: string | null;
+    label?: string | null;
+    items?:
+      | {
+          name?: string | null;
+          quote?: string | null;
+          stars?: number | null;
+          avatar?: string | null;
+          id?: string | null;
+        }[]
+      | null;
+  };
+  faq?: {
+    title?: string | null;
+    description?: string | null;
+    items?:
+      | {
+          question?: string | null;
+          answer?: string | null;
+          id?: string | null;
+        }[]
+      | null;
+  };
+  cta?: {
+    title?: string | null;
+    description?: string | null;
+    primaryCta?: {
+      label?: string | null;
+      href?: string | null;
+    };
+    secondaryCta?: {
+      label?: string | null;
+      href?: string | null;
+    };
+    note?: string | null;
+    background?: string | null;
+  };
+  updatedAt?: string | null;
+  createdAt?: string | null;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "towing-valet-page".
+ */
+export interface TowingValetPage {
+  id: string;
+  /**
+   * SEO metadata used by the App Router route metadata.
+   */
+  meta?: {
+    title?: string | null;
+    description?: string | null;
+  };
+  hero?: {
+    rating?: string | null;
+    title?: string | null;
+    description?: string | null;
+    primaryCta?: {
+      label?: string | null;
+      href?: string | null;
+    };
+    secondaryCta?: {
+      label?: string | null;
+      href?: string | null;
+    };
+    /**
+     * Hero video still / poster image URL.
+     */
+    media?: string | null;
+  };
+  flow?: {
+    title?: string | null;
+    description?: string | null;
+    /**
+     * Icons are fixed by design order.
+     */
+    steps?:
+      | {
+          number?: string | null;
+          title?: string | null;
+          description?: string | null;
+          metricLabel?: string | null;
+          metric?: string | null;
+          pills?:
+            | {
+                text?: string | null;
+                id?: string | null;
+              }[]
+            | null;
+          step?: string | null;
+          id?: string | null;
+        }[]
+      | null;
+  };
+  platform?: {
+    title?: string | null;
+    description?: string | null;
+    features?:
+      | {
+          title?: string | null;
+          description?: string | null;
+          icon?: ('check' | 'doc' | 'shield' | 'plate' | 'chart' | 'code') | null;
+          highlighted?: boolean | null;
+          id?: string | null;
+        }[]
+      | null;
+  };
+  community?: {
+    trendingTitle?: string | null;
+    stats?:
+      | {
+          value?: string | null;
+          label?: string | null;
+          id?: string | null;
+        }[]
+      | null;
+    inspectTitle?: string | null;
+    inspectHighlight?: string | null;
+    manageTitle?: string | null;
+    manageBullets?:
+      | {
+          label?: string | null;
+          text?: string | null;
+          id?: string | null;
+        }[]
+      | null;
+    manageImage?: string | null;
+    manageBadge?: string | null;
+    trustedTitle?: string | null;
+    trustedLogos?:
+      | {
+          label?: string | null;
+          id?: string | null;
+        }[]
+      | null;
+  };
+  howItWorks?: {
+    title?: string | null;
+    description?: string | null;
+    steps?:
+      | {
+          step?: string | null;
+          title?: string | null;
+          description?: string | null;
+          image?: string | null;
+          id?: string | null;
+        }[]
+      | null;
+  };
+  benefits?: {
+    title?: string | null;
+    items?:
+      | {
+          title?: string | null;
+          description?: string | null;
+          icon?: ('fast' | 'cost' | 'accuracy' | 'experience' | 'risk') | null;
+          highlighted?: boolean | null;
+          wide?: boolean | null;
+          id?: string | null;
+        }[]
+      | null;
+  };
+  fleetOperators?: {
+    eyebrow?: string | null;
+    title?: string | null;
+    description?: string | null;
+    primaryCta?: {
+      label?: string | null;
+      href?: string | null;
+    };
+    secondaryCta?: {
+      label?: string | null;
+      href?: string | null;
+    };
+    background?: string | null;
+    stats?:
+      | {
+          value?: string | null;
+          label?: string | null;
+          id?: string | null;
+        }[]
+      | null;
+    /**
+     * Icons are fixed by design order (onboard / api / condition).
+     */
+    features?:
+      | {
+          icon?: ('onboard' | 'api' | 'condition') | null;
+          title?: string | null;
+          description?: string | null;
+          id?: string | null;
+        }[]
+      | null;
+  };
+  testimonials?: {
+    title?: string | null;
+    description?: string | null;
+    label?: string | null;
+    items?:
+      | {
+          name?: string | null;
+          quote?: string | null;
+          stars?: number | null;
+          avatar?: string | null;
+          id?: string | null;
+        }[]
+      | null;
+  };
+  faq?: {
+    title?: string | null;
+    description?: string | null;
+    items?:
+      | {
+          question?: string | null;
+          answer?: string | null;
+          id?: string | null;
+        }[]
+      | null;
+  };
+  cta?: {
+    title?: string | null;
+    description?: string | null;
+    primaryCta?: {
+      label?: string | null;
+      href?: string | null;
+    };
+    secondaryCta?: {
+      label?: string | null;
+      href?: string | null;
+    };
+    note?: string | null;
+    background?: string | null;
+  };
+  updatedAt?: string | null;
+  createdAt?: string | null;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "home-page_select".
  */
 export interface HomePageSelect<T extends boolean = true> {
@@ -2522,6 +3314,878 @@ export interface InspectionFormPageSelect<T extends boolean = true> {
               label?: T;
               id?: T;
             };
+      };
+  updatedAt?: T;
+  createdAt?: T;
+  globalType?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "commercial-fleet-page_select".
+ */
+export interface CommercialFleetPageSelect<T extends boolean = true> {
+  meta?:
+    | T
+    | {
+        title?: T;
+        description?: T;
+      };
+  hero?:
+    | T
+    | {
+        rating?: T;
+        title?: T;
+        description?: T;
+        primaryCta?:
+          | T
+          | {
+              label?: T;
+              href?: T;
+            };
+        secondaryCta?:
+          | T
+          | {
+              label?: T;
+              href?: T;
+            };
+        media?: T;
+      };
+  flow?:
+    | T
+    | {
+        title?: T;
+        description?: T;
+        steps?:
+          | T
+          | {
+              number?: T;
+              title?: T;
+              description?: T;
+              metricLabel?: T;
+              metric?: T;
+              pills?:
+                | T
+                | {
+                    text?: T;
+                    id?: T;
+                  };
+              step?: T;
+              id?: T;
+            };
+      };
+  platform?:
+    | T
+    | {
+        title?: T;
+        description?: T;
+        features?:
+          | T
+          | {
+              title?: T;
+              description?: T;
+              icon?: T;
+              highlighted?: T;
+              id?: T;
+            };
+      };
+  community?:
+    | T
+    | {
+        trendingTitle?: T;
+        stats?:
+          | T
+          | {
+              value?: T;
+              label?: T;
+              id?: T;
+            };
+        inspectTitle?: T;
+        inspectHighlight?: T;
+        manageTitle?: T;
+        manageBullets?:
+          | T
+          | {
+              label?: T;
+              text?: T;
+              id?: T;
+            };
+        manageImage?: T;
+        manageBadge?: T;
+        trustedTitle?: T;
+        trustedLogos?:
+          | T
+          | {
+              label?: T;
+              id?: T;
+            };
+      };
+  howItWorks?:
+    | T
+    | {
+        title?: T;
+        description?: T;
+        steps?:
+          | T
+          | {
+              step?: T;
+              title?: T;
+              description?: T;
+              image?: T;
+              id?: T;
+            };
+      };
+  benefits?:
+    | T
+    | {
+        title?: T;
+        items?:
+          | T
+          | {
+              title?: T;
+              description?: T;
+              icon?: T;
+              highlighted?: T;
+              wide?: T;
+              id?: T;
+            };
+      };
+  fleetOperators?:
+    | T
+    | {
+        eyebrow?: T;
+        title?: T;
+        description?: T;
+        primaryCta?:
+          | T
+          | {
+              label?: T;
+              href?: T;
+            };
+        secondaryCta?:
+          | T
+          | {
+              label?: T;
+              href?: T;
+            };
+        background?: T;
+        stats?:
+          | T
+          | {
+              value?: T;
+              label?: T;
+              id?: T;
+            };
+        features?:
+          | T
+          | {
+              icon?: T;
+              title?: T;
+              description?: T;
+              id?: T;
+            };
+      };
+  testimonials?:
+    | T
+    | {
+        title?: T;
+        description?: T;
+        label?: T;
+        items?:
+          | T
+          | {
+              name?: T;
+              quote?: T;
+              stars?: T;
+              avatar?: T;
+              id?: T;
+            };
+      };
+  faq?:
+    | T
+    | {
+        title?: T;
+        description?: T;
+        items?:
+          | T
+          | {
+              question?: T;
+              answer?: T;
+              id?: T;
+            };
+      };
+  cta?:
+    | T
+    | {
+        title?: T;
+        description?: T;
+        primaryCta?:
+          | T
+          | {
+              label?: T;
+              href?: T;
+            };
+        secondaryCta?:
+          | T
+          | {
+              label?: T;
+              href?: T;
+            };
+        note?: T;
+        background?: T;
+      };
+  updatedAt?: T;
+  createdAt?: T;
+  globalType?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "insurance-page_select".
+ */
+export interface InsurancePageSelect<T extends boolean = true> {
+  meta?:
+    | T
+    | {
+        title?: T;
+        description?: T;
+      };
+  hero?:
+    | T
+    | {
+        rating?: T;
+        title?: T;
+        description?: T;
+        primaryCta?:
+          | T
+          | {
+              label?: T;
+              href?: T;
+            };
+        secondaryCta?:
+          | T
+          | {
+              label?: T;
+              href?: T;
+            };
+        media?: T;
+      };
+  flow?:
+    | T
+    | {
+        title?: T;
+        description?: T;
+        steps?:
+          | T
+          | {
+              number?: T;
+              title?: T;
+              description?: T;
+              metricLabel?: T;
+              metric?: T;
+              pills?:
+                | T
+                | {
+                    text?: T;
+                    id?: T;
+                  };
+              step?: T;
+              id?: T;
+            };
+      };
+  platform?:
+    | T
+    | {
+        title?: T;
+        description?: T;
+        features?:
+          | T
+          | {
+              title?: T;
+              description?: T;
+              icon?: T;
+              highlighted?: T;
+              id?: T;
+            };
+      };
+  community?:
+    | T
+    | {
+        trendingTitle?: T;
+        stats?:
+          | T
+          | {
+              value?: T;
+              label?: T;
+              id?: T;
+            };
+        inspectTitle?: T;
+        inspectHighlight?: T;
+        manageTitle?: T;
+        manageBullets?:
+          | T
+          | {
+              label?: T;
+              text?: T;
+              id?: T;
+            };
+        manageImage?: T;
+        manageBadge?: T;
+        trustedTitle?: T;
+        trustedLogos?:
+          | T
+          | {
+              label?: T;
+              id?: T;
+            };
+      };
+  howItWorks?:
+    | T
+    | {
+        title?: T;
+        description?: T;
+        steps?:
+          | T
+          | {
+              step?: T;
+              title?: T;
+              description?: T;
+              image?: T;
+              id?: T;
+            };
+      };
+  benefits?:
+    | T
+    | {
+        title?: T;
+        items?:
+          | T
+          | {
+              title?: T;
+              description?: T;
+              icon?: T;
+              highlighted?: T;
+              wide?: T;
+              id?: T;
+            };
+      };
+  fleetOperators?:
+    | T
+    | {
+        eyebrow?: T;
+        title?: T;
+        description?: T;
+        primaryCta?:
+          | T
+          | {
+              label?: T;
+              href?: T;
+            };
+        secondaryCta?:
+          | T
+          | {
+              label?: T;
+              href?: T;
+            };
+        background?: T;
+        stats?:
+          | T
+          | {
+              value?: T;
+              label?: T;
+              id?: T;
+            };
+        features?:
+          | T
+          | {
+              icon?: T;
+              title?: T;
+              description?: T;
+              id?: T;
+            };
+      };
+  testimonials?:
+    | T
+    | {
+        title?: T;
+        description?: T;
+        label?: T;
+        items?:
+          | T
+          | {
+              name?: T;
+              quote?: T;
+              stars?: T;
+              avatar?: T;
+              id?: T;
+            };
+      };
+  faq?:
+    | T
+    | {
+        title?: T;
+        description?: T;
+        items?:
+          | T
+          | {
+              question?: T;
+              answer?: T;
+              id?: T;
+            };
+      };
+  cta?:
+    | T
+    | {
+        title?: T;
+        description?: T;
+        primaryCta?:
+          | T
+          | {
+              label?: T;
+              href?: T;
+            };
+        secondaryCta?:
+          | T
+          | {
+              label?: T;
+              href?: T;
+            };
+        note?: T;
+        background?: T;
+      };
+  updatedAt?: T;
+  createdAt?: T;
+  globalType?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "rental-page_select".
+ */
+export interface RentalPageSelect<T extends boolean = true> {
+  meta?:
+    | T
+    | {
+        title?: T;
+        description?: T;
+      };
+  hero?:
+    | T
+    | {
+        rating?: T;
+        title?: T;
+        description?: T;
+        primaryCta?:
+          | T
+          | {
+              label?: T;
+              href?: T;
+            };
+        secondaryCta?:
+          | T
+          | {
+              label?: T;
+              href?: T;
+            };
+        media?: T;
+      };
+  flow?:
+    | T
+    | {
+        title?: T;
+        description?: T;
+        steps?:
+          | T
+          | {
+              number?: T;
+              title?: T;
+              description?: T;
+              metricLabel?: T;
+              metric?: T;
+              pills?:
+                | T
+                | {
+                    text?: T;
+                    id?: T;
+                  };
+              step?: T;
+              id?: T;
+            };
+      };
+  platform?:
+    | T
+    | {
+        title?: T;
+        description?: T;
+        features?:
+          | T
+          | {
+              title?: T;
+              description?: T;
+              icon?: T;
+              highlighted?: T;
+              id?: T;
+            };
+      };
+  community?:
+    | T
+    | {
+        trendingTitle?: T;
+        stats?:
+          | T
+          | {
+              value?: T;
+              label?: T;
+              id?: T;
+            };
+        inspectTitle?: T;
+        inspectHighlight?: T;
+        manageTitle?: T;
+        manageBullets?:
+          | T
+          | {
+              label?: T;
+              text?: T;
+              id?: T;
+            };
+        manageImage?: T;
+        manageBadge?: T;
+        trustedTitle?: T;
+        trustedLogos?:
+          | T
+          | {
+              label?: T;
+              id?: T;
+            };
+      };
+  howItWorks?:
+    | T
+    | {
+        title?: T;
+        description?: T;
+        steps?:
+          | T
+          | {
+              step?: T;
+              title?: T;
+              description?: T;
+              image?: T;
+              id?: T;
+            };
+      };
+  benefits?:
+    | T
+    | {
+        title?: T;
+        items?:
+          | T
+          | {
+              title?: T;
+              description?: T;
+              icon?: T;
+              highlighted?: T;
+              wide?: T;
+              id?: T;
+            };
+      };
+  fleetOperators?:
+    | T
+    | {
+        eyebrow?: T;
+        title?: T;
+        description?: T;
+        primaryCta?:
+          | T
+          | {
+              label?: T;
+              href?: T;
+            };
+        secondaryCta?:
+          | T
+          | {
+              label?: T;
+              href?: T;
+            };
+        background?: T;
+        stats?:
+          | T
+          | {
+              value?: T;
+              label?: T;
+              id?: T;
+            };
+        features?:
+          | T
+          | {
+              icon?: T;
+              title?: T;
+              description?: T;
+              id?: T;
+            };
+      };
+  testimonials?:
+    | T
+    | {
+        title?: T;
+        description?: T;
+        label?: T;
+        items?:
+          | T
+          | {
+              name?: T;
+              quote?: T;
+              stars?: T;
+              avatar?: T;
+              id?: T;
+            };
+      };
+  faq?:
+    | T
+    | {
+        title?: T;
+        description?: T;
+        items?:
+          | T
+          | {
+              question?: T;
+              answer?: T;
+              id?: T;
+            };
+      };
+  cta?:
+    | T
+    | {
+        title?: T;
+        description?: T;
+        primaryCta?:
+          | T
+          | {
+              label?: T;
+              href?: T;
+            };
+        secondaryCta?:
+          | T
+          | {
+              label?: T;
+              href?: T;
+            };
+        note?: T;
+        background?: T;
+      };
+  updatedAt?: T;
+  createdAt?: T;
+  globalType?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "towing-valet-page_select".
+ */
+export interface TowingValetPageSelect<T extends boolean = true> {
+  meta?:
+    | T
+    | {
+        title?: T;
+        description?: T;
+      };
+  hero?:
+    | T
+    | {
+        rating?: T;
+        title?: T;
+        description?: T;
+        primaryCta?:
+          | T
+          | {
+              label?: T;
+              href?: T;
+            };
+        secondaryCta?:
+          | T
+          | {
+              label?: T;
+              href?: T;
+            };
+        media?: T;
+      };
+  flow?:
+    | T
+    | {
+        title?: T;
+        description?: T;
+        steps?:
+          | T
+          | {
+              number?: T;
+              title?: T;
+              description?: T;
+              metricLabel?: T;
+              metric?: T;
+              pills?:
+                | T
+                | {
+                    text?: T;
+                    id?: T;
+                  };
+              step?: T;
+              id?: T;
+            };
+      };
+  platform?:
+    | T
+    | {
+        title?: T;
+        description?: T;
+        features?:
+          | T
+          | {
+              title?: T;
+              description?: T;
+              icon?: T;
+              highlighted?: T;
+              id?: T;
+            };
+      };
+  community?:
+    | T
+    | {
+        trendingTitle?: T;
+        stats?:
+          | T
+          | {
+              value?: T;
+              label?: T;
+              id?: T;
+            };
+        inspectTitle?: T;
+        inspectHighlight?: T;
+        manageTitle?: T;
+        manageBullets?:
+          | T
+          | {
+              label?: T;
+              text?: T;
+              id?: T;
+            };
+        manageImage?: T;
+        manageBadge?: T;
+        trustedTitle?: T;
+        trustedLogos?:
+          | T
+          | {
+              label?: T;
+              id?: T;
+            };
+      };
+  howItWorks?:
+    | T
+    | {
+        title?: T;
+        description?: T;
+        steps?:
+          | T
+          | {
+              step?: T;
+              title?: T;
+              description?: T;
+              image?: T;
+              id?: T;
+            };
+      };
+  benefits?:
+    | T
+    | {
+        title?: T;
+        items?:
+          | T
+          | {
+              title?: T;
+              description?: T;
+              icon?: T;
+              highlighted?: T;
+              wide?: T;
+              id?: T;
+            };
+      };
+  fleetOperators?:
+    | T
+    | {
+        eyebrow?: T;
+        title?: T;
+        description?: T;
+        primaryCta?:
+          | T
+          | {
+              label?: T;
+              href?: T;
+            };
+        secondaryCta?:
+          | T
+          | {
+              label?: T;
+              href?: T;
+            };
+        background?: T;
+        stats?:
+          | T
+          | {
+              value?: T;
+              label?: T;
+              id?: T;
+            };
+        features?:
+          | T
+          | {
+              icon?: T;
+              title?: T;
+              description?: T;
+              id?: T;
+            };
+      };
+  testimonials?:
+    | T
+    | {
+        title?: T;
+        description?: T;
+        label?: T;
+        items?:
+          | T
+          | {
+              name?: T;
+              quote?: T;
+              stars?: T;
+              avatar?: T;
+              id?: T;
+            };
+      };
+  faq?:
+    | T
+    | {
+        title?: T;
+        description?: T;
+        items?:
+          | T
+          | {
+              question?: T;
+              answer?: T;
+              id?: T;
+            };
+      };
+  cta?:
+    | T
+    | {
+        title?: T;
+        description?: T;
+        primaryCta?:
+          | T
+          | {
+              label?: T;
+              href?: T;
+            };
+        secondaryCta?:
+          | T
+          | {
+              label?: T;
+              href?: T;
+            };
+        note?: T;
+        background?: T;
       };
   updatedAt?: T;
   createdAt?: T;

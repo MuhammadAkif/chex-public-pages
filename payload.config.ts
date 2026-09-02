@@ -12,6 +12,10 @@ import { Users } from './src/collections/Users.ts'
 import { HomePage } from './src/globals/HomePage.ts'
 import { ServicePage } from './src/globals/ServicePage.ts'
 import { InspectionFormPage } from './src/globals/InspectionFormPage.ts'
+import { CommercialFleetPage } from './src/globals/CommercialFleetPage.ts'
+import { InsurancePage } from './src/globals/InsurancePage.ts'
+import { RentalPage } from './src/globals/RentalPage.ts'
+import { TowingValetPage } from './src/globals/TowingValetPage.ts'
 
 const filename = fileURLToPath(import.meta.url)
 const dirname = path.dirname(filename)
@@ -42,7 +46,15 @@ export default buildConfig({
     user: Users.slug,
   },
   collections: [Users, Posts, Media, Locations],
-  globals: [HomePage, ServicePage, InspectionFormPage],
+  globals: [
+    HomePage,
+    ServicePage,
+    InspectionFormPage,
+    CommercialFleetPage,
+    InsurancePage,
+    RentalPage,
+    TowingValetPage,
+  ],
   cors: [serverURL],
   csrf: [serverURL],
   db: postgresAdapter({

@@ -6,11 +6,11 @@ export const siteContent = {
       label: "Services",
       href: "/rideshare-inspection-service",
       children: [
-        { label: "Rideshare Inspection", href: "/rideshare-inspection-service" },
-        { label: "Commercial Fleet Inspections", href: "#", comingSoon: true },
-        { label: "Insurance", href: "#", comingSoon: true },
-        { label: "Rental Car Companies", href: "#", comingSoon: true },
-        { label: "Towing & Valet Services", href: "#", comingSoon: true },
+        { label: "Rideshare Inspection", href: "/rideshare-inspection-service", icon: "car" },
+        { label: "Commercial Fleet Inspections", href: "/commercial-fleet-inspection-service", icon: "truck" },
+        { label: "Insurance", href: "/insurance-inspection-service", icon: "shield" },
+        { label: "Rental Car Companies", href: "/rental-inspection-service", icon: "key" },
+        { label: "Towing & Valet Services", href: "/towing-valet-inspection-service", icon: "clipboard" },
       ],
     },
     // "Areas we serve" is temporarily hidden from the navbar. Restore this
