@@ -1,8 +1,14 @@
+import Link from 'next/link'
+import type { Route } from 'next'
+
 import type { CommercialFleetContent } from '@/app/(site)/commercial-fleet-inspection-service/content'
 
 import { fleetAssets } from './assets'
 
-type BenefitsProps = CommercialFleetContent['benefits']
+type BenefitsProps = CommercialFleetContent['benefits'] & {
+  /** Optional CTA link rendered below the grid (e.g. a link to the pricing page). */
+  ctaLink?: { label: string; href: string }
+}
 type Benefit = BenefitsProps['items'][number]
 
 function BenefitCard({ benefit, isLast }: { benefit: Benefit; isLast?: boolean }) {
@@ -35,7 +41,7 @@ function BenefitCard({ benefit, isLast }: { benefit: Benefit; isLast?: boolean }
   )
 }
 
-export function CommercialFleetBenefits({ title, items }: BenefitsProps) {
+export function CommercialFleetBenefits({ title, items, ctaLink }: BenefitsProps) {
   return (
     <section className="bg-white px-4 pt-4 pb-20 sm:px-6 lg:px-10 lg:pt-6 lg:pb-28">
       <div className="mx-auto max-w-[1240px]">
@@ -47,6 +53,30 @@ export function CommercialFleetBenefits({ title, items }: BenefitsProps) {
             <BenefitCard key={benefit.title} benefit={benefit} isLast={index === items.length - 1} />
           ))}
         </div>
+
+        {ctaLink ? (
+          <div className="mt-12 flex justify-center">
+            <Link
+              href={ctaLink.href as Route}
+              className="type-button inline-flex min-h-[52px] items-center justify-center gap-2 rounded-[14px] bg-[#1368b9] px-7 text-white shadow-[0_20px_50px_-24px_rgba(19,104,185,0.85)] transition hover:brightness-105"
+              style={{ color: '#ffffff' }}
+            >
+              {ctaLink.label}
+              <svg
+                className="h-4 w-4"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2.2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                aria-hidden="true"
+              >
+                <path d="M5 12h14M13 6l6 6-6 6" />
+              </svg>
+            </Link>
+          </div>
+        ) : null}
       </div>
     </section>
   )

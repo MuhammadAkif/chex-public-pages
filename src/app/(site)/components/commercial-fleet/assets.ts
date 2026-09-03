@@ -64,13 +64,15 @@ export const fleetAssets = {
     },
   },
 
-  // "Benefits we propose" icons (PNG line icons)
+  // "Benefits we propose" icons — exported from Figma (node 2794-911). The
+  // "fast" glyph is blue (#1368b9) for the highlighted card's white badge; the
+  // rest are white (#f0f6ff) for the blue badges. See CommercialFleetBenefits.
   benefitIcons: {
-    fast: `${base}/benefit-fast.svg`, // Fast and convenient (assembled Figma stopwatch)
-    cost: `${base}/357484120620e107bfc9ba0184fb3c92aa7913be.png`, // Cost-effective (graph)
-    accuracy: `${base}/6144fbd614ac8db18615a5b02a00326c02bf6057.png`, // Increased accuracy (goal)
-    experience: `${base}/d9616a1a9a667a66a55576a42fe474819384bc39.png`, // Improved customer experience (rating)
-    risk: `${base}/5944b42e825d7f8c9f2b81579bae8316471ae5c8.png`, // Better risk management (measurement)
+    fast: `${base}/benefit-fast.svg`, // Fast and convenient (lightning)
+    cost: `${base}/benefit-cost.svg`, // Cost-effective (dollar)
+    accuracy: `${base}/benefit-accuracy.svg`, // Increased accuracy (target)
+    experience: `${base}/benefit-experience.svg`, // Improved customer experience (people)
+    risk: `${base}/benefit-risk.svg`, // Better risk management (gear)
   },
 } as const
 

@@ -28,14 +28,16 @@ function Chevron({ open }: { open: boolean }) {
   )
 }
 
-// Per-feature icons exported from the Figma Transform section (in feature order),
-// replacing the previous numbered circles.
+// Per-feature icons exported from the Figma Transform section (in feature
+// order), replacing the previous numbered circles. `box` matches each icon's
+// Figma display size so stroke weights read the same (the scan glyph is a
+// filled 32px icon, so it must not be up-scaled to 36px).
 const featureIcons = [
-  '/transform-icons/icon-1-report.svg',
-  '/transform-icons/icon-2-fraud.svg',
-  '/transform-icons/icon-3-analyse.svg',
-  '/transform-icons/icon-4-claim.svg',
-  '/transform-icons/icon-5-scan.svg',
+  { src: '/transform-icons/icon-1-report.svg', box: 'h-9 w-9' },
+  { src: '/transform-icons/icon-2-fraud.svg', box: 'h-8 w-8' },
+  { src: '/transform-icons/icon-3-analyse.svg', box: 'h-9 w-9' },
+  { src: '/transform-icons/icon-4-claim.svg', box: 'h-9 w-9' },
+  { src: '/transform-icons/icon-5-scan.svg', box: 'h-8 w-8' },
 ]
 
 export function LandingTransform({ title, description, image, features }: LandingTransformProps) {
@@ -74,12 +76,23 @@ export function LandingTransform({ title, description, image, features }: Landin
                   >
                     <span className="flex items-center gap-4">
                       {featureIcons[index] ? (
-                        // eslint-disable-next-line @next/next/no-img-element
-                        <img
-                          src={featureIcons[index]}
-                          alt=""
+                        // Rendered as a CSS mask so the icon recolours with the
+                        // open/closed state (orange when open, ink when closed),
+                        // matching the Figma "Transform" accordion.
+                        <span
                           aria-hidden
-                          className="h-9 w-9 shrink-0 object-contain"
+                          className={`${featureIcons[index].box} shrink-0`}
+                          style={{
+                            backgroundColor: open ? '#ff7a01' : '#1b2f4b',
+                            WebkitMaskImage: `url(${featureIcons[index].src})`,
+                            maskImage: `url(${featureIcons[index].src})`,
+                            WebkitMaskRepeat: 'no-repeat',
+                            maskRepeat: 'no-repeat',
+                            WebkitMaskPosition: 'center',
+                            maskPosition: 'center',
+                            WebkitMaskSize: 'contain',
+                            maskSize: 'contain',
+                          }}
                         />
                       ) : (
                         <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-[#fff1e6] text-[15px] font-semibold text-[#ff7a01]">

@@ -7,10 +7,24 @@ import { HomeCallToAction } from "./home-call-to-action";
 import { HomeCommunity } from "./home-community";
 import { HomeHero } from "./home-hero";
 import { HomeHowItWorks } from "./home-how-it-works";
-import { HomeBenefits } from "./home-benefits";
 import { HomeServiceAreas } from "./home-service-areas";
+import { CommercialFleetBenefits } from "../commercial-fleet/commercial-fleet-benefits";
+import type { BenefitIconKey } from "../commercial-fleet/assets";
 import { LocationTestimonials } from "../locations/location-testimonials";
 import { Reveal } from "../shared/reveal";
+
+/**
+ * Maps the home/rideshare benefits icon keys onto the shared service-page
+ * benefit icon set, so the "Benefits we propose" section renders with the same
+ * card UI and Figma icons as the four service pages.
+ */
+const BENEFIT_ICON_BY_HOME_KEY: Record<string, BenefitIconKey> = {
+  spark: "fast",
+  cost: "cost",
+  target: "accuracy",
+  people: "experience",
+  shield: "risk",
+};
 
 type HomePageProps = {
   content: HomePageContent;
@@ -63,9 +77,17 @@ export function HomePage({
         </Reveal>
 
         <Reveal>
-          <HomeBenefits
+          <CommercialFleetBenefits
             title={content.benefits.title}
-            items={content.benefits.items}
+            items={content.benefits.items.map((item, index) => ({
+              title: item.title,
+              description: item.description,
+              icon: BENEFIT_ICON_BY_HOME_KEY[item.icon] ?? "fast",
+              highlighted: item.tone === "accent",
+              // Match the four service pages' layout: the highlighted first card
+              // and the final two cards span wide; the middle two are narrow.
+              wide: index === 0 || index >= content.benefits.items.length - 2,
+            }))}
             ctaLink={benefitsCtaLink}
           />
         </Reveal>
