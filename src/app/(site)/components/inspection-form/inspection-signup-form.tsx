@@ -30,7 +30,7 @@ export function InspectionSignupForm({
   subtitle = "Create your free account — get certified the same day.",
 }: InspectionSignupFormProps) {
   const recaptchaRef = useRef<ReCAPTCHA>(null);
-  const [acceptedTerms, setAcceptedTerms] = useState(false);
+  const [acceptedTerms, setAcceptedTerms] = useState(true);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitError, setSubmitError] = useState<string | null>(null);
   const [captchaToken, setCaptchaToken] = useState<string | null>(null);
@@ -146,7 +146,7 @@ export function InspectionSignupForm({
             />
           </label>
 
-          <label className="flex cursor-pointer items-start gap-2.5 font-ui text-[12.5px] leading-5 text-[#63757f]">
+          <div className="flex items-start gap-2.5 text-left font-ui text-[12.5px] leading-5 text-[#63757f]">
             <input
               type="checkbox"
               checked={acceptedTerms}
@@ -154,16 +154,28 @@ export function InspectionSignupForm({
               className="mt-0.5 h-4 w-4 shrink-0 cursor-pointer accent-[#ff7a01]"
             />
             <span>
-              By checking the box, you accept our{" "}
+              I agree to receive SMS notifications from{" "}
               <a
-                href="/terms-of-use"
+                href="/home"
                 className="font-semibold text-[#1368b9] underline underline-offset-2"
               >
-                Terms of Use
-              </a>
-              .
+                Chex.ai
+              </a>{" "}
+              regarding my account sign-up, inspection status, and support
+              communications. Msg frequency varies. Msg &amp; data rates may
+              apply. Reply STOP to opt out.
+              <span className="mt-1 block">
+                View our{" "}
+                <a
+                  href="/terms-of-use"
+                  className="font-semibold text-[#1368b9] underline underline-offset-2"
+                >
+                  SMS Terms &amp; Privacy Policy
+                </a>
+                .
+              </span>
             </span>
-          </label>
+          </div>
 
           <div className="overflow-hidden">
             <ReCAPTCHA

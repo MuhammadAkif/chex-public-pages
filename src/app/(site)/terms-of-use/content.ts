@@ -314,6 +314,37 @@ export const pageContent: LegalPageContent = {
       ],
     },
     {
+      heading: "SMS Communications",
+      blocks: [
+        {
+          type: "paragraph",
+          text: `By opting in, you consent to receive text messages from Chex.ai related to:`,
+        },
+        {
+          type: "list",
+          items: [
+            `Confirmation of account and inspection sign-up`,
+            `Inspection status updates and completion notices`,
+            `Certificate issuance confirmations`,
+            `Reminders for incomplete inspections`,
+          ],
+        },
+        {
+          type: "paragraph",
+          text: `Message frequency varies based on your inspection activity (typically 1–4 messages per inspection cycle). Message and data rates may apply based on your carrier plan. Consent to receive SMS is not a condition of using Chex.ai services where an alternative contact method is available.`,
+        },
+        {
+          type: "mailto",
+          lead: `To opt out at any time, reply STOP to any message. To get help, contact us at`,
+          email: "support@chex.ai",
+        },
+        {
+          type: "paragraph",
+          text: `Carriers are not liable for delayed or undelivered messages. We do not sell or share your mobile information with third parties for marketing purposes.`,
+        },
+      ],
+    },
+    {
       heading: "Contact Chex.ai",
       blocks: [
         {

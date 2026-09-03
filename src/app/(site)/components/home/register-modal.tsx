@@ -35,7 +35,7 @@ export function useRegisterModal() {
 
 function RegisterModalPanel({ onClose }: { onClose: () => void }) {
   const recaptchaRef = useRef<ReCAPTCHA>(null);
-  const [acceptedTerms, setAcceptedTerms] = useState(false);
+  const [acceptedTerms, setAcceptedTerms] = useState(true);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitError, setSubmitError] = useState<string | null>(null);
   const [captchaToken, setCaptchaToken] = useState<string | null>(null);
@@ -194,17 +194,36 @@ function RegisterModalPanel({ onClose }: { onClose: () => void }) {
             />
           </label>
 
-          <label className="flex cursor-pointer items-start gap-3 font-ui text-[14px] leading-relaxed text-white/80">
+          <div className="flex items-start gap-3 text-left font-ui text-[14px] leading-relaxed text-white/80">
             <input
               type="checkbox"
               checked={acceptedTerms}
               onChange={(e) => setAcceptedTerms(e.target.checked)}
-              className="mt-1 h-4 w-4 shrink-0 rounded border-white/40 bg-black/40 text-[#ff7a01] focus:ring-[#1468ba]"
+              className="mt-1 h-4 w-4 shrink-0 cursor-pointer rounded border-white/40 bg-black/40 text-[#ff7a01] focus:ring-[#1468ba]"
             />
             <span>
-              I agree to the <b>Terms of Service</b>.
+              I agree to receive SMS notifications from{" "}
+              <a
+                href="/home"
+                className="font-semibold text-[#ff7a01] underline underline-offset-2"
+              >
+                Chex.ai
+              </a>{" "}
+              regarding my account sign-up, inspection status, and support
+              communications. Msg frequency varies. Msg &amp; data rates may
+              apply. Reply STOP to opt out.
+              <span className="mt-1 block">
+                View our{" "}
+                <a
+                  href="/terms-of-use"
+                  className="font-semibold text-[#ff7a01] underline underline-offset-2"
+                >
+                  SMS Terms &amp; Privacy Policy
+                </a>
+                .
+              </span>
             </span>
-          </label>
+          </div>
 
           <div className="overflow-x-auto">
             <ReCAPTCHA
