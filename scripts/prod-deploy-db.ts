@@ -27,7 +27,7 @@ if (!PROD) {
   process.exit(1)
 }
 
-process.env.NODE_ENV = 'production'
+;(process.env as Record<string, string>).NODE_ENV = 'production'
 nextEnv.loadEnvConfig(process.cwd())
 process.env.DATABASE_URL = PROD
 
