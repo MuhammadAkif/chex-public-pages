@@ -59,6 +59,9 @@ export type CommercialFleetContent = {
     manageBadge: string
     trustedTitle: string
     trustedLogos: ReadonlyArray<string>
+    /** Optional image logos for the trusted marquee. When set, the marquee
+     * renders these images instead of the wordmark `trustedLogos` strings. */
+    trustedLogoImages?: ReadonlyArray<{ image: string; label: string }>
   }
   howItWorks: {
     title: string

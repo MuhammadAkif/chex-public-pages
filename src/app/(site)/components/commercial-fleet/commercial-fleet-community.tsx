@@ -1,6 +1,7 @@
 import type { CommercialFleetContent } from '@/app/(site)/commercial-fleet-inspection-service/content'
 
 import { fleetAssets } from './assets'
+import { CommercialFleetTrustedMarquee } from './commercial-fleet-trusted-marquee'
 
 type CommunityProps = CommercialFleetContent['community']
 
@@ -8,7 +9,7 @@ type CommunityProps = CommercialFleetContent['community']
  * Per-brand wordmark styling for the trusted-logos row, matching the Figma
  * treatment (some brands appear bolder/darker, others lighter/greyed).
  */
-function trustedLogoStyle(label: string): string {
+export function trustedLogoStyle(label: string): string {
   // Figma sizes preserved; all wordmarks rendered in solid black per request.
   switch (label) {
     case 'Fleetio':
@@ -49,6 +50,7 @@ export function CommercialFleetCommunity({
   manageBadge,
   trustedTitle,
   trustedLogos,
+  trustedLogoImages,
 }: CommunityProps) {
   return (
     <section className="relative overflow-hidden bg-[#1b1c20] px-4 py-20 sm:px-6 lg:px-10 lg:py-28">
@@ -140,15 +142,8 @@ export function CommercialFleetCommunity({
             <h2 className="mx-auto max-w-[908px] font-display text-[28px] font-bold leading-[1.2] text-white sm:text-[36px] lg:text-[48px]">
               {trustedTitle}
             </h2>
-            <div className="mx-auto mt-10 grid max-w-[1130px] grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-5">
-              {trustedLogos.map((logo) => (
-                <div
-                  key={logo}
-                  className="flex h-[100px] items-center justify-center rounded-[16px] bg-white px-4 lg:h-[120px]"
-                >
-                  <span className={`font-display font-bold ${trustedLogoStyle(logo)}`}>{logo}</span>
-                </div>
-              ))}
+            <div className="mx-auto max-w-[1130px]">
+              <CommercialFleetTrustedMarquee logos={trustedLogos} imageLogos={trustedLogoImages} />
             </div>
           </div>
         </div>

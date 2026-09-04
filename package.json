@@ -31,6 +31,8 @@
     "insurance:seed": "node --import tsx scripts/seed-insurance.ts",
     "rental:seed": "node --import tsx scripts/seed-rental.ts",
     "towing-valet:seed": "node --import tsx scripts/seed-towing-valet.ts",
+    "service-pages:snapshot": "node --import tsx scripts/dump-service-globals.ts && node --import tsx scripts/build-service-snapshots.ts",
+    "service-pages:seed": "node --import tsx scripts/seed-service-pages.ts",
     "posts:normalize-slugs": "node --import tsx scripts/normalize-post-slugs.ts",
     "seed:all": "yarn locations:seed && yarn locations:seed-rideshare && yarn home:seed",
     "db:migrate:local-to-env": "node --import tsx scripts/migrate-local-db-to-env.ts",

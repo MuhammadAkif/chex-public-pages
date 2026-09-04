@@ -15,3 +15,6 @@ yarn-debug.log*
 yarn-error.log*
 pnpm-debug.log*
 package-lock.json
+
+# Transient DB dump for service-page snapshot (regenerate via yarn service-pages:snapshot)
+scripts/_service-globals-dump.json

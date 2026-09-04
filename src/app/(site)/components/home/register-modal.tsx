@@ -35,7 +35,8 @@ export function useRegisterModal() {
 
 function RegisterModalPanel({ onClose }: { onClose: () => void }) {
   const recaptchaRef = useRef<ReCAPTCHA>(null);
-  const [acceptedTerms, setAcceptedTerms] = useState(true);
+  const [acceptedTerms, setAcceptedTerms] = useState(false);
+  const [acceptedTos, setAcceptedTos] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitError, setSubmitError] = useState<string | null>(null);
   const [captchaToken, setCaptchaToken] = useState<string | null>(null);
@@ -60,7 +61,7 @@ function RegisterModalPanel({ onClose }: { onClose: () => void }) {
   const onSubmit = useCallback(
     async (e: React.FormEvent<HTMLFormElement>) => {
       e.preventDefault();
-      if (!acceptedTerms || isSubmitting) return;
+      if (!acceptedTerms || !acceptedTos || isSubmitting) return;
 
       const formData = new FormData(e.currentTarget);
       const firstName = formValue(formData.get("firstName"));
@@ -95,7 +96,7 @@ function RegisterModalPanel({ onClose }: { onClose: () => void }) {
         setIsSubmitting(false);
       }
     },
-    [acceptedTerms, captchaToken, isSubmitting],
+    [acceptedTerms, acceptedTos, captchaToken, isSubmitting],
   );
 
   return (
@@ -225,6 +226,25 @@ function RegisterModalPanel({ onClose }: { onClose: () => void }) {
             </span>
           </div>
 
+          <div className="flex items-start gap-3 text-left font-ui text-[14px] leading-relaxed text-white/80">
+            <input
+              type="checkbox"
+              checked={acceptedTos}
+              onChange={(e) => setAcceptedTos(e.target.checked)}
+              className="mt-1 h-4 w-4 shrink-0 cursor-pointer rounded border-white/40 bg-black/40 text-[#ff7a01] focus:ring-[#1468ba]"
+            />
+            <span>
+              I Accept the{" "}
+              <a
+                href="/terms-of-use"
+                className="font-semibold text-[#ff7a01] underline underline-offset-2"
+              >
+                terms of use
+              </a>
+              .
+            </span>
+          </div>
+
           <div className="overflow-x-auto">
             <ReCAPTCHA
               ref={recaptchaRef}
@@ -238,7 +258,7 @@ function RegisterModalPanel({ onClose }: { onClose: () => void }) {
 
           <button
             type="submit"
-            disabled={!acceptedTerms || isSubmitting}
+            disabled={!acceptedTerms || !acceptedTos || isSubmitting}
             className="mt-1 w-full rounded-[12px] bg-[#ff7a01] py-3.5 font-ui text-[16px] font-bold text-white shadow-[0_14px_36px_-16px_rgba(255,122,1,0.85)] transition-[filter,transform] active:scale-[0.99] enabled:hover:brightness-105 disabled:cursor-not-allowed disabled:opacity-60 cursor-pointer"
           >
             {isSubmitting ? "Creating account..." : "Create Account"}

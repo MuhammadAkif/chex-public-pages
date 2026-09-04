@@ -73,6 +73,17 @@ export const insuranceDefaultContent: CommercialFleetContent = {
     inspectHighlight: 'cost estimate automatically.',
     manageTitle: 'See Chex.AI on your own claims',
     manageImage: '/commercial-fleet/06b140aa07fafc2734e81c947fd674da0b9abacb.png',
+    trustedTitle: 'Trusted by insurers',
+    // Same rideshare-platform logos the home/rideshare page shows, animated.
+    trustedLogoImages: [
+      { image: 'https://res.cloudinary.com/dgjordf6e/image/upload/v1742288544/image_23_1_acixly.png', label: 'Uber' },
+      { image: 'https://res.cloudinary.com/dgjordf6e/image/upload/v1742288544/image_69_hajt9n.png', label: 'Lyft' },
+      { image: 'https://res.cloudinary.com/dgjordf6e/image/upload/v1742288649/image_80_jlmrcm.png', label: 'Turo' },
+      { image: 'https://chex-payload-public-pages.s3.us-east-1.amazonaws.com/logo-adroit.png', label: 'Adroit' },
+      { image: 'https://chex-payload-public-pages.s3.us-east-1.amazonaws.com/logo-zum.png', label: 'Zum' },
+      { image: 'https://chex-payload-public-pages.s3.us-east-1.amazonaws.com/images.png', label: 'HopSkipDrive' },
+      { image: 'https://chex-payload-public-pages.s3.us-east-1.amazonaws.com/Asset%201.png', label: 'Triburs' },
+    ],
   },
   fleetOperators: {
     ...base.fleetOperators,

@@ -58,6 +58,7 @@ export function LocationRegister({
   loginLinkLabel,
 }: LocationRegisterProps) {
   const recaptchaRef = useRef<ReCAPTCHA>(null);
+  const [acceptedSms, setAcceptedSms] = useState(false);
   const [acceptedTerms, setAcceptedTerms] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitError, setSubmitError] = useState<string | null>(null);
@@ -67,7 +68,7 @@ export function LocationRegister({
   const onSubmit = useCallback(
     async (e: React.FormEvent<HTMLFormElement>) => {
       e.preventDefault();
-      if (!acceptedTerms || isSubmitting) {
+      if (!acceptedSms || !acceptedTerms || isSubmitting) {
         return;
       }
 
@@ -102,7 +103,7 @@ export function LocationRegister({
         setIsSubmitting(false);
       }
     },
-    [acceptedTerms, captchaToken, isSubmitting],
+    [acceptedSms, acceptedTerms, captchaToken, isSubmitting],
   );
 
   if (!backgroundImage || !headlineLines.length) {
@@ -198,6 +199,37 @@ export function LocationRegister({
               />
             </label>
 
+            <div className="flex items-start gap-3 text-left font-ui text-[14px] leading-relaxed text-white/92 sm:text-[15px]">
+              <input
+                type="checkbox"
+                checked={acceptedSms}
+                onChange={(ev) => setAcceptedSms(ev.target.checked)}
+                className="mt-1 h-4 w-4 shrink-0 cursor-pointer rounded border-white/50 bg-black/40 text-[#f68b1f] focus:ring-[#1468ba]"
+              />
+              <span>
+                I agree to receive SMS notifications from{" "}
+                <Link
+                  href="/home"
+                  className="font-semibold text-[#1468ba] underline decoration-[#1468ba]/80 underline-offset-2 hover:text-[#3d8fd9]"
+                >
+                  Chex.ai
+                </Link>{" "}
+                regarding my account sign-up, inspection status, and support
+                communications. Msg frequency varies. Msg &amp; data rates may
+                apply. Reply STOP to opt out.
+                <span className="mt-1 block">
+                  View our{" "}
+                  <Link
+                    href="/terms-of-use"
+                    className="font-semibold text-[#1468ba] underline decoration-[#1468ba]/80 underline-offset-2 hover:text-[#3d8fd9]"
+                  >
+                    SMS Terms &amp; Privacy Policy
+                  </Link>
+                  .
+                </span>
+              </span>
+            </div>
+
             <label className="flex cursor-pointer items-start gap-3 font-ui text-[14px] leading-relaxed text-white/92 sm:text-[15px]">
               <input
                 type="checkbox"
@@ -239,7 +271,7 @@ export function LocationRegister({
 
             <button
               type="submit"
-              disabled={!acceptedTerms || isSubmitting}
+              disabled={!acceptedSms || !acceptedTerms || isSubmitting}
               className="mt-2 w-full rounded-[12px] bg-[#ff7a01] py-3.5 font-ui text-[16px] font-bold text-white shadow-[0_14px_36px_-16px_rgba(255,122,1,0.95)] transition-[filter,transform] active:scale-[0.99] enabled:hover:brightness-105 disabled:cursor-not-allowed  sm:text-[17px]"
             >
               {isSubmitting ? "Creating account..." : registerButtonLabel}

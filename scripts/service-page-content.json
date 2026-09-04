@@ -1,0 +1,1566 @@
+{
+  "commercial-fleet-page": {
+    "meta": {
+      "title": "AI-Powered Commercial Fleet Inspections",
+      "description": "Chex.AI turns any driver’s phone into an AI inspector: guided DVIR capture, AI damage detection across 163 parts, and a defensible report in minutes. No hardware."
+    },
+    "hero": {
+      "rating": "4.9 (1667+ reviews)",
+      "title": "Commercial Fleet Inspections",
+      "description": "Chex.AI turns any driver's phone into an AI fleet inspector. Capture a guided DVIR, detect damage across 163 vehicle parts, and generate an audit-ready, DOT-compliant report in minutes.",
+      "primaryCta": {
+        "label": "See Fleet Pricing",
+        "href": "/dsp-fleet-pricing"
+      },
+      "secondaryCta": {
+        "label": "Request a demo",
+        "href": "/contact-us"
+      },
+      "media": "/commercial-fleet/3ba442eb827e222ce951bd45a0b2e52d6e16ac5a.png"
+    },
+    "flow": {
+      "title": "Four steps. About five minutes. Zero shop visits.",
+      "description": "Run a full DOT inspection from your own with no appointment.",
+      "steps": [
+        {
+          "number": "01",
+          "title": "Pick the vehicle",
+          "description": "Choose the type and state. We load the exact DVIR and DOT form.",
+          "metricLabel": "STEP 1 / 4",
+          "metric": "≈ 1 seconds",
+          "pills": [
+            {
+              "text": "No account setup"
+            },
+            {
+              "text": "DOT forms built in"
+            },
+            {
+              "text": "Affordable price"
+            }
+          ]
+        },
+        {
+          "number": "02",
+          "title": "Capture the guided walkaround",
+          "description": "On-screen guides the driver around the truck. Bad photos flagged on the spot.",
+          "metricLabel": "STEP 2 / 4",
+          "metric": "≈ 1 minutes",
+          "pills": [
+            {
+              "text": "12 guided captures"
+            },
+            {
+              "text": "Live quality coaching"
+            },
+            {
+              "text": "VIN, plate & odometer auto-read"
+            }
+          ]
+        },
+        {
+          "number": "03",
+          "title": "AI inspects, a human verifies",
+          "description": "Our models check 163 vehicle parts for 21 damage types, then a certified reviewer signs off on the safety items your platform cares about.",
+          "metricLabel": "STEP 3 / 4",
+          "metric": "≈ 2 minutes",
+          "pills": [
+            {
+              "text": "95–99% detection accuracy"
+            },
+            {
+              "text": "Fraud & tampering checks"
+            },
+            {
+              "text": "Certified human sign-off"
+            }
+          ]
+        },
+        {
+          "number": "04",
+          "title": "Same-day eDVIR",
+          "description": "Your DOT report lands in your inbox and dashboard, formatted for upload.",
+          "metricLabel": "STEP 4 / 4",
+          "metric": "Same day",
+          "pills": [
+            {
+              "text": "Platform-ready PDF"
+            },
+            {
+              "text": "Permanent audit trail"
+            },
+            {
+              "text": "Free re-capture if rejected"
+            }
+          ]
+        }
+      ]
+    },
+    "platform": {
+      "title": "DVIR compliance and AI damage detection.",
+      "description": "Chex.AI runs your cDVIR compliance and AI damage detection in one platform",
+      "features": [
+        {
+          "title": "163-part detection 95–99%",
+          "description": "Detects dents, scratches, cracks, rust, missing parts across 163 parts and 21 damage types.",
+          "icon": "check",
+          "highlighted": true
+        },
+        {
+          "title": "eDVIR & DOT compliance",
+          "description": "Digital DVIRs with driver sign-off, timestamps, and photo evidence — audit-ready for 2026 & FMCSA.",
+          "icon": "doc",
+          "highlighted": false
+        },
+        {
+          "title": "Fraud & tamper detection",
+          "description": "Flags manipulated, duplicate, or stale photos before they enter a report so the evidence holds up.",
+          "icon": "shield",
+          "highlighted": false
+        },
+        {
+          "title": "Auto VIN, plate & odometer",
+          "description": "Reads the VIN, plate, and odometer from the capture — no manual data entry, no transcription errors.",
+          "icon": "plate",
+          "highlighted": false
+        },
+        {
+          "title": "Real-time fleet dashboard",
+          "description": "Monitor compliance, spot new damage the instant it's logged, and track condition trends fleet-wide.",
+          "icon": "chart",
+          "highlighted": false
+        },
+        {
+          "title": "API & telematics integration",
+          "description": "Plug AI inspection into Samsara, Fleetio, and your own stack via a documented API and SDK.",
+          "icon": "code",
+          "highlighted": false
+        }
+      ]
+    },
+    "community": {
+      "trendingTitle": "Our Community of Chex.AI is Trending Fast",
+      "stats": [
+        {
+          "value": "50K+",
+          "label": "Inspections"
+        },
+        {
+          "value": "5+",
+          "label": "Years of Experience"
+        },
+        {
+          "value": "4.8*",
+          "label": "Average Driver Rating"
+        },
+        {
+          "value": "5 min",
+          "label": "Average Inspection Time"
+        }
+      ],
+      "inspectTitle": "Inspect the whole fleet from a phone and catch the damage.",
+      "inspectHighlight": "walkaround misses.",
+      "manageTitle": "Manage and inspect your entire fleet online with chex.ai",
+      "manageBullets": [
+        {
+          "label": "Smart Fleet Dashboard:",
+          "text": "Monitor inspection results and vehicle health instantly."
+        },
+        {
+          "label": "AI Damage Detection:",
+          "text": "Identify exterior and interior issues with pinpoint accuracy. "
+        },
+        {
+          "label": "Compliance Reports:",
+          "text": "Generate automated reports for safety and operational standards."
+        },
+        {
+          "label": "Multi-Vehicle Management:",
+          "text": "Handle multiple fleets from one unified dashboard."
+        }
+      ],
+      "manageImage": "/commercial-fleet/b1d7b5685868d2762573f486d2fec142a606e556.png",
+      "manageBadge": "AI-powered scan complete exterior condition verified with high precision.",
+      "trustedTitle": "Trusted by fleets",
+      "trustedLogos": [
+        {
+          "label": "HolidayCars"
+        },
+        {
+          "label": "Zurich"
+        },
+        {
+          "label": "Fleetio"
+        },
+        {
+          "label": "Unique Track"
+        },
+        {
+          "label": "Samsara"
+        }
+      ]
+    },
+    "howItWorks": {
+      "title": "How it works",
+      "description": "With a user-friendly app and comprehensive dashboard, Chex.AI streamlines inspection reviews and provides detailed insights, enhancing operational efficiency",
+      "steps": [
+        {
+          "step": "Step 01",
+          "title": "Login",
+          "description": "Please Login your account by filling out the form above to get started",
+          "image": "/commercial-fleet/0f814ad6bd4775a47d46bd3d74adb743c7054299.png"
+        },
+        {
+          "step": "Step 02",
+          "title": "Vehicle Inspection",
+          "description": "Follow the instructions for each inspection point within our app and upload photo and video clips",
+          "image": "/commercial-fleet/37a478a44aa2d49d38f49e889be80d330e7ff61d.png"
+        },
+        {
+          "step": "Step 03",
+          "title": "Inspection Reviewed",
+          "description": "Enter payment details. If you don't pass, your first re-inspection is free",
+          "image": "/commercial-fleet/e0101486936bcb5f21f13f9a0642e8312b08c000.png"
+        }
+      ]
+    },
+    "benefits": {
+      "title": "Why fleets switch to AI inspection",
+      "items": [
+        {
+          "title": "Fast And Convenient",
+          "description": "A full commercial fleet inspection takes about five minutes from a phone - no appointments.",
+          "icon": "fast",
+          "highlighted": true,
+          "wide": true
+        },
+        {
+          "title": "Cost-Effective",
+          "description": "We provide the best service at a lower and affordable cost.",
+          "icon": "cost",
+          "highlighted": false,
+          "wide": false
+        },
+        {
+          "title": "Increased Accuracy",
+          "description": "High-accuracy machine vision technology pinpoints damage across 163 parts.",
+          "icon": "accuracy",
+          "highlighted": false,
+          "wide": false
+        },
+        {
+          "title": "Improved Customer Experience",
+          "description": "With easy-to-follow, in guidance, customers complete inspections in minutes",
+          "icon": "experience",
+          "highlighted": false,
+          "wide": true
+        },
+        {
+          "title": "Full fleet visibility ",
+          "description": "See condition, compliance and damage trends across every truck, van and trailer from one dashboard",
+          "icon": "risk",
+          "highlighted": false,
+          "wide": true
+        }
+      ]
+    },
+    "fleetOperators": {
+      "eyebrow": "Platforms & fleet operators",
+      "title": "50 vehicles or 5,000 — certify the entire fleet from the drivers' phones.",
+      "description": " The five-minute inspection each driver runs becomes a fleet-wide compliance record you can defend.",
+      "primaryCta": {
+        "label": "Request a demo",
+        "href": "/contact-us"
+      },
+      "secondaryCta": {
+        "label": "See Fleet Pricing",
+        "href": "/dsp-fleet-pricing"
+      },
+      "background": "/commercial-fleet/34a0caa8752cac8f84aaca8dc1a482a4eb18193f.png",
+      "stats": [
+        {
+          "value": "$5M+",
+          "label": "Inspection costs saved"
+        },
+        {
+          "value": "72%",
+          "label": "Faster driver approval"
+        },
+        {
+          "value": "5+",
+          "label": "Years in production"
+        }
+      ],
+      "features": [
+        {
+          "icon": "onboard",
+          "title": "Onboard a whole fleet in a day",
+          "description": " Send bulk invite links, watch each vehicle's status live, and let auto-reminders chase the stragglers until the fleet is 100% certifie"
+        },
+        {
+          "icon": "api",
+          "title": "API & telematics ready",
+          "description": "One integration pushes inspections and eDVIRs straight into your TMS, telematics or onboarding flow  no manual exports."
+        },
+        {
+          "icon": "condition",
+          "title": "Condition data you can act on",
+          "description": "See damage trends, repair estimates and DOT compliance across every vehicle in one dashboard, so you fix and prioritize before problems cost you"
+        }
+      ]
+    },
+    "testimonials": {
+      "title": "Feedback from our verified clients",
+      "description": "Fleet operators, insurers, and DSPs rely on Chex.AI to keep every vehicle inspected, compliant, and audit-ready.",
+      "label": "Client testimonials",
+      "items": [
+        {
+          "name": "Marcus Reed",
+          "quote": "We cut our DVIR turnaround from days to minutes. Every truck is audit-ready and the damage evidence holds up with our insurer.",
+          "stars": 5,
+          "avatar": null
+        },
+        {
+          "name": "Danielle Ortiz",
+          "quote": "The AI catches fresh damage the second a driver logs it. Our claims disputes dropped noticeably in the first quarter.",
+          "stars": 5,
+          "avatar": null
+        },
+        {
+          "name": "Priya Nair",
+          "quote": "Rolling it out took no hardware and almost no training. Drivers just open the app and the guided capture does the rest.",
+          "stars": 5,
+          "avatar": null
+        },
+        {
+          "name": "James Whitfield",
+          "quote": "One dashboard for the whole fleet. I can see compliance and condition trends at a glance instead of chasing paper reports.",
+          "stars": 5,
+          "avatar": null
+        },
+        {
+          "name": "Sofia Alvarez",
+          "quote": "The API dropped straight into our Samsara stack. Inspections now flow into the same system we already run on.",
+          "stars": 5,
+          "avatar": null
+        },
+        {
+          "name": "Tom Becker",
+          "quote": "Fraud and tamper detection alone paid for it. Duplicate and stale photos never make it into a report anymore.",
+          "stars": 5,
+          "avatar": null
+        }
+      ]
+    },
+    "faq": {
+      "title": "Frequently asked questions",
+      "description": "Ask everything you need to know about our product and services",
+      "items": [
+        {
+          "question": "What Are The 2026 eDVIR Standards For Fleets?",
+          "answer": "As of March 2026, federal and state mandates require electronic Driver Vehicle Inspection Reports (eDVIRs) to include time-stamped, high-resolution visual evidence of vehicle health. Chex.AI automates this by integrating AI vehicle detection directly into your reporting software, ensuring every fleet vehicle in the I-85 corridor is audit-ready and 100% compliant."
+        },
+        {
+          "question": "Can An AI Car Inspection App Detect Hidden Structural Damage?",
+          "answer": "Chex.AI’s machine vision scans 163 parts and 21 damage types, surfacing dents, scratches, cracks, rust, and missing parts at 95–99% confidence. Guided 360° capture ensures the angles needed to reveal damage a quick walkaround typically misses."
+        },
+        {
+          "question": "Is The Chex.AI App Compliant With The SC Hands-Free Act?",
+          "answer": "Yes. Inspections are captured while the vehicle is parked and drivers follow on-screen prompts, keeping the workflow fully compliant with hands-free requirements."
+        },
+        {
+          "question": "How Does The AI Damage Assistant Work For Used Vehicles?",
+          "answer": "For any vehicle, the driver completes a guided capture and Chex.AI generates a standardized, photo-backed condition report in minutes — documenting existing damage before it enters or leaves your fleet."
+        },
+        {
+          "question": "How Does Chex.AI Meet Commercial Fleet Requirements?",
+          "answer": "Chex.AI produces digital DVIRs with driver sign-off, timestamps, and photo evidence that are audit-ready for FMCSA, and integrates with telematics platforms so compliance stays continuous across the fleet."
+        }
+      ]
+    },
+    "cta": {
+      "title": "See what your fleet's been missing.",
+      "description": "Book a 15-minute demo and watch Chex.AI inspect a vehicle, flag the damage, and generate a DOT-ready DVIR.",
+      "primaryCta": {
+        "label": "Start free Inspection",
+        "href": "/inspection-form"
+      },
+      "secondaryCta": {
+        "label": "Request a Demo",
+        "href": "/contact-us"
+      },
+      "note": "No credit card required, cancel anytime.",
+      "background": "/commercial-fleet/e6f8b26ad7224dbe8d69c22da29e32143ec9fc30.png"
+    }
+  },
+  "insurance-page": {
+    "meta": {
+      "title": "AI-Powered Insurance Vehicle Inspections",
+      "description": "Chex.AI turns any smartphone into a remote vehicle inspection — AI damage detection across 163 parts at 95–99% accuracy and a standardized, fraud-checked report in minutes. Settle claims and underwrite without sending an adjuster."
+    },
+    "hero": {
+      "rating": "4.9 (1667+ reviews)",
+      "title": "AI Vehicle Inspection for Insurance Claims",
+      "description": "Chex.AI gives insurers instant AI car damage detection from any phone. Automate claims processing and underwriting with photo-based self-inspection, fraud checks, and audit-ready damage reports in minutes.",
+      "primaryCta": {
+        "label": "",
+        "href": "/contact-us"
+      },
+      "secondaryCta": {
+        "label": "Request a demo",
+        "href": "/contact-us"
+      },
+      "media": "/commercial-fleet/617a17e5ce45fce2983dfc1cbf7cf35c80d75494.png"
+    },
+    "flow": {
+      "title": "Inspection-ready in five minutes.",
+      "description": "Most drivers lose half a working day to an inspection appointment. This is the same standard, done in your own parking spot — and it never fails you for a blurry photo.",
+      "steps": [
+        {
+          "number": "01",
+          "title": "Time",
+          "description": "Pick your insurer and coverage type, and we load the exact photos and fields they require to bind, renew, or add coverage. We load the exact inspection form your platform requires.",
+          "metricLabel": "STEP 1 / 4",
+          "metric": "≈ 0.8 seconds",
+          "pills": [
+            {
+              "text": "No account setup"
+            },
+            {
+              "text": "Carrier requirements pre-loaded"
+            },
+            {
+              "text": "Works with any policy type"
+            }
+          ]
+        },
+        {
+          "number": "02",
+          "title": "Capture the guided walkaround",
+          "description": "On-screen framing guides walk you around the car shot by shot. Blurry, dark or incomplete frames get flagged instantly so you never fail on a bad photo.",
+          "metricLabel": "STEP 2 / 4",
+          "metric": "≈ 1.2 minutes",
+          "pills": [
+            {
+              "text": "12 guided captures"
+            },
+            {
+              "text": "Live quality coaching"
+            },
+            {
+              "text": "VIN, plate & odometer auto-read"
+            }
+          ]
+        },
+        {
+          "number": "03",
+          "title": "AI inspects, a human verifies",
+          "description": "Chex.ai check 163 vehicle parts for 21 damage types, then a certified reviewer signs off on the safety items your platform cares about.",
+          "metricLabel": "STEP 3 / 4",
+          "metric": "≈ 2 minutes",
+          "pills": [
+            {
+              "text": "95–99% detection accuracy"
+            },
+            {
+              "text": "Damage auto-detected"
+            },
+            {
+              "text": "Tamper & fraud checks"
+            }
+          ]
+        },
+        {
+          "number": "04",
+          "title": "Certificate, same day",
+          "description": "Your signed inspection report lands in your inbox and dashboard, formatted for upload. Stored permanently for audits, disputes and renewals.",
+          "metricLabel": "STEP 4 / 4",
+          "metric": "Same day",
+          "pills": [
+            {
+              "text": "Platform-ready PDF"
+            },
+            {
+              "text": "Permanent audit trail"
+            },
+            {
+              "text": "Instant confirmation"
+            }
+          ]
+        }
+      ]
+    },
+    "platform": {
+      "title": " Claims automation and underwriting risk assessment in one platform",
+      "description": "Chex.AI is an AI vehicle inspection platform for insurers with a phone-based self-inspection that detects damage across 163 parts, so claims teams and underwriters work from the same verifiable evidence.",
+      "features": [
+        {
+          "title": "163-part damage detection",
+          "description": " Detects dents, scratches, cracks, rust and prior damage across 163 parts and 21 damage types with photo-backed accuracy.",
+          "icon": "check",
+          "highlighted": true
+        },
+        {
+          "title": "Built-in fraud detection",
+          "description": "Flags manipulated, duplicate, or stale images before they enter a claim. ",
+          "icon": "doc",
+          "highlighted": false
+        },
+        {
+          "title": "Pre-insurance vehicle inspection",
+          "description": "Verify condition at policy binding with a self-inspection that documents existing damage before coverage starts.",
+          "icon": "shield",
+          "highlighted": false
+        },
+        {
+          "title": "Auto-read VIN, plate & odometer",
+          "description": "Key policy data captured from images no manual entry, no transcription errors.",
+          "icon": "plate",
+          "highlighted": false
+        },
+        {
+          "title": "Underwriting condition reports",
+          "description": "A documented baseline at inception to verify condition and cut renewal disputes.",
+          "icon": "chart",
+          "highlighted": false
+        },
+        {
+          "title": "API & workflow integration",
+          "description": "Push standardized reports into your systems, or run as a hosted policyholder link.",
+          "icon": "code",
+          "highlighted": false
+        }
+      ]
+    },
+    "community": {
+      "trendingTitle": "Trusted by insurers to settle faster and underwrite smarter.",
+      "stats": [
+        {
+          "value": "50K+",
+          "label": "Inspections"
+        },
+        {
+          "value": "5+",
+          "label": "Years of Experience"
+        },
+        {
+          "value": "4.8*",
+          "label": "Average Driver Rating"
+        },
+        {
+          "value": "5 min",
+          "label": "Average Inspection Time"
+        }
+      ],
+      "inspectTitle": " Assess any vehicle from a phone and Detect the damage and",
+      "inspectHighlight": "cost estimate automatically.",
+      "manageTitle": "Manage claims and underwriting inspections online ",
+      "manageBullets": [
+        {
+          "label": "Automated claims: Route and prioritize claims instantly by AI-scored damage severity.",
+          "text": "Route and prioritize claims instantly with chex.ai"
+        },
+        {
+          "label": "AI Damage Detection:",
+          "text": "Identify exterior and interior issues with pinpoint accuracy."
+        },
+        {
+          "label": "Compliance Reports: ",
+          "text": "Generate automated reports for safety and operational standards."
+        },
+        {
+          "label": "Underwriting evidence:",
+          "text": "Capture verified condition at binding to price risk and prevent disputes."
+        }
+      ],
+      "manageImage": "/commercial-fleet/06b140aa07fafc2734e81c947fd674da0b9abacb.png",
+      "manageBadge": "AI-powered scan complete exterior condition verified with high precision.",
+      "trustedTitle": "Trusted by insurers",
+      "trustedLogos": [
+        {
+          "label": "HolidayCars"
+        },
+        {
+          "label": "Zurich"
+        },
+        {
+          "label": "Fleetio"
+        },
+        {
+          "label": "Unique Track"
+        },
+        {
+          "label": "Samsara"
+        }
+      ]
+    },
+    "howItWorks": {
+      "title": "How it works",
+      "description": "With a user-friendly app and comprehensive dashboard, Chex.AI streamlines AI claims processing and delivers detailed, real-time insights.",
+      "steps": [
+        {
+          "step": "Step 01",
+          "title": "Send the inspection link",
+          "description": "Trigger a self-inspection at FNOL or policy binding no app download for the policyholder.",
+          "image": "/commercial-fleet/0f814ad6bd4775a47d46bd3d74adb743c7054299.png"
+        },
+        {
+          "step": "Step 02",
+          "title": "Vehicle Inspection",
+          "description": "Follow the instructions for each inspection point and upload photo and video clips",
+          "image": "/commercial-fleet/37a478a44aa2d49d38f49e889be80d330e7ff61d.png"
+        },
+        {
+          "step": "Step 03",
+          "title": "AI generates the report",
+          "description": "Chex.AI grades condition, flags damage and fraud, and builds the assessment automatically.",
+          "image": "/commercial-fleet/e0101486936bcb5f21f13f9a0642e8312b08c000.png"
+        }
+      ]
+    },
+    "benefits": {
+      "title": "Why insurers switch to AI inspection",
+      "items": [
+        {
+          "title": "Fast claims settlement",
+          "description": "Automate claims processing and cut cycle time from days to minutes with instant AI damage reports.",
+          "icon": "fast",
+          "highlighted": true,
+          "wide": true
+        },
+        {
+          "title": "Cost-Effective",
+          "description": "We provide the best service at a lower cost while keeping evidence quality high.",
+          "icon": "cost",
+          "highlighted": false,
+          "wide": false
+        },
+        {
+          "title": "Increased Accuracy",
+          "description": "High accuracy levels and advanced machine vision technology to accurately pinpoint the damage",
+          "icon": "accuracy",
+          "highlighted": false,
+          "wide": false
+        },
+        {
+          "title": "Improved Customer Experience",
+          "description": "With Easy To Follow Guidelines Provided, customers can complete inspection in minutes",
+          "icon": "experience",
+          "highlighted": false,
+          "wide": true
+        },
+        {
+          "title": "Better underwriting decisions",
+          "description": "Objective, pre-bind vehicle inspection data helps underwriters price risk and reduce disputes.",
+          "icon": "risk",
+          "highlighted": false,
+          "wide": true
+        }
+      ]
+    },
+    "fleetOperators": {
+      "eyebrow": "Insurance service",
+      "title": "Chex.AI gives insurers remote vehicle inspections.",
+      "description": "The same inspection your drivers complete in thirty minutes becomes a standardised compliance record for your operation.",
+      "primaryCta": {
+        "label": "Request a demo",
+        "href": "/contact-us"
+      },
+      "secondaryCta": {
+        "label": "",
+        "href": "/contact-us"
+      },
+      "background": "/commercial-fleet/384e797befc2dcde451fb43de001075455146565.png",
+      "stats": [
+        {
+          "value": "$5M+",
+          "label": "Inspection costs saved"
+        },
+        {
+          "value": "72%",
+          "label": "Faster driver approval"
+        },
+        {
+          "value": "5+",
+          "label": "Years in production"
+        }
+      ],
+      "features": [
+        {
+          "icon": "onboard",
+          "title": "Onboard drivers in hours",
+          "description": "Every panel is documented at policy start, so pre-existing damage is on record and you never pay a claim for a dent that was already there."
+        },
+        {
+          "icon": "api",
+          "title": "Claims / FNOL & settlement",
+          "description": "Capture the loss from the claimant's phone so you get complete, framed damage photos on day one instead of a week of back-and-forth."
+        },
+        {
+          "icon": "condition",
+          "title": "Evidence that holds up at claim time",
+          "description": "Every record is time-stamped and geo-verified, so pre-existing damage is documented before you're on the hook — and disputed claims drop."
+        }
+      ]
+    },
+    "testimonials": {
+      "title": "Feedback from our verified clients",
+      "description": "Fleet operators, insurers, and DSPs rely on Chex.AI to keep every vehicle inspected, compliant, and audit-ready.",
+      "label": "Client testimonials",
+      "items": [
+        {
+          "name": "Marcus Reed",
+          "quote": "We cut our DVIR turnaround from days to minutes. Every truck is audit-ready and the damage evidence holds up with our insurer.",
+          "stars": 5,
+          "avatar": null
+        },
+        {
+          "name": "Danielle Ortiz",
+          "quote": "The AI catches fresh damage the second a driver logs it. Our claims disputes dropped noticeably in the first quarter.",
+          "stars": 5,
+          "avatar": null
+        },
+        {
+          "name": "Priya Nair",
+          "quote": "Rolling it out took no hardware and almost no training. Drivers just open the app and the guided capture does the rest.",
+          "stars": 5,
+          "avatar": null
+        },
+        {
+          "name": "James Whitfield",
+          "quote": "One dashboard for the whole fleet. I can see compliance and condition trends at a glance instead of chasing paper reports.",
+          "stars": 5,
+          "avatar": null
+        },
+        {
+          "name": "Sofia Alvarez",
+          "quote": "The API dropped straight into our Samsara stack. Inspections now flow into the same system we already run on.",
+          "stars": 5,
+          "avatar": null
+        },
+        {
+          "name": "Tom Becker",
+          "quote": "Fraud and tamper detection alone paid for it. Duplicate and stale photos never make it into a report anymore.",
+          "stars": 5,
+          "avatar": null
+        }
+      ]
+    },
+    "faq": {
+      "title": "Frequently asked questions",
+      "description": "Ask everything you need to know about our product and services. We are here to answer all of your questions.",
+      "items": [
+        {
+          "question": "How is AI used in insurance claims processing?",
+          "answer": "AI analyzes photos of a damaged vehicle to detect and grade damage across 163 parts, flag fraud, and generate a settlement-ready report. Chex.AI automates first-notice-of-loss triage so claims move from days to minutes without an adjuster visit."
+        },
+        {
+          "question": "What is a pre-insurance vehicle inspection?",
+          "answer": "A pre-insurance vehicle inspection documents a vehicle's condition before coverage begins. Chex.AI lets the policyholder complete it as a phone-based self-inspection, giving underwriters verified evidence of existing damage at binding."
+        },
+        {
+          "question": "How accurate is Chex.AI's AI car damage detection?",
+          "answer": "Chex.AI detects damage across 163 parts and 21 damage types with 95–99% accuracy, and every finding is backed by a captured photo so claims and underwriting teams can verify it."
+        },
+        {
+          "question": "How does Chex.AI reduce claims fraud?",
+          "answer": " Built-in fraud and tamper detection flags recycled, edited or off-site photos before they enter a claim, ensuring payouts match real, verifiable damage."
+        }
+      ]
+    },
+    "cta": {
+      "title": "See what your claims team's been missing.",
+      "description": " Book a 15-minute demo and watch Chex.AI assess a vehicle, flag the damage and fraud, and generate a settlement-ready report.",
+      "primaryCta": {
+        "label": "Start free Inspection",
+        "href": "/inspection-form"
+      },
+      "secondaryCta": {
+        "label": "Request a Demo",
+        "href": "/contact-us"
+      },
+      "note": "No credit card required, cancel anytime.",
+      "background": "/commercial-fleet/e6f8b26ad7224dbe8d69c22da29e32143ec9fc30.png"
+    }
+  },
+  "rental-page": {
+    "meta": {
+      "title": "AI Car Rental Vehicle Inspections",
+      "description": "Automate vehicle inspections for car rental and leasing companies — AI damage detection, accurate cost allocation, and a standardized condition report in minutes."
+    },
+    "hero": {
+      "rating": "4.9 (1667+ reviews)",
+      "title": "AI Car Rental Vehicle Inspections",
+      "description": "Chex.AI turns every check-in and check-out into a timestamped, photo-backed vehicle condition report. AI detects damage across 163 parts, and you settle disputes with proof not arguments.\n",
+      "primaryCta": {
+        "label": "",
+        "href": "/contact-us"
+      },
+      "secondaryCta": {
+        "label": "Request a demo",
+        "href": "/contact-us"
+      },
+      "media": "/commercial-fleet/bbeffa7e93b224bd73996c4f2d3e1e5b20253a78.png"
+    },
+    "flow": {
+      "title": "Use Cases for AI in Car Rental",
+      "description": "Streamline damage assessments and cost allocation with AI-powered vehicle inspections.",
+      "steps": [
+        {
+          "number": "01",
+          "title": "Vehicle Delivery Inspection",
+          "description": "New cars are received at the location, inspected for damage, registered, and prepared for use.",
+          "metricLabel": "",
+          "metric": "",
+          "pills": [
+            {
+              "text": "No account setup"
+            },
+            {
+              "text": "State rules pre-loaded"
+            },
+            {
+              "text": "Pay once, no subscription"
+            }
+          ]
+        },
+        {
+          "number": "02",
+          "title": "Check-In/Check-Out Inspection",
+          "description": "Inspection and documentation of a vehicle's condition, mileage, and fuel level during customer pickup and return.",
+          "metricLabel": "",
+          "metric": "",
+          "pills": [
+            {
+              "text": "12 guided captures"
+            },
+            {
+              "text": "Live quality coaching"
+            },
+            {
+              "text": "VIN, plate & odometer auto-read"
+            }
+          ]
+        },
+        {
+          "number": "03",
+          "title": "De-Fleeting Inspection",
+          "description": "The removal of vehicles from the active fleet, typically for resale, retirement, or to optimize the fleet's size and condition.",
+          "metricLabel": "",
+          "metric": "",
+          "pills": [
+            {
+              "text": "95–99% detection accuracy"
+            },
+            {
+              "text": "Fraud & tampering checks"
+            },
+            {
+              "text": "Certified human sign-off"
+            }
+          ]
+        },
+        {
+          "number": "04",
+          "title": "Off-Leasing Inspection",
+          "description": "The return of leased vehicles to the leasing company at the end of their term.",
+          "metricLabel": "",
+          "metric": "",
+          "pills": [
+            {
+              "text": "Platform-ready PDF"
+            },
+            {
+              "text": "Permanent audit trail"
+            },
+            {
+              "text": "Free re-capture if rejected"
+            }
+          ]
+        }
+      ]
+    },
+    "platform": {
+      "title": "Check-in, check-out and damage proof in one platform.",
+      "description": "Most tools do one or the other. Chex.AI runs your entire rental inspection workflow from the same guided capture and keeps the evidence forever.",
+      "features": [
+        {
+          "title": "163-part AI damage detection · 95–99%",
+          "description": "Detects dents, scratches, scuffs, wheel rash and rust across 163 parts and 21 damage types, backed by photos",
+          "icon": "check",
+          "highlighted": true
+        },
+        {
+          "title": "Before-and-after comparison",
+          "description": "Automatically compares check-out against check-in, so new damage is isolated instantly no manual matching.",
+          "icon": "doc",
+          "highlighted": false
+        },
+        {
+          "title": "Dispute-proof evidence",
+          "description": "Every finding is timestamped and geotagged, giving you an audit trail that ends \"it was already there\" arguments.",
+          "icon": "shield",
+          "highlighted": false
+        },
+        {
+          "title": "Digital vehicle condition report",
+          "description": "Replace paper VCRs with a standardized electronic report, stored permanently for claims, audits and renewals.",
+          "icon": "plate",
+          "highlighted": false
+        },
+        {
+          "title": "Fraud & tamper detection",
+          "description": " Flags recycled or edited photos before they enter a report, so damage claims are always traceable to the real rental.",
+          "icon": "chart",
+          "highlighted": false
+        },
+        {
+          "title": "Fleet & host dashboard",
+          "description": "Track condition, damage and turnaround across your whole rental fleet from one car to thousands in one view.",
+          "icon": "code",
+          "highlighted": false
+        }
+      ]
+    },
+    "community": {
+      "trendingTitle": "Built for rental fleets and car-sharing hosts",
+      "stats": [
+        {
+          "value": "50K+",
+          "label": "Inspections"
+        },
+        {
+          "value": "5+",
+          "label": "Years of Experience"
+        },
+        {
+          "value": "4.8*",
+          "label": "Average Driver Rating"
+        },
+        {
+          "value": "5 min",
+          "label": "Average Inspection Time"
+        }
+      ],
+      "inspectTitle": "Document every rental from a phone and catch the damage a lot walkaround misses.",
+      "inspectHighlight": "at every location, in minutes.",
+      "manageTitle": "Manage check-ins, check-outs and damage claims online with chex.ai.",
+      "manageBullets": [
+        {
+          "label": "Check-in / check-out inspections:",
+          "text": "Capture verified condition at pickup and return in minutes"
+        },
+        {
+          "label": "AI Damage Detection:",
+          "text": "Identify new damage against the last report with pinpoint, photo-backed accuracy."
+        },
+        {
+          "label": "Digital condition reports:",
+          "text": "Generate automated reports for safety and operational standards and stored permanently for every rental."
+        },
+        {
+          "label": "Multi-Vehicle Management:",
+          "text": "Handle multiple rental fleets from single dashboard."
+        }
+      ],
+      "manageImage": "/commercial-fleet/7ef2bfb7c953854614134194d64b5d2cfe0ff3e2.png",
+      "manageBadge": "AI-powered scan complete exterior condition verified with high precision.",
+      "trustedTitle": "Trusted by rental operators, car-sharing hosts & insurers",
+      "trustedLogos": [
+        {
+          "label": "HolidayCars"
+        },
+        {
+          "label": "Zurich"
+        },
+        {
+          "label": "Fleetio"
+        },
+        {
+          "label": "Unique Track"
+        },
+        {
+          "label": "Samsara"
+        }
+      ]
+    },
+    "howItWorks": {
+      "title": "How it works",
+      "description": "With a user-friendly app and comprehensive dashboard, Chex.AI streamlines inspection reviews and provides detailed insights, enhancing operational efficiency",
+      "steps": [
+        {
+          "step": "Step 01",
+          "title": "Login",
+          "description": "Please Login your account by filling out the form above to get started ",
+          "image": "/commercial-fleet/0f814ad6bd4775a47d46bd3d74adb743c7054299.png"
+        },
+        {
+          "step": "Step 02",
+          "title": "Vehicle Inspection",
+          "description": "Follow the instructions for each inspection point within our app and upload photo and video clips",
+          "image": "/commercial-fleet/37a478a44aa2d49d38f49e889be80d330e7ff61d.png"
+        },
+        {
+          "step": "Step 03",
+          "title": "Chex AI builds the report",
+          "description": " Chex.AI grades condition, flags damage against check-in, and generates the vehicle condition report",
+          "image": "/commercial-fleet/e0101486936bcb5f21f13f9a0642e8312b08c000.png"
+        }
+      ]
+    },
+    "benefits": {
+      "title": "Why rental companies switch to AI inspection",
+      "items": [
+        {
+          "title": "Fewer damage disputes ",
+          "description": "Timestamped before-and-after photos end and chargeback disputes for good.",
+          "icon": "fast",
+          "highlighted": true,
+          "wide": true
+        },
+        {
+          "title": "Faster turnaround",
+          "description": "With Easy To Follow Guidelines Provided In App, customers can complete inspection in minutes ",
+          "icon": "cost",
+          "highlighted": false,
+          "wide": false
+        },
+        {
+          "title": "Increased Accuracy",
+          "description": "High accuracy levels and advanced machine vision technology to accurately pinpoint the damage.",
+          "icon": "accuracy",
+          "highlighted": false,
+          "wide": false
+        },
+        {
+          "title": "Consistent every time",
+          "description": "AI grades 163 parts the same way on every rental, removing staff-to-staff variance and missed dama",
+          "icon": "experience",
+          "highlighted": false,
+          "wide": true
+        },
+        {
+          "title": "Better Risk Management",
+          "description": "Visibility allows for verifiable evidence protects you against fraudulent claims and disputes.",
+          "icon": "risk",
+          "highlighted": false,
+          "wide": true
+        }
+      ]
+    },
+    "fleetOperators": {
+      "eyebrow": "Car rental service",
+      "title": "Chex.AI gives remote vehicle inspections for every rental",
+      "description": "Renters check the car from their phone in two minutes. You get a time-stamped condition report that proves what the car looked like at pickup — so damage disputes at return are easy to settle.",
+      "primaryCta": {
+        "label": "Request a demo",
+        "href": "/contact-us"
+      },
+      "secondaryCta": {
+        "label": "",
+        "href": "/contact-us"
+      },
+      "background": "/commercial-fleet/ba97b26d6479cf5e1277840eff52f744df2494c6.png",
+      "stats": [
+        {
+          "value": "$5M+",
+          "label": "Inspection costs saved"
+        },
+        {
+          "value": "72%",
+          "label": "Faster driver approval"
+        },
+        {
+          "value": "5+",
+          "label": "Years in production"
+        }
+      ],
+      "features": [
+        {
+          "icon": "onboard",
+          "title": "Onboard drivers in hours",
+          "description": "Bulk invite links, driver-level status tracking and automatic reminders until every vehicle is certified."
+        },
+        {
+          "icon": "api",
+          "title": "API & telematics ready",
+          "description": "Push inspections and results into your own onboarding flow, TMS or fleet system with one integration."
+        },
+        {
+          "icon": "condition",
+          "title": "Turn every return into evidence",
+          "description": "Compare check-out and check-in fleet-wide, detect new damage instantly, and give repair estimates in operations dashboard."
+        }
+      ]
+    },
+    "testimonials": {
+      "title": "Feedback from our verified clients",
+      "description": "Fleet operators, insurers, and DSPs rely on Chex.AI to keep every vehicle inspected, compliant, and audit-ready.",
+      "label": "Client testimonials",
+      "items": [
+        {
+          "name": "Marcus Reed",
+          "quote": "We cut our DVIR turnaround from days to minutes. Every truck is audit-ready and the damage evidence holds up with our insurer.",
+          "stars": 5,
+          "avatar": null
+        },
+        {
+          "name": "Danielle Ortiz",
+          "quote": "The AI catches fresh damage the second a driver logs it. Our claims disputes dropped noticeably in the first quarter.",
+          "stars": 5,
+          "avatar": null
+        },
+        {
+          "name": "Priya Nair",
+          "quote": "Rolling it out took no hardware and almost no training. Drivers just open the app and the guided capture does the rest.",
+          "stars": 5,
+          "avatar": null
+        },
+        {
+          "name": "James Whitfield",
+          "quote": "One dashboard for the whole fleet. I can see compliance and condition trends at a glance instead of chasing paper reports.",
+          "stars": 5,
+          "avatar": null
+        },
+        {
+          "name": "Sofia Alvarez",
+          "quote": "The API dropped straight into our Samsara stack. Inspections now flow into the same system we already run on.",
+          "stars": 5,
+          "avatar": null
+        },
+        {
+          "name": "Tom Becker",
+          "quote": "Fraud and tamper detection alone paid for it. Duplicate and stale photos never make it into a report anymore.",
+          "stars": 5,
+          "avatar": null
+        }
+      ]
+    },
+    "faq": {
+      "title": "Frequently asked questions",
+      "description": "Everything you need to know about AI vehicle condition reports and rental car inspections.",
+      "items": [
+        {
+          "question": "What is a vehicle condition report (VCR)?",
+          "answer": "A vehicle condition report documents a rental car's condition at pickup and return. Chex.AI captures it as a phone-based inspection that detects damage across 163 parts, replacing the paper form with a timestamped, photo-backed digital record."
+        },
+        {
+          "question": "Can An AI Car Inspection App Detect Hidden Structural Damage?",
+          "answer": "Chex.AI’s machine vision scans 163 parts and 21 damage types, surfacing dents, scratches, cracks, rust, and missing parts at 95–99% confidence. Guided 360° capture ensures the angles needed to reveal damage a quick walkaround typically misses."
+        },
+        {
+          "question": "How Does The AI Damage Assistant Work For Used Vehicles?",
+          "answer": "For any vehicle, the driver completes a guided capture and Chex.AI generates a standardized, photo-backed condition report in minutes — documenting existing damage before it enters or leaves your fleet."
+        },
+        {
+          "question": "Does it integrate with our rental or fleet management software?",
+          "answer": "Yes. Chex.AI connects to your rental and fleet management systems through an open API, so condition reports and damage records sync into the tools you already use."
+        }
+      ]
+    },
+    "cta": {
+      "title": "See what your walkaround's been missing",
+      "description": "Book a 15-minute demo and watch Chex.AI inspect a vehicle, flag the damage, and generate a DOT-ready DVIR — from a single phone.",
+      "primaryCta": {
+        "label": "Start free Inspection",
+        "href": "/inspection-form"
+      },
+      "secondaryCta": {
+        "label": "Request a Demo",
+        "href": "/contact-us"
+      },
+      "note": "No credit card required, cancel anytime.",
+      "background": "/commercial-fleet/e6f8b26ad7224dbe8d69c22da29e32143ec9fc30.png"
+    }
+  },
+  "towing-valet-page": {
+    "meta": {
+      "title": "AI Vehicle Inspections for Towing & Valet",
+      "description": "Chex.AI documents a vehicle’s condition the moment it enters your custody — a quick AI scan creates a reliable, timestamped record of pre-existing damage to defend against false claims."
+    },
+    "hero": {
+      "rating": "4.9 (1667+ reviews)",
+      "title": "AI vehicle inspection for towing & valet operators",
+      "description": "Chex.AI helps towing companies and valet operators document a vehicle's condition the moment it's taken into custody. A quick AI scan creates a reliable, timestamped record of pre-existing damage.",
+      "primaryCta": {
+        "label": "",
+        "href": "/contact-us"
+      },
+      "secondaryCta": {
+        "label": "Request a demo",
+        "href": "/contact-us"
+      },
+      "media": "/commercial-fleet/4f56fd038f394d04052a5962dfd427ddcd6c9dbe.png"
+    },
+    "flow": {
+      "title": "A record of condition at the moment of custody",
+      "description": "Any operator can capture a vehicle from a phone — no shop visit, no paper form.",
+      "steps": [
+        {
+          "number": "01",
+          "title": "Take custody",
+          "description": "Log the vehicle the moment it's hooked, loaded or handed over — straight from the operator's phone.",
+          "metricLabel": "",
+          "metric": "",
+          "pills": [
+            {
+              "text": "No account setup"
+            },
+            {
+              "text": "State rules pre-loaded"
+            },
+            {
+              "text": "Pay once, no subscription"
+            }
+          ]
+        },
+        {
+          "number": "02",
+          "title": "Quick AI scan",
+          "description": "A guided walkaround captures every panel; AI checks 163 parts and flags existing damage in minutes.",
+          "metricLabel": "",
+          "metric": "",
+          "pills": [
+            {
+              "text": "12 guided captures"
+            },
+            {
+              "text": "Live quality coaching"
+            },
+            {
+              "text": "VIN, plate & odometer auto-read"
+            }
+          ]
+        },
+        {
+          "number": "03",
+          "title": "Condition report",
+          "description": "A timestamped, geotagged report documents the exact condition at intake — no paper form.",
+          "metricLabel": "",
+          "metric": "",
+          "pills": [
+            {
+              "text": "95–99% detection accuracy"
+            },
+            {
+              "text": "Fraud & tampering checks"
+            },
+            {
+              "text": "Certified human sign-off"
+            }
+          ]
+        },
+        {
+          "number": "04",
+          "title": "Stay protected",
+          "description": "The signed record is stored permanently as defensible evidence against false or inflated claims.",
+          "metricLabel": "",
+          "metric": "",
+          "pills": [
+            {
+              "text": "Platform-ready PDF"
+            },
+            {
+              "text": "Permanent audit trail"
+            },
+            {
+              "text": "Free re-capture if rejected"
+            }
+          ]
+        }
+      ]
+    },
+    "platform": {
+      "title": "Damage proof for every tow and every handover",
+      "description": "Chex.AI adds a verifiable vehicle condition report of towing or valet damage documentation from the same 360° capture. ",
+      "features": [
+        {
+          "title": "Intake condition documentation",
+          "description": "Capture the vehicle's exact state at the moment it enters your custody.",
+          "icon": "check",
+          "highlighted": true
+        },
+        {
+          "title": "Pre-existing damage record",
+          "description": " Documents exact condition at pickup and drop-off in a digital vehicle condition report.",
+          "icon": "doc",
+          "highlighted": false
+        },
+        {
+          "title": "Timestamped, geotagged evidence",
+          "description": "Detected damage converts to a line-item cost estimate automatically.",
+          "icon": "shield",
+          "highlighted": false
+        },
+        {
+          "title": "Reliable digital audit trail",
+          "description": "Replace paper tickets with a standardized electronic report, stored permanently for claims and insurance.",
+          "icon": "plate",
+          "highlighted": false
+        },
+        {
+          "title": "Fraud & tamper detection",
+          "description": "Flags recycled or edited photos before they enter a report, protecting you from staged or inflated claims",
+          "icon": "chart",
+          "highlighted": false
+        },
+        {
+          "title": "Integrates with your software",
+          "description": "Push condition reports into your towing management software or valet parking software through an open API",
+          "icon": "code",
+          "highlighted": false
+        }
+      ]
+    },
+    "community": {
+      "trendingTitle": "Built for towing companies and valet operators",
+      "stats": [
+        {
+          "value": "50K+",
+          "label": "Inspections"
+        },
+        {
+          "value": "5+",
+          "label": "Years of Experience"
+        },
+        {
+          "value": "4.8*",
+          "label": "Average Driver Rating"
+        },
+        {
+          "value": "5 min",
+          "label": "Average Inspection Time"
+        }
+      ],
+      "inspectTitle": "Document every vehicle from a phone and catch the damage a claim would blame on you.",
+      "inspectHighlight": "in minutes.",
+      "manageTitle": "Protect your drivers, attendants and business with a condition report at every handover",
+      "manageBullets": [
+        {
+          "label": "Pickup & drop-off inspections: ",
+          "text": "Capture a verified vehicle condition report the moment you take custody."
+        },
+        {
+          "label": "AI car damage detection: ",
+          "text": "Log every existing dent and scratch with pinpoint, photo-backed accuracy. "
+        },
+        {
+          "label": "Electronic condition reports:",
+          "text": "Replace paper tickets with digital reports stored permanently for claims."
+        },
+        {
+          "label": "Multi-driver management:",
+          "text": "Track every driver and attendant's inspections from one dashboard."
+        }
+      ],
+      "manageImage": "/commercial-fleet/32260b5682bc1e88fb18c5337888c55dff4168c3.png",
+      "manageBadge": "AI-powered scan complete exterior condition verified with high precision.",
+      "trustedTitle": "Trusted by towing, valet & fleet operators",
+      "trustedLogos": [
+        {
+          "label": "HolidayCars"
+        },
+        {
+          "label": "Zurich"
+        },
+        {
+          "label": "Fleetio"
+        },
+        {
+          "label": "Unique Track"
+        },
+        {
+          "label": "Samsara"
+        }
+      ]
+    },
+    "howItWorks": {
+      "title": "How it works",
+      "description": "With a simple app and a full dashboard, Chex.AI makes it easy to capture a vehicle's condition, log any damage, and keep proof for every tow and valet handover.",
+      "steps": [
+        {
+          "step": "Step 01",
+          "title": "Login",
+          "description": "Please Login your account by filling out the form above to get started",
+          "image": "/commercial-fleet/0f814ad6bd4775a47d46bd3d74adb743c7054299.png"
+        },
+        {
+          "step": "Step 02",
+          "title": "Vehicle Inspection",
+          "description": "Follow the instructions for each inspection point within our app and upload photo and video clips",
+          "image": "/commercial-fleet/37a478a44aa2d49d38f49e889be80d330e7ff61d.png"
+        },
+        {
+          "step": "Step 03",
+          "title": "Condition report saved",
+          "description": "A time-stamped condition report is reviewed and stored in your dashboard your proof if a customer ever claims damage.",
+          "image": "/commercial-fleet/e0101486936bcb5f21f13f9a0642e8312b08c000.png"
+        }
+      ]
+    },
+    "benefits": {
+      "title": "Why towing and valet operators use AI inspection",
+      "items": [
+        {
+          "title": "Defeat false damage claims ",
+          "description": "A timestamped vehicle condition report at handover ends disputes and stops you paying for damage you didn't cause.",
+          "icon": "fast",
+          "highlighted": true,
+          "wide": true
+        },
+        {
+          "title": "Cost-Effective",
+          "description": "We provide the best service at a lower cost when compared to competition",
+          "icon": "cost",
+          "highlighted": false,
+          "wide": false
+        },
+        {
+          "title": "Increased Accuracy",
+          "description": "High accuracy levels and advanced machine vision technology to accurately pinpoint the damage",
+          "icon": "accuracy",
+          "highlighted": false,
+          "wide": false
+        },
+        {
+          "title": "Improved Customer Experience",
+          "description": "With Easy To Follow Guidelines Provided, customers can complete inspection in minutes",
+          "icon": "experience",
+          "highlighted": false,
+          "wide": true
+        },
+        {
+          "title": "Better Risk Management",
+          "description": "AI car damage detection grades 163 parts the same way on every vehicle.",
+          "icon": "risk",
+          "highlighted": false,
+          "wide": true
+        }
+      ]
+    },
+    "fleetOperators": {
+      "eyebrow": "Towing & valet service",
+      "title": "Smart AI inspections for towing and valet operations",
+      "description": "Your driver or attendant scans the car in two minutes at pickup. That scan becomes a time-stamped condition report so when a customer claims you caused damage, you have the proof.",
+      "primaryCta": {
+        "label": "Request a demo",
+        "href": "/contact-us"
+      },
+      "secondaryCta": {
+        "label": "",
+        "href": "/contact-us"
+      },
+      "background": "/commercial-fleet/97562718904b151f9acd557cddf49d48944d269e.png",
+      "stats": [
+        {
+          "value": "$5M+",
+          "label": "Inspection costs saved"
+        },
+        {
+          "value": "72%",
+          "label": "Faster driver approval"
+        },
+        {
+          "value": "5+",
+          "label": "Years in production"
+        }
+      ],
+      "features": [
+        {
+          "icon": "onboard",
+          "title": "Onboard drivers in hours",
+          "description": "Send invite links, track who's inspecting, and let auto-reminders keep every driver and attendant on track."
+        },
+        {
+          "icon": "api",
+          "title": "API & telematics ready",
+          "description": "One integration pushes condition reports into your towing management or valet software"
+        },
+        {
+          "icon": "condition",
+          "title": "Condition data you can act on",
+          "description": "See damage trends, repair estimates and liability across every job in one operations dashboard."
+        }
+      ]
+    },
+    "testimonials": {
+      "title": "Feedback from our verified clients",
+      "description": "Fleet operators, insurers, and DSPs rely on Chex.AI to keep every vehicle inspected, compliant, and audit-ready.",
+      "label": "Client testimonials",
+      "items": [
+        {
+          "name": "Marcus Reed",
+          "quote": "We cut our DVIR turnaround from days to minutes. Every truck is audit-ready and the damage evidence holds up with our insurer.",
+          "stars": 5,
+          "avatar": null
+        },
+        {
+          "name": "Danielle Ortiz",
+          "quote": "The AI catches fresh damage the second a driver logs it. Our claims disputes dropped noticeably in the first quarter.",
+          "stars": 5,
+          "avatar": null
+        },
+        {
+          "name": "Priya Nair",
+          "quote": "Rolling it out took no hardware and almost no training. Drivers just open the app and the guided capture does the rest.",
+          "stars": 5,
+          "avatar": null
+        },
+        {
+          "name": "James Whitfield",
+          "quote": "One dashboard for the whole fleet. I can see compliance and condition trends at a glance instead of chasing paper reports.",
+          "stars": 5,
+          "avatar": null
+        },
+        {
+          "name": "Sofia Alvarez",
+          "quote": "The API dropped straight into our Samsara stack. Inspections now flow into the same system we already run on.",
+          "stars": 5,
+          "avatar": null
+        },
+        {
+          "name": "Tom Becker",
+          "quote": "Fraud and tamper detection alone paid for it. Duplicate and stale photos never make it into a report anymore.",
+          "stars": 5,
+          "avatar": null
+        }
+      ]
+    },
+    "faq": {
+      "title": "Frequently asked questions",
+      "description": "Ask everything you need to know about our product and services. We are here to answer all of your questions.",
+      "items": [
+        {
+          "question": "How fast is an inspection?",
+          "answer": "A full guided capture takes under two minutes, so it fits a busy tow call or valet handover without slowing your team."
+        },
+        {
+          "question": "Can An AI Car Inspection App Detect Hidden Structural Damage?",
+          "answer": "Chex.AI’s machine vision scans 163 parts and 21 damage types, surfacing dents, scratches, cracks, rust, and missing parts at 95–99% confidence. Guided 360° capture ensures the angles needed to reveal damage a quick walkaround typically misses."
+        },
+        {
+          "question": "How does a valet protect against \"you damaged my car\" claims?",
+          "answer": " Run a quick Chex.AI scan at key handover. The condition report proves what the car looked like before parking, so any new damage clearly happened elsewhere."
+        },
+        {
+          "question": "Does it work with our towing or valet software?",
+          "answer": "Yes. Chex.AI connects to your towing management software or valet parking software through an open API, so condition reports sync into the system you already run."
+        }
+      ]
+    },
+    "cta": {
+      "title": " Never pay for damage you didn't cause.",
+      "description": "Book a 15-minute demo and watch Chex.AI capture a vehicle condition report at handover and generate dispute-proof evidence from a single phone.",
+      "primaryCta": {
+        "label": "Start free Inspection",
+        "href": "/inspection-form"
+      },
+      "secondaryCta": {
+        "label": "Request a Demo",
+        "href": "/contact-us"
+      },
+      "note": "No credit card required, cancel anytime.",
+      "background": "/commercial-fleet/e6f8b26ad7224dbe8d69c22da29e32143ec9fc30.png"
+    }
+  }
+}

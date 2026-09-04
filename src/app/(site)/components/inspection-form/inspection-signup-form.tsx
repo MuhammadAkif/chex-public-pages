@@ -30,7 +30,8 @@ export function InspectionSignupForm({
   subtitle = "Create your free account — get certified the same day.",
 }: InspectionSignupFormProps) {
   const recaptchaRef = useRef<ReCAPTCHA>(null);
-  const [acceptedTerms, setAcceptedTerms] = useState(true);
+  const [acceptedTerms, setAcceptedTerms] = useState(false);
+  const [acceptedTos, setAcceptedTos] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitError, setSubmitError] = useState<string | null>(null);
   const [captchaToken, setCaptchaToken] = useState<string | null>(null);
@@ -38,7 +39,7 @@ export function InspectionSignupForm({
   const onSubmit = useCallback(
     async (e: React.FormEvent<HTMLFormElement>) => {
       e.preventDefault();
-      if (!acceptedTerms || isSubmitting) return;
+      if (!acceptedTerms || !acceptedTos || isSubmitting) return;
 
       const formData = new FormData(e.currentTarget);
       const firstName = formValue(formData.get("firstName"));
@@ -72,7 +73,7 @@ export function InspectionSignupForm({
         setIsSubmitting(false);
       }
     },
-    [acceptedTerms, captchaToken, isSubmitting],
+    [acceptedTerms, acceptedTos, captchaToken, isSubmitting],
   );
 
   return (
@@ -177,6 +178,25 @@ export function InspectionSignupForm({
             </span>
           </div>
 
+          <div className="flex items-start gap-2.5 text-left font-ui text-[12.5px] leading-5 text-[#63757f]">
+            <input
+              type="checkbox"
+              checked={acceptedTos}
+              onChange={(e) => setAcceptedTos(e.target.checked)}
+              className="mt-0.5 h-4 w-4 shrink-0 cursor-pointer accent-[#ff7a01]"
+            />
+            <span>
+              I Accept the{" "}
+              <a
+                href="/terms-of-use"
+                className="font-semibold text-[#1368b9] underline underline-offset-2"
+              >
+                terms of use
+              </a>
+              .
+            </span>
+          </div>
+
           <div className="overflow-hidden">
             <ReCAPTCHA
               ref={recaptchaRef}
@@ -189,7 +209,7 @@ export function InspectionSignupForm({
 
           <button
             type="submit"
-            disabled={!acceptedTerms || isSubmitting}
+            disabled={!acceptedTerms || !acceptedTos || isSubmitting}
             className="w-full cursor-pointer rounded-[10px] bg-[#ff7a01] py-3 font-ui text-[15px] font-bold text-white shadow-[0_14px_36px_-16px_rgba(255,122,1,0.9)] transition hover:brightness-105 disabled:cursor-not-allowed disabled:opacity-60"
           >
             {isSubmitting ? "Creating account..." : "Start My Inspection"}

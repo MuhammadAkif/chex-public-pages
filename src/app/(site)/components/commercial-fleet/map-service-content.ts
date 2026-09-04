@@ -103,6 +103,9 @@ export function mapServicePageDoc(
       trustedLogos: rows(community.trustedLogos, fallback.community.trustedLogos).map((l, i) =>
         str(l.label, fallback.community.trustedLogos[i] ?? ''),
       ),
+      // Image logos are not a CMS field — carried straight from the static
+      // per-page content so the marquee renders them without any seeding.
+      trustedLogoImages: fallback.community.trustedLogoImages,
     },
     howItWorks: {
       title: str(howItWorks.title, fallback.howItWorks.title),

@@ -38,7 +38,7 @@ function StepCard({
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img src={fleetAssets.flowIcons[index]} alt="" className="h-6 w-6" />
           </span>
-          <span className="font-display text-[48px] font-black leading-none tracking-[-1.5px] text-[rgba(14,22,36,0.12)] lg:text-[60px]">
+          <span className="font-display text-[48px] font-black leading-none tracking-[-1.5px] text-black lg:text-[60px]">
             {step.number}
           </span>
         </div>
@@ -48,7 +48,7 @@ function StepCard({
           <h3 className="font-display text-[24px] font-black tracking-[-0.9px] text-[#1b2f4b] lg:text-[30px]">
             {step.title}
           </h3>
-          <p className="mt-2 max-w-[620px] font-display text-[16px] leading-[26px] text-[#41546e]">
+          <p className="mt-2 max-w-[620px] font-display text-[16px] leading-[26px] text-black">
             {step.description}
           </p>
           {step.pills.length > 0 ? (
@@ -60,7 +60,7 @@ function StepCard({
                 >
                   {/* eslint-disable-next-line @next/next/no-img-element */}
                   <img src={fleetAssets.flowPillCheck} alt="" className="h-3.5 w-3.5" />
-                  <span className="font-display text-[12px] font-medium text-[#1b2f4b]">{pill}</span>
+                  <span className="font-display text-[12px] font-medium text-black">{pill}</span>
                 </li>
               ))}
             </ul>
@@ -71,7 +71,7 @@ function StepCard({
         {step.metricLabel || step.metric ? (
           <div className="lg:w-[140px] lg:shrink-0 lg:text-right">
             {step.metricLabel ? (
-              <p className="font-display text-[11px] font-bold uppercase tracking-[2.2px] text-[#616a77]">
+              <p className="font-display text-[11px] font-bold uppercase tracking-[2.2px] text-black">
                 {step.metricLabel}
               </p>
             ) : null}
