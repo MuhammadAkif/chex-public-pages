@@ -28,7 +28,7 @@ export function CommercialFleetHowItWorks({ title, description, steps }: HowItWo
                   className="absolute left-1/2 top-6 w-[68%] max-w-[205px] -translate-x-1/2 object-contain drop-shadow-[0_0_16px_rgba(0,0,0,0.16)]"
                 />
               </div>
-              <div className="mt-4 flex items-end gap-4">
+              <div className="mt-4 flex items-center gap-4">
                 <span className="font-display text-[14px] font-bold tracking-[-0.02em] text-[#41546e]">
                   {item.step}
                 </span>
