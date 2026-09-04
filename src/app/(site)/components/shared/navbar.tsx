@@ -190,7 +190,11 @@ function DropdownItem({ link, pathname }: { link: NavLink; pathname: string | nu
                 <Link
                   key={child.label}
                   href={child.href as Route}
-                  className="flex items-center gap-2.5 whitespace-nowrap px-4 py-2.5 font-ui text-[14px] text-[#41546e] transition-colors hover:bg-[#f4f8ff] hover:text-[#1b2f4b] [&_svg]:text-[#8aa0bd] hover:[&_svg]:text-[#1368b9]"
+                  className={`flex items-center gap-2.5 whitespace-nowrap px-4 py-2.5 font-ui text-[14px] transition-colors ${
+                    isHrefActive(child.href, pathname)
+                      ? "bg-[#fff1e5] font-semibold text-[#ff7a01] [&_svg]:text-[#ff7a01]"
+                      : "text-[#41546e] hover:bg-[#fff1e5] hover:text-[#ff7a01] [&_svg]:text-[#8aa0bd] hover:[&_svg]:text-[#ff7a01]"
+                  }`}
                   onClick={() => setOpen(false)}
                 >
                   <ServiceIcon name={child.icon} />
@@ -397,7 +401,11 @@ export function Navbar({ logo, links }: NavbarProps) {
                           <Link
                             key={child.label}
                             href={child.href as Route}
-                            className="flex items-center gap-2.5 rounded-[8px] px-4 py-2.5 font-ui text-[14px] text-[#41546e] hover:bg-[#f4f8ff] hover:text-[#1b2f4b] [&_svg]:text-[#8aa0bd]"
+                            className={`flex items-center gap-2.5 rounded-[8px] px-4 py-2.5 font-ui text-[14px] ${
+                              isHrefActive(child.href, pathname)
+                                ? "bg-[#fff1e5] font-semibold text-[#ff7a01] [&_svg]:text-[#ff7a01]"
+                                : "text-[#41546e] hover:bg-[#fff1e5] hover:text-[#ff7a01] [&_svg]:text-[#8aa0bd] hover:[&_svg]:text-[#ff7a01]"
+                            }`}
                             onClick={() => setMenuOpen(false)}
                           >
                             <ServiceIcon name={child.icon} />
