@@ -400,7 +400,7 @@ export const commercialFleetDefaultContent: CommercialFleetContent = {
     title: "See what your fleet's been missing.",
     description:
       'Book a 15-minute demo and watch Chex.AI inspect a vehicle, flag the damage, and generate a DOT-ready DVIR — from a single phone.',
-    primaryCta: { label: 'Start free Inspection', href: '/inspection-form' },
+    primaryCta: { label: 'Start free Inspection', href: '/dsp-fleet-pricing' },
     secondaryCta: { label: 'Talk to an expert', href: '/contact-us' },
     note: 'No credit card required, cancel anytime.',
     background: '/commercial-fleet/e6f8b26ad7224dbe8d69c22da29e32143ec9fc30.png',
