@@ -67,6 +67,11 @@ const nextConfig: NextConfig = {
         permanent: true,
       },
       {
+        source: "/ride-share",
+        destination: "/rideshare-inspection-service",
+        permanent: true,
+      },
+      {
         source: "/Mystro",
         destination: "https://app.chex.ai/Mystro",
         permanent: true,

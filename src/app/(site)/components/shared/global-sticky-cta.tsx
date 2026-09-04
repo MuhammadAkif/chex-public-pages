@@ -11,14 +11,35 @@ export type GlobalStickyCtaProps = {
 };
 
 /**
+ * Exact page paths that show the global sticky bar. All `/locations/*` state
+ * pages are additionally allowed via a prefix check in the component. This is an
+ * allowlist by design: new pages do NOT show the bar unless their path is added
+ * here.
+ */
+const STICKY_BAR_PATHS = new Set<string>([
+  "/", // home
+  "/uber-inspection",
+  "/lyft-inspection",
+  "/rideshare-inspection-service", // "Rideshare Inspection" footer link points here
+  "/rideshare-pricing",
+  "/landing-page",
+  "/contact-us",
+  "/privacy-policy",
+  "/terms-of-use",
+  "/blogs", // blog list (blog detail pages ship their own bar)
+]);
+
+/**
  * Site-wide persistent bottom conversion bar. Mounted once in the site layout so
  * it appears on every public page (home, locations, services, etc.) on phones and
  * tablets (below the 1024px `lg` breakpoint), pinned to the bottom once the visitor
  * scrolls past the hero. Clicking the button opens the "Start Your Inspection"
  * register modal.
  *
- * Routes that already ship their own sticky bar are excluded so the bar never
- * doubles up: blog detail pages (`/blogs/<slug>`) and the inspection-form page.
+ * Only the pages listed in `STICKY_BAR_PATHS` (plus all `/locations/*` pages)
+ * show the bar — it's an allowlist, so new pages stay opt-out until explicitly
+ * added. Routes that ship their own sticky bar (blog detail `/blogs/<slug>`, the
+ * inspection-form page) are simply left out so the bar never doubles up.
  */
 export function GlobalStickyCta({ showAfter = 640 }: GlobalStickyCtaProps) {
   const pathname = usePathname();
@@ -32,13 +53,15 @@ export function GlobalStickyCta({ showAfter = 640 }: GlobalStickyCtaProps) {
     return () => window.removeEventListener("scroll", onScroll);
   }, [showAfter]);
 
-  // Pages that opt out of the global sticky bar — either they ship their own
-  // (inspection-form, blog detail) or don't want it (dsp-fleet-pricing).
-  const hideStickyBar =
-    pathname === "/inspection-form" ||
-    pathname === "/dsp-fleet-pricing" ||
-    pathname.startsWith("/blogs/");
-  if (hideStickyBar) return null;
+  // Explicit allowlist of pages that show the global sticky bar. Kept as an
+  // allowlist (not a blacklist) so brand-new pages stay opt-out by default —
+  // when a future page should show the bar, add its path here.
+  //
+  // Excluded on purpose: `/inspection-form` and blog detail pages ship their own
+  // sticky bar, and `/dsp-fleet-pricing` intentionally has none.
+  const showStickyBar =
+    STICKY_BAR_PATHS.has(pathname) || pathname.startsWith("/locations/");
+  if (!showStickyBar) return null;
 
   return (
     <div

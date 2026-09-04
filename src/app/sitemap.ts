@@ -31,7 +31,6 @@ const STATIC_ROUTES = [
   '/inspection-form',
   '/lyft-inspection',
   '/privacy-policy',
-  '/ride-share',
   '/rideshare-inspection-service',
   '/terms-of-use',
   '/uber-inspection',

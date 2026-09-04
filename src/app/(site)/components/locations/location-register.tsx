@@ -58,7 +58,8 @@ export function LocationRegister({
   loginLinkLabel,
 }: LocationRegisterProps) {
   const recaptchaRef = useRef<ReCAPTCHA>(null);
-  const [acceptedSms, setAcceptedSms] = useState(false);
+  // SMS consent is optional and pre-checked (user may opt out).
+  const [acceptedSms, setAcceptedSms] = useState(true);
   const [acceptedTerms, setAcceptedTerms] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitError, setSubmitError] = useState<string | null>(null);
@@ -68,7 +69,7 @@ export function LocationRegister({
   const onSubmit = useCallback(
     async (e: React.FormEvent<HTMLFormElement>) => {
       e.preventDefault();
-      if (!acceptedSms || !acceptedTerms || isSubmitting) {
+      if (!acceptedTerms || isSubmitting) {
         return;
       }
 
@@ -103,7 +104,7 @@ export function LocationRegister({
         setIsSubmitting(false);
       }
     },
-    [acceptedSms, acceptedTerms, captchaToken, isSubmitting],
+    [acceptedTerms, captchaToken, isSubmitting],
   );
 
   if (!backgroundImage || !headlineLines.length) {
@@ -217,16 +218,6 @@ export function LocationRegister({
                 regarding my account sign-up, inspection status, and support
                 communications. Msg frequency varies. Msg &amp; data rates may
                 apply. Reply STOP to opt out.
-                <span className="mt-1 block">
-                  View our{" "}
-                  <Link
-                    href="/terms-of-use"
-                    className="font-semibold text-[#1468ba] underline decoration-[#1468ba]/80 underline-offset-2 hover:text-[#3d8fd9]"
-                  >
-                    SMS Terms &amp; Privacy Policy
-                  </Link>
-                  .
-                </span>
               </span>
             </div>
 
@@ -271,7 +262,7 @@ export function LocationRegister({
 
             <button
               type="submit"
-              disabled={!acceptedSms || !acceptedTerms || isSubmitting}
+              disabled={!acceptedTerms || isSubmitting}
               className="mt-2 w-full rounded-[12px] bg-[#ff7a01] py-3.5 font-ui text-[16px] font-bold text-white shadow-[0_14px_36px_-16px_rgba(255,122,1,0.95)] transition-[filter,transform] active:scale-[0.99] enabled:hover:brightness-105 disabled:cursor-not-allowed  sm:text-[17px]"
             >
               {isSubmitting ? "Creating account..." : registerButtonLabel}

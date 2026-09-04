@@ -35,7 +35,8 @@ export function useRegisterModal() {
 
 function RegisterModalPanel({ onClose }: { onClose: () => void }) {
   const recaptchaRef = useRef<ReCAPTCHA>(null);
-  const [acceptedTerms, setAcceptedTerms] = useState(false);
+  // SMS consent is optional and pre-checked (user may opt out).
+  const [acceptedTerms, setAcceptedTerms] = useState(true);
   const [acceptedTos, setAcceptedTos] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitError, setSubmitError] = useState<string | null>(null);
@@ -61,7 +62,7 @@ function RegisterModalPanel({ onClose }: { onClose: () => void }) {
   const onSubmit = useCallback(
     async (e: React.FormEvent<HTMLFormElement>) => {
       e.preventDefault();
-      if (!acceptedTerms || !acceptedTos || isSubmitting) return;
+      if (!acceptedTos || isSubmitting) return;
 
       const formData = new FormData(e.currentTarget);
       const firstName = formValue(formData.get("firstName"));
@@ -96,23 +97,27 @@ function RegisterModalPanel({ onClose }: { onClose: () => void }) {
         setIsSubmitting(false);
       }
     },
-    [acceptedTerms, acceptedTos, captchaToken, isSubmitting],
+    [acceptedTos, captchaToken, isSubmitting],
   );
 
   return (
     <div
-      className="fixed inset-0 z-[100] flex items-center justify-center p-4"
+      className="fixed inset-0 z-[100] overflow-y-auto overscroll-contain"
       role="dialog"
       aria-modal="true"
     >
       {/* Backdrop — intentionally no onClick; modal closes only via X or ESC */}
       <div
-        className="absolute inset-0 bg-black/70 backdrop-blur-sm"
+        className="fixed inset-0 bg-black/70 backdrop-blur-sm"
         aria-hidden
       />
 
-      {/* Card */}
-      <div className="relative w-full max-w-[520px] rounded-[20px] border border-white/12 bg-[linear-gradient(145deg,rgba(13,26,52,0.97)_0%,rgba(8,16,34,0.98)_100%)] p-7 shadow-[0_40px_100px_-20px_rgba(0,0,0,0.8)] sm:p-9">
+      {/* Scroll/centering wrapper: min-h-full keeps the card centered on tall
+          screens, but lets the overlay scroll when the card is taller than the
+          viewport (short mobile screens) instead of clipping it. */}
+      <div className="relative flex min-h-full items-center justify-center p-4">
+        {/* Card */}
+        <div className="relative my-auto w-full max-w-[520px] rounded-[20px] border border-white/12 bg-[linear-gradient(145deg,rgba(13,26,52,0.97)_0%,rgba(8,16,34,0.98)_100%)] p-7 shadow-[0_40px_100px_-20px_rgba(0,0,0,0.8)] sm:p-9">
         {/* Close */}
         <button
           onClick={onClose}
@@ -213,16 +218,6 @@ function RegisterModalPanel({ onClose }: { onClose: () => void }) {
               regarding my account sign-up, inspection status, and support
               communications. Msg frequency varies. Msg &amp; data rates may
               apply. Reply STOP to opt out.
-              <span className="mt-1 block">
-                View our{" "}
-                <a
-                  href="/terms-of-use"
-                  className="font-semibold text-[#ff7a01] underline underline-offset-2"
-                >
-                  SMS Terms &amp; Privacy Policy
-                </a>
-                .
-              </span>
             </span>
           </div>
 
@@ -258,7 +253,7 @@ function RegisterModalPanel({ onClose }: { onClose: () => void }) {
 
           <button
             type="submit"
-            disabled={!acceptedTerms || !acceptedTos || isSubmitting}
+            disabled={!acceptedTos || isSubmitting}
             className="mt-1 w-full rounded-[12px] bg-[#ff7a01] py-3.5 font-ui text-[16px] font-bold text-white shadow-[0_14px_36px_-16px_rgba(255,122,1,0.85)] transition-[filter,transform] active:scale-[0.99] enabled:hover:brightness-105 disabled:cursor-not-allowed disabled:opacity-60 cursor-pointer"
           >
             {isSubmitting ? "Creating account..." : "Create Account"}
@@ -278,6 +273,7 @@ function RegisterModalPanel({ onClose }: { onClose: () => void }) {
           </a>
           .
         </p>
+        </div>
       </div>
     </div>
   );

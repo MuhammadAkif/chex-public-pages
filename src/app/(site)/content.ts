@@ -58,10 +58,11 @@ export const siteContent = {
     ],
     servicesTitle: "Services",
     servicesItems: [
-      { label: "Rideshare Inspection", href: "/ride-share" },
-      { label: "Fleet & DSP Inspections", href: "/fleet-inspection" },
-      { label: "Uber Inspection", href: "/uber-inspection" },
-      { label: "Lyft Inspection", href: "/lyft-inspection" },
+      { label: "Rideshare Inspection", href: "/rideshare-inspection-service" },
+      { label: "Commercial Fleet Inspections", href: "/commercial-fleet-inspection-service" },
+      { label: "Insurance", href: "/insurance-inspection-service" },
+      { label: "Rental Car Companies", href: "/rental-inspection-service" },
+      { label: "Towing & Valet Services", href: "/towing-valet-inspection-service" },
     ],
     contactTitle: "Contact us",
     contactItems: [

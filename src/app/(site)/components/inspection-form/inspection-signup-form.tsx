@@ -30,7 +30,8 @@ export function InspectionSignupForm({
   subtitle = "Create your free account — get certified the same day.",
 }: InspectionSignupFormProps) {
   const recaptchaRef = useRef<ReCAPTCHA>(null);
-  const [acceptedTerms, setAcceptedTerms] = useState(false);
+  // SMS consent is optional and pre-checked (user may opt out).
+  const [acceptedTerms, setAcceptedTerms] = useState(true);
   const [acceptedTos, setAcceptedTos] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitError, setSubmitError] = useState<string | null>(null);
@@ -39,7 +40,7 @@ export function InspectionSignupForm({
   const onSubmit = useCallback(
     async (e: React.FormEvent<HTMLFormElement>) => {
       e.preventDefault();
-      if (!acceptedTerms || !acceptedTos || isSubmitting) return;
+      if (!acceptedTos || isSubmitting) return;
 
       const formData = new FormData(e.currentTarget);
       const firstName = formValue(formData.get("firstName"));
@@ -73,7 +74,7 @@ export function InspectionSignupForm({
         setIsSubmitting(false);
       }
     },
-    [acceptedTerms, acceptedTos, captchaToken, isSubmitting],
+    [acceptedTos, captchaToken, isSubmitting],
   );
 
   return (
@@ -165,16 +166,6 @@ export function InspectionSignupForm({
               regarding my account sign-up, inspection status, and support
               communications. Msg frequency varies. Msg &amp; data rates may
               apply. Reply STOP to opt out.
-              <span className="mt-1 block">
-                View our{" "}
-                <a
-                  href="/terms-of-use"
-                  className="font-semibold text-[#1368b9] underline underline-offset-2"
-                >
-                  SMS Terms &amp; Privacy Policy
-                </a>
-                .
-              </span>
             </span>
           </div>
 
@@ -209,7 +200,7 @@ export function InspectionSignupForm({
 
           <button
             type="submit"
-            disabled={!acceptedTerms || !acceptedTos || isSubmitting}
+            disabled={!acceptedTos || isSubmitting}
             className="w-full cursor-pointer rounded-[10px] bg-[#ff7a01] py-3 font-ui text-[15px] font-bold text-white shadow-[0_14px_36px_-16px_rgba(255,122,1,0.9)] transition hover:brightness-105 disabled:cursor-not-allowed disabled:opacity-60"
           >
             {isSubmitting ? "Creating account..." : "Start My Inspection"}
