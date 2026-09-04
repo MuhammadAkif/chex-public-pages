@@ -142,7 +142,7 @@
       "trendingTitle": "Our Community of Chex.AI is Trending Fast",
       "stats": [
         {
-          "value": "50K+",
+          "value": "5K+",
           "label": "Inspections"
         },
         {
@@ -154,7 +154,7 @@
           "label": "Average Driver Rating"
         },
         {
-          "value": "5 min",
+          "value": "30 min",
           "label": "Average Inspection Time"
         }
       ],
@@ -536,7 +536,7 @@
       "trendingTitle": "Trusted by insurers to settle faster and underwrite smarter.",
       "stats": [
         {
-          "value": "50K+",
+          "value": "5K+",
           "label": "Inspections"
         },
         {
@@ -548,7 +548,7 @@
           "label": "Average Driver Rating"
         },
         {
-          "value": "5 min",
+          "value": "30 min",
           "label": "Average Inspection Time"
         }
       ],
@@ -606,14 +606,14 @@
         },
         {
           "step": "Step 02",
-          "title": "Vehicle Inspection",
-          "description": "Follow the instructions for each inspection point and upload photo and video clips",
+          "title": "Guided inspection",
+          "description": "Follow the clear on-screen prompts for each point, capturing photos and short video clips.",
           "image": "/commercial-fleet/37a478a44aa2d49d38f49e889be80d330e7ff61d.png"
         },
         {
           "step": "Step 03",
-          "title": "AI generates the report",
-          "description": "Chex.AI grades condition, flags damage and fraud, and builds the assessment automatically.",
+          "title": "AI-reviewed report",
+          "description": "Chex.AI scores condition, surfaces damage and fraud signals, and documents the result.",
           "image": "/commercial-fleet/e0101486936bcb5f21f13f9a0642e8312b08c000.png"
         }
       ]
@@ -926,7 +926,7 @@
       "trendingTitle": "Built for rental fleets and car-sharing hosts",
       "stats": [
         {
-          "value": "50K+",
+          "value": "5K+",
           "label": "Inspections"
         },
         {
@@ -991,19 +991,19 @@
         {
           "step": "Step 01",
           "title": "Login",
-          "description": "Please Login your account by filling out the form above to get started ",
+          "description": "A guided self-inspection lands on the renter's phone at handover. No app, no counter line, no clipboard.",
           "image": "/commercial-fleet/0f814ad6bd4775a47d46bd3d74adb743c7054299.png"
         },
         {
           "step": "Step 02",
-          "title": "Vehicle Inspection",
-          "description": "Follow the instructions for each inspection point within our app and upload photo and video clips",
+          "title": "Capture in minutes",
+          "description": "On-screen prompts point them at every panel, wheel, and the interior. Photos and short clips upload as they go, each one time-stamped.",
           "image": "/commercial-fleet/37a478a44aa2d49d38f49e889be80d330e7ff61d.png"
         },
         {
           "step": "Step 03",
-          "title": "Chex AI builds the report",
-          "description": " Chex.AI grades condition, flags damage against check-in, and generates the vehicle condition report",
+          "title": "Instant condition report",
+          "description": "Chex.AI grades condition, flags new damage against the pickup inspection, and hands your team a dispute-ready record in seconds.",
           "image": "/commercial-fleet/e0101486936bcb5f21f13f9a0642e8312b08c000.png"
         }
       ]
@@ -1316,7 +1316,7 @@
       "trendingTitle": "Built for towing companies and valet operators",
       "stats": [
         {
-          "value": "50K+",
+          "value": "5K+",
           "label": "Inspections"
         },
         {
@@ -1376,24 +1376,24 @@
     },
     "howItWorks": {
       "title": "How it works",
-      "description": "With a simple app and a full dashboard, Chex.AI makes it easy to capture a vehicle's condition, log any damage, and keep proof for every tow and valet handover.",
+      "description": "Chex.AI captures a timestamped condition record the moment a vehicle is handed off so a scratch that was already there never becomes your bill.",
       "steps": [
         {
           "step": "Step 01",
           "title": "Login",
-          "description": "Please Login your account by filling out the form above to get started",
+          "description": "Send a guided self-inspection to the driver's phone before the tow or the valet takes the keys. No app, no delay.",
           "image": "/commercial-fleet/0f814ad6bd4775a47d46bd3d74adb743c7054299.png"
         },
         {
           "step": "Step 02",
-          "title": "Vehicle Inspection",
-          "description": "Follow the instructions for each inspection point within our app and upload photo and video clips",
+          "title": "Capture the condition on record",
+          "description": "On-screen prompts walk through every panel, wheel, and the interior. Photos and short clips upload on the spot, each one time-stamped and location-tagged.",
           "image": "/commercial-fleet/37a478a44aa2d49d38f49e889be80d330e7ff61d.png"
         },
         {
           "step": "Step 03",
-          "title": "Condition report saved",
-          "description": "A time-stamped condition report is reviewed and stored in your dashboard your proof if a customer ever claims damage.",
+          "title": "AI logs the proof instantly",
+          "description": "Chex.AI grades condition, flags any pre-existing damage, and files a dispute-ready report your operator can stand behind.",
           "image": "/commercial-fleet/e0101486936bcb5f21f13f9a0642e8312b08c000.png"
         }
       ]
