@@ -1,13 +1,8 @@
 "use client";
 
 import { useEffect, useLayoutEffect, useRef, useState } from "react";
-import ReCAPTCHA from "react-google-recaptcha";
 
 import { submitDemoRequest } from "@/app/(site)/components/shared/auth-client";
-
-const RECAPTCHA_SITE_KEY =
-  process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY ||
-  "6LfODPgdAAAAAPtuwKuNGKe0muxX4ODEN84Wovth";
 
 const emailRegex =
   /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@(([^<>()[\]\\.,;:\s@"]+\.)+[^<>()[\]\\.,;:\s@"]{2,})$/i;
@@ -69,7 +64,6 @@ const inputClass =
 const labelClass = "mb-1.5 block font-ui text-[13px] font-medium text-[#41546e]";
 
 export function RequestDemoForm() {
-  const recaptchaRef = useRef<ReCAPTCHA>(null);
   const phoneRef = useRef<HTMLInputElement>(null);
   // Caret index to restore after the phone value reformats (null = leave as-is).
   const pendingCaret = useRef<number | null>(null);
@@ -78,7 +72,6 @@ export function RequestDemoForm() {
   const [submitted, setSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
-  const [captchaToken, setCaptchaToken] = useState<string | null>(null);
 
   useIsoLayoutEffect(() => {
     if (pendingCaret.current !== null && phoneRef.current) {
@@ -122,10 +115,6 @@ export function RequestDemoForm() {
       setError("Please enter a valid number");
       return;
     }
-    if (!captchaToken) {
-      setError("Check the reCAPTCHA first");
-      return;
-    }
 
     setLoading(true);
     try {
@@ -141,8 +130,6 @@ export function RequestDemoForm() {
       setSubmitted(true);
       setPhoneDigits("");
       setSpecialOffer(true);
-      setCaptchaToken(null);
-      recaptchaRef.current?.reset();
     } catch (err) {
       setError(
         err instanceof Error
@@ -289,17 +276,6 @@ export function RequestDemoForm() {
             </a>
             .
           </p>
-
-          <div className="overflow-x-auto">
-            <ReCAPTCHA
-              ref={recaptchaRef}
-              sitekey={RECAPTCHA_SITE_KEY}
-              onChange={setCaptchaToken}
-              onExpired={() => setCaptchaToken(null)}
-              onErrored={() => setCaptchaToken(null)}
-              size="normal"
-            />
-          </div>
 
           {error && (
             <p className="font-ui text-[13px] text-[#e53935]">{error}</p>
