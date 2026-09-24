@@ -129,6 +129,26 @@ export async function submitContactUs(payload: {
   });
 }
 
+export async function submitDemoRequest(payload: {
+  firstName: string;
+  lastName: string;
+  companyName: string;
+  jobTitle: string;
+  email: string;
+  phone: string;
+  specialOffer: boolean;
+}) {
+  await postJSON("/user/demo", {
+    firstName: payload.firstName,
+    lastName: payload.lastName,
+    companyName: payload.companyName,
+    jobTitle: payload.jobTitle,
+    email: payload.email,
+    phone: payload.phone,
+    specialOffer: payload.specialOffer,
+  });
+}
+
 export async function signupThenLogin(payload: SignupPayload) {
   await postJSON("/auth/signup", {
     name: payload.firstName,

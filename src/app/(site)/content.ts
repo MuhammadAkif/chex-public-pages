@@ -42,6 +42,7 @@ export const siteContent = {
     },
     { label: "Blog", href: "/blogs" },
     { label: "Contact us", href: "/contact-us" },
+    { label: "Request a Demo", href: "/request-a-demo" },
   ],
   logo: "https://chex-payload-public-pages.s3.us-east-1.amazonaws.com/logo-chex.png",
   footer: {
@@ -54,6 +55,7 @@ export const siteContent = {
       { label: "Rideshare Pricing", href: "/rideshare-pricing" },
       { label: "Commercial Fleet pricing", href: "/dsp-fleet-pricing" },
       { label: "Contact us", href: "/contact-us" },
+      { label: "Request a Demo", href: "/request-a-demo" },
       { label: "Blog", href: "/blogs" },
     ],
     servicesTitle: "Services",

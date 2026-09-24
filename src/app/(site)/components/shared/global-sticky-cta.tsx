@@ -17,7 +17,6 @@ export type GlobalStickyCtaProps = {
  * here.
  */
 const STICKY_BAR_PATHS = new Set<string>([
-  "/", // home
   "/uber-inspection",
   "/lyft-inspection",
   "/rideshare-inspection-service", // "Rideshare Inspection" footer link points here
@@ -31,10 +30,10 @@ const STICKY_BAR_PATHS = new Set<string>([
 
 /**
  * Site-wide persistent bottom conversion bar. Mounted once in the site layout so
- * it appears on every public page (home, locations, services, etc.) on phones and
- * tablets (below the 1024px `lg` breakpoint), pinned to the bottom once the visitor
- * scrolls past the hero. Clicking the button opens the "Start Your Inspection"
- * register modal.
+ * it appears on the allowlisted public pages (locations, services, etc.) on phones
+ * and tablets (below the 1024px `lg` breakpoint), pinned to the bottom once the
+ * visitor scrolls past the hero. Clicking the button opens the "Start Your
+ * Inspection" register modal.
  *
  * Only the pages listed in `STICKY_BAR_PATHS` (plus all `/locations/*` pages)
  * show the bar — it's an allowlist, so new pages stay opt-out until explicitly

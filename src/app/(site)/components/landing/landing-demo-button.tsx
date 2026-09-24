@@ -1,6 +1,4 @@
-'use client'
-
-import { useRegisterModal } from '@/app/(site)/components/home/register-modal'
+import Link from 'next/link'
 
 type LandingDemoButtonProps = {
   children?: React.ReactNode
@@ -14,20 +12,17 @@ const toneClasses: Record<NonNullable<LandingDemoButtonProps['tone']>, string> =
 }
 
 /**
- * The design's recurring "Request a demo" CTA. Opens the shared registration
- * modal (RegisterModalProvider) hosted by the site shell.
+ * The design's recurring "Request a demo" CTA. Links to the dedicated
+ * `/request-a-demo` page.
  */
 export function LandingDemoButton({
   children = 'Request a demo',
   className = '',
   tone = 'accent',
 }: LandingDemoButtonProps) {
-  const { openModal } = useRegisterModal()
-
   return (
-    <button
-      type="button"
-      onClick={openModal}
+    <Link
+      href="/request-a-demo"
       className={[
         'type-button inline-flex min-h-10 cursor-pointer items-center justify-center gap-2 rounded-[4px] px-6',
         'shadow-[0_20px_50px_-24px_rgba(255,122,1,0.85)] transition-colors duration-200',
@@ -39,6 +34,6 @@ export function LandingDemoButton({
         .join(' ')}
     >
       {children}
-    </button>
+    </Link>
   )
 }
