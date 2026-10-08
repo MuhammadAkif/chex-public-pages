@@ -2,6 +2,7 @@ import { RichText } from '@/app/(site)/components/shared/rich-text'
 import { SiteImage } from '@/app/(site)/components/shared/site-image'
 
 import { LandingDemoButton } from './landing-demo-button'
+import { LandingInspectionButton } from './landing-inspection-button'
 import type { LandingSolutionVariant } from '@/app/(site)/landing-page/content'
 
 type Block = {
@@ -103,6 +104,16 @@ function FeatureImage({
 }
 
 function FeatureBlock({ block }: { block: Block }) {
+  const isInspectionBlock =
+    block.title.toLowerCase().includes('rideshare') ||
+    block.label.toLowerCase().includes('rideshare') ||
+    block.buttonLabel.toLowerCase().includes('inspection')
+
+  const buttonLabel =
+    isInspectionBlock && block.buttonLabel.toLowerCase().includes('demo')
+      ? 'Start My Inspection'
+      : block.buttonLabel
+
   return (
     <div className="grid items-center gap-10 lg:grid-cols-2 lg:gap-16">
       <div className="flex flex-col gap-5">
@@ -126,7 +137,11 @@ function FeatureBlock({ block }: { block: Block }) {
           ))}
         </ul>
         <div className="pt-2">
-          <LandingDemoButton>{block.buttonLabel}</LandingDemoButton>
+          {isInspectionBlock ? (
+            <LandingInspectionButton>{buttonLabel}</LandingInspectionButton>
+          ) : (
+            <LandingDemoButton>{block.buttonLabel}</LandingDemoButton>
+          )}
         </div>
       </div>
 

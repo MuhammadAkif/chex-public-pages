@@ -241,7 +241,7 @@ export const landingContent: LandingPageContent = {
           'Reliable records for audits and disputes',
           'Lower inspection cost at fleet scale',
         ],
-        buttonLabel: 'Request a demo',
+        buttonLabel: 'Start My Inspection',
         image:
           'https://chex-payload-public-pages.s3.us-east-1.amazonaws.com/solution-rideshare.png',
         variant: 'card-peach',
